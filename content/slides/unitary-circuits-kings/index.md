@@ -7,6 +7,13 @@ slides:
   highlight_style: github
 ---
 
+<section>
+    <div class="fig-container"
+         data-file="collision-detection.html"></div> <!-- path to the html file with visualization code -->
+</section>
+
+---
+
 # Circuit Models of Many Body Quantum Dynamics
 
 ---
