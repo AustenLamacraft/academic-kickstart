@@ -14,7 +14,7 @@ slides:
 
 ---
 
-{{< reveald3 data-file="content/slides/unitary-circuits-kings/modular-multiplication.html" >}}
+{{< reveald3 data-file="slides/unitary-circuits-kings/modular-multiplication.html" >}}
 
 
 ---
