@@ -16,7 +16,7 @@ baseurl = "/"
 copyright = ""
 
 # local scripts
-plugins_js = ["reveald3"]
+plugins_js = []
 
 # Enable analytics by entering your Google Analytics tracking ID
 googleAnalytics = ""

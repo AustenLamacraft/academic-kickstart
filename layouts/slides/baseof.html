@@ -43,8 +43,11 @@
 
   {{ block "main" . }}{{ end }}
 
-  <script src="{{ $cdn_url_reveal }}/lib/js/head.min.js"></script>
   <script src="{{ $cdn_url_reveal }}/js/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.13/svg.min.js"></script>
+
+  // Load js for slides
+  <script src="{{ $.Param "js-script" }}"></script>
 
   <script>
     window.revealPlugins = { dependencies: [

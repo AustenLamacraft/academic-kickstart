@@ -5,16 +5,28 @@ slides:
   # Choose a code highlighting style (if highlighting enabled in `params.toml`)
   #   Light style: github. Dark style: dracula (default).
   highlight_style: github
+js-script: svg-demo.js
 ---
 
+# Circuit Models of Many Body Quantum Dynamics
 
 ---
 
-# Circuit Models of Many Body Quantum Dynamicss
+<div id="drawing"></div>
+
 
 ---
 
 {{< reveald3 data-file="slides/unitary-circuits-kings/modular-multiplication.html" >}}
+
+
+---
+
+{{< reveald3 data-file="slides/unitary-circuits-kings/p5-demo.html" >}}
+
+---
+
+{{< reveald3 data-file="slides/unitary-circuits-kings/svgjs-demo.html" >}}
 
 
 ---
