@@ -5,28 +5,74 @@ slides:
   # Choose a code highlighting style (if highlighting enabled in `params.toml`)
   #   Light style: github. Dark style: dracula (default).
   highlight_style: github
-js-script: svg-demo.js
+js-script: p5-demo.js
 ---
 
 # Circuit Models of Many Body Quantum Dynamics
 
 ---
 
-<div id="drawing"></div>
+<div style="text-align: center;" id="p5-demo"></div>
 
 
 ---
 
-{{< reveald3 data-file="slides/unitary-circuits-kings/modular-multiplication.html" >}}
+## Unitary Circuits
 
 
 ---
 
-{{< reveald3 data-file="slides/unitary-circuits-kings/p5-demo.html" >}}
+## Trotterized Hamiltonian Dynamics
 
 ---
 
-{{< reveald3 data-file="slides/unitary-circuits-kings/svgjs-demo.html" >}}
+## Graphical Representation
+
+---
+
+## Unitarity
+
+---
+
+## Correlation Functions
+
+---
+
+## Folded picture
+
+---
+
+## Emergence of the Light Cone
+
+Due to Amos / de Luca / Chalker?
+
+---
+
+## On the Light Cone
+
+---
+
+## Quantum Channels
+
+Range of behaviour
+
+---
+
+## Off the Light Cone
+
+Bigger channel
+
+---
+
+## Dual Unitarity
+
+---
+
+## Entanglement in Dual Unitary Models
+
+---
+
+OTOCs
 
 
 ---
