@@ -8,7 +8,7 @@ slides:
 js-script: p5-demo.js
 ---
 
-# Circuit Models of Many Body Quantum Dynamics
+# Circuit Models of Many Body Quantum Dynamicss
 
 ---
 
@@ -19,6 +19,7 @@ js-script: p5-demo.js
 
 ## Unitary Circuits
 
+Examples of gates
 
 ---
 
@@ -26,7 +27,19 @@ js-script: p5-demo.js
 
 ---
 
+## More general
+
+- Disorder, MBL
+
+- RUCs
+
+- Motivation: "general" quantum dynamics (no Hamiltonian) with only constraint of locality.
+
+---
+
 ## Graphical Representation
+
+Relate tensors to diagrams  
 
 ---
 
@@ -34,11 +47,12 @@ js-script: p5-demo.js
 
 ---
 
-## Correlation Functions
+## Folded picture
 
 ---
 
-## Folded picture
+## Correlation Functions
+
 
 ---
 
@@ -58,6 +72,14 @@ Range of behaviour
 
 ---
 
+## Bistochastic
+
+---
+
+## Classification of Channels for Qubits
+
+---
+
 ## Off the Light Cone
 
 Bigger channel
@@ -68,12 +90,22 @@ Bigger channel
 
 ---
 
+## Example:
+
+---
+
 ## Entanglement in Dual Unitary Models
 
 ---
 
-OTOCs
+## Other Directions
 
+- OTOCs
+- Measurements
+
+---
+
+## Further Reading
 
 ---
 
