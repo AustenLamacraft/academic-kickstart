@@ -27,6 +27,10 @@ Examples of gates
 
 ---
 
+## Example of Kicked Ising
+
+---
+
 ## More general
 
 - Disorder, MBL
@@ -90,7 +94,17 @@ Bigger channel
 
 ---
 
-## Example:
+## Example: Self Dual Kicked Ising
+
+---
+
+## Correlations on Light Cone Only
+
+Bertini _et al._
+
+---
+
+## Reduced Density Matrix
 
 ---
 
@@ -101,7 +115,9 @@ Bigger channel
 ## Other Directions
 
 - OTOCs
-- Measurements
+- Measurements (Skinner pix)
+- Entanglement (if we didn't have time)
+- Classical model (Prosen this week)
 
 ---
 
