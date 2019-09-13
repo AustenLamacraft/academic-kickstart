@@ -14,14 +14,65 @@ scripts: []
 ### [earlier work with Sarang Gopalakrishnan]
 ---
 
+### Questions?
+
+- Physics question:
+
+  - How does time evolution couple independent subsystems?
+
+- Mathematical question:
+
+  - How does many-body unitary evolution cause deviation from an
+  initial product state?
+
+      [Unitary normally has structure e.g. from local Hamiltonian]
+
+---
+
 ### Unitary Circuits
 
-- Unitary transformation on many spins composed of unitaries on subsets.
+- Unitary transformation composed of unitaries on subsets.
 - Introduced as model of quantum computation.
 
 <p align="center">
 <img src="example_circuit.png" alt="tensors" width="400"/>
 </p>
+
+---
+
+### Many Body States = Tensors
+
+ - State of a single spin-1/2 $\psi_{s}$ $s=\uparrow,\downarrow$.
+ - State of two spins `$\Psi_{s_1s_2}$`.
+ - __Product states__ `$\Psi_{s_1s_2}=\psi^{(1)}_{s_1}\psi^{(2)}_{s_2}$` are special case.
+ - State of $N$ spins `$\Psi_{s_1s_2\cdots s_N}$` is rank $N$ tensor.
+ - $2^N$ components: "curse of dimensionality".
+
+---
+
+### Notation: Tensor Digrams
+
+
+<p align="center">
+<img src="tensors.png" alt="tensors" width="600"/>
+</p>
+
+See [Pan Zhang's tutorial](http://lib.itp.ac.cn/html/panzhang/mps/tutorial/)
+
+---
+
+### Not (Just) Pictures
+
+- Every diagram corresponds to a unique expression
+
+<p align="center">
+<img src="contract_example.png" alt="tensors" width="400"/>
+</p>
+
+$$
+\sum_{p,q,r,s} A_{pqr} B_{rqsu} C_{pts}
+$$
+
 
 ---
 
@@ -32,8 +83,8 @@ scripts: []
 </p>
 
 - Some notion of locality built in!
-
 - Gates operate on neighbouring pairs, triplets, etc.
+- [Often] start from product state `$\Psi_{s_1,s_2,\ldots s_N}=\psi_{s_1}\psi_{s_2}\cdots \psi_{s_N}$`
 
 ---
 
@@ -104,32 +155,17 @@ $$`
 
 ---
 
-### Unitary Circuits
-
-Examples of gates
-
----
-
-
-### More general
+### Generally
 
 <p align="center">
-<img src="brick-circuit.png" alt="tensors" width="600"/>
+<img src="brick-circuit.png" alt="tensors" width="500"/>
 </p>
 
-- Disorder, MBL
+- Static disorder, or fully random
 
-- RUCs
+- Floquet
 
-- Motivation: "general" quantum dynamics (no Hamiltonian) with only constraint of locality.
-
----
-
-### Graphical Representation
-
-Relate tensors to diagrams  
-
-U and Udagger colours
+- __Motivation:__ "general" quantum dynamics (no Hamiltonian) with only constraint of locality.
 
 ---
 
@@ -143,12 +179,31 @@ U and Udagger colours
 
 ---
 
-### Correlation Functions
+### (Infinite Temperature) Correlation Functions
 
-- Graphical representation of the (infinite temperature) correlator [Chan, De Luca, Chalker (2018)]
 
 `$$
-C(x,y,t)=\mathop{\text{tr}}\left[O(x,t)O(y,0)\right]
+\begin{aligned}
+C(x,y,t)=\mathop{\text{tr}}\left[O(x,t)O(y,0)\right]\\
+O(x,t) = U(t)^\dagger O(x) U(t)
+\end{aligned}
+$$`
+
+- Keep track of $U$ and $U^\dagger$
+
+<p align="center">
+<img src="u_notation.png" width="300"/>
+</p>
+
+
+---
+
+### Graphical Representation  
+
+[Chan, De Luca, Chalker (2018)]
+
+`$$
+C(x,y,t)=\mathop{\text{tr}}\left[U(t)^\dagger O(x)U(t) O(y)\right]
 $$`
 
 <p align="center">
@@ -205,162 +260,165 @@ $$`
 
 - Unitarity means map is __trace preserving__, __completely positive__ and __unital__ (identity is fixed point)
 
-
-### Classification of Channels for Qubits
-
----
-
-### Off the Light Cone
-
-Bigger channel
-
 ---
 
 ### Dual Unitarity
+[Gopalakrishnan & Lamacraft (2019)]
 
+- Arises when the reshuffled unitary $\tilde U$ is unitary too
 
+`$$
+(\tilde U)_{ab,cd}=(U)_{ac,bd}
+$$
+`
 
----
+<p align="center">
+<img src="unitarity.png" width="400"/> &emsp;    &emsp;  <img src="u_tilde.png" width="400"/>
+</p>
 
-## Example: Self Dual Kicked Ising
-
----
-
-## Correlations on Light Cone Only
-
-Bertini _et al._
-
----
-
-## Reduced Density Matrix
+- 14 parameters for qubits! [Bertini, Kos, Prosen (2019)]
 
 ---
 
-## Entanglement in Dual Unitary Models
+### Example: Self Dual Kicked Ising
+
+<p align="center">
+<img src="KIM_gate.png" alt="KIM gate" width="250"/>
+</p>
+
+`$$
+\begin{aligned}
+  \mathcal{K} &= \exp\left[-i b X\right]\\
+  \mathcal{I} &= \exp\left[-iJ Z_1 Z_2 -i \left(h_1 Z_1 + h_2 Z_2\right)/2\right].
+\end{aligned}
+$$`
+
+- $\tilde U$ unitary ("self dual")) for $|J|=|b|=\frac{\pi}{4}$
 
 ---
 
-## Other Directions
+### Folded Notation
 
-- OTOCs
-- Measurements (Skinner pix)
+<p align="center">
+<img src="folded-notation.png" width="350"/>
+</p>
+
+- Unitarity and dual unitarity
+
+<p align="center">
+<img src="unitary-notation.png" height="300"/>&emsp;    &emsp;  
+<img src="dual-unitary-notation.png" height="300"/>
+</p>
+
+---
+
+### Correlations on Light Cone Only
+
+[Bertini, Kos, Prosen (2019)]
+
+<p align="center">
+<img src="correlator-lightcone.png" width="200"/>
+</p>
+
+
+- Proof by words:
+  - Unitarity fixes correlations to lie in "past" or "future"
+  - Dual unitarity fiex correlations to be outside the light cone
+  - __Therefore:__ only nonzero on light cone
+
+---
+
+
+### Reduced Density Matrix
+
+<p align="center">
+<img src="partition.png"  width="600"/>
+</p>
+
+`$$
+\rho^{(A)}_{s_1\cdots s_N,s_1'\cdots s'_{N}} = \sum_{s_{N+1}\cdots s_L} \Psi_{s_1\cdots s_N s_{N+1}\cdots s_L}\bar \Psi_{s'_1\cdots s'_{N}s_{N+1}\cdots s_{L}}
+$$`
+
+- Everything we want is contained in $\rho^{(A)}$!
+
+---
+
+### Measures of Entanglement
+
+- Since `$\text{tr}\left[|\Psi\rangle\langle\Psi|\right]^2=1$` define __purity__
+
+`$$
+\gamma = \text{tr}\left[\rho_A^2\right]
+$$`
+
+- (von Neumann) Entanglement entropy
+
+`$$
+S = -\text{tr}\left[\rho_A \log \rho_A\right]
+$$`
+
+- Rényi entropies
+
+`$$
+  S^{(n)}_A = \frac{1}{1-n}\log \text{tr}\left[\rho^n\right]
+$$`
+
+- $S^{(n)}\to S$ as $n\to 1$ and $S^{(2)} = -\log\gamma$
+
+---
+
+### Entanglement Spectrum
+
+- Rényi entropies depend on eigenvalues of RDM
+
+`$$
+  S^{(n)}_A = \frac{1}{1-n}\sum_\alpha \lambda_\alpha^n
+$$`
+
+- `$\epsilon_\alpha = -\log \lambda_\alpha$` known as __entanglement spectrum__.
+
+---
+
+### Graphical Representation of $\rho^{(A)}$
+
+---
+
+### Entanglement Growth for Self-Dual KIM
+
+[Bertini, Kos, Prosen (2018)]
+
+$$
+\lim_{L\to\infty} S^{(n)}_A(t) =\min(2t-2,N)\log 2,
+$$
+
+- __Any $h_j$__; inital $Z_j$ product state
+
+<p align="center">
+<img src="bertini.png" width="500"/>
+</p>
+
+---
+
+### Entanglement _alla_ [Calabrese & Cardy (2005)]
+
+<p align="center">
+<img src="cc.png" width="600"/>
+</p>
+
+---
+
+### Quasiparticle Picture
+
+<p align="center">
+<img src="qp.png" width="500"/>
+</p>
+
+---
+
+
+### Other Directions
+
+- "Static" disorder or full randomness
+- Projective Measurements
 - Conserved quantities
-- Entanglement (if we didn't have time)
-- Classical model (Prosen this week)
-
----
-
-## Further Reading
-
----
-
-## Math
-
-In-line math: $x + y = z$
-
-Block math:
-
-$$
-f\left( x \right) = \;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}} \\
-= d
-$$
-
----
-
-## Fragments
-
-Make content appear incrementally
-
-```
-{{%/* fragment */%}} One {{%/* /fragment */%}}
-{{%/* fragment */%}} **Two** {{%/* /fragment */%}}
-{{%/* fragment */%}} Three {{%/* /fragment */%}}
-```
-
-Press `Space` to play!
-
-{{% fragment %}} One {{% /fragment %}}
-{{% fragment %}} **Two** {{% /fragment %}}
-{{% fragment %}} Three {{% /fragment %}}
-
----
-
-A fragment can accept two optional parameters:
-
-- `class`: use a custom style (requires definition in custom CSS)
-- `weight`: sets the order in which a fragment appears
-
----
-
-## Speaker Notes
-
-Add speaker notes to your presentation
-
-```markdown
-{{%/* speaker_note */%}}
-- Only the speaker can read these notes
-- Press `S` key to view
-{{%/* /speaker_note */%}}
-```
-
-Press the `S` key to view the speaker notes!
-
-{{< speaker_note >}}
-- Only the speaker can read these notes
-- Press `S` key to view
-{{< /speaker_note >}}
-
----
-
-## Themes
-
-- black: Black background, white text, blue links (default)
-- white: White background, black text, blue links
-- league: Gray background, white text, blue links
-- beige: Beige background, dark text, brown links
-- sky: Blue background, thin dark text, blue links
-
----
-
-- night: Black background, thick white text, orange links
-- serif: Cappuccino background, gray text, brown links
-- simple: White background, black text, blue links
-- solarized: Cream-colored background, dark green text, blue links
-
----
-
-{{< slide background-image="/img/boards.jpg" >}}
-
-## Custom Slide
-
-Customize the slide style and background
-
-```markdown
-{{</* slide background-image="/img/boards.jpg" */>}}
-{{</* slide background-color="#0000FF" */>}}
-{{</* slide class="my-style" */>}}
-```
-
----
-
-## Custom CSS Example
-
-Let's make headers navy colored.
-
-Create `assets/css/reveal_custom.css` with:
-
-```css
-.reveal section h1,
-.reveal section h2,
-.reveal section h3 {
-  color: navy;
-}
-```
-
----
-
-# Questions?
-
-[Ask](https://discourse.gohugo.io)
-
-[Documentation](https://sourcethemes.com/academic/docs/)
+- Classical circuits [Krajnik & Prosen (2019)]
