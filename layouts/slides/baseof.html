@@ -19,7 +19,8 @@
 
   <link rel="stylesheet" href="{{ $cdn_url_reveal }}/css/reveal.min.css">
   {{- $theme := $.Param "slides.theme" | default "black" -}}
-  <link rel="stylesheet" href="{{ $cdn_url_reveal }}/css/theme/{{ $theme }}.min.css">
+  <!-- <link rel="stylesheet" href="{{ $cdn_url_reveal }}/css/theme/{{ $theme }}.min.css"> -->
+
 
   {{- $highlight_style := $.Param "slides.highlight_style" | default "dracula" -}}
   {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\">" (printf $css.highlight.url $css.highlight.version $highlight_style) | safeHTML }}
@@ -45,10 +46,11 @@
 
   <script src="{{ $cdn_url_reveal }}/js/reveal.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.13/svg.min.js"></script> -->
 
   // Load js for slides
-  <script src="{{ $.Param "js-script" }}"></script>
+  {{ range $.Param "scripts" }}
+    <script src={{- . -}}></script>
+  {{ end }}
 
   <script>
     window.revealPlugins = { dependencies: [
@@ -64,7 +66,7 @@
       { src: '{{ "js/vendor/reveald3.js" | relURL }}', async: true }
     ]};
 
-    let revealDefaults = { center: true, controls: true, history: true, progress: true, transition: 'slide', mouseWheel: true };
+    let revealDefaults = { center: false, controls: true, history: true, progress: true, transition: 'slide', mouseWheel: true };
     let revealOptions = Object.assign({}, revealDefaults, revealPlugins);
     Reveal.initialize(revealOptions);
   </script>

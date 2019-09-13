@@ -31,6 +31,10 @@ body {
   font-weight: inherit;
   text-align: left;}
 
+.reveal .slides .sketch{
+  align="center";
+}
+
 /*********************************************
  * HEADERS
  *********************************************/
@@ -48,7 +52,7 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 2.11em; }
+  font-size: 3.33em; }
 
 .reveal h2 {
   font-size: 2.11em; }

@@ -5,33 +5,117 @@ slides:
   # Choose a code highlighting style (if highlighting enabled in `params.toml`)
   #   Light style: github. Dark style: dracula (default).
   highlight_style: github
-js-script: p5-demo.js
+scripts: []
 ---
 
-# Circuit Models of Many Body Quantum Dynamicss
+# Circuit Models of Many Body Quantum Dynamics
+
+## Austen Lamacraft
+### [earlier work with Sarang Gopalakrishnan]
+---
+
+### Unitary Circuits
+
+- Unitary transformation on many spins composed of unitaries on subsets.
+- Introduced as model of quantum computation.
+
+<p align="center">
+<img src="example_circuit.png" alt="tensors" width="400"/>
+</p>
 
 ---
 
-<div style="text-align: center;" id="p5-demo"></div>
+### Brick Pattern Circuits
 
+<p align="center">
+<img src="brick-circuit.png" alt="tensors" width="600"/>
+</p>
+
+- Some notion of locality built in!
+
+- Gates operate on neighbouring pairs, triplets, etc.
 
 ---
 
-## Unitary Circuits
+### Model for Hamiltonian Dynamics
+
+- Interested in $U(t)|\psi_0\rangle$ with $U(t) = e^{-iHt}$, where (say)
+
+`$$
+H = \sum_j \mathbf{s}_j\cdot \mathbf{s}_{j+1}
+$$`
+
+- For small $t$ can approximate `$U(t)\sim U_1(t)U_2(t)$` with `$U_{a}=e^{-iH_a t}$`
+
+`$$
+H_1 = \sum_j \mathbf{s}_{2j}\cdot \mathbf{s}_{2j+1},\qquad
+H_2 = \sum_j \mathbf{s}_{2j}\cdot \mathbf{s}_{2j-1}
+$$`
+
+---
+
+- Time evolution for $T=Nt$ is approximately
+
+$$
+U(T)\sim \left[U_1(t)U_2(t)\right]^N
+$$
+
+<p align="center">
+<img src="trotter.png" alt="tensors" width="600"/>
+</p>
+
+---
+
+
+### Another Example: Kicked Ising Model
+
+- Time dependent Hamiltonian with kicks at $t=0,1,2,\ldots$.
+
+`$$
+\begin{aligned}
+H_{\text{KIM}}(t) = H_\text{I}[\mathbf{h}] + \sum_{m}\delta(t-n)H_\text{K}\\
+H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H_\text{K} &= b\sum_{j=1}^L X_j,
+\end{aligned}
+$$`
+
+- "Stroboscopic" form of $U(t)=\mathcal{T}\exp\left[-i\int^t H_{\text{KIM}}(t') dt'\right]$
+
+`$$
+\begin{aligned}
+  U(n_+) = \left[U(1_+)\right]^n,\qquad U(1_-) = K I_\mathbf{h}\\
+  I_\mathbf{h} = e^{-iH_\text{I}[\mathbf{h}]}, \qquad K &= e^{-iH_\text{K}},
+\end{aligned}
+$$`
+
+---
+
+### KIM as a Unitary Circuit
+
+<p align="center">
+<img src="KIM_gate.png" alt="KIM gate" width="300"/>
+</p>
+
+`$$
+\begin{aligned}
+  \mathcal{K} &= \exp\left[-i b X\right]\\
+  \mathcal{I} &= \exp\left[-iJ Z_1 Z_2 -i \left(h_1 Z_1 + h_2 Z_2\right)/2\right].
+\end{aligned}
+$$`
+
+---
+
+### Unitary Circuits
 
 Examples of gates
 
 ---
 
-## Trotterized Hamiltonian Dynamics
 
----
+### More general
 
-## Example of Kicked Ising
-
----
-
-## More general
+<p align="center">
+<img src="brick-circuit.png" alt="tensors" width="600"/>
+</p>
 
 - Disorder, MBL
 
@@ -41,56 +125,100 @@ Examples of gates
 
 ---
 
-## Graphical Representation
+### Graphical Representation
 
 Relate tensors to diagrams  
 
----
-
-## Unitarity
+U and Udagger colours
 
 ---
 
-## Folded picture
+### Unitarity
+
+- Has the graphical representation
+
+<p align="center">
+<img src="unitarity.png" alt="tensors" width="600"/>
+</p>
 
 ---
 
-## Correlation Functions
+### Correlation Functions
+
+- Graphical representation of the (infinite temperature) correlator [Chan, De Luca, Chalker (2018)]
+
+`$$
+C(x,y,t)=\mathop{\text{tr}}\left[O(x,t)O(y,0)\right]
+$$`
+
+<p align="center">
+<img src="correlator.png" width="300"/>
+</p>
 
 
----
-
-## Emergence of the Light Cone
-
-Due to Amos / de Luca / Chalker?
-
----
-
-## On the Light Cone
-
----
-
-## Quantum Channels
-
-Range of behaviour
 
 ---
 
-## Bistochastic
+### Using Unitarity
+
+<p align="center">
+<img src="correlator-unitarity.png" width="400"/>
+</p>
 
 ---
 
-## Classification of Channels for Qubits
+### "Folded" picture
+
+<p align="center">
+<img src="correlator-lightcone.png" width="350"/>
+</p>
+
+- Later point must be in "future light cone" of earlier
 
 ---
 
-## Off the Light Cone
+### On the Light Cone
+
+<p align="center">
+<img src="lightcone.png" width="350"/>
+</p>
+
+ - [Bertini, Kos, Prosen (2019)] for special models (see later)
+
+ - In fact consequence of unitarity __only__
+
+---
+
+### Light Cone Quantum Channel
+
+<p align="center">
+<img src="lightcone.png" width="250"/>
+<img src="channel.png" width="100"/>
+</p>
+
+`$$
+\begin{align}
+C_\nu^{\alpha\beta}(\nu t,t) = \frac{1}{d} {\rm tr}\left[\mathcal M_{\nu}^{2t}(a^\beta)a^\alpha\right]\\
+\mathcal M_{+}(a) = \frac{1}{d} {\rm tr}_1\left[U^\dagger (a\otimes\mathbb{1}) U\right]
+\end{align}
+$$`
+
+- Unitarity means map is __trace preserving__, __completely positive__ and __unital__ (identity is fixed point)
+
+
+### Classification of Channels for Qubits
+
+---
+
+### Off the Light Cone
 
 Bigger channel
 
 ---
 
-## Dual Unitarity
+### Dual Unitarity
+
+
 
 ---
 
@@ -116,6 +244,7 @@ Bertini _et al._
 
 - OTOCs
 - Measurements (Skinner pix)
+- Conserved quantities
 - Entanglement (if we didn't have time)
 - Classical model (Prosen this week)
 
