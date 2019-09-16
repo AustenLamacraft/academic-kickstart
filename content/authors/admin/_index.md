@@ -24,17 +24,17 @@ interests:
 - Many body and statistical physics
 - Machine Learning in the physical sciences
 
-<!-- education:
+education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008 -->
+  - course: PhD in Theoretical Physics
+    institution: University of Cambridge
+    year: 2002
+  - course: Master of Mathematics
+    institution: University of Cambridge
+    year: 1998
+  - course: MA in Natural Sciences
+    institution: University of Cambridge
+    year: 1997
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
