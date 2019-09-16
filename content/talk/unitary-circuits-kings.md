@@ -1,6 +1,7 @@
 ---
 title: Circuit Models of Many Body Quantum Dynamics
-event: Horizons in Emergence and Non-Equilibrium Physics
+event: Horizons in Emergence and Non-Equilibrium Physics, King's College London
+event_url: https://emneq-horizons.weebly.com
 summary: A graphical calculus for unitary dynamics
 authors: [Austen Lamacraft]
 tags: []
