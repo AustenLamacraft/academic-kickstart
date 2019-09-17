@@ -69,9 +69,9 @@ See [Pan Zhang's tutorial](http://lib.itp.ac.cn/html/panzhang/mps/tutorial/)
 <img src="contract_example.png" alt="tensors" width="400"/>
 </p>
 
-$$
+`$$
 \sum_{p,q,r,s} A_{pqr} B_{rqsu} C_{pts}
-$$
+$$`
 
 
 ---
@@ -293,7 +293,7 @@ $$
 \end{aligned}
 $$`
 
-- $\tilde U$ unitary ("self dual")) for $|J|=|b|=\frac{\pi}{4}$
+- $\tilde U$ unitary ("self dual") for $|J|=|b|=\frac{\pi}{4}$
 
 ---
 

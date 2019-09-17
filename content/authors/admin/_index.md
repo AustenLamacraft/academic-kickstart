@@ -43,7 +43,7 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: '#contact'  # For a direct email link, use "mailto:test@example.org".
+  link: "mailto:austen@lamacraft.io" #'#contact'  # For a direct email link, use "mailto:test@example.org".
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/AustenLamacraft
@@ -69,4 +69,5 @@ user_groups:
 - Visitors
 ---
 
-Austen Lamacraft is a Professor of Theoretical Physics
+Although my background is in quantum many-body physics, I'm increasingly
+working on topics at the interface of physics and machine learning.
