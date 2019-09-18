@@ -18,7 +18,7 @@ organizations:
   url: "https://cam.ac.uk"
 
 # Short bio (displayed in user profile at end of posts)
-bio: I'm a Theoretical Physicist at the University of Cambridge
+bio: Many body physics and machine learning
 
 interests:
 - Many body and statistical physics
