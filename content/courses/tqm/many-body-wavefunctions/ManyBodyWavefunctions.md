@@ -118,10 +118,12 @@ $$
 In particular, $P_{12}(\br,\br) = 0$ for fermions, and $P_{12}(\br,\br) = 2P_1(\br)P_2(\br)$ for bosons. The first result is natural from the  standpoint of the exclusion principle, while the second is perhaps more surprising. This shows that, because probabilities arise from the squares of amplitudes, identical particles in quantum mechanics are never truly independent.
 
 <a name="HOM"></a>
-![]({{ site.baseurl }}/assets/HOM.png)
+![](./HOM.png)
 _Four possible outcomes after the passage of two bosons through a beam splitter._
 
-One dramatic illustration of this deviation from our classical intuition is provided by the [Hong--Ou--Mandel effect](https://en.wikipedia.org/wiki/Hong–Ou–Mandel_effect) in quantum optics. In simplified terms, we imagine wavepackets describing two photons (bosons) approaching a 50:50 beam splitter from either side.  Because of the unitarity of scattering, the two photons end up in orthogonal states. For example,
+{{< figure src="HOM.png" title="Four possible outcomes after the passage of two bosons through a beam splitter." numbered="true" lightbox="true" >}}
+
+One dramatic illustration of this deviation from our classical intuition is provided by the Hong--Ou--Mandel effect in quantum optics. In simplified terms, we imagine wavepackets describing two photons (bosons) approaching a 50:50 beam splitter from either side.  Because of the unitarity of scattering, the two photons end up in orthogonal states. For example,
 
 $$
 \frac{1}{\sqrt{2}}\left(\ket{\text{Left}}\pm \ket{\text{Right}}\right).
@@ -271,7 +273,7 @@ $$
 $$
 
 	which can be proved in a variety of ways. Proving directly that \eqref{quantum_statistics_1dFermiGS} is an eigenstate of the Hamiltonian is not easy, but can be accomplished using the identity
-	
+
 	$$
 		\label{2nd_quant_cotident}
 	\cot(x-y)\cot(y-z)+\cot(y-z)\cot(z-x)+\cot(z-x)\cot(x-y)=1.	\nonumber
@@ -290,9 +292,9 @@ Having a many particle wave function is one thing, but what to _do_ with it? Bea
 
 $\left\|\Psi(x_1,\ldots,x_N)\right\|^2$ is the probability distribution of the positions of the particles. If we were able to take a photograph of the positions of the particles at an instant in time, this would correspond to taking a sample from the probability distribution. In terms of the complex variables $z_j$, it would look something like this:
 
-<a name="HOM"></a>
-![]({{ site.baseurl }}/assets/1d_fermions.png)
-![]({{ site.baseurl }}/assets/poisson_phases.png)
+<a name="1d_fermion"></a>
+![](./1d_fermions.png)
+![](./poisson_phases.png)
 
 _A sample from the probability distribution $\left\|\Psi(z_1,\ldots,z_N)\right\|^2$ for 50 particles (top) compared with a Poisson (uncorrelated) sample (bottom)._
 
