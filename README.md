@@ -1,3 +1,8 @@
+
+__To initialize courses__ use `git submodule update --init` from the `content/courses` directory
+
+__To update lecture notes__ use `git submodule update --remote`
+
 # [Academic Kickstart](https://sourcethemes.com/academic/)
 
 **Academic** makes it easy to create a beautiful website for free using Markdown, Jupyter, or RStudio. Customize anything on your site with widgets, themes, and language packs. [Check out the latest demo](https://academic-demo.netlify.com/) of what you'll get in less than 10 minutes, or [view the showcase](https://sourcethemes.com/academic/#expo).
