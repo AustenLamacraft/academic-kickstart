@@ -1,7 +1,9 @@
 
-__To initialize courses__ use `git submodule update --init` from the `content/courses` directory
+1. __To initialize courses__ use `git submodule update --init` from the `content/courses` directory
 
-__To update lecture notes__ use `git submodule update --remote`
+2. __To update lecture notes__ use e.g. `git submodule update --remote content/courses/tqm` for the TQM course
+
+3. Rename markdown files to `.pdc` to use pandoc as external helper.
 
 # [Academic Kickstart](https://sourcethemes.com/academic/)
 
