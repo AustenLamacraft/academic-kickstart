@@ -8,7 +8,7 @@ categories: []
 date: "2019-11-27T12:00:00Z"
 date_end: "2019-11-27T13:00:00Z"
 all_day: false
-publishDate: "2019-10-28T10:30:00Z"
+publishDate: "2019-11-28T10:30:00Z"
 slides: hamiltonian-neural-nets
 math: true
 ---
