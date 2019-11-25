@@ -18,6 +18,7 @@ $$
 \newcommand{\bv}{\mathbf{v}}
 \newcommand{\bx}{\mathbf{x}}
 \newcommand{\bz}{\mathbf{z}}
+\DeclareMathOperator*{\E}{\mathbb{E}}
 $$
 
 ---
@@ -83,13 +84,13 @@ Challenges
 
 Wavefunctions of restricted form
 
-- Factorized
+- Factorized, leading to __Hartree--Fock__ method
 
 $$
 \Psi(\br_1,\ldots,\br_N)=\psi_1(\br_1)\ldots \psi_N(\br_N).
 $$
 
-- _Jastrow factors_ include pair correlations
+- __Jastrow factors__ include pair correlations
 
 `$$
 \Psi(\br_1,\ldots,\br_N)\to \Psi(\br_1,\ldots,\br_N)\exp\left(\sum_{i<j}\phi(\br_i-\br_j)\right)
@@ -104,7 +105,7 @@ $$`
 $|\Psi(\br_1,\ldots,\br_N)|^2$ a probability distribution, so evaluate
 
 `$$
-\frac{\langle \Psi\lvert H\rvert\Psi\rangle}{\langle \vert\Psi\rangle}
+\frac{\langle \Psi\lvert H\rvert\Psi\rangle}{\langle\Psi \vert\Psi\rangle}
  =\int d\bR\,|\Psi(\bR)|^2\frac{\left[H \Psi\right](\bR)}{\Psi(\bR)}
 $$`
 
@@ -123,6 +124,12 @@ $\Psi(\bR)\sim \textsf{NN}(\bR)$ and optimize!
 - Pfau _et al._ (2019): Fermi Net
 
 __This work__: _path integral representation_
+
+---
+
+## TL;DR
+
+
 
 ---
 
@@ -145,56 +152,153 @@ __This work__: _path integral representation_
 
 `$$
 \begin{align}
-\left[i\frac{\partial}{\partial t} - H\right]\psi &= 0\\
+i\frac{\partial \psi}{\partial t} &= H\psi\\
 \psi(\br_2,t_2) &= \int d\br_1 \mathcal{K}(\br_2,t_2;\br_1,t_1)\psi(\br_1,t_1),\\
   \mathcal{K}(\br_2,t_2;\br_1,t_1) &= \int_{\br(t_1)=\br_1 \atop \br(t_2)=\br_2} \mathcal{D}\br(t)\exp\left(i\int_{t'}^t L(\br(t),\dot{\br})\right)
 \end{align}
 $$`
 
-Picture of trajectory
-
-Imaginary exponent
+- $L(\br,\bv) = \frac{1}{2}\bv^2 - V(\br)$ is the classical Lagrangian
 
 >  My machines came from too far away
 
 ---
 
-## Trouble with Feynman
+## Trouble with Feynman?
 
+- "Integration over paths" has never been defined
 
+- Kac (1949) found a workaround for heat-type equations
+
+\begin{align}
+  \frac{\partial\psi(\br,t)}{\partial t} = \left[\frac{\nabla^2}{2}-V(\br_i)\right]\psi(\br,t)
+\end{align}
+
+- "Imaginary time" Schrödinger. Exponent in PI becomes real
+
+$$
+\exp\left(-\int_{t'}^t \left[\frac{1}{2}\dot\br^2 + V(\br)\right]\right)
+$$
 
 ---
 
-## Feynman—Kac
+## Feynman—Kac (FK) Formula
 
-- Heat equation $\leftrightarrow$ Schrödinger in "imaginary time"
+...expresses $\psi(\br,t)$ as expectation...
+
+`$$
+  \psi(\br_2,t_2) =  \E_{\br(t)}\left[\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)\psi(\br(t_1),t_1)\right]
+$$`
+
+<DIV align="right">
+...over Brownian paths finishing at $\br_2$ at time $t_2$.
+</DIV>
+
+
+
+__pic!__
 
 ---
 
-## Born Rule
+## Ground State from PI
 
----
+- For $t\to\infty$ only _ground state_ contributes
 
-## Schrödinger Problem
+- Spectral representation in terms of $H\varphi_n = E_n\varphi_n$
 
-Schrödinger's process
+`\begin{align}
+  K(\br_2,t_2;\br_1,t_1) &= \sum_n \varphi_n(\br_2)\varphi^*_n(\br_1)e^{-E_n(t_2-t_1)}\\
+  &\longrightarrow \varphi_0(\br_2)\varphi^*_0(\br_1)e^{-E_0(t_2-t_1)} \qquad \text{ as } t_2-t_1\to\infty.
+\end{align}`
 
 ---
 
 ## Path integral Monte Carlo
 
-[Recent work on nanodroplets](https://www.diva-portal.org/smash/get/diva2:828485/FULLTEXT01.pdf)
-
 <p align="center">
 <img src="assets/ceperley.png" width="50%">
 </p>
 
-Pictures from Ceperley, Nagasawa
+<DIV align="right">
+  [Ceperley, RMP (1995)](https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.67.279)
+</DIV>
+
 
 ---
 
-## Quantum Mechanics and Optimal Control
+## The Path Measure
 
+- Relative weight of FK paths given by _Radon-Nikodym derivative_
+
+`$$
+  \frac{d\mathbb{P}_\text{FK}}{d\mathbb{P}_B} = Z^{-1}\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)
+$$
+`
+
+- $Z$ is a normalization factor
+
+- More time in $V(\br)<0$ regions; less in $V(\br)>0$.
+
+__pic__
+
+---
+
+## Born Rule in PI?
+
+- $|\psi(\br)|^2$ is probability distribution. Connection to path measure?
+
+- Consider path passing through `$(\br_-,-T/2)$`, $(\br,0)$ and `$(\br_+,T/2)$`
+
+- Overall propagator is
+
+`$$
+  K(\br_+,T/2;\br,0)K(\br,0;\br_-,-T/2;)\sim  |\varphi_0(\br)|^2\varphi_0(\br_+)\varphi^*_0(\br_-)e^{-E_0T}.
+$$`
+
+- Sample from FK measure $\leftrightarrow$ sample from $|\varphi_0(\br)|^2$
+
+__pic__
+
+---
+
+## Schrödinger Problem (1931)
+
+<p align="center">
+<img style="float: right;" src="assets/schrodinger.png" width="20%">
+</p>
+
+-  Diffusion between two distributions $p_{\pm T/2}(\br)$ ?
+
+- Solution written `$p_t(\br) = \varphi_\text{F}(\br,t)\varphi_\text{B}(\br,t)$`
+
+- $\varphi_\text{F/B}(\br,t)$ obeys forward / backward heat equation
+
+- Jamison (1974): process is _Markov_
+
+$$
+d\br_t = d\mathbf{B}_t + \bv(\br_t,t)dt,
+$$
+
+- Drift $\mathbf{v}(\br_t,t)$ determined by potential `$V(\br)$` and `$p_{\pm T/2}(\br)$`
+
+
+---
+
+## Optimal Control Formulation
+
+- Cost function
+
+$$
+  C_T[\mathbf{v}] = \frac{1}{T}\E\left[\int_0^T\left[\frac{1}{2}(\mathbf{v}(\br_t,t))^2 + V(\br_t)\right]dt\right],
+$$
+
+- Holland (1977) showed that
+
+
+
+---
+
+## Schrödinger $\leftrightarrow$ Fokker--Planck
 
 ---
 
@@ -209,6 +313,11 @@ Pictures from Ceperley, Nagasawa
 ## Calogero = Dyson BM
 
 Example figure showing eigenvalue repulsion
+
+---
+
+## Reinforcement Learning 
+
 
 ---
 
