@@ -21,41 +21,150 @@ $$
 
 ---
 
-## Quantum ground states from reinforcement learning
+## Quantum Ground States from Reinforcement Learning
+
+Work with Ariel Barr and Willem Gispen
+
+<p align="center">
+<img src="ariel.png" width=100>
+</p>
+
+<p align="center">
+<img src="willem.png" width=100>
+</p>
+
+---
+
+## Schrödinger Equation: 1 Particle
+
+$$
+\left[-\frac{\nabla^2}{2m}+V(\br)\right]\psi(\br) = E\psi(\br)
+$$
+
+- Discretize on real-space grid $L\times L\times L$
 
 
 ---
 
-## Schrödinger
+## Schrödinger Equation: N Particles
 
-Schrödinger's process
+
+
+Exponentially harder
+
+Leave aside idential particles
+
+---
+
+## Variational Principle
+
+Challenges
+
+1. Form of wavefunction
+2. Evaluation of expectations
+3. Optimzation
+
+---
+
+## Feature Engineering...
+
+Different forms of wavefunction
+
+incl. geminal
+
+---
+
+
+## Other approaches
+
+- Carleo and Troyer
+- Recent DeepMind work
+
+__This work__: _path integral representation_
+
+---
+
+## Outline
+
+- The path integral
+- 
+
+---
 
 ## Feynman
 
 Imaginary exponent
 
+My machines came from too far away
+
+---
+
 ## Feynman—Kac
 
+Based on the observed relationship between Sch and heat equations
+
+---
+
+## Born Rule
+
+---
+
+## Schrödinger Problem
+
+Schrödinger's process
+
+---
 
 ## Path integral Monte Carlo
 
 [Recent work on nanodroplets](https://www.diva-portal.org/smash/get/diva2:828485/FULLTEXT01.pdf)
 
+Pictures from Ceperley, Nagasawa
+
+---
+
+## Quantum Mechanics and Optimal Control
+
+
+---
+
+## Examples
+
+---
+
+## Harmonic Oscillator = OU Process
+
+---
+
+## Calogero = Dyson BM
+
+Example figure showing eigenvalue repulsion
+
+---
 
 ## Examples
 
 1. Hydrogen
 2. Helium
 3. Hydrogen molecule
-4. Calogero--Sutherland model (identical particles)
-5. Ion traps
+4. Bosons in 2D Gaussian potential
 
 ---
 
-## Other approaches
+## Hydrogen
 
-- Carleo and Troyer
-- Recent DeepMind work
+---
+
+## Helium
+
+Point is that ground state has zero spin, so that spatial wavefunction is symmetric
+
+---
+
+## Hydrogen Molecule
+
+
+---
 
 ---
 
@@ -69,3 +178,5 @@ Imaginary exponent
 Initial state dynamics
 
 Angular momentum states
+
+## Next: Lattice Models
