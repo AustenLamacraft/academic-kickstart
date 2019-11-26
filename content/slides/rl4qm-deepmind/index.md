@@ -28,8 +28,10 @@ $$
 Work with Ariel Barr and Willem Gispen
 
 <p align="center">
-<img src="assets/ariel.png" height=300>
-<img src="assets/willem.png" height=300>
+<img src="assets/ariel.png" height=300 >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="assets/willem.png" height=300 >
 </p>
 
 ---
@@ -363,19 +365,19 @@ $$`
 - Consider SDE with drift $v(x) = -U'(x)$
 
 $$
-dx_t = \sqrt{2}dB_t + v(X_t)dt
+dx_t = dB_t + v(X_t)dt
 $$
 
 - Fokker--Planck equation describing probability density
 
 $$
-  \frac{\partial\rho}{\partial t} =\frac{\partial}{\partial x}\left[\frac{\partial \rho}{\partial x} + U'(x)\rho\right].
+  \frac{\partial\rho}{\partial t} =\frac{\partial}{\partial x}\left[\frac{1}{2}\frac{\partial \rho}{\partial x} + U'(x)\rho\right].
 $$
 
 - Stationary state is Boltzmann distribution
 
 $$
-  \rho_0(x) \propto \exp(-U(x)).
+  \rho_0(x) \propto \exp(-2U(x)).
 $$
 
 ---
@@ -391,12 +393,13 @@ $$
 </DIV>
 
 `$$
-  H = -\frac{\partial^2}{\partial x^2} \overbrace{- \frac{U''}{2} + \frac{U'^2}{4}}^{\equiv V(x)}.
+  H = -\frac{1}{2}\frac{\partial^2}{\partial x^2}+ \overbrace{\frac{U'^2- U''}{2}}^{\equiv V(x)}.
 $$`
 
 
-- Zero energy ground state $\psi_0(x) = \sqrt{\rho_0(x)}$
+- Zero energy ground state $\varphi_0(x) = \sqrt{\rho_0(x)}\propto \exp(-U(x))$
 
+- Drift $v(x) = \varphi_0'(x)/\varphi_0(x)$
 
 ---
 
@@ -404,15 +407,48 @@ $$`
 
 ---
 
-## Harmonic Oscillator = OU Process
+## Oscillator = Ornstein--Uhlenbeck
+
+$$
+H = \frac{1}{2}\left[-\frac{d^2}{dx^2} + x^2\right]
+$$
+
+- Ground state `$\varphi_0(x)=\pi^{-1/4}e^{-x^2/2}$`; $E_0=1/2$
+
+- Drift $v(x) = - x$ gives OU process
+
+$$
+dX_t = dB_t - X_t dt
+$$
+
+__pic__
 
 ---
 
 ## Calogero = Dyson BM
 
+`$$
+H = \sum_i \frac{1}{2}\left[-\frac{\partial^2}{\partial x_i^2}+x^2\right] + \lambda(\lambda-1)\sum_{i<j} \frac{1}{(x_i-x_j)^2}
+$$`
+
+- Ground state _exactly_ of Jastrow form
+
+`$$
+\Phi_0(x_1,\ldots x_N) = \prod_{i<j}|x_i-x_j|^{\lambda}\exp\left(-\frac{1}{2}\sum_i x_i^2\right)
+$$`
+
+- Drift is $v_i = \partial_i \log\Phi_0$
+
+`$$
+v_i = - x_i + \lambda \sum_{j\neq i} \frac{1}{x_i-x_j}
+$$`
+
+---
+
 Example figure showing eigenvalue repulsion
 
-Good example because it illustrate Jastrow factor in action
+
+But of course we don't know the wavefunction...
 
 ---
 
@@ -434,18 +470,65 @@ $$
 
 ## Drift Representation
 
+- For identical particles require _permutation equivariance_
+
+`$$
+ \bv_{i,\theta}(\br_1,\ldots,\br_N = \bv_{P(i),\theta}(\br_{P(1)},\ldots,\br_{P(N)})
+$$`
+
+<DIV align="right">
+...for any permutation $P$
+</DIV>
+
+- Numerous recent proposals e.g. [Deep Sets](https://arxiv.org/abs/1703.06114) (Zaheer _et al._, 2017)
+
+- Propose equivariant layer
+
+
+
+Deep Sets, Gutenberg
+
 ---
 
 ## Integrate SDE
+
+- Simplest scheme is _Euler--Maruyama_
+
+`$$
+    \br_{t+1} = \br_{t+1} + \Delta\mathbf{B}_t + \bv_\theta(\br_t)\Delta t,
+$$`
+
+
+- $\Delta\mathbf{B}_t\sim \mathcal{N}(0,t)$
+
+- We use [SOSRA](https://arxiv.org/abs/1804.04344) (Rackaukas and Nie, 2018)
+
+- Can regard as (recurrent) resnet [Neural ODE](https://arxiv.org/abs/1806.07366), (Chen _et al._, 2018)
+
+- Evolve batch of trajectories from final state of previous batch.
+
+- Batch tracks stationary state of current $\bv_\theta$
 
 
 ---
 
 ## Stochastic Backprop
 
+$$
+  C_T[\mathbf{v}] = \frac{1}{T}\E\left[\int_0^T\left[\frac{1}{2}(\mathbf{v}(\br_t,t))^2 + V(\br_t)\right]dt\right],
+$$
+
+- Monte Carlo estimate from batch of $B$ trajectories
+
+`$$
+    C_T[\bv_\theta] \approx \frac{1}{B T} \sum_{b,t}\left[\frac{1}{2}\bv_\theta\left(\br^{(b)}_t\right)^2 + V\left(\br^{(b)}_t\right)\right].
+$$`
+
+- $\br^{b}_{t}$ from SDE discretization. Analogous to the reparameterization trick in deep latent Gaussian models (\cite{Rezende:2014aa}) or variational autoencoders (\cite{Kingma:2013aa}).
+
 ---
 
-## Examples
+## Experiments
 
 1. Hydrogen
 2. Helium
@@ -455,6 +538,8 @@ $$
 ---
 
 ## Hydrogen
+
+
 
 ---
 
@@ -471,8 +556,19 @@ Point is that ground state has zero spin, so that spatial wavefunction is symmet
 
 Pics [here](https://webhome.weizmann.ac.il/home/orcohen/dft_vis/h2.html)
 
+<p align="center">
+<img style="center" src="assets/h2-traj.png" width="50%">
+</p>
 
 ---
+
+## 2D Bosons
+
+<p align="center">
+<video width="500" autoplay loop>
+  <source data-src="assets/bosons.mp4" type="video/mp4">
+</video>
+</p>
 
 ---
 
@@ -493,7 +589,25 @@ Sign Problem
 
 ## Next: Lattice Models
 
-Compare with Go
+<p align="center">
+<img src="assets/go.png" height="300">
+<img src="assets/bh.jpg" height="300">
+</p>
+
+
+- XY model on chain / square / cubic lattice
+
+`$$
+\partial_t \Psi_{\Huge\circ\Huge\bullet\Huge\circ} =
+$$`
+
+---
+
+
+
+---
+
+## Linearly Solvable MDPs
 
 Todorov: linearly solvable MDPs
 
