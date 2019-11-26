@@ -125,13 +125,14 @@ $\Psi(\bR)\sim \textsf{NN}(\bR)$ and optimize!
 
 - Pfau _et al._ (2019): Fermi Net
 
-__This work__: _path integral representation_
 
 ---
 
 ## TL;DR
 
+- $\exists$ other formulations of QM including __Feynman's path integral__
 
+- Let's learn the path integral instead!
 
 ---
 
@@ -141,6 +142,7 @@ __This work__: _path integral representation_
 - Quantum mechanics and optimal control
 - Learning the ground state process
 - First experiments
+- Next directions
 
 ---
 
@@ -195,10 +197,6 @@ $$`
 <DIV align="right">
 ...over Brownian paths finishing at $\br_2$ at time $t_2$.
 </DIV>
-
-
-
-__pic!__
 
 ---
 
@@ -413,15 +411,13 @@ $$
 H = \frac{1}{2}\left[-\frac{d^2}{dx^2} + x^2\right]
 $$
 
-- Ground state `$\varphi_0(x)=\pi^{-1/4}e^{-x^2/2}$`; $E_0=1/2$
+- Ground state `$\varphi_0(x)=\pi^{-1/4}e^{-x^2/2}$`; `$E_0=1/2$`
 
 - Drift $v(x) = - x$ gives OU process
 
-$$
-dX_t = dB_t - X_t dt
-$$
-
-__pic__
+<p align="center">
+<img style="center" src="assets/ou.png" width="40%">
+</p>
 
 ---
 
@@ -445,10 +441,15 @@ $$`
 
 ---
 
-Example figure showing eigenvalue repulsion
+- Particles drift away from each other
+
+<p align="center">
+<img style="center" src="assets/15_particles.png" width="60%">
+</p>
+
+- But of course we don't usually know the wavefunction...
 
 
-But of course we don't know the wavefunction...
 
 ---
 
@@ -505,9 +506,10 @@ $$`
 
 - Can regard as (recurrent) resnet [Neural ODE](https://arxiv.org/abs/1806.07366), (Chen _et al._, 2018)
 
-- Evolve batch of trajectories from final state of previous batch.
+- Evolve batch of trajectories from final state of previous batch
 
 - Batch tracks stationary state of current $\bv_\theta$
+
 
 
 ---
@@ -562,6 +564,14 @@ Pics [here](https://webhome.weizmann.ac.il/home/orcohen/dft_vis/h2.html)
 
 ---
 
+<p align="center">
+<video width="500" autoplay loop>
+  <source data-src="assets/h2-scatter.mp4" type="video/mp4">
+</video>
+</p>
+
+---
+
 ## 2D Bosons
 
 <p align="center">
@@ -594,20 +604,32 @@ Sign Problem
 <img src="assets/bh.jpg" height="300">
 </p>
 
+---
 
-- XY model on chain / square / cubic lattice
+## XY model
+
+- On chain / square / cubic lattice
 
 `$$
-\partial_t \Psi_{\Huge\circ\Huge\bullet\Huge\circ} =
+\begin{align}
+\partial_t \Psi_{\Huge\circ\Huge\bullet\Huge\circ} &= \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}\\
+&=\overbrace{ \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}-2\Psi_{\Huge\circ\Huge\bullet\Huge\circ}}^{\text{master / forward eq.}} +2 \Psi_{\Huge\circ\Huge\bullet\Huge\circ}
+\end{align}
 $$`
 
+- c.f. imaginary time Schrödinger
+
+$$
+  \frac{\partial\psi(\br,t)}{\partial t} = \left[\frac{\nabla^2}{2}-V(\br_i)\right]\psi(\br,t)
+$$
+
+- $\exists$ Feynamn--Kac representation!
+
 ---
 
+## Todorov's Linearly Solvable MDPs
 
 
----
-
-## Linearly Solvable MDPs
 
 Todorov: linearly solvable MDPs
 
