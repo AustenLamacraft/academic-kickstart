@@ -255,7 +255,7 @@ __pic__
   K(\br_+,T/2;\br,0)K(\br,0;\br_-,-T/2;)\sim  |\varphi_0(\br)|^2\varphi_0(\br_+)\varphi^*_0(\br_-)e^{-E_0T}.
 $$`
 
-- Sample from FK measure $\leftrightarrow$ sample from $|\varphi_0(\br)|^2$
+- Sample from FK measure &harr; sample from $|\varphi_0(\br)|^2$
 
 __pic__
 
@@ -294,11 +294,64 @@ $$
 
 - Holland (1977) showed that
 
-
+`$$
+E_0 = \lim_{T\to\infty} \min_{\bv} C_T[\bv(\br)]
+$$`
 
 ---
 
-## Schrödinger $\leftrightarrow$ Fokker--Planck
+## Probabilistic interpretation
+
+
+`$$
+C_T[\mathbf{v}]-E_0  = \lim_{T\to\infty} \frac{1}{T} \E_{\mathbb{P}_\bv}\left[\log\left(\frac{\mathbb{P}_\bv}{\mathbb{P}_\text{FK}}\right)\right] = D_\text{KL}(\mathbb{P}_\bv\lvert\rvert \mathbb{P}_\text{FK})
+$$`
+
+- When $C_T[\mathbf{v}]/T=E_0$, SDE samples from the FK path measure!
+
+- Don't just get $E_0$, but samples from $|\varphi_0|^2$
+
+---
+
+## Fokker--Planck
+
+- Consider SDE with drift $v(x) = -U'(x)$
+
+$$
+dx_t = \sqrt{2}dB_t + v(X_t)dt
+$$
+
+- Fokker--Planck equation describing probability density
+
+$$
+  \frac{\partial\rho}{\partial t} =\frac{\partial}{\partial x}\left[\frac{\partial \rho}{\partial x} + U'(x)\rho\right].
+$$
+
+- Stationary state is Boltzmann distribution
+
+$$
+  \rho_0(x) \propto \exp(-U(x)).
+$$
+
+---
+
+## Schrödinger &harr; Fokker--Planck
+
+$$
+  \psi(x,t) = \frac{\rho(x,t)}{\sqrt{\rho_0(x)}},
+$$
+
+<DIV align="right">
+...satisfies the (imaginary time) Schrödinger equation with Hamiltonian
+</DIV>
+
+`$$
+  H = -\frac{\partial^2}{\partial x^2} \overbrace{- \frac{U''}{2} + \frac{U'^2}{4}}^{\equiv V(x)}.
+$$`
+
+
+- Zero energy ground state $\psi_0(x) = \sqrt{\rho_0(x)}$
+
 
 ---
 
@@ -316,8 +369,38 @@ Example figure showing eigenvalue repulsion
 
 ---
 
-## Reinforcement Learning 
+## Optimal Control
 
+Holland's argument
+
+---
+
+## Reinforcement Learning
+
+- Recall cost
+
+$$
+  C_T[\mathbf{v}] = \frac{1}{T}\E\left[\int_0^T\left[\frac{1}{2}(\mathbf{v}(\br_t,t))^2 + V(\br_t)\right]dt\right],
+$$
+
+- Suggests strategy:
+
+  1. Represent `$\bv_\theta(\br) = \textsf{NN}_\theta(\br)$`
+  2. Integrate batch of SDE trajectories
+  3. Backprop through the (MC estimated) cost
+
+---
+
+## Drift Representation
+
+---
+
+## Integrate SDE
+
+
+---
+
+## Stochastic Backprop
 
 ---
 
@@ -365,4 +448,10 @@ Angular momentum states
 
 Sign Problem
 
+---
+
 ## Next: Lattice Models
+
+Compare with Go
+
+Describe XY model
