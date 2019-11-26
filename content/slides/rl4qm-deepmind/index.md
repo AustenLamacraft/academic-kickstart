@@ -182,7 +182,7 @@ $$
 
 ---
 
-## Feynman—Kac (FK) Formula
+## Feynman--Kac (FK) Formula
 
 ...expresses $\psi(\br,t)$ as expectation...
 
@@ -213,6 +213,12 @@ __pic!__
 
 ---
 
+## Bosons and Fermions
+
+
+
+---
+
 ## Path integral Monte Carlo
 
 <p align="center">
@@ -231,11 +237,11 @@ __pic!__
 - Relative weight of FK paths given by _Radon-Nikodym derivative_
 
 `$$
-  \frac{d\mathbb{P}_\text{FK}}{d\mathbb{P}_B} = Z^{-1}\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)
+  \frac{d\mathbb{P}_\text{FK}}{d\mathbb{P}_\text{B}} = \mathcal{N}\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)
 $$
 `
 
-- $Z$ is a normalization factor
+- $\mathcal{N}$ is a normalization factor. $\mathcal{N}\sim e^{E_0 (t_2-t_1)}$ for $t_2\gg t_1$
 
 - More time in $V(\br)<0$ regions; less in $V(\br)>0$.
 
@@ -304,12 +310,51 @@ $$`
 
 
 `$$
-C_T[\mathbf{v}]-E_0  = \lim_{T\to\infty} \frac{1}{T} \E_{\mathbb{P}_\bv}\left[\log\left(\frac{\mathbb{P}_\bv}{\mathbb{P}_\text{FK}}\right)\right] = D_\text{KL}(\mathbb{P}_\bv\lvert\rvert \mathbb{P}_\text{FK})
+C_T[\mathbf{v}]-E_0  = \lim_{T\to\infty} \frac{1}{T} \E_{\mathbb{P}_\bv}\left[\log\left(\frac{d\mathbb{P}_\bv}{d\mathbb{P}_\text{FK}}\right)\right] = \lim_{T\to\infty} \frac{1}{T} D_\text{KL}(\mathbb{P}_\bv\lvert\rvert \mathbb{P}_\text{FK})
 $$`
 
 - When $C_T[\mathbf{v}]/T=E_0$, SDE samples from the FK path measure!
 
 - Don't just get $E_0$, but samples from $|\varphi_0|^2$
+
+---
+
+## Proof Sketch
+
+- We have seen
+
+`$$
+  \frac{d\mathbb{P}_\text{FK}}{d\mathbb{P}_\text{B}} = \mathcal{N}\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)
+$$
+`
+
+<DIV align="right">
+$\mathcal{N}\sim e^{E_0 (t_2-t_1)}$ for $t_2\gg t_1$
+</DIV>`
+
+- __Girsanov theorem__ tells us
+
+`$$
+  \frac{d\mathbb{P}_\bv}{d\mathbb{P}_{\text{B}}}=\exp\left(\int v(X_t)dX_t - \frac{1}{2}\int |v(X_t)|^2 dt\right).
+$$`
+
+---
+
+Evaluate the KL divergence
+
+`$$
+\begin{align}
+  \E_{\mathbb{P}_\bv}\left[\log\left(\frac{d\mathbb{P}_\bv}{d\mathbb{P}_\text{FK}}\right)\right]&=\E_{\mathbb{P}_v}\left[\int v(X_t)dX_t+\int dt\left(-\frac{1}{2}|v(X_t)|^2+V(X_t)\right)\right] - E_0 T\\
+  &=\E_{\mathbb{P}_v}\left[\int v(X_t)dW_t+\int dt\left(\frac{1}{2}|v(X_t)|^2+V(X_t)\right)\right] - E_0 T\\
+  &=\E_{\mathbb{P}_v}\left[\int dt\left(\frac{1}{2}|v(X_t)|^2+V(X_t)\right)\right] - \lambda T\\
+  &\geq 0
+\end{align}
+$$`
+
+<DIV align="right">
+[Boué and Dupuis (1998)](https://projecteuclid.org/euclid.aop/1022855876)
+</DIV>
+
 
 ---
 
@@ -367,11 +412,7 @@ $$`
 
 Example figure showing eigenvalue repulsion
 
----
-
-## Optimal Control
-
-Holland's argument
+Good example because it illustrate Jastrow factor in action
 
 ---
 
@@ -453,5 +494,7 @@ Sign Problem
 ## Next: Lattice Models
 
 Compare with Go
+
+Todorov: linearly solvable MDPs
 
 Describe XY model
