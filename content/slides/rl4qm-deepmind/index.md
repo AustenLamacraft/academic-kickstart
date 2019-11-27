@@ -215,7 +215,11 @@ $$`
 
 ## Bosons and Fermions
 
+- For identical particles $|\Psi(\br_1,\ldots,\br_N)|^2$ permutation invariant
 
+- $\Psi(\br_1,\ldots,\br_N)$ completely _symmetric_ (__Bosons__) or _antisymmetric_ (__Fermions__)
+
+- $t\to\infty$ limit picks out nodeless (bosonic) ground states
 
 ---
 
@@ -245,8 +249,6 @@ $$
 
 - More time in $V(\br)<0$ regions; less in $V(\br)>0$.
 
-__pic__
-
 ---
 
 ## Born Rule in PI?
@@ -262,8 +264,6 @@ __pic__
 $$`
 
 - Sample from FK measure &harr; sample from $|\varphi_0(\br)|^2$
-
-__pic__
 
 ---
 
@@ -483,12 +483,6 @@ $$`
 
 - Numerous recent proposals e.g. [Deep Sets](https://arxiv.org/abs/1703.06114) (Zaheer _et al._, 2017)
 
-- Propose equivariant layer
-
-
-
-Deep Sets, Gutenberg
-
 ---
 
 ## Integrate SDE
@@ -526,74 +520,107 @@ $$
     C_T[\bv_\theta] \approx \frac{1}{B T} \sum_{b,t}\left[\frac{1}{2}\bv_\theta\left(\br^{(b)}_t\right)^2 + V\left(\br^{(b)}_t\right)\right].
 $$`
 
-- $\br^{b}_{t}$ from SDE discretization. Analogous to the reparameterization trick in deep latent Gaussian models (\cite{Rezende:2014aa}) or variational autoencoders (\cite{Kingma:2013aa}).
+- $\br^{(b)}_{t}$ from SDE discretization. Analogous to reparameterization trick
 
 ---
 
 ## Experiments
 
-1. Hydrogen
-2. Helium
-3. Hydrogen molecule
-4. Bosons in 2D Gaussian potential
+1. Hydrogen and Helium atoms
+2. Hydrogen molecule
+3. 2D Bosons in harmonic potential with Gaussian interactions
+
+<DIV align="right">
+...all errors around 1% at the moment without exploiting symmetries
+</DIV>
 
 ---
 
-## Hydrogen
+## Hydrogen: 1 electron
 
+$$
+H = -\frac{\nabla^2}{2} - \frac{1}{|\br|}
+$$
 
+- Ground state `$\varphi_0(r) = \pi^{-1/2}e^{-r}$`. $E_0=-\frac{1}{2}$
+
+- Drift $v(\br)=-\hat\br$
 
 ---
 
-## Helium
+## Helium: 2 electrons
 
-Point is that ground state has zero spin, so that spatial wavefunction is symmetric
+$$
+H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \frac{1}{|\br_1-\br_2|}
+$$
+
+- Ground state spins _antisymmetric_
+
+- Spatial wavefunction _symmetric_
+
+- $\varphi_0(\br_1,\br_2)$ not known exactly but $E_0=-2.903386$
+
+
 
 ---
 
 ## Hydrogen Molecule
 
-- Electron density
-- Exchange?
+`$$
+\begin{align}
+H &= -\frac{\nabla_1^2+\nabla_2^2}{2}+ \frac{1}{|\br_1-\br_2|}\\
+ &- \sum_{i=1,2}\left[\frac{1}{|\br_i-\hat{\mathbf{z}} R/2|} + \frac{1}{|\br_i+\hat{\mathbf{z}}R/2|}\right]
+\end{align}
+$$`
 
-Pics [here](https://webhome.weizmann.ac.il/home/orcohen/dft_vis/h2.html)
+- Spatial wavefunction again _symmetric_
 
-<p align="center">
-<img style="center" src="assets/h2-traj.png" width="50%">
-</p>
+- Equilibrium proton separation $R=1.401$, $E_0= -1.174476$
 
 ---
 
+## Exchange Processes
+
+- At $R=8.5$ tunnelling events are visible
+
 <p align="center">
-<video width="500" autoplay loop>
-  <source data-src="assets/h2-scatter.mp4" type="video/mp4">
+<video width="700" autoplay loop>
+  <source data-src="assets/h2_wide.mp4" type="video/mp4">
 </video>
 </p>
 
 ---
 
-## 2D Bosons
+## 2D Gaussian Bosons
+
+`$$
+\begin{align}
+H&=\frac{1}{2}\sum_i \left[\nabla_i^2 +\br_i^2\right]+\sum_{i<j}U(\br_i-\br_j)\\
+U(\br) &=\frac{g}{\pi s^2}e^{-\br^2/s^2}
+\end{align}
+$$`
+
+- [Mujal _et al._, PRA 2017](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.96.043614) model for ultracold atoms
 
 <p align="center">
-<video width="500" autoplay loop>
+<img style="center" src="assets/mujal4.png" width="40%">
+</p>
+
+---
+
+- Drift Visualization ($g=10$, `$s=1/2$`)
+
+<p align="center">
+<img style="center" src="assets/trapped_bosons_vector_field_g10_s05_5percent.jpg" width="80%">
+</p>
+
+---
+
+<p align="center">
+<video width="800" autoplay loop>
   <source data-src="assets/bosons.mp4" type="video/mp4">
 </video>
 </p>
-
----
-
-## Critique
-
-- Why model the drift not the wavefunction? Is calculating gradients better?
-- Is sampling better (not just MC)
-
-## Any prospect for excited states?
-
-Initial state dynamics
-
-Angular momentum states
-
-Sign Problem
 
 ---
 
