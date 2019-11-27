@@ -624,7 +624,23 @@ $$`
 
 ---
 
-## Next: Lattice Models
+<p align="center">
+<img style="center" src="assets/boson-energies.jpeg" width="80%">
+</p>
+
+---
+
+## Outlook
+
+- Excited states; angular momentum &harr; _non-reversible_ drift
+
+- Fermions?
+
+- Lattice models
+
+---
+
+## Next Up: Lattice Models
 
 <p align="center">
 <img src="assets/go.png" height="300">
@@ -654,10 +670,39 @@ $$
 
 ---
 
-## Todorov's Linearly Solvable MDPs
+## Linearly Solvable MDPs
 
 
+- [Todorov (2017)](http://papers.nips.cc/paper/3002-linearly-solvable-markov-decision-problems.pdf) introduced cost
 
-Todorov: linearly solvable MDPs
+`$$
+  \ell(j,v) = q(j) +   D_{\text{KL}}\left(v(\cdot|j) \middle\|\middle\| p(\cdot|j)\right)
+$$`
 
-Describe XY model
+- $v(j|k)$ is controlled dynamics, $p(j|k)$ is "passive dynamics"
+
+- Bellman equation for the cost to go $\nu(j,t)$
+
+`$$
+\nu(k,t) = \min_v\left[\ell(k,u) + \E_{j\sim u(\cdot|k)}\nu(j,t+1)\right]
+$$`
+
+---
+
+- Transform to linear equation for _desirability_ $\Psi(j,t) = \exp(-\nu(j,t))$
+
+- Optimal dynamics
+
+$$
+  u^*(j|k)=\frac{p(j|k)\Psi(j)}{\sum_{l}p(l|k)\Psi(l)},
+$$
+
+- Linear equation
+
+`$$
+\Psi(k,t) = e^{-q(k)}\sum_{j}p(j|k)\Psi(j,t+1).
+$$`
+
+- Discrete imaginary time Schrödinger equation
+
+> Any model with FK formula has control rep.!
