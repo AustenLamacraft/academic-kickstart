@@ -335,7 +335,7 @@ $\mathcal{N}\sim e^{E_0 (t_2-t_1)}$ for $t_2\gg t_1$
 - __Girsanov theorem__ tells us
 
 `$$
-  \frac{d\mathbb{P}_\bv}{d\mathbb{P}_{\text{B}}}=\exp\left(\int v(X_t)dX_t - \frac{1}{2}\int |v(X_t)|^2 dt\right).
+  \frac{d\mathbb{P}_\bv}{d\mathbb{P}_{\text{B}}}=\exp\left(\int \bv(\br_t)\cdot d\br_t - \frac{1}{2}\int |\bv(\br_t)|^2 dt\right).
 $$`
 
 ---
@@ -344,9 +344,9 @@ Evaluate the KL divergence
 
 `$$
 \begin{align}
-  \E_{\mathbb{P}_\bv}\left[\log\left(\frac{d\mathbb{P}_\bv}{d\mathbb{P}_\text{FK}}\right)\right]&=\E_{\mathbb{P}_v}\left[\int v(X_t)dX_t+\int dt\left(-\frac{1}{2}|v(X_t)|^2+V(X_t)\right)\right] - E_0 T\\
-  &=\E_{\mathbb{P}_v}\left[\int v(X_t)dW_t+\int dt\left(\frac{1}{2}|v(X_t)|^2+V(X_t)\right)\right] - E_0 T\\
-  &=\E_{\mathbb{P}_v}\left[\int dt\left(\frac{1}{2}|v(X_t)|^2+V(X_t)\right)\right] - \lambda T\\
+  \E_{\mathbb{P}_\bv}\left[\log\left(\frac{d\mathbb{P}_\bv}{d\mathbb{P}_\text{FK}}\right)\right]&=\E_{\mathbb{P}_v}\left[\int \bv(\br_t)\cdot d\br_t+\int dt\left(-\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)\right] - E_0 T\\
+  &=\E_{\mathbb{P}_\bv}\left[\int \bv(\br_t)\cdot d\mathbf{B}_t+\int dt\left(\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)\right] - E_0 T\\
+  &=\E_{\mathbb{P}_\bv}\left[\int dt\left(\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)\right] - \lambda T\\
   &\geq 0
 \end{align}
 $$`
