@@ -3,7 +3,9 @@
 
 2. __To update lecture notes__ use e.g. `git submodule update --remote content/courses/tqm` for the TQM course
 
-3. Rename markdown files to `.pdc` to use pandoc as external helper.
+3. Rename markdown files to `.pdc` or use `markup: pandoc` in front matter to use pandoc as external helper.
+
+4. MathJax config in `assets/js/mathjax-config.js`.
 
 # [Academic Kickstart](https://sourcethemes.com/academic/)
 

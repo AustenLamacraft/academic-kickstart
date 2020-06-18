@@ -1,1 +1,5 @@
-window.MathJax = { TeX: { equationNumbers: {autoNumber: "all"} } };
+window.MathJax = {
+    tex: {
+      tags: 'all'
+    }
+  };
