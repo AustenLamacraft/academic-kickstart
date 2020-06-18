@@ -1,0 +1,11 @@
+---
+title: "SchrödingeRNN: Generative Modeling of Raw Audio as a Continuously Observed Quantum State"
+date: 2019-01-01
+publishDate: 2020-06-18T11:23:47.024360Z
+authors: ["Beñat Mencia Uranga", "Austen Lamacraft"]
+publication_types: ["2"]
+abstract: ""
+featured: false
+publication: "*arXiv preprint arXiv:1911.11879*"
+---
+
