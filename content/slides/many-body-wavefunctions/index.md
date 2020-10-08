@@ -245,7 +245,9 @@ $$
 
 - $\pm1$ for $P$ involving an even (odd) number of exchanges
 
-- Symmetric and antisymmetric product states
+---
+
+## Symmetric and antisymmetric product states
 
 `$$
 \begin{align}
