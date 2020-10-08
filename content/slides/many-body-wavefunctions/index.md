@@ -96,9 +96,13 @@ $$
 
 ## Housekeeping
 
-- Course website
+- Course website 
+  - [tqm.courses.phy.cam.ac.uk/docs/](http://tqm.courses.phy.cam.ac.uk/docs/) (old) or 
+  - [auste.nl/courses/](https://auste.nl/courses/) (updated with slides)
 
-- Lecture capture
+- Lecture capture on Moodle (after today all three screens)
+
+- Supervision details to follow
 
 ---
 
@@ -146,12 +150,12 @@ $$
 
 ## Independent Particles?
 
-- Probability density is $\rho_{12}(\br_1,\br_2)=|\Psi(\br_1,\br_2)|^2
+- Probability density is $\rho_{12}(\br_1,\br_2)=|\Psi(\br_1,\br_2)|^2$
 
 - For _distinguishable_ particles 
 
 $$
-\rho_{12}(\br_1,\br_2)=|\varphi_1(\br_1)\varphi_2(\br_2)|^2=\rho_1(\br_1)\rho_2(\br_2).
+\rho_{12}(\br_1,\br_2)=|\varphi_1(\br_1)\varphi_2(\br_2)|^2=\rho_1(\br_1)\rho_2(\br_2)
 \label{eq:classicaljoint}
 $$
 
@@ -165,81 +169,116 @@ $$
 `$$
 \begin{align}
 \rho_{12}(\br_1,\br_2) &= \frac{1}{2}\left[\rho_1(\br_1)\rho_2(\br_2)+\rho_1(\br_2)\rho_2(\br_1)\right] \\
-&\pm\frac{1}{2}\left[\varphi^{}_1(\br_1)\varphi^*_2(\br_1)\varphi^{}_2(\br_2)\varphi^*_1(\br_2)+\varphi^{}_1(\br_2)\varphi^*_2(\br_2)\varphi^{}_2(\br_1)\varphi^*_1(\br_1)\right].
+&\pm\frac{1}{2}\left[\varphi^{}_1(\br_1)\varphi^*_2(\br_1)\varphi^{}_2(\br_2)\varphi^*_1(\br_2)+\varphi^{}_1(\br_2)\varphi^*_2(\br_2)\varphi^{}_2(\br_1)\varphi^*_1(\br_1)\right]
 \end{align}
 $$`
 
-- Identical particles in quantum mechanics are never truly independent.
+- Identical particles in quantum mechanics are _never_ truly independent.
 
 ---
 
-### Hong--Ou--Mandel effect
+## Hong--Ou--Mandel effect
 
-{{< figure src="HOM.png" title="Four possible outcomes after the passage of two bosons through a beam splitter." numbered="true" lightbox="true" >}}
+<p align="center">
+<img src="assets/HOM.png" alt="drawing" width="1000" class="center"/>
+</p>
 
-One dramatic illustration of this deviation from our classical intuition is provided by the Hong--Ou--Mandel effect in quantum optics. In simplified terms, we imagine wavepackets describing two photons (bosons) approaching a 50:50 beam splitter from either side.  Because of the unitarity of scattering, the two photons end up in orthogonal states. For example,
+- Two photons (bosons) approach a beam splitter from either side.  
 
-$$
-\frac{1}{\sqrt{2}}\left(\ket{\text{Left}}\pm \ket{\text{Right}}\right)
-$$
-
-### Product States
-
-The Hamiltonian of a system of $N$ identical noninteracting particles is a sum of $N$ identical __single particle__ Hamiltonians, that is, with each term acting on a different particle coordinate
+- Start in orthogonal states, end up in orthogonal states e.g.
 
 $$
- H = \sum_{i=1}^{N} \left[-\frac{\nabla_i^{2}}{2m}+V(\br_i)\right]
+\ket{\text{Top/Bottom}}=\frac{1}{\sqrt{2}}\left(\ket{\text{Top}}\pm \ket{\text{Bottom}}\right)
+$$
+
+---
+
+> If we start in 
+>$$\frac{1}{\sqrt{2}}[\varphi_\text{T}(\br_1)\varphi_\text{B}(\br_2)\pm \varphi_\text{B}(\br_1)\varphi_\text{T}(\br_2)]$$
+> What state do we end up in?
+
+---
+
+## Noninteracting particles
+
+$$
+ H = \sum_{i=1}^{N} \overbrace{\left[-\frac{\nabla_i^{2}}{2m}+V(\br_i)\right]}^{\equiv H_\text{sp}\text{, single particle Hamiltonian}}
  \label{quantum_statistics_SPHamiltonian}
 $$
+- $H_\text{sp}$ has eigenstates $\{\varphi_\alpha(\br)\}$ and eigenenergies $\{E_\alpha\}$
 
-where $m$ is the particle mass, and $V(\br)$ is a potential experienced by the particles.
-
-Let's denote the eigenstates of the single particle Hamiltonian by $\{\varphi_\alpha(\br)\}$ , and the corresponding eigenenergies by $\{E_\alpha\}$, where $\alpha$ is a shorthand for whatever quantum numbers are used to label the states.
-
-A set of labels $\{\alpha_{i}\}$ $i=1,2,\ldots N$ tells us the state of each of the particles. Thus we can write an eigenstat\ale of $N$ _distinguishable_ particles with energy $E=\sum_{i=1}^{N}E_{\alpha_{i}}$ as
-
+- Eigenstatate of $N$ _distinguishable_ particles
 $$
  \label{quantum_statistics_disting}
  \ket{\Psi_{\alpha_{1}\alpha_{2}\cdots \alpha_{N}}}=\varphi_{\alpha_{1}}(\mathbf{r_{1}})\varphi_{\alpha_{2}}(\mathbf{r_{2}})\cdots\varphi_{\alpha_{N}}(\mathbf{r_{N}})
 $$
+> What's the energy?
 
-(We will frequently switch between the wavefunction $\varphi(\mathbf{x})$ and bra-ket notation $\ket{\varphi}$. In the latter notation the product wavefunction in $\eqref{quantum_statistics_ProductWavefunction}$ is written $\ket{\varphi_{1}}\ket{\varphi_{2}}$)
+---
 
-Such states are called __product states__. A general state will be expressed as a superposition of product states: they are special states which provide a frequently convenient basis.
+$$
+E = \sum_{j=1}^N E_{\alpha_j}
+$$
 
-As we've just discussed, however, we should really be dealing with a totally symmetric or totally antisymmetric wavefunction, depending on whether our identical particles are bosons or fermions. To write these down we introduce the operators of _symmetrization_ and _antisymmetrization_
+---
+
+## Symmetrize / Antisymmetrize
 
 $$
  \label{quantum_statistics_SymAntisym}
    \mathcal{S}=\frac{1}{N!}\sum_{P} P, \qquad \mathcal{A}=\frac{1}{N!}\sum_{P} \sgn(P)P
 $$
 
-The sums are over all $N!$ permutations of $N$ objects, $P$ denotes the corresponding permutation operator, and $\sgn(P)$ is the __signature__ of the permutation, equal to $+1$ for permutations involving an even number of exchanges, and $-1$ for an odd number. This allows us to write the totally symmetric and totally antisymmetric versions of $\eqref{quantum_statistics_disting}$ as
+- Sum over all $N!$ permutations of $N$ objects
+
+- $P$ is corresponding permutation operator e.g. for two particles
 
 $$
+P_{12}\Psi(\br_1,\br_2) = \Psi(\br_2,\br_1)
+$$
+
+---
+
+## Signature of Permutation
+
+- $\sgn(P)$ is the __signature__ of the permutation
+
+- $\pm1$ for $P$ involving an even (odd) number of exchanges
+
+- Symmetric and antisymmetric product states
+
+`$$
 \begin{align}
  \ket{\Psi^{S}_{\alpha_{1}\alpha_{2}\cdots\alpha_{N}}}&=\sqrt{\frac{N!}{\prod_{\alpha}N_{\alpha}!}}\mathcal{S}\,\varphi_{\alpha_{1}}(\mathbf{r_{1}})\varphi_{\alpha_{2}}(\mathbf{r_{2}})\cdots\varphi_{\alpha_{N}}(\mathbf{r_{N}}) \nonumber \\
  \ket{\Psi^{A}_{\alpha_{1}\alpha_{2}\cdots\alpha_{N}}}&=\sqrt{N!}\mathcal{A}\,\varphi_{\alpha_{1}}(\mathbf{r_{1}})\varphi_{\alpha_{2}}(\mathbf{r_{2}})\cdots\varphi_{\alpha_{N}}(\mathbf{r_{N}})
  \label{quantum_statistics_norm}
 \end{align}
-$$
+$$`
 
-The normalization factors yield normalized wavefunctions _if_ the single particle state $\ket{\varphi_\alpha}$ are orthonormal (as the eigenstates of the single particle Hamiltonian are).
+> Show that these are normalized wavefunctions _if_ the single particle state $\ket{\varphi_\alpha}$ are orthonormal
 
-The normalization factor in the boson case involves the __occupation numbers__ $\{N_{\alpha}\}$ giving the number of particles in state $\alpha$. In the fermion case each $N_{\alpha}$ is either $0$ or $1$ so the prefactor simplifies. Since the order of the $\alpha$ indices is irrelevant in the boson case, and amounts only to a sign in the fermion case, states based on a given set of single particle states are more efficiently labeled by the occupation numbers. In terms of these numbers the total energy is
+---
+
+## Occupation Numbers
+
+- State is characterized only by __occupation numbers__ $\{N_{\alpha}\}$. Use these as a label instead
+
+- __Caution__: To fix the sign of the fermion wavefunction, have to choose an order e.g. $\varphi_{\alpha_{1}}(\mathbf{r_{1}})\varphi_{\alpha_{2}}(\mathbf{r_{2}})\cdots\varphi_{\alpha_{N}}(\mathbf{r_{N}})$
+
+- The total energy is
 
 $$
  \label{quantum_statistics_TotalEnergy}
  E=\sum_{i=1}^{N}E_{\alpha_{i}}=\sum_{\alpha}N_{\alpha} E_{\alpha}
 $$
 
-> Verify that the normalization factors in $\eqref{quantum_statistics_norm}$ are correct.
+---
 
-A more formal way of putting things is as follows. We first consider the space spanned by states of the form $\eqref{quantum_statistics_disting}$. Then we introduce the operators $\mathcal{S}$ and $\mathcal{A}$, noting that $\mathcal{S}^{2}=\mathcal{S}$ and $\mathcal{A}^{2}=\mathcal{A}$. In other words, there's no point symmetrizing or antisymmetrizing more than once (we say that the operators are __idempotent__). Any eigenvalue of one of these operators is therefore either one or zero. The states with $\mathcal{S}=1$ are the symmetric states, and those with $\mathcal{A}=1$ are antisymmetric. You can easily convince yourself that if a state has one of $\mathcal{S}$ or $\mathcal{A}$ equal to one, the other is zero. This defines symmetric and antisymmetric subspaces, consisting of the admissible boson and fermion wavefunctions.
+## Slater Determinant 
 
-Note that the fermion wavefunction takes the form of a __Slater determinant__ (though it appears first in {% cite dirac1926 %}).
+- The fermion product state is a determinant!
 
-$$
+`$$
 \label{quantum_statistics_slater}
    \ket{\Psi^{A}_{\alpha_{1}\alpha_{2}\cdots\alpha_{N}}}=\frac{1}{\sqrt{N!}}\begin{vmatrix}
    \varphi_{\alpha_{1}}(\mathbf{r_{1}}) & 	\varphi_{\alpha_{1}}(\mathbf{r_{2}}) & \cdots & \varphi_{\alpha_{1}}(\mathbf{r_{N}}) \\
@@ -247,39 +286,57 @@ $$
    \cdots & \cdots & \cdots & \cdots  \\
    \varphi_{\alpha_{N}}(\mathbf{r_{1}}) &  \cdots & \cdots & \varphi_{\alpha_{N}}(\mathbf{r_{N}})
  \end{vmatrix}
-$$
+$$`
 
-The vanishing of a determinant when two rows or two columns are identical means that the wavefunction is zero if two particle coordinates coincide ($\br_{i}=\br_{j}$), or if two particles occupy the same state ($\alpha_{i}=\alpha_{j}$).
+- Vanishes when two rows or two columns are identical
+   - Zero if two particle coordinates coincide ($\br_{i}=\br_{j}$)
+  - Zero if two particles occupy the same state ($\alpha_{i}=\alpha_{j}$)
 
-## The 1D Fermi Gas
+---
 
-Let's consider perhaps the simplest many particle system one can think of: noninteracting particles on a ring. If the ring has circumference $L$, the single particle eigenstates are
+## Noninteracting particles on a ring
+
+- Ring has circumference $L$. Single particle eigenstates
 $$
 	\label{quantum_statistics_spstates}
 	\varphi_{n}(x)=\frac{1}{\sqrt{L}}\exp\left(ik_n x\right),
 $$
 
-with $k_n=\frac{2\pi n}{L}$, $n\in\mathbb{Z}$. The corresponding energies are $E_{n}=\frac{k_n^2}{2m}$.
+- $k_n=\frac{2\pi n}{L}$, $n\in\mathbb{Z}$. Energies are $E_{n}=\frac{k_n^2}{2m}$.
 
-### Ground State
+---
 
-Let's find the $N$ particle ground state. For bosons every particle is in the state $\ket{\varphi_{0}}$ with zero energy: $N_{0}=N$. Thus
+## Ground State of Bosons
+
+- very particle in the state $\ket{\varphi_{0}}$ with zero energy: $N_{0}=N$
 
 $$
 	\Psi^{S}(x_{1},x_{2},\ldots x_{N})=\frac{1}{L^{N/2}}
 $$
 
-That was easy! The fermion case is harder.
+- That was easy! The fermion case is harder.
 
-Since the occupation of each level is at most one, the lowest energy is obtained by filling each level with one particle, starting at the bottom. If we have an odd number of particles, this means filling the levels with $n=-(N-1)/2, -(N-3)/2,\ldots, -1, 0, 1 \ldots (N-1)/2$ (for an even number of particles we have to decide whether to put the last particle at $n=\pm N/2$). Introducing the complex variables
+---
+
+## Ground State of Fermions
+
+- Fill each level with one particle, starting at the bottom (Fermi sea)
+
+  - For $N$ odd $n=-(N-1)/2, -(N-3)/2,\ldots, -1, 0, 1 \ldots (N-1)/2$
+
+  - For $N$ even have to decide whether to put the last particle at $n=\pm N/2$
+
+--- 
+
+## Complex notation
 
 $$
 z_{i}=\exp(2 \pi i x_{i}/L),
 $$
 
-the Slater determinant $\eqref{quantum_statistics_slater}$ becomes
+- The Slater determinant is
 
-$$
+`$$
 	\label{quantum_statistics_1ddet}
 	\Psi_0(x_1,\ldots, x_N)=\begin{vmatrix}
 	z_{1}^{-(N-1)/2} & 	z_{2}^{-(N-1)/2} & \cdots & z_{N}^{-(N-1)/2} \\
@@ -287,11 +344,13 @@ $$
 	\cdots & \cdots & \cdots & \cdots  \\
 	z_{1}^{(N-1)/2} &  \cdots & \cdots & z_{N}^{(N-1)/2}
 \end{vmatrix}.
-$$
+$$`
 
-Let's evaluate this complicated looking expression in a simple case. With three particles we have
+---
 
-$$
+### Simple example $N=3$
+
+`$$
 \begin{align}
 	\Psi_0(x_1,x_2,x_3)&=\begin{vmatrix}
 		z_{1}^{-1} & z_{2}^{-1} & z_{3}^{-1} \\
@@ -302,11 +361,15 @@ $$
 	&\propto \sin\left(\frac{ \pi[x_{1}-x_{2}]}{L}\right)\sin\left(\frac{ \pi[x_{3}-x_{1}]}{L}\right)\sin\left(\frac{ \pi[x_{2}-x_{3}]}{L}\right)
   \label{3particle}
 \end{align}
-$$
+$$`
 
-The vanishing of the wavefunction when $x_{i}=x_{j}$ is consistent with the Pauli principle. You should check that additionally it is periodic and totally antisymmetric.
+- Wavefunction vanishes $x_{i}=x_{j}$ 
 
-$\eqref{3particle}$ generalizes for any (odd) $N$ so that the ground state Slater determinant $\eqref{quantum_statistics_1ddet}$ is proportional to
+> Check it is periodic and totally antisymmetric.
+
+---
+
+## Generalization for $N$ odd
 
 $$
 \Psi_0(x_1,\ldots, x_N)\propto\prod_{i<j}^{N} \sin\left(\frac{\pi[x_{i}-x_{j}]}{L}\right).
@@ -315,170 +378,133 @@ $$
 
 
 >	Show this using the __Vandermonde determinant__
->$$
+>`$$
 >\begin{vmatrix}
 >1 & 1 & \cdots & 1 \\
 >z_{1} &  z_{2} & \cdots & \cdots  \\
 >z_{1}^{2} & z_{2}^{2} & \cdots & \cdots  \\
 >z_{1}^{N-1} &  z_{2}^{N-1} & \cdots & z_{N}^{N-1}
 >\end{vmatrix}=\prod_{i<j}^{N}(z_{j}-z_{i})
->$$
->which can be proved in a variety of ways. Proving directly that $\eqref{quantum_statistics_1dFermiGS}$ is an eigenstate of the Hamiltonian is not easy, but can be accomplished using the identity
->
->$$
->\label{2nd_quant_cotident}
->	\cot(x-y)\cot(y-z)+\cot(y-z)\cot(z-x)+\cot(z-x)\cot(x-y)=1.	\nonumber
->$$
->
->Check carefully that $\eqref{quantum_statistics_1dFermiGS}$ is periodic and totally antisymmetric.
+>$$`
 
-Let's take the opportunity to introduce some terminology. The wavevector of the last fermion added is called the __Fermi wavevector__ and denoted $k_\text{F}$. In this case $k_\text{F}=\frac{(N-1)\pi}{L}$. Its energy $E_{F}=\frac{k_\text{F}^{2}}{2m}$ is the __Fermi energy__.
+---
 
+## Terminology
 
-### Density; Density Matrix; Pair Distribution
+- The wavevector of the last fermion added is called the __Fermi wavevector__ $k_\text{F}$
 
-Having a many particle wave function is one thing, but what to _do_ with it? Bear in mind that $\eqref{quantum_statistics_1dFermiGS}$ is just about the simplest fermion state you can imagine, but it's not immediately clear what it is telling us.
+- Here $k_\text{F}=\frac{(N-1)\pi}{L}$
 
-$\vert\Psi(x_1,\ldots,x_N)\rvert^2$ is the probability distribution of the positions of the particles. If we were able to take a photograph of the positions of the particles at an instant in time, this would correspond to taking a sample from the probability distribution. In terms of the complex variables $z_j$, it would look something like this:
+- __Fermi energy__ $E_{F}=\frac{k_\text{F}^{2}}{2m}$ is the corresponding energy
 
-{{< figure src="1d_fermions.png" title="A sample from the probability distribution $\lvert\Psi(z_1,\ldots,z_N)\rvert^2$ for 50 particles."  numbered="true" lightbox="true" >}}
+---
 
-{{< figure src="poisson_phases.png" title="The same for  a Poisson (uncorrelated) sample."  numbered="true" lightbox="true" >}}
+## Probability distribution
 
-Since $\lvert\Psi(x_1,\ldots,x_N)\rvert^2$ is the probability distribution of the positions of the particles, we can use it to find the marginal probability distributions for any subset of the particles. Of course, since the particles are identical, it doesn't matter which ones we choose, just the number.
+- For boson ground state $\Psi$ is constant, so is $|\Psi|^2$
+<p align="center">
+<img src="assets/poisson_phases.png" alt="drawing" width="500" class="center"/>
+</p>
 
-The one particle distribution is related to the average density of particles, given by
+---
+
+- For fermions
+<p align="center">
+<img src="assets/1d_fermions.png" alt="drawing" width="500" class="center"/>
+</p>
+
+---
+
+### Marginal distributions
+
+- One particle distribution is related to average density of particles
 $$
 \rho_1(x_1) = N \int dx_2\ldots dx_N \,\lvert\Psi(x_1,x_2,\ldots,x_N)\rvert^2.
 \label{ave_density}
 $$
-Note that although I use the symbol $\rho$, density is always going to be _number_ density (not the mass density).
 
->Can you explain why this is the density? Think about the simpler case of two particles, with discrete locations. Why is the expected number of particles at position $x$
->
->$$
->N_x = \sum_y \left[P(x,y) + P(y,x)\right]?
->$$
->
->What if we have more particles?
+- Note that density is always a _number_ density (not mass density).
 
-Normalization of the wavefunction then implies
+- Normalization of the wavefunction implies
 $$
 \int dx\, \rho_1(x) = N.
 $$
-In a translationally invariant system like the fermion gas on a ring we expect the average density to be constant.
 
-We can regard $\eqref{ave_density}$ as an expectation of a density operator
+- In a translationally invariant system like the fermion gas on a ring we expect the average density to be constant.
+
+---
+
+## Density Operator
+
+- Regard $\rho_1(x_1)$ as an expectation of a density operator
 $$
 \rho(x) = \sum_j \delta(x-x_j),
 \label{many_densityop}
 $$
 so that $\rho_1(x) = \braket{\Psi}{\rho(x)}{\Psi}$.
 
-We can also consider the __density matrix__ of a single particle. Recall that the density matrix $\varrho$ describes a __mixed state__ of a quantum system, and is the appropriate description when the quantum state is not known. $\varrho$ is a positive definite hermitian operator satisfying $\tr \varrho =1$. Its spectral resolution
-$$
-\varrho = \sum_\alpha p_\alpha \ket{\varphi_\alpha}\bra{\varphi_\alpha},
-$$
-can be thought of as a statistical mixture of different quantum states $\ket{\varphi_\alpha}$ with probabilities $p_\alpha$.
 
-One natural way in which density matrices arise from pure states is as follows. The Hilbert space of a composite system consists of a tensor product of two or more components $\mathcal{H}_{AB} = \mathcal{H}_A \otimes \mathcal{H}_B$. Starting from the density matrix corresponding to a pure state, we can obtain a density matrix for the component $A$ alone by 'tracing out' the $B$ subsystem.
-$$
-\varrho_A = \tr_B \ket{\Psi}\bra{\Psi},\quad \ket{\Psi}\in \mathcal{H}_{AB}.
-$$
-The probability for system $A$ to be in state $\ket{\psi}\in \mathcal{H}_A$ is
-$$
-P_\psi = \bra{\psi}\varrho\ket{\psi}.
-$$
-Applied to our many body states, the same logic leads us to define the __single particle density matrix__ as
+---  
+
+## Single particle density matrix
+
 $$
 g(x,y) \equiv N\int dx_2\ldots dx_N \,\Psi^{}(x,x_2,\ldots,x_N)\Psi^{*}(y,x_2,\ldots,x_N).
 $$
-Note that $g(x,x) = \rho_1(x)$.
 
->Show that the average number of particles in a single particle state $\ket{\psi}$ is
->$$
->\bar N_\psi = \int dx dy\, \psi^*(x)g(x,y)\psi(y).
->\label{many_Nbar}
->$$
+- Note $g(x,x) = \rho_1(x)$.
 
->Starting from the Slater determinant $\eqref{quantum_statistics_1ddet}$ (i.e. _not_ from the explicit form $\eqref{quantum_statistics_1dFermiGS}$), show that $g(x,y)$ for the ground state of the Fermi gas is
->$$
->g(x,y) = \frac{1}{L}\sum_{|k|<k_\text{F}} e^{ik(x-y)} = \int_{k_\text{F}}^{k_\text{F}} \frac{dk}{2\pi} e^{ik(x-y)} = n \frac{\sin [k_\text{F}(x-y)]}{k_\text{F}(x-y)}
->$$
+---
+
+>Starting from the Slater determinant, show that $g(x,y)$ for the ground state of the Fermi gas is
+>`$$
+>\begin{align}
+>g(x,y) &= \frac{1}{L}\sum_{|k|<k_\text{F}} e^{ik(x-y)} \longrightarrow \int_{k_\text{F}}^{k_\text{F}} \frac{dk}{2\pi} e^{ik(x-y)} \\
+&\longrightarrow n \frac{\sin [k_\text{F}(x-y)]}{k_\text{F}(x-y)}
+>\end{align}
+>$$`
 >where $n \equiv \frac{k_\text{F}}{\pi}$ is the average density.
 
->Find the average number of particles in a momentum state $\ket{k}$ using $\eqref{many_Nbar}$
->$$
->\bar N_k = \begin{cases}
-1 & |k|\leq k_\text{F} \\
-0 & |k|>k_\text{F}
-\end{cases}.
->\label{many_Nk}
->$$
->Note that in a translationally invariant system $g(x,y)=g(x-y)$, and is the Fourier transform of $\bar N_k$.
+---
 
-We can also consider marginal probability distribution of a pair of particles, and define the __pair distribution function__
+### Pair Distribution
+
+- Marginal probability distribution of a _pair_ of particles
 $$
 \rho_2(x_1,x_2) = N(N-1) \int dx_3\ldots dx_N \,\left|\Psi(x_1,x_2,\ldots,x_N)\right|^2.
 $$
-The prefactor is to account for all pairs of particles.
+- The prefactor is to account for all pairs of particles.
 
->Starting from the Slater determinant $\eqref{quantum_statistics_1ddet}$, show that
+>Starting from the Slater determinant, show that
 >$$
 >\rho_2(x_1,x_2) = n^2\left[1 - \left(\frac{\sin[k_\text{F}(x_1-x_2)]}{k_\text{F}(x_1-x_2)}\right)^2\right].
 >$$
->This vanishes at $x_1=x_2$, consistent with the Pauli principle.
+>This vanishes at $x_1=x_2$.
 
-A natural question:
-$$
-\rho_2(x_1,x_2) \overset{?}{=} \bra{\Psi}\rho(x_1)\rho(x_2)\ket{\Psi}.
-$$
-_Almost_. Looking back at $\eqref{many_densityop}$, we see that the product of two density operators will contain terms involving the same particle, which are absent from $\rho_2(x_1,x_2)$.
+---
 
+## Impenetrable Bose Gas
 
->Show that the correct relationship is
->$$
->\rho_2(x_1,x_2) = \bra{\Psi}\rho(x_1)\rho(x_2)\ket{\Psi} - \rho_1(x_1)\delta(x_1-x_2).
->$$
-
-
-
-### Impenetrable Bose Gas
-
-There's a bit more mileage in the 1D Fermi gas yet. Consider the following Hamiltonian, which we'll study in more detail in [Lecture 15]({{< ref "lieb-liniger-model" >}})
 $$
 H = -\frac{1}{2m}\sum_j \frac{\partial^2}{\partial x_j^2} + \overbrace{c\sum_{j<k}\delta(x_j-x_k)}^{\equiv H_\text{int}}.
 \label{many_LL}
 $$
-The second term represents an interaction between pairs of particles. Of course, this model is rather special, as (1) it's 1D and (2) the interaction potential is a $\delta$-function. Nevertheless, it represents a huge step up in difficulty from the noninteracting examples we've discussed so far. At least, it does for bosons. For fermions, the wavefunctions vanish at coincident points, and so the interaction has no effect at all!
 
-For bosons, it happens that the Hamiltonian can still be solved exactly. For now, however, we'll concern ourselves only with the limit of infinite interaction: $c\to \infty$, sometimes called the impenetrable limit. In this case, _the eigenenergies coincide with those of the free fermion problem, and the eigenstates are just the modulus of the corresponding fermion eigenstate_.
+- The second term is interaction between pairs of particles
+
+- For fermions, the interaction has no effect at all ($\delta$-function)!
+
+- For bosons in the the limit of infinite interaction: $c\to \infty$: _the eigenenergies coincide with those of the free fermion problem, and the eigenstates are just the modulus of the corresponding fermion eigenstate_
 
 > Why?
 
-Just like that, we've solved our first interacting many body system (and with infinite coupling, no less)!
+---
 
-Thus the ground state on the ring has the form
+## Ground state
+
 $$
 \Psi_0(x_1,\ldots, x_N) = \prod_{i<j}^{N} \left|\sin\left(\frac{\pi[x_{i}-x_{j}]}{L}\right)\right|.
 $$
 
-> It's not hard to see why this works. For a state to have a finite energy, the wavefunction must vanish whenever two coordinates coincide. This is because the interation energy has the expectation value
-> $$
-> \braket{\Psi}{H_\text{int}}{\Psi}=cN(N-1)\int dx_1\cdots dx_{N-1}\left|
-> \Psi(x_1,x_1,x_2,\ldots,x_N\right|^2
-> $$
-> But we already have a complete set of eigenstates that obey this condition, namely the free fermion Slater determinants. It remains to make them symmetric functions by taking the modulus.
+- Can calculate any observable _as long as_ it's insensitive to taking the modulus (e.g. average density and pair distribution)
 
-This mapping is quite powerful, and allows us to calculate any observable of the impenetrable Bose gas in terms of free fermions _as long_ as that observable is insensitive to taking the modulus of the wavefunction. Thus the average density $\rho_1(x)$ and pair distribution $\rho_2(x_1,x_2)$ of the previous section can be found in this way, but the single particle density matrix $g(x,y)$ cannot.
-
-> Show this explicitly.
-
-This means that the momentum distribution is _not_ given by $\eqref{many_Nk}$. Finding $g(x,y)$ for the impenetrable Bose gas is in fact really hard. We'll see in a later lecture how to obtain some of its important features.
-
-
-
-References
-----------
-
-{% bibliography --cited %}
