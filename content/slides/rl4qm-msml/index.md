@@ -108,7 +108,7 @@ $\Psi(\bR)\sim \textsf{NN}(\bR)$ and optimize!
 
 - Carleo and Troyer (2017): lattice models (more later)
 
-- many more...  
+- ...
 
 - Many electrons: Han _et al._, Pfau _et al._, Herman _et al._ (all 2019)
 
@@ -297,18 +297,6 @@ $$`
 
 ---
 
-## Exchange Processes
-
-- At $R=8.5$ tunnelling events are visible
-
-<p align="center">
-<video width="700" autoplay loop>
-  <source data-src="assets/h2_wide.mp4" type="video/mp4">
-</video>
-</p>
-
----
-
 ## Atomic / Molecular results
 
 | Method  |  H atom | He atom | H<sub>2</sub> molecule | H<sub>2</sub> molecule (R=2.8) |
@@ -341,14 +329,6 @@ $$`
 
 <p align="center">
 <img style="center" src="assets/bosons_vector_field.jpg" width="80%">
-</p>
-
----
-
-<p align="center">
-<video width="800" autoplay loop>
-  <source data-src="assets/bosons.mp4" type="video/mp4">
-</video>
 </p>
 
 ---
