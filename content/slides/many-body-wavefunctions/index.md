@@ -65,7 +65,7 @@ $$
 - Given ion positions $\mathbf{R}_k$, charge $+Z_k e$
 
 $$
-H = -\frac{1}{2m}\sum_{j=1}^M\nabla^2_j + e^2\sum_{j<k}\frac{1}{\br_j-\br_k} - e^2\sum_{j<k}\frac{Z_k}{\br_j-\mathbf{R}_k}
+H = -\frac{1}{2m}\sum_{j=1}^M\nabla^2_j + e^2\sum_{j<k}\frac{1}{|\br_j-\br_k|} - e^2\sum_{j<k}\frac{Z_k}{|\br_j-\mathbf{R}_k|}
 $$
 
 - Want __many-electron__ wavefunction $\Psi(\br_1,\ldots \br_N)$

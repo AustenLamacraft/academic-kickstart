@@ -6,11 +6,13 @@ weight: 1
 
 # Page metadata.
 title: TQM Lectures 2020
-date: "2018-09-09T00:00:00Z"
-lastmod: "2018-09-09T00:00:00Z"
+# date: "2018-09-09T00:00:00Z"
+# lastmod: "2018-09-09T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
-# type: docs  # Do not modify.
+type: docs  # Do not modify.
+view: 3
+
 
 # Add menu entry to sidebar.
 # - name: Declare this menu item as a parent with ID `name`.
@@ -21,4 +23,4 @@ menu:
     weight: 1
 ---
 
-These are the slides from Michaelmas 2020 
+These are the slides from Michaelmas 2020. If you want a nice printable version for saving as a PDF, you can use e.g. [auste.nl/slides/many-body-wavefunctions/?print-pdf#/](https://auste.nl/slides/many-body-wavefunctions/?print-pdf#/)
