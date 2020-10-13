@@ -421,7 +421,7 @@ $$
 
 - One particle distribution is related to average density of particles
 $$
-\rho_1(x_1) = N \int dx_2\ldots dx_N \,\lvert\Psi(x_1,x_2,\ldots,x_N)\rvert^2.
+\rho_1(x_1) = N \int dx_2\ldots dx_N \lvert\Psi(x_1,x_2,\ldots,x_N)\rvert^2.
 \label{ave_density}
 $$
 
@@ -429,7 +429,7 @@ $$
 
 - Normalization of the wavefunction implies
 $$
-\int dx\, \rho_1(x) = N.
+\int dx \rho_1(x) = N.
 $$
 
 - In a translationally invariant system like the fermion gas on a ring we expect the average density to be constant.
@@ -451,7 +451,7 @@ so that $\rho_1(x) = \braket{\Psi}{\rho(x)}{\Psi}$.
 ## Single particle density matrix
 
 $$
-g(x,y) \equiv N\int dx_2\ldots dx_N \,\Psi^{}(x,x_2,\ldots,x_N)\Psi^{*}(y,x_2,\ldots,x_N).
+g(x,y) \equiv N\int dx_2\ldots dx_N \Psi^{}(x,x_2,\ldots,x_N)\Psi^{*}(y,x_2,\ldots,x_N).
 $$
 
 - Note $g(x,x) = \rho_1(x)$.
@@ -461,7 +461,7 @@ $$
 >Starting from the Slater determinant, show that $g(x,y)$ for the ground state of the Fermi gas is
 >`$$
 >\begin{align}
->g(x,y) &= \frac{1}{L}\sum_{|k|<k_\text{F}} e^{ik(x-y)} \longrightarrow \int_{k_\text{F}}^{k_\text{F}} \frac{dk}{2\pi} e^{ik(x-y)} \\
+>g(x,y) &= \frac{1}{L}\sum_{|k|<k_\text{F}} e^{ik(x-y)} \longrightarrow \int_{-k_\text{F}}^{k_\text{F}} \frac{dk}{2\pi} e^{ik(x-y)} \\
 &\longrightarrow n \frac{\sin [k_\text{F}(x-y)]}{k_\text{F}(x-y)}
 >\end{align}
 >$$`
@@ -473,7 +473,7 @@ $$
 
 - Marginal probability distribution of a _pair_ of particles
 $$
-\rho_2(x_1,x_2) = N(N-1) \int dx_3\ldots dx_N \,\left|\Psi(x_1,x_2,\ldots,x_N)\right|^2.
+\rho_2(x_1,x_2) = N(N-1) \int dx_3\ldots dx_N\left|\Psi(x_1,x_2,\ldots,x_N)\right|^2.
 $$
 - The prefactor is to account for all pairs of particles.
 
@@ -496,7 +496,7 @@ $$
 
 - For fermions, the interaction has no effect at all ($\delta$-function)!
 
-- For bosons in the the limit of infinite interaction: $c\to \infty$: _the eigenenergies coincide with those of the free fermion problem, and the eigenstates are just the modulus of the corresponding fermion eigenstate_
+- For bosons with $c\to \infty$: _eigenenergies coincide with those of free fermions, and eigenstates are modulus of fermion eigenstates_
 
 > Why?
 

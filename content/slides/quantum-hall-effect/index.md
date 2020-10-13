@@ -282,7 +282,7 @@ $$`
 >$$
 
 
-- Conclude that the density is fixed at $1/m$ of the value we found for $m=1$ case
+- Conclusion: density is fixed at $1/m$ of value for $m=1$ case
 
 - Result applies where density is non-zero, so we get a uniform droplet of radius $\sqrt{2Nm}$
 
