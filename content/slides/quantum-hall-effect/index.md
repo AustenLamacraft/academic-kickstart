@@ -95,7 +95,7 @@ have energy $\omega_c/2$ and belong to the __lowest Landau level__ (LLL).
 > Show that these states have the form
 >
 >$$
->\psi(z,\bar z) = f(z) \exp\left(-\frac{eB}{4}\left|z\right|^2\right),
+>\psi(z,\bar z) = f(z) \exp\left(-\frac{qB}{4}\left|z\right|^2\right),
 >$$
 >
 >where $f(z)$ is an arbitrary analytic function.
@@ -191,7 +191,7 @@ $$
 \label{many_nu}
 $$
 
-- $m$ odd / even for fermions / bosons. For $m\neq 1$ this is __not__ a product state!
+- $m$ odd / even for fermions / bosons. $m\neq 1$ __not__ a product state!
 
 > This Letter presents variational ground-state and excited-state wave functions which describe the condensation of a two-dimensional electron gas into a new state of matter.
 
@@ -325,12 +325,11 @@ $$
 
 - $\vert\Psi_\text{2 hole}(z_1,\ldots, z_N\vert Z_1,Z_2)\rvert^2$ is plasma with two $1/m$ charges at positions $\mathbf{R}_{1,2}$
 
--  Each surrounded by region of depleted density of $-1/m$ of a particle
+-  Each surrounded by depleted density of $-1/m$ of a particle
 
 ---
 
-- Normalization integral is then Boltzmann weight due to interaction of two regions
-
+- Normalization then Boltzmann weight of interaction of two regions
 `$$
 \begin{align}
 \int \prod_{j=1}^N &d^2z_j\,\lvert\Psi_\text{2 hole}(z_1,\ldots, z_N\vert Z_1,Z_2)\rvert^2\\ &\sim\exp\left(\frac{2}{m}\log\left|Z_1-Z_2\right|+\frac{1}{2m}\left[\left|Z_1\right|^2+\left|Z_2\right|^2\right]\right).
@@ -345,4 +344,4 @@ $$
 
 - For $m>1$ wavefunction is _multi-valued_, and changes by a phase $\pi/m$ when $Z_1$ and $Z_2$ are exchanged
 
-- The quasiholes are __anyons__, particles with fractional statistics intermediate between bosons and fermions
+- The quasiholes are __anyons__, particles with fractional statistics
