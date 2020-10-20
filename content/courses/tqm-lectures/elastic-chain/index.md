@@ -13,5 +13,5 @@ math: true
 menu:
   tqm-lectures:
     parent: Lectures
-    weight: 2
+    weight: 3
 ---
