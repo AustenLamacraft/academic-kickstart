@@ -1,0 +1,3 @@
+{{ define "main" }}
+{{ partial "lectures" (union (slice .Page) .Pages) }}
+{{ end }}

@@ -8,7 +8,7 @@ date: "2020-10-13T10:00:00Z"
 date_end: "2020-10-13T11:30:00Z"
 publishDate: "2020-10-01T22:30:00Z"
 all_day: false
-slides: quantum-hall-effect
+lecture_slides: quantum-hall-effect
 math: true
 menu:
   tqm-lectures:

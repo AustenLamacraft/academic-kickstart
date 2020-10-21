@@ -6,12 +6,6 @@ slides:
   #   Light style: github. Dark style: dracula (default).
   highlight_style: github
 scripts: []
-
----
-
-<section data-background-iframe="https://wall.sli.do/event/"
-          data-background-interactive/>
-
 ---
 
 # The Elastic Chain
