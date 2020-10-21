@@ -528,7 +528,7 @@ $x_j = ja + u_j$, and $\delta_L(x)$ is $L$-periodic version of $\delta$-function
 
 - Fourier components
 $$
-\rho_k = \sum_{j=1}^N\exp(-i k x_j).
+\rho_k = \sum_{j=1}^N\exp(-i k x_j)
 $$
 
 ---
@@ -539,7 +539,7 @@ $$
 
 - In ordered configuration $x_j = ja$, we have
 `$$
-\rho_{k_n} = \begin{cases}
+\rho_{k_n=2\pi n/L} = \begin{cases}
 N & n = 0 \mod N \\
 0 & \text{ otherwise.}
 \end{cases}
