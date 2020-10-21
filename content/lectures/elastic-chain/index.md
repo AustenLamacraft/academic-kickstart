@@ -167,6 +167,24 @@ $$
 
 ---
 
+`$$
+\begin{align}
+T =  \sum_{j=1}^N \frac{p_j^2}{2m} = \frac{1}{2mN}\sum_{j=1}^N\left(\sum_{|n| \leq (N-1)/2} \sum_{|m| \leq (N-1)/2}\pi_n e^{-i\eta_n j} \pi_m e^{-i\eta_m j}\right)
+\end{align}
+$$`
+
+- __Key idea__ 
+
+`$$
+\sum_{j=1}^N e^{-i(\eta_n+\eta_m) j}= N\delta_{n,-m}
+$$`
+
+$$
+T = \frac{1}{2m}\sum_{|n| \leq (N-1)/2} \pi_n  \pi_{-n} = 
+$$
+
+---
+
 ## System of oscillators
 
 - Could split amplitudes into real and imaginary parts
@@ -297,46 +315,6 @@ $$
 E(\mathbf{N}) &= \overbrace{\frac{1}{2}\sum_{|n| \leq (N-1)/2} \omega(\eta_n)}^{\equiv E_0} + \sum_{\substack{n\neq 0 \\ |n| \leq (N-1)/2}} \omega(\eta_n) N_n
 \end{align}
 $$`
-
----
-
-## Review 
-
-<p align="center">
-<img src="assets/ElasticChain.png" alt="drawing" width="450" class="center"/>
-</p>
-
-`$$
-H = \sum_{j=1}^N \left[\frac{p_j^2}{2m} + \frac{k}{2} (u_j-u_{j+1})^2 \right].
-$$`
-
----
-
-`$$
-u_j(t) = \frac{1}{\sqrt{N}}\sum_{|n| \leq (N-1)/2} q_n(t) e^{i\eta_n j},
-$$`
-
-`$$
-p_j(t) = \frac{1}{\sqrt{N}}\sum_{|n| \leq (N-1)/2} \pi_n(t) e^{-i\eta_n j},
-$$`
-
-`$$
-H = \sum_{|n| \leq (N-1)/2} \left[\frac{1}{2m}\pi_n \pi_{-n} + k  (1-\cos \eta_n) q_n q_{-n}\right].
-$$`
-
----
-
-`$$
-\begin{align}
-q_n &= \sqrt{\frac{1}{2m\omega(\eta_n)}}\left(a_n + a_{-n}^\dagger\right)\nonumber\\
-\pi_n &= -i\sqrt{\frac{m\omega(\eta_n)}{2}}\left(a_{-n} - a_{n}^\dagger\right),
-\end{align}
-$$`
-
-- $H$ in terms of $a_n$, $a_n^*$
-$$
-H = \frac{\pi_0^2}{2m}+\sum_{\substack{n\neq 0 \\ |n| \leq (N-1)/2}} \frac{\omega(\eta_n)}{2}\left(\adop_n\aop_n+\aop_n\adop_n\right).
-$$
 
 ---
 

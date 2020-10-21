@@ -131,6 +131,7 @@ var Recorder = {
 			var blob = Recorder.recordRTC.getBlob();
 
 			Recorder.filename = Recorder.filename + '.' + blob.type.split( '/' ).pop();
+			console.log('filename', blob.type)
 			var reader = new window.FileReader();
 			reader.readAsBinaryString(blob); 
 			reader.onloadend = function() {
