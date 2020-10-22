@@ -190,7 +190,7 @@ are the spin raising and lowering operators
 
 ---
 
-## Ground state
+## Ground state for $J<0$
 
 $$
 \ket{\text{FM}} \equiv \ket{+}_1 \ket{+}_2 \cdots \ket{+}_N 
@@ -280,3 +280,247 @@ $$
 - $\eta=0$ corresponds to the state $S^-\ket{\text{FM}}$
 
 
+---
+
+## $N$-Magnon States
+
+- A magnon has energy $\propto J$
+
+- System with extensive energy / finite temperature must have _many_ magnons
+
+- Dimension of subspace of $n$ flipped spins is $\binom{N}{n}$
+
+- Magnons can't sit on the same site. Things get difficult!
+
+---
+
+## Ground state for $J>0$?
+
+- Ground state has $S=0$, so $S^z=0$, or $n=N/2$ magnons
+
+- Complicated _dense_ gas of interacting magnons!
+
+- Let's consider a simpler model
+
+---
+
+## Antiferromagnets Are Different!
+
+- Let's try and _guess_ the ground state for $J>0$
+
+- Since anti-aligning spins should be favoured, we might try
+`$$
+\ket{\text{AFM}}  \equiv \ket{+}_1\ket{-}_{2}\cdots \ket{+}_{N-1}\ket{-}_{N},
+\label{spin_AFM}
+$$`
+
+- What does $H$ do? Remember 
+`$$
+ \mathbf{s}_j \cdot \mathbf{s}_{j+1} = s^z_js^z_{j+1} + \frac{1}{2}\overbrace{\left(s^+_js^-_{j+1} +s^-_js^+_{j+1}\right)}^{P_{j,j+1}, \text{ exchange}},
+$$`
+spin flip terms cause spins to move about. Ground state is more complicated!
+
+- For the AFM chain, quantum fluctuations too strong for AFM order
+
+- __Antiferromagnets__ do exist in higher dimensions, and [Néel](https://en.wikipedia.org/wiki/Louis_N%C3%A9el) state $\ket{\text{AFM}}$ is good starting approximation
+
+---
+
+## Large $s$ Expansion
+
+- Generalize model to $s>1/2$ (magnetic ions can have higher spin)
+
+- Develop approximations that work for $s\gg 1/2$
+
+- Hope that the _qualitative_ behaviour we find holds for $s=1/2$
+
+---
+
+## Holstein--Primakoff Representation
+
+- Represent spins as oscillators!
+
+- Coupled spins becomes coupled oscillators
+
+- Representation not linear, so we get anharmonic chain
+
+- Harmmonic approximation justified when spin large
+
+---
+
+`$$
+\begin{align}
+S^+ &=\sqrt{2s}\sqrt{1-\frac{\adop\aop}{2s}}\aop \\
+S^- &= \sqrt{2s}\adop\sqrt{1-\frac{\adop\aop}{2s}} \\
+S^z &= \left(s - \adop \aop\right).
+\end{align}
+$$`
+
+> Show that $[\aop,\adop]=1$ reproduces the spin commutation relations $[s^a,s^b]=i\epsilon_{abc}s^c$
+
+---
+
+## One way to think of it...
+
+- $S^{\pm}$ and $\aop$, $\adop$ both shift us up and down a ladder of states.
+$$
+S^\pm\ket{s,m} = \sqrt{s(s+1)-m(m\pm 1)}\ket{s,m\pm 1}
+$$
+Relation between $S^z$ and number of quanta is simple. 
+
+- Oscillator ground state corresponds to $\ket{s,s}$.
+
+- Difference: $2s+1$ spin states, but infinite oscillator states
+
+- $S^+\propto \aop$, $S^-\propto \adop$ doesn't work. Something needed to stop us lowering beyond $S^z=-s$
+
+$$
+S^- = \sqrt{2s}\adop\sqrt{1-\frac{\adop\aop}{2s}}
+$$
+
+
+---
+
+## Another way...
+
+<p align="center">
+<img src="assets/tangent-plane.png" alt="drawing" width="500" class="center"/>
+</p>
+
+- Classical spin described by point on sphere of radius $\sim s$
+
+- Large $s$: approximate locally by plane
+
+- Near north pole $[S^x,S^y]=is^z\sim is$ resembles $[x,p]=i$
+
+- Therefore $S^\pm$ resemble $\aop$, $\adop$
+
+---
+
+## Harmonic Spin Waves
+
+- Large $s$ approximation
+`$$
+\begin{align}
+S^+ &\sim \sqrt{2s}\aop \qquad S^- \sim  \sqrt{2s}\adop \qquad S_z = \left(s - \adop \aop\right).
+\label{spin_HPapprox}
+\end{align}
+$$`
+neglecting terms of order $s^{-1/2}$. 
+
+- Heisenberg Hamiltonian becomes quadratic oscillator Hamiltonian
+`$$
+\begin{align}
+S^x &\sim \sqrt{s}x \nonumber\\
+S^y &\sim  \sqrt{s}p\nonumber\\
+S_z &= \left(s - \frac{1}{2}[x^2 + p^2 - 1] \right),
+\end{align}
+$$`
+where $x = \frac{1}{\sqrt{2}}(\aop+\adop)$ and $p = \frac{i}{\sqrt{2}}(\adop-\aop)$
+
+---
+
+`$$
+\begin{align}
+S^x &\sim \sqrt{s}x \nonumber\\
+S^y &\sim  \sqrt{s}p\nonumber\\
+S_z &= \left(s - \frac{1}{2}[x^2 + p^2 - 1] \right),
+\end{align}
+$$`
+
+$$H = J \sum_{j=1}^N \mathbf{s}_j \cdot \mathbf{s}_{j+1}$$
+
+$$
+H\sim NJ s^2 - sJ- \overbrace{sJ \sum_{j=1}^N \left[x_j x_{j+1} + p_j p_{j+1}-x_j^2 - p_j^2\right]}^{\equiv H^{(2)}} + \ldots,
+\label{spin_Harmonic}
+$$
+
+---
+
+Use Fourier expansion of the position and momentum
+`$$
+\begin{align}
+x_j(t) &= \frac{1}{\sqrt{N}}\sum_{|n| \leq (N-1)/2} q_n(t) e^{i\eta_n j},\nonumber\\
+p_j(t) &= \frac{1}{\sqrt{N}}\sum_{|n| \leq (N-1)/2} \pi_n(t) e^{-i\eta_n j}\\
+H^{(2)} &= -2sJ \sum_{|n| \leq (N-1)/2} \sin^2(\eta_n/2)\left[q_n q_{-n} + \pi_n\pi_{-n}\right]
+\end{align}
+$$`
+
+- We can read off dispersion
+`$$
+\omega_{\text{FM}}(\eta) = 4s\left|J\right|\sin^2(\eta/2)
+$$`
+c.f. $\omega(\eta) = 2\sin^2\eta/2$ that we found for $s=1/2$
+
+---
+
+## AFM case
+
+- Close to FM state few oscillator quanta, and harmonic approximation OK
+
+- Classically, small amplitude oscillations of a nonlinear system treated may be treated as linear
+
+- What abouto AFM case? Make it _look_ like FM
+
+- Rotate every other spin through $\pi$ about the $y$ axis, so that
+
+$$
+(s^x_j,s^y_j,s^z_j)\longrightarrow (-s^x_j,s^y_j,-s^z_j),\quad j\text{ odd}.
+$$
+
+- The Heisenberg chain Hamiltonian then becomes
+`$$
+H = -J \sum_{j=1}^N \left[s^x_j s^x_{j+1} - s^y_j s^y_{j+1} + s^z_j s^z_{j+1}\right].
+$$`
+
+
+---
+
+- Now harmonic approximation means we are close to AFM in original variables
+
+- Oscillator Hamiltonian is now
+`$$
+H^{(2)} = 2sJ \sum_{|n| \leq (N-1)/2} \left[\sin^2(\eta/2)q_n q_{-n} + \cos^2(\eta/2)\pi_n\pi_{-n}\right],
+\label{spin_H2AFM}
+$$`
+corresponding to a dispersion relation
+
+$$
+\omega_{\text{AFM}}(\eta) = 2sJ\left|\sin(\eta)\right|.
+\label{spin_AFMDispersion}
+$$
+
+---
+
+$$
+\omega_{\text{AFM}}(\eta) = 2sJ\left|\sin(\eta)\right|.
+$$
+
+- Vanishes at both $\eta=0$ and Brillouin zone boundary $\eta=\pi$
+
+- Linear in the vicinity of both points, compared with quadratic behaviour of the ferromagnet
+
+- Compare
+`$$
+H_\text{FM}^{(2)} = -2sJ \sum_{|n| \leq (N-1)/2} \sin^2(\eta_n/2)\left[q_n q_{-n} + \pi_n\pi_{-n}\right]
+$$`
+In FM both position and momentum terms vanish at $\eta=0$
+
+- In AFM position term vanishes here, with momentum term vanishing at $\eta=\pi$.
+
+---
+
+$$
+\omega_{\text{AFM}}(\eta) = 2sJ\left|\sin(\eta)\right|.
+$$
+
+- We know (by other means) exact dispersion relation for lowest excited state of momentum $\eta$ (__des Cloiseaux--Pearson__ mode)
+`$$
+\omega_{\text{dCP}}(\eta) = \frac{\pi J}{2}\left|\sin(\eta)\right|,
+\label{spin_dCP}
+$$`
+Same functional form, but with a different overall scale
+
+<p align="center">
+<img src="assets/Heisenberg_model_dispersion.png" alt="drawing" width="500" class="center"/>
+</p>
