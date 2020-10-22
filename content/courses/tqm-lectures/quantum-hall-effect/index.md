@@ -15,3 +15,5 @@ menu:
     parent: Lectures
     weight: 2
 ---
+
+Read all about [Wirtinger derivatives](https://en.wikipedia.org/wiki/Wirtinger_derivatives), used in this lecture.
