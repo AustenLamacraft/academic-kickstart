@@ -344,7 +344,7 @@ spin flip terms cause spins to move about. Ground state is more complicated!
 
 - Representation not linear, so we get anharmonic chain
 
-- Harmmonic approximation justified when spin large
+- Harmonic approximation justified when spin large
 
 ---
 
@@ -391,7 +391,7 @@ $$
 
 - Large $s$: approximate locally by plane
 
-- Near north pole $[S^x,S^y]=is^z\sim is$ resembles $[x,p]=i$
+- Near north pole $[S^x,S^y]=iS^z\sim is$ resembles $[x,p]=i$
 
 - Therefore $S^\pm$ resemble $\aop$, $\adop$
 
@@ -437,7 +437,7 @@ $$
 
 ---
 
-Use Fourier expansion of the position and momentum
+- Use Fourier expansion of the position and momentum
 `$$
 \begin{align}
 x_j(t) &= \frac{1}{\sqrt{N}}\sum_{|n| \leq (N-1)/2} q_n(t) e^{i\eta_n j},\nonumber\\
@@ -456,11 +456,11 @@ c.f. $\omega(\eta) = 2\sin^2\eta/2$ that we found for $s=1/2$
 
 ## AFM case
 
-- Close to FM state few oscillator quanta, and harmonic approximation OK
+- Close to FM state have few oscillator quanta, and harmonic approximation OK
 
 - Classically, small amplitude oscillations of a nonlinear system treated may be treated as linear
 
-- What abouto AFM case? Make it _look_ like FM
+- What about AFM case? Make it _look_ like FM
 
 - Rotate every other spin through $\pi$ about the $y$ axis, so that
 
@@ -504,9 +504,9 @@ $$
 `$$
 H_\text{FM}^{(2)} = -2sJ \sum_{|n| \leq (N-1)/2} \sin^2(\eta_n/2)\left[q_n q_{-n} + \pi_n\pi_{-n}\right]
 $$`
-In FM both position and momentum terms vanish at $\eta=0$
+In FM both position and momentum terms vanish at $\eta=0$. This is the origin of quadratic dispersion at small $\eta$
 
-- In AFM position term vanishes here, with momentum term vanishing at $\eta=\pi$.
+- In AFM position term vanishes at $\eta=0$, with momentum term vanishing at $\eta=\pi$. This gives linear dispersion at these points
 
 ---
 
