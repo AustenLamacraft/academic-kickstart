@@ -23,4 +23,4 @@ menu:
     weight: 1
 ---
 
-These are the slides from Michaelmas 2020. If you want a nice printable version for saving as a PDF, you can use e.g. [auste.nl/slides/many-body-wavefunctions/?print-pdf#/](https://auste.nl/slides/many-body-wavefunctions/?print-pdf#/)
+These are the slides from Michaelmas 2020. If you want a nice printable version for saving as a PDF, you can use e.g. [auste.nl/lectures/many-body-wavefunctions/?print-pdf#/](https://auste.nl/lectures/many-body-wavefunctions/?print-pdf#/)
