@@ -384,7 +384,7 @@ $$
 ## Another way...
 
 <p align="center">
-<img src="assets/tangent-plane.png" alt="drawing" width="500" class="center"/>
+<img src="assets/tangent-plane.png" alt="drawing" width="450" class="center"/>
 </p>
 
 - Classical spin described by point on sphere of radius $\sim s$
@@ -456,9 +456,9 @@ c.f. $\omega(\eta) = 2\sin^2\eta/2$ that we found for $s=1/2$
 
 ## AFM case
 
-- Close to FM state have few oscillator quanta, and harmonic approximation OK
+- Close to $\ket{\text{FM}}$ few oscillator quanta; harmonic approximation OK
 
-- Classically, small amplitude oscillations of a nonlinear system treated may be treated as linear
+- Classically, small amplitude nonlinear oscillations treated as linear
 
 - What about AFM case? Make it _look_ like FM
 
@@ -468,7 +468,7 @@ $$
 (s^x_j,s^y_j,s^z_j)\longrightarrow (-s^x_j,s^y_j,-s^z_j),\quad j\text{ odd}.
 $$
 
-- The Heisenberg chain Hamiltonian then becomes
+- The Heisenberg chain Hamiltonian becomes
 `$$
 H = -J \sum_{j=1}^N \left[s^x_j s^x_{j+1} - s^y_j s^y_{j+1} + s^z_j s^z_{j+1}\right].
 $$`
@@ -476,7 +476,7 @@ $$`
 
 ---
 
-- Now harmonic approximation means we are close to AFM in original variables
+- Harmonic approximation means: close to AFM in original variables
 
 - Oscillator Hamiltonian is now
 `$$
@@ -498,7 +498,7 @@ $$
 
 - Vanishes at both $\eta=0$ and Brillouin zone boundary $\eta=\pi$
 
-- Linear in the vicinity of both points, compared with quadratic behaviour of the ferromagnet
+- Linear near both points, c.f. quadratic for FM
 
 - Compare
 `$$
@@ -524,3 +524,101 @@ Same functional form, but with a different overall scale
 <p align="center">
 <img src="assets/Heisenberg_model_dispersion.png" alt="drawing" width="500" class="center"/>
 </p>
+
+---
+
+## Ground state fluctuations
+
+- Crudest approximation
+
+$$
+\bra{\text{FM}}s_j^z \ket{\text{FM}} = s, \qquad \bra{\text{AFM}}s_j^z \ket{\text{AFM}} = s(-1)^j
+$$
+
+- However, in Holstein--Primakoff representation
+
+$$
+s^z_j = s - \adop_j\aop_j.
+$$
+
+- How does second term effect $\bra{0}s^z_j \ket{0}$ in ground state of $H^{(2)}$? 
+
+- We know it _doesn't_ for FM, because $\ket{\text{FM}}=\ket{0}$ 
+
+---
+
+$$
+s^z_j = s - \adop_j\aop_j.
+$$
+
+- Why doesn't second term contribute? By translational invariance
+
+`$$
+\begin{align}
+\bra{0}\adop_j \aop_j\ket{0} &= \bra{0}\frac{1}{N}\sum_{j=1}^N \adop_j \aop_j\ket{0}\\
+\sum_{j=1}^N \adop_j \aop_j &= \frac{1}{2} \sum_{j=1}^N \left(x_j^2 + p_j^2 - 1\right) = -\frac{N}{2} + \frac{1}{2}\sum_n \left(q_n q_{-n} + \pi_n\pi_{-n}\right).
+\end{align}
+$$`
+
+- commutes with 
+
+$$
+H_\text{FM}^{(2)} = -2sJ \sum_{|n| \leq (N-1)/2} \sin^2(\eta_n/2)\left[q_n q_{-n} + \pi_n\pi_{-n}\right]
+$$
+
+---
+
+## AFM case
+
+$$
+s^z_j = (-1)^j(s-\adop_j\adop_j)
+$$
+
+- $q_n q_{-n} + \pi_n\pi_{-n}$ doesn't commute with $\sin^2(\eta/2)q_n q_{-n} + \cos^2(\eta/2)\pi_n\pi_{-n}$
+
+- Express both in oscillator variables
+
+`$$
+\begin{align}
+&\aop_\eta = \sqrt{\frac{|\tan(\eta /2)|}{2}}\left(q_n + \frac{i}{|\tan(\eta /2)|}\pi_{-n}\right)\nonumber\\
+&\adop_\eta = \sqrt{\frac{|\tan(\eta /2)|}{2}}\left(q_{-n} - \frac{i}{|\tan(\eta /2)|}\pi_{n}\right),\qquad \eta=2\pi n/N \\
+&\sin^2(\eta/2)q_n q_{-n} + \cos^2(\eta/2)\pi_n\pi_{-n}=\frac{\omega(\eta)}{2}\left[\adop_\eta\aop_\eta+\aop_\eta\adop_\eta\right].
+\end{align}
+$$`
+
+---
+
+- To evaluate $\Delta s = \bra{0}\adop_j\aop_j\ket{0}$ write in terms of $\adop_\eta$, $a_\eta$
+
+- Recall 
+
+`$$
+\begin{align}
+\frac{1}{N}\sum_{j=1}^N \adop_j \aop_j &= \frac{1}{2N} \sum_{j=1}^N \left(x_j^2 + p_j^2 - 1\right) = -\frac{1}{2} + \frac{1}{2N}\sum_n \left(q_n q_{-n} + \pi_n\pi_{-n}\right)\\
+\Delta s &= -\frac{1}{2}+\frac{1}{4N}\sum_n \left[|\tan(\eta_n/2)| + |\cot(\eta_n/2)|\right].\\
+ &= -\frac{1}{2}+\frac{1}{4}\int_{-\pi}^\pi \frac{d\eta}{2\pi} \left[|\tan(\eta_n/2)| + |\cot(\eta_n/2)|\right].
+\end{align}
+$$`
+
+- Integral diverges logarithmically at $\eta=0$ and $\eta=\pi$. 
+
+---
+
+- What went wrong? Our replacement 
+`$$
+\sum_n (\ldots) \longrightarrow \frac{N}{2\pi}\int_{-\pi}^\pi (\ldots)d\eta
+$$`
+failed us because the summand is singular (c.f. $\langle (u_i-u_j)^2\rangle$ in the elastic chain)
+
+- At finite $N$ the sums are all finite if $\eta=0, \pi$ are excluded
+
+$$
+\Delta s \propto \log N
+$$
+
+- No AFM in 1D at zero temperature in $N\to\infty$ limit
+
+---
+
+>Repeat the analysis on a 2D square lattice. You should find an integral over the two-dimensional Brillouin zone. Do you find divergences?
+
