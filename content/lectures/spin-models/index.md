@@ -431,7 +431,7 @@ $$`
 $$H = J \sum_{j=1}^N \mathbf{s}_j \cdot \mathbf{s}_{j+1}$$
 
 $$
-H\sim NJ s^2 - sJ- \overbrace{sJ \sum_{j=1}^N \left[x_j x_{j+1} + p_j p_{j+1}-x_j^2 - p_j^2\right]}^{\equiv H^{(2)}} + \ldots,
+H\sim NJ s^2 + sNJ+ \overbrace{sJ \sum_{j=1}^N \left[x_j x_{j+1} + p_j p_{j+1}-x_j^2 - p_j^2\right]}^{\equiv H^{(2)}} + \ldots,
 \label{spin_Harmonic}
 $$
 
@@ -451,6 +451,20 @@ $$`
 \omega_{\text{FM}}(\eta) = 4s\left|J\right|\sin^2(\eta/2)
 $$`
 c.f. $\omega(\eta) = 2\sin^2\eta/2$ that we found for $s=1/2$
+
+---
+
+$$
+H\sim NJ s^2 + sNJ+ \overbrace{ -2sJ \sum_{|n| \leq (N-1)/2} \sin^2(\eta_n/2)\left[q_n q_{-n} + \pi_n\pi_{-n}\right]}^{\equiv H^{(2)}} + \ldots,
+$$
+
+- Ground state energy of $H^{(2)}$ is 
+
+$$
+-2sJ\sum_{|n| \leq (N-1)/2} \frac{1}{2}\sin^2(\eta_n/2) = -sJN
+$$
+
+- Overall $E_0 = NJs^2$, which is exact energy of $\ket{FM}$
 
 ---
 
@@ -561,10 +575,10 @@ $$
 $$`
 
 - commutes with 
-
-$$
+`$$
 H_\text{FM}^{(2)} = -2sJ \sum_{|n| \leq (N-1)/2} \sin^2(\eta_n/2)\left[q_n q_{-n} + \pi_n\pi_{-n}\right]
-$$
+$$`
+and is zero in the ground state (c.f. ground state energy)
 
 ---
 
