@@ -283,14 +283,14 @@ $$`
 
 ---
 
-- Often use eigenstates of the free particle Hamiltonian $H=\frac{\bp^{2}}{2m}$ with periodic boundary conditions
+- Often use eigenstates of the free particle Hamiltonian $H=\frac{\bp^{2}}{2m}$ 
 `$$
 \begin{align}
 	\label{2nd_quant_FreeParticleStates}
 	\ket{\bk}=\frac{\exp(i\bk \cdot \br)}{\sqrt{V}}, \quad \bk=2\pi\left(\frac{n_{x}}{L_{x}},\frac{n_{y}}{L_{y}},\frac{n_{z}}{L_{z}}\right),\quad n_{x,y,z}\text{ integer},
 \end{align}
-$$
-with $V=L_{x}L_{y}L_{z}$`
+$$`
+with $V=L_{x}L_{y}L_{z}$ (periodic b.c.)
 
 - Matrix elements of transformation between to position basis $\{\ket{\br}\}$ are $\bra{\bk}\br\rangle=\exp(-i\bk \cdot \br)/\sqrt{V}$
 `$$
@@ -320,15 +320,14 @@ $$`
 \Psi^{\text{A}}(\br_1,\ldots,\br_N) = \frac{1}{\sqrt{N!}}\sum_P (-1)^P\psi_1(\mathbf{r}_{P_1})\psi_{2}(\mathbf{r}_{P_2})\cdots\psi_{N}(\mathbf{r}_{P_N}).
 \label{A_NProdAnti}
 $$`
-Note that overall sign fixedlabelling of the states $\psi_j$
+Note: overall sign fixed by labelling of states $\psi_j$
 
 - If $\Psi^{\text{A}}(\br_1,\ldots,\br_N) \longleftrightarrow \adop(\psi_1)\cdots \adop(\psi_N)\ket{\text{VAC}}$ we'll need
 `$$
 \left\{\adop(\psi),\adop(\phi)\right\}=0,
 \label{A_adanticommute}
 $$`
-for any states $\psi(\br)$ and $\phi(\br)$, where $\{A,B\}\equiv AB+BA$ is called the __anticommutator__. Also
-
+`$\{A,B\}\equiv AB+BA$` is __anticommutator__. Also
 `$$
 \left\{\aop(\psi),\aop(\phi)\right\}=0.
 \label{A_aanticommute}
@@ -366,3 +365,362 @@ $$`
 
 > Think about the form that the operators $\aop_\alpha$, $\adop_\alpha$ take in the basis of product states. Start with one state $\varphi_\alpha$. What's the matrix form of $\adop_\alpha$ in terms of states $\ket{N_\alpha}$? Now consider two states. Can you see how the commutation and anticommutation relations can be satisfied?
 
+---
+
+## Single Particle Operators
+
+- Notation: $A$ acts on single particle states; $\hat A$ acts on $N$ particles as
+`$$
+\hat A = \sum_{j=1}^N A_j,
+$$`
+- Example: Hamiltonian for noninteracting particles
+`$$
+\hat H = \sum_{j=1}^N H_j = \sum_{j=1}^N \left[-\frac{\nabla_j^2}{2m}+V(\br_j)\right].
+\label{A_H1}
+$$`
+- Operators of this type are __single particle operators__
+
+- How to represent them using creation and annihilation operators?
+
+---
+
+ - Action of $A$ on states $\ket{\varphi_\alpha}$ written 
+
+$$
+A\ket{\varphi_\alpha} = \sum_{\beta} \ket{\varphi_\beta}\braket{\varphi_\beta}{A}{\varphi_\alpha} = \sum_\beta A_{\beta\alpha}\ket{\varphi_\beta}
+$$
+
+- Action of $\hat A$ on product state `$\ket{\Psi^{\text{S/A}}_{\alpha_{1}\alpha_{2}\cdots\alpha_{N}}}$` is
+
+`$$
+\hat A \ket{\Psi^{\text{S/A}}_{\alpha_{1}\alpha_{2}\cdots\alpha_{N}}} = \sum_\beta \left[A_{\beta\alpha_1}\ket{\Psi^{\text{S/A}}_{\beta\alpha_{2}\cdots\alpha_{N}}} +A_{\beta\alpha_2}\ket{\Psi^{\text{S/A}}_{\alpha_1\beta\cdots\alpha_{N}}}+\cdots A_{\beta\alpha_N}\ket{\Psi^{\text{S/A}}_{\alpha_1\alpha_{2}\cdots\beta}}\right]
+\label{A_1OpAct}
+$$`
+
+- We'll see same job is done by 
+`$$
+\begin{equation}
+\hat A = \sum_{\alpha\beta}A_{\alpha\beta}\adop_\alpha\aop_\beta
+\end{equation}
+$$`
+acting on state $\ket{\mathbf{N}} \equiv \prod_\alpha \frac{\left(\adop_\alpha\right)^{N_\alpha}}{\sqrt{N_\alpha!}}\ket{\text{VAC}}$
+
+
+---
+
+- We have
+`$$
+\begin{equation}
+\left[\adop_\alpha\aop_\beta,\adop_\gamma\right]=\adop_\alpha\delta_{\beta\gamma}
+\end{equation}
+$$`
+for bosons _and fermions_
+
+- Commute $\adop_\alpha \aop_\beta$ though each of creation operators in $\ket{\mathbf{N}}$, e.g.
+
+`$$
+\begin{align}
+	\label{2nd_quant_}
+	\mathop{\hat A}\adop_{\beta}\ket{\text{VAC}}&=\left(\left[\mathop{\hat A},\adop_{\beta}\right]+\adop_{\beta}\mathop{\hat A}\right)\ket{\text{VAC}}\nonumber\\
+							&=\sum_{\alpha} A_{\alpha \beta} \adop_{\alpha}\ket{\text{VAC}}.
+\end{align}
+$$`
+
+> Try it for a two particle state!
+
+---
+
+`$$
+\begin{equation}
+\hat A = \sum_{\alpha\beta}A_{\alpha\beta}\adop_\alpha\aop_\beta
+\end{equation}
+$$`
+
+- Find matrix element $\braket{\mathbf{N}}{\hat A}{\mathbf{N'}}$ between product states made of orthonormal single particle states
+
+- Vanishes unless $N_\beta = N'_\beta-1$ and $N_\alpha = N'_\alpha+1$ we have
+
+$$
+\braket{\mathbf{N}}{\hat A}{\mathbf{N'}} = A_{\alpha\beta} \sqrt{N_\alpha N'_\beta}.
+\label{A_Aab}
+$$
+
+> This formula is not so easy to work out in the first quantized representation. Try it!
+
+- Same for bosons and fermions
+
+--- 
+
+`$$
+\begin{equation}
+\hat A = \sum_{\alpha\beta}A_{\alpha\beta}\adop_\alpha\aop_\beta
+\end{equation}
+$$`
+
+- Like _expectation value_ of $\mathop{A}$ in single particle state $\sum_{\alpha}a_{\alpha}\ket{\varphi_{\alpha}}$
+
+- But `$a_\alpha$` are _operators_ not _numbers_. This is the origin of the name __second quantization__
+
+- Resemblance makes it easy to write down second quantized form
+
+
+---
+
+### Example 1: noninteracting Hamiltonian
+
+`$$
+\hat H = \sum_{j=1}^N H_j = \sum_{j=1}^N \left[-\frac{\nabla_j^2}{2m}+V(\br_j)\right].
+$$`
+
+- Second quantized form
+$$
+	\label{2nd_quant_H2ndQ}
+	\mathop{\hat H} \equiv \sum_{\alpha,\beta}\braket{\varphi_{\alpha}}{\mathop{H}}{\varphi_{\beta}} \adop_{\alpha}\aop_{\beta},
+$$
+$H$ is single particle Hamiltonian $H=-\frac{1}{2m}\nabla_{i}^{2}+V(\mathbf{r_{i}})$
+
+- If basis $\ket{\varphi_{\alpha}}$ is eigenbasis of $H$: $\braket{\varphi_{\alpha}}{\mathop{H}}{\varphi_{\beta}}=E_{\alpha}\delta_{\alpha \beta}$ and
+
+$$
+\begin{align}
+	\label{2nd_quant_Nrep}
+	\mathop{\hat H} \equiv \sum_{\alpha} E_{\alpha} \adop_{\alpha}\aop_{\alpha}=\sum_{\alpha} E_{\alpha} \Nop_{\alpha}.
+\end{align}
+$$
+
+---
+
+- In the position basis
+`$$
+\begin{align}
+	\mathop{\hat H}&=\int d\br \left[-\frac{1}{2m}\pdop(\br)\nabla^{2}\pop(\br)+V(\br)\pdop(\br)\pop(\br)\right]\nonumber\\
+					&=\int d\br \left[\frac{1}{2m}\nabla\pdop(\br)\cdot\nabla\pop(\br)+V(\br)\pdop(\br)\pop(\br)\right],
+	\label{2nd_quant_HPos}
+\end{align}
+$$`
+(integration by parts)
+
+- Confirm equality to previous expression using
+
+$$
+	\pop(\br)\equiv\sum_{\beta}  \varphi_{\beta}(\br)\aop_{\beta},
+$$
+
+---
+
+- Heisenberg equation of motion for $\pop(\br)=e^{i\hat Ht}\pop(\br) e^{-i\hat H t}$ with noninteracting Hamiltonian
+`$$
+\begin{equation}
+	\label{2nd_quant_HeomFree}
+	\begin{split}
+	i\partial_{t}\pop(\br,t) &= -\left[\mathop{\hat H},\pop(\br,t)\right]\\
+	&= -\frac{1}{2m}\nabla^{2}\pop(\br,t)+V(\br)\pop(\br,t),
+	\end{split}
+\end{equation}
+$$`
+just the time dependent Schrödinger equation!
+
+--- 
+
+### Example 2: Density
+
+- Single particle operator for density at $\mathbf{x}$ is
+
+$$
+	\label{2nd_quant_spDens}
+	\rho(\mathbf{x})\equiv\delta(\mathbf{x}-\br).
+$$
+
+- Expectation value in single particle state $\varphi(\br)$ is $\rho(\mathbf{x})=\abs{\varphi(\mathbf{x})}^{2}$
+
+- Second quantized form of the operator is then
+
+$$
+	\label{2nd_quant_2ndQDens}
+	\hat\rho(\mathbf{x})\equiv\pdop(\mathbf{x})\pop(\mathbf{x}).
+$$
+
+- __Check:__ integrating over position should give total number of particles
+
+$$
+	\label{2nd_quant_DensIntegral}
+	\hat N=\int d\mathbf{x}\, \pdop(\mathbf{x})\pop(\mathbf{x})=\sum_{\alpha} \adop_{\alpha}\aop_{a}=\sum_{\alpha}\Nop_{\alpha},
+$$
+
+---
+
+- Expectation value of density in product state $\ket{N_{0},N_{1}\ldots}$
+
+$$
+	\label{2nd_quant_DensityExp}
+	\braket{N_{0},N_{1}\ldots}{ \hat\rho(\br)}{N_{0},N_{1}\ldots} = \sum_{\alpha} N_{\alpha}\left|\varphi_{\alpha}(\br)\right|^{2}.
+$$
+
+> Prove using $\pop(\br)\equiv\sum_{\beta}  \varphi_{\beta}(\br)\aop_{\beta}$
+
+- Interpretation: `$\left|\varphi_{\alpha}(\br)\right|^{2}$` is probability to find a particle in state $\alpha$ at position $\br$. Density is weighted by occupation
+
+---
+
+### Example 3: Current operator
+
+$$
+	\label{2nd_quant_current}
+	\hat{\mathbf{j}}(\br)=-i\frac{1}{2m}\left[\pdop(\br)\left(\nabla\pop(\br)\right)-\left(\nabla\pdop(\br)\right)\pop(\br)\right].
+$$
+
+- Often we consider Fourier components of density or current
+`$$
+\begin{align}
+	\label{2nd_quant_FourierComp}
+	\hat\rho_{\bq}\equiv\int d\br\, \hat\rho(\br)e^{-i\bq \cdot \br}=\sum_{\bk} \adop_{\bk-\bq/2}\aop_{\bk+\bq/2}\nonumber\\
+	\hat{\mathbf{j}}_{\bq}\equiv\int d\br\, \hat{\mathbf{j}}(\br)e^{-i\bq \cdot \br}=\sum_{\bk} \frac{\bk}{m}\adop_{\bk-\bq/2}\aop_{\bk+\bq/2}.
+\end{align}
+$$`
+$\bq=0$ modes are total particle number and $\frac{1}{m}\times$ total momentum, resp.
+
+---
+
+### Single particle density matrix
+
+- From [Lecture 1]({{< ref "many-body-wavefunctions" >}}) 
+
+$$
+	g(\br,\br') \equiv N \int d\br_{2}\cdots d\br_{N}\,\Psi^{*}(\br,\br_{2},\ldots,\br_{N})\Psi(\br',\br_{2},\ldots,\br_{N}).
+$$
+
+
+> Show that this can be written in terms of our field operators as
+>
+>$$
+>	\label{2nd_quant_SPDensity}
+>	g(\br,\br')= \braket{\Psi}{\pdop(\br)\pop(\br')}{\Psi}
+>$$
+
+- Similar calculation as for density gives
+
+$$
+	\label{2nd_quant_SPFock}
+	g(\br,\br') = \sum_{\alpha} N_{\alpha}\varphi_{\alpha}^{*}(\br)\varphi^{}_{\alpha}(\br').
+$$
+
+---
+
+- We evaluated $g(x,y)$ for ground state of 1D Fermi gas using Slater determinant
+
+- For 3D $N_{\bk}=1$ for $\abs{\bk}<k_{F}$, and $0$ otherwise
+
+$$
+\ket{\text{Fermi sea}} = \prod_{|\bk|<k_F} \adop_\bk\ket{\text{VAC}}
+$$
+
+> Show that
+>
+>$$
+>\begin{aligned}
+>	\label{2nd_quant_FermiDensityMatrix}
+>	g(\br,\br')=\frac{1}{V}\sum_{|\bk|<k_{F}} e^{i\bk\cdot(\br'-\br)}&=\int_{|\bk|<k_{F}} \frac{d\bk}{(2\pi)^{3}}\,e^{i\bk\cdot(\br'-\br)}\nonumber\\
+>	&=\frac{k_{F}^{3}}{2\pi^{2}}\left[\frac{\sin\left(k_{F}|\br'-\br|\right)}{(k_{F}|\br'-\br|)^{3}}-\frac{\cos\left(k_{F}|\br'-\br|\right)}{(k_{F}|\br'-\br|)^{2}}\right].
+>\end{aligned}
+>$$
+>
+>Note that $g(\br,\br)=\frac{k_{F}^{3}}{6\pi^{2}}=n$
+
+---
+
+<p align="center">
+<img src="assets/FermiDensityMatrixCut.png" alt="drawing" width="600" class="center"/>
+</p>
+
+---
+
+## Two Particle Operators
+
+- Acts _pairwise_ on the particles
+`$$
+\hat B = \sum_{j<k} B_{jk}.
+$$`
+($B_{jk}=B_{kj}$ for indistinguishable particles.) 
+
+- Action of $\hat B$ on a two particle product state $\ket{\varphi_{\alpha}}_1\ket{\varphi_{\beta}}_2$ can be expressed in terms of matrix elements
+`$$
+\begin{align}
+B_{\alpha\beta,\gamma\delta} &= \bra{\varphi_\alpha}_1\bra{\varphi_\beta}_2 B_{12} \ket{\varphi_\gamma}_1\ket{\varphi_\delta}_2\\
+\hat B &= \frac{1}{2}\sum_{\alpha\beta\gamma\delta} B_{\alpha\beta,\gamma\delta}\adop_\alpha\adop_\beta\aop_\delta\aop_\gamma.
+\end{align}
+$$`
+(Note order, which is important for fermions!). 
+
+> Check this on product states ($N=2$ first)
+
+---
+
+- Remember that for one particle operators
+
+$$
+\braket{\mathbf{N}}{\hat A}{\mathbf{N'}} = A_{\alpha\beta} \sqrt{N_\alpha N'_\beta}
+$$
+
+- For two particle operators  
+`$$
+\braket{\mathbf{N}}{\hat B}{\mathbf{N'}} = \sum_{\alpha\beta\gamma\delta} B_{\alpha\beta,\gamma\delta} \sqrt{N_\alpha N_\beta N'_\gamma N'_\delta}.
+\label{A_Babcd}
+$$`
+with $N_{\gamma,\delta} = N'_{\gamma,\delta}-1$ and $N_{\alpha,\beta} = N'_{\alpha,\beta}+1$
+
+---
+
+`$$
+\braket{\mathbf{N}}{\hat B}{\mathbf{N'}} = \sum_{\alpha\beta\gamma\delta} B_{\alpha\beta,\gamma\delta} \sqrt{N_\alpha N_\beta N'_\gamma N'_\delta}.
+$$`
+
+- Strictly we have
+`$$
+\begin{gather}
+N'_\gamma N'_\delta \to N'_\gamma (N'_\gamma-1) && \gamma=\delta\\
+N_\alpha N_\beta \to N_\alpha (N_\alpha-1) && \alpha=\beta
+\end{gather}
+$$`
+In thermodynamic limit these terms usually make a vanishing contribution when sums replaced with integrals
+
+- Exceptions: when a finite fraction of particles are in one state (which occurs for Bose—Einstein condensates). In those cases we end up neglecting $N_\alpha-1$ relative to $N_\alpha$, however!
+
+---
+
+### Example: pairwise interaction
+
+
+$$
+\hat H_\text{int.} = \sum_{j<k} U(\br_j-\br_k).
+$$
+
+- Expressing in position basis
+
+$$
+\hat H_\text{int.} = \frac{1}{2}\int d\br_1 d\br_2\, U(\br_1-\br_2)\pdop(\br_1)\pdop(\br_2)\pop(\br_2)\pop(\br_1)
+$$
+
+- Remembering that $\rho(\br) = \pdop(\br)\pop(\br)$, this is _almost_
+`$$
+\hat H_\text{int.} = \frac{1}{2}\int d\br_1 d\br_2\, U(\br_1-\br_2)\rho(\br_1)\rho(\br_2)
+\label{A_VNotNormal}
+$$`
+Operator order prevents a particle from interacting with itself!
+
+> $\hat H_\text{int}$ has zero expectation for 1 particle
+
+---
+
+
+- Hamiltonian of interacting bosons from [Lecture 1]({{< ref "many-body-wavefunctions" >}})
+`$$
+H = -\frac{1}{2m}\sum_j \frac{\partial^2}{\partial x_j^2} + \overbrace{c\sum_{j<k}\delta(x_j-x_k)}^{\equiv H_\text{int}}.
+\label{many_LL}
+$$`
+has second quantized form
+`$$
+H = \int dx \left[\frac{1}{2}\partial_x\pdop(x)\partial_x\pop(x) + \frac{c}{2}\pdop(x)\pdop(x)\pop(x)\pop(x)\right],
+$$`
+$\pop(x)$, $\pdop(x)$ satisfy the canonical bosonic commutation relations
+
+> __QFT is a language__. Just because we've written the same thing in a new way doesn't (necessarily) make it easier to solve!

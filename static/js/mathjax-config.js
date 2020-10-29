@@ -1,5 +1,5 @@
 window.MathJax = {
-    tex: {
-      tags: 'all'
-    }
-  };
+  tex: {
+    tags: 'all'
+  }
+};

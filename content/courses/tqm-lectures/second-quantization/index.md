@@ -15,5 +15,3 @@ menu:
     parent: Lectures
     weight: 5
 ---
-
-
