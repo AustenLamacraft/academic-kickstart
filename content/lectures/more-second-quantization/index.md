@@ -81,16 +81,18 @@ recall: Slater determinant, $P$ and $P'$ differ by transposition, etc.
 
 `$$
 \begin{align}
-\rho_2(x_1,x_2) &= N(N-1) \int dx_3\ldots dx_N \,\left|\Psi(x_1,x_2,\ldots,x_N)\right|^2,\\
- &=\braket{\Psi}{\sum_{j\neq k}\delta(x-x_j)\delta(y-x_k)}{\Psi}.
+\rho_2(x,y) &= N(N-1) \int dx_3\ldots dx_N \,\left|\Psi(x,y,\ldots,x_N)\right|^2,\\
 \end{align}
 $$`
 
-- Recognize expectation value of two particle operator
+- Recall from [Lecture 5]({{< ref "second-quantization" >}})
 
-$$
-B_{jk}=\delta(x-x_j)\delta(y-x_k)
-$$
+`$$
+\begin{align}
+\ket{\Psi}&\longleftrightarrow \Psi(x_1,\ldots, x_N)\nonumber\\
+\psi(X)\ket{\Psi}&\longleftrightarrow \sqrt{N}\Psi(X,x_1,\ldots, x_{N-1})\\
+\end{align}
+$$`
 
 - Second quantized form
 
@@ -107,9 +109,7 @@ $$
 
 - Operators in which all annihilation operators stand to the right of all creation operators are said to be __normal ordered__
 
-- Here, normal ordering serves to ensure that a term with $j=k$ does not appear in $\rho_2(x,y)$
-
-- Two particle terms in the Hamiltonian are normal ordered for the same reason
+- Two particle terms in the Hamiltonian are normal ordered to prevent particle interacting with itself!
 
 ---
 
@@ -132,8 +132,6 @@ $$
 	\label{2nd_quant_CEval}
 	\rho_2(x,y)=\sum_{\alpha, \beta, \gamma, \delta}\varphi^{*}_{\alpha}(x)\varphi^{*}_{\beta}(y)\varphi^{}_{\gamma}(y)\varphi^{}_{\delta}(x)\braket{\Psi}{\adop_{\alpha}\adop_{\beta}\aop_{\gamma}\aop_{\delta}}{\Psi}.
 $$
-
-- 
 
 ---
 
