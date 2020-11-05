@@ -484,4 +484,150 @@ $$`
 
 - Second term favours ferromagnetism for repulsive interactions (c.f. Hund's rules)
 
+---
 
+
+
+> This is most succintly put by the formula
+>
+>$$
+> \rho_2(\br,\br) = \frac{1}{2}\rho(\br)^2 - 2\mathbf{s}(\br)\cdot\mathbf{s}(\br)
+>$$
+
+---
+
+- Hartree--Fock energy forms the basis of variational method using product states 
+
+- For a Hamiltonian with translational invariance
+`$$
+H = \int d\br \frac{1}{2m}\nabla\pdop\cdot\nabla\pop + \frac{1}{2}\int d\br d\br' U(\br-\br')\pdop(\br)\pdop(\br')\pop(\br')\pop(\br),
+\label{more_H2nd}
+$$`
+guaranteed to involve with plane wave single particle states. Only variational parameters are occupancies of these states
+
+- If translational symmetry is broken, have to allow the states, as well as the occupancies, to vary.
+
+---
+
+### Stoner Criterion for Ferromagnetism
+
+- Polarizing spins in a Fermi gas is not without cost (otherwise everything would be ferromagnetic!)
+
+- Price to pay is increased kinetic energy!
+
+---
+
+- Ground state kinetic energy of $N$ (spinless) fermions in three dimensions, obtained from
+
+`$$
+\begin{align}
+N = \sum_{|\bk|<k_\text{F}}&\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} = \frac{k_\text{F}^3}{6\pi^2} \\
+E_\text{kin} = \sum_{|\bk|<k_\text{F}} \frac{\bk^2}{2m} &\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} \frac{\bk^2}{2m}\\
+ &= \frac{k_\text{F}^5}{20\pi^2 m} = L^3 \frac{3}{10m}(6\pi^2)^{2/3} n^{5/3},
+\end{align}
+$$`
+
+- Total energy is
+`$$
+\begin{equation}
+E_\text{kin}(n_\uparrow,n_\downarrow) = \frac{cL^3}{m}\left(n_\uparrow^{5/3}+n_\downarrow^{5/3}\right),
+\end{equation}
+$$`
+$c=\frac{3}{10}(6\pi^2)^{2/3}$
+
+---
+
+- Writing $n=n_\uparrow+n_\downarrow$ $\bar s = \left(n_\uparrow-n_\downarrow\right)/2$, we have
+
+$$
+E_\text{kin}(n, \bar s) = \frac{cL^3}{m}\left(\left[n/2+\bar s\right]^{5/3}+\left[n/2-\bar s\right]^{5/3}\right).
+$$
+
+- In terms of the __polarization__ $P \equiv \frac{n_\uparrow-n_\downarrow}{n}$ in range $[-1,1]$
+
+$$
+E_\text{kin}(P) = \frac{E_\text{K}}{2}\left[(1+P)^{5/3}+(1-P)^{5/3}\right].
+$$
+
+- $E^{(0)}_\text{kin}(n, \bar s)$ is minimized for $s=0$.
+
+---
+
+- Total Hartree--Fock energy is
+
+$$
+E_\text{HF}(n,\bar s) = \frac{V_0L^3}{2} n^2 - \frac{V_0L^3}{2} \left(n_\uparrow^2+n_\downarrow^2\right) =  \frac{V_0L^3}{2} \left(\frac{1}{2}n^2 - 2\bar s^2\right).
+$$
+
+- In terms of $P$
+
+$$
+E_\text{HF}(P) = \frac{E_V}{2}(1-P^2).
+$$
+
+---
+
+> Minimize the total energy $E(P) = E_\text{kin}(P) + E_\text{HF}(P)$ to show
+>
+>  1. For $E_V/E_K<10/9$ the ground state is non-magnetic.
+>  2. As $E_V/E_K$ increases past $10/9$ the magnetization begins to increase.
+>  3. At $E_V/E_K>\frac{5}{6}2^{2/3}$ is the ground state is fully polarized.
+
+---
+
+### Excited State Energies
+
+
+$$
+\begin{align}
+	\pop(\br)\equiv\frac{1}{L^{3/2}}\sum_{\bk} \exp(i\bk\cdot\br)\aop_{\bk},\\
+  \pdop(\br)\equiv\frac{1}{L^{3/2}}\sum_{\bk} \exp(-i\bk\cdot\br)\adop_{\bk},
+\end{align}
+$$
+
+- Interaction potential in terms of its Fourier components
+
+$$
+U(\br-\br') = \frac{1}{L^3}\sum_\bq \tilde U(\bq) \exp(i\bq\cdot[\br-\br']).
+$$
+
+- Interaction Hamiltonian for spinless particles can then be written
+
+$$
+\hat H_\text{int.}  = \frac{1}{2L^3} \sum_{\bk_1+\bk_2=\bk_3+\bk_4} \tilde U(\bk_1-\bk_4) \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}.
+\label{more_vertex}
+$$
+
+---
+
+- Graphical representation 
+
+<p align="center">
+<img src="assets/Vertex.png" alt="drawing" width="600" class="center"/>
+</p>
+
+---
+
+- Expectation value in a product state of momentum eigenstates gives two terms
+
+<p align="center">
+<img src="assets/HFDiag.png" alt="drawing" width="600" class="center"/>
+</p>
+
+---
+
+- Evaluating the two contributions
+
+$$
+\braket{\mathbf{N}}{\hat H_\text{int.}}{\mathbf{N}} = \frac{1}{2V}\tilde U(0) \sum_{\bk_1,\bk_2} N_{\bk_1}N_{\bk_2} - \frac{1}{2V} \sum_{\bk_1,\bk_2} \tilde U(\bk_1-\bk_2) N_{\bk_1}N_{\bk_2}
+$$
+
+- Hartree term just depends on total number 
+
+- Fock term depends on the individual occupations
+
+- Interaction energy to add a single particle to state $\bk$ is
+
+$$
+\Delta U_{\bk} = \frac{\tilde U(0)}{V} \sum_{\bk'} N_{\bk'} - \frac{1}{V}\sum_{\bk'} \tilde U(\bk-\bk') N_{\bk'}
+$$

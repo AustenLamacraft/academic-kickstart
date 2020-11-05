@@ -673,7 +673,7 @@ with $N_{\gamma,\delta} = N'_{\gamma,\delta}-1$ and $N_{\alpha,\beta} = N'_{\alp
 ---
 
 `$$
-\braket{\mathbf{N}}{\hat B}{\mathbf{N'}} = B_{\alpha\beta,\gamma\delta} \sqrt{N_\alpha N_\beta N'_\gamma N'_\delta}.
+\braket{\mathbf{N}}{\hat B}{\mathbf{N'}} =  \left[B_{\alpha\beta,\gamma\delta}\pm B_{\alpha\beta,\delta\gamma}\right] \sqrt{N_\alpha N_\beta N'_\gamma N'_\delta}.
 $$`
 
 - Strictly we have
