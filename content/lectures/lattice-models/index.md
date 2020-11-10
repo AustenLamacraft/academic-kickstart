@@ -323,10 +323,8 @@ $$
 
 ---
 
-### Two Sites, Large $U/t$
+### $U/t\to infty$
 
-
-- Think about $U/t\to\infty$ as in Bose case
 
 - Three Mott staes to 0, 1, or 2 particles per site
 
@@ -334,64 +332,75 @@ $$
 
 - At __half filling__ (1 particle / site) can have $\ket{\uparrow/\downarrow}$.
 
----
+-  $\nu=1$ Mott state is __massively degenerate__, with a ground state multiplet consisting of `$2^{N_\text{sites}}$` possible spin configurations
 
-
-, we can have either spin. Thus the $\nu=1$ Mott state is _massively_ degenerate, with a ground state multiplet consisting of $2^{N_\text{sites}}$ possible spin configurations. $U/t\to\infty$ is therefore a rather singular limit, and to understand the true ground state at large $U$ we'll need to work bit harder.
+- What happens when $U/t$ large but finite?
 
 ---
 
 ### Two Sites, Large $U/t$
 
-Start by thinking about two sites and two particles. There are 6 states altogether in the Hilbert space.
+- 6 states altogether in the Hilbert space
 
-$$
+`$$
 \begin{align}
 \adop_{1,\uparrow}\adop_{1,\downarrow} \ket{\text{VAC}},\quad\adop_{2,\uparrow}\adop_{2,\downarrow} \ket{\text{VAC}}\\
 \adop_{1,s}\adop_{2,s'} \ket{\text{VAC}},\quad s,s'=\uparrow,\downarrow.
 \end{align}
-$$
+$$`
 
-The top two states have energy $U$ when $t=0$; the bottom 4 have energy 0.
+- Top two states have energy $U$ when $t=0$; rest have energy 0.
 
 >[Try this before continuing!] How does the degeneracy of these states get lifted at finite $t$? Try writing down the Hamiltonian restricted to these states.
 
+---
+
 ### Effective Hamiltonian
 
-As the number of sites increases, it becomes harder to say what happens to the ground state multiplet. We now modify our strategy by splitting the problem in two: we are going to find an _effective Hamiltonian_ that acts only on the half filled Mott states and describes their splitting when $t/U$ is finite but small. Whether we can subsequently solve that Hamiltonian we leave until later.
+- Find __effective Hamiltonian__  $H_\text{eff}$ that acts only on the half filled Mott states to describe splitting when $t/U\neq 0$ is finite
 
-As I'm sure you realized when you thought about two sites, this is a qualitatively different degenerate perturbation problem than the one we solved when we added a single particle or hole to the bosonic Mott states. The reason is that $H_t$ has no matrix elements among the degenerate states: when acting on one of them it always takes us into a state with one site doubly occupied and the neighouring site empty. We have to think about _second order_ degenerate perturbation theory to find out what happens. To handle this we divide the Hamiltonian into block form, according to whether its matrix elements act on the Mott state or not.
+- Solving the $H_\text{eff}$ comes later!
 
-$$
+- Need __second order__ degenerate perturbation theory because $H_t$ has zero matrix elements in degenerate subspace
+
+---
+
+- Hamiltonian has block structure, with off-diagonal block $V\propto t$
+
+`$$
 H = \begin{pmatrix}
 H_{\text{Mott}} & V^{} \\
 V^\dagger & H_\text{Not} \\
 \end{pmatrix}
-$$
+$$`
 
-Denoting by $P_\text{Mott}$ the projection operator on to the $2^{N_\text{sites}}$ Mott states, and $P_\text{Not}\equiv 1-P_\text{Mott}$, we have
-
-$$
+- __Notation__: $P_\text{Mott}$ is projection operator on to the $2^{N_\text{sites}}$ Mott states 
+`$$
 \begin{align}
 H_\text{Mott}= P_\text{Mott} H P_\text{Mott},\quad H_\text{Not}= P_\text{Not}H P_\text{Not}\\
 V^{} = P_\text{Mott} H P_\text{Not},\qquad V^\dagger = P_\text{Not} H P_\text{Mott}.
 \end{align}
-$$
+$$`
+$P_\text{Not}\equiv 1-P_\text{Mott}$
 
-In the case of the Hubbard model, we have
 
-$$
+
+---
+
+- For Hubbard model
+`$$
 \begin{align}
 H_\text{Mott}= P_\text{Mott} H_U P_\text{Mott},\quad H_\text{Not}= P_\text{Not}H_U P_\text{Not}\\
 V^{} = P_\text{Mott} H_t P_\text{Not},\qquad V^\dagger = P_\text{Not} H_t P_\text{Mott}.
 \end{align}
-$$
+$$`
+$H_{\text{Mott}}=0$ ($\nu=1$ states have no interaction energy)
 
-We write the eigenvalue equation in block form
+- Write eigenvalue equation in block form
 
-$$
+`$$
 \begin{pmatrix}
-H_{\text{Mott}} & V^{} \\
+0 & V^{} \\
 V^\dagger & H_\text{Not} \\
 \end{pmatrix}
 \begin{pmatrix}
@@ -402,64 +411,90 @@ V^\dagger & H_\text{Not} \\
 \ket{\Psi}\\
 \ket{\Phi}
 \end{pmatrix}.
-$$
+$$`
 
-We eliminate $\ket{\Phi}$ to obtain
-
-$$
-\left[H_{\text{Mott}} -V^{}\left(H_\text{Not}-E\right)^{-1}V^\dagger\right]\ket{\Psi} = E\ket{\Psi}.
-$$
-
-So far we have made no approximation. While this looks like an eigenvalue equation, we can't yet interpret the operator in the square brackets as an effective Hamiltonian because it depends on the eigenvalue $E$. However, we now focus on energies much smaller than the eigenvalues of $H_\text{Not}$, which are $O(U)$. In this way we can neglect this energy dependence and arrive at the effective Hamiltonian acting only on the Mott state
+- Eliminate $\ket{\Phi}$
 
 $$
-H_\text{eff} = H_{\text{Mott}} -V^{} H^{-1}_\text{Not}V^\dagger.
+-V^{}\left(H_\text{Not}-E\right)^{-1}V^\dagger\ket{\Psi} = E\ket{\Psi}.
 $$
 
-What form does $H_\text{eff}$ take? $H_{\text{Mott}}=0$, and $V^\dagger$ creates states with an adjacent hole and __doublon__ (doubly occupied site). $H_\text{Not}$ acting on these states is just $U$, and $V$ has to remove the hole and doublon. Thus,
+---
 
 $$
-H_\text{eff} = -\frac{V^{}V^\dagger}{U} = -\frac{t^2}{U} \sum_{\substack{\langle j\,k\rangle\\s,s'}} \adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'}.
+-V^{}\left(H_\text{Not}-E\right)^{-1}V^\dagger\ket{\Psi} = E\ket{\Psi}.
 $$
 
-We can write this in a more familiar way by first reordering the operators (not forgetting the anticommutation relations!)
+- Not an eigenvalue equation because of $E$ on LHS
+
+- __But__ if $E\ll$ eigenvalues of $H_\text{Not}=O(U)$
+
+$$
+H_\text{eff} =-V^{} H^{-1}_\text{Not}V^\dagger.
+$$
+
+---
+
+### Form of `$H_\text{eff}$` 
+
+$$
+H_\text{eff} =-V^{} H^{-1}_\text{Not}V^\dagger.
+$$
+
+1. `$V^\dagger$` creates states with adjacent hole and __doublon__ (doubly occupied site)
+
+2. $H_\text{Not}$ acting on these states is just $U$
+
+3. $V$ has to remove the hole and doublon
+
+$$
+H_\text{eff} = -\frac{V^{}V^\dagger}{U} = -\frac{t^2}{U} \sum_{\langle j\,k\rangle s,s'} \adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'}.
+$$
+
+---
+
+$$
+H_\text{eff} = -\frac{V^{}V^\dagger}{U} = -\frac{t^2}{U} \sum_{\langle j\,k\rangle s,s'} \adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'}.
+$$
+
+- Re-write by first reordering the operators (anticommutation!)
 
 $$
  \adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'} = -\adop_{j,s}\aop_{j,s'}\adop_{k,s'}\aop_{k,s} + \delta_{s^{}s'}\adop_{j,s}\aop_{j,s'},
 $$
 
-and then using the identity
+- Then use identity
 
 $$
 \delta_{ab}\delta_{cd} = \frac{1}{2}\left[\boldsymbol{\sigma}_{a d}\cdot \boldsymbol{\sigma}_{c b} + \delta_{ad}\delta_{cb}\right].
 $$
 
-Finally, in $d$ dimensions ($d=1$, chain; $d=2$ square lattice; $d=3$ cubic lattice) we get
+---
 
-$$
+- In $d$ dimensions ($d=1$, chain; $d=2$ square lattice; $d=3$ cubic lattice) 
+`$$
 H_\text{eff} = -\frac{dN_\text{sites}t^2}{2U}+J\sum_{\langle j\,k\rangle} \mathbf{s}_j\cdot \mathbf{s}_k
-$$
-
+$$`
 with $J=\frac{2t^2}{U}$ and
 
-$$
+`$$
 \mathbf{s}_j=\frac{1}{2}\sum_{s,s'}\adop_{j,s}\boldsymbol{\sigma}_{s^{}s'}\aop_{j,s'}.
-$$
+$$`
 
-The effective Hamiltonian is nothing but the spin-1/2 antiferromagnetic Heisenberg model!
+- $H_\text{eff}$ is spin-1/2 antiferromagnetic Heisenberg model!
 
-> Note that there is something slightly sly about this derivation. We assumed that the energy scale $U$ was the largest scale in the problem, in order to arrive at the effective Hamiltonian. However, typical excited state energies of the Heisenberg Hamiltonian are $\frac{N_\text{sites}t^2}{U}$. Thus for $N_\text{sites}\gtrsim \left(\frac{t}{U}\right)^2$ there isn't actually a separation between these two energies. Not a very useful condition! Physically, it's enough to have a small <strong>density </strong> $n$ of doublons and holes, with overall energy $\sim nU$, when $t/U$ is small.
+---
 
 ### Doping
 
-Antiferromagnetism and the Mott phenomenon are seen to go hand in hand in fermion systems. This explains the common ocurrence of antiferromagnetism in transition metal compounds, especially oxides. The cuprate superconductors mentioned earlier are a famous example.
 
-{{< figure src="Cuphase.png" title="Schematic temperature vs. doping diagram for the cuprate materials [[Source]](https://en.wikipedia.org/wiki/High-temperature_superconductivity#Cuprates)." numbered="true" lightbox="true" >}}
+<p align="center">
+<img src="assets/Cuphasediag.png" alt="drawing" width="500" class="center"/>
+</p>
 
-At half filling, the cuprates are antiferromangetic Mott insulators. Superconductivity emerges when the materials are doped by changing their stoichiometry. This introduces electrons or holes into the CuO$_2$ planes that are modeled by the Hubbard Hamiltonian. Antiferromagnetic order is believed to be destroyed by freely moving holes -- think how the Néel ordering is disrupted -- and indeed superconductivity appears where antiferromagnetism dies. The precise relationship between the two phenomena is -- like much of the physics of the cuprates -- not clear.
+- At half filling, cuprates are antiferromangetic Mott insulators
 
+- Superconductivity emerges when materials __doped__, introducing electrons or holes into CuO$_2$ planes
 
-References
-----------
+-  Superconductivity appears where antiferromagnetism dies. Why?
 
-{% bibliography --cited %}
