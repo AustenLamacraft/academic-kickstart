@@ -170,15 +170,30 @@ $\mu$ is identified with the chemical potential.
 
 ---
 
-- Nonlinearity of GP equation means there exists a length scale set by the
-typical value of $|\varphi(\br)|^2\sim n$ and interaction strength
+### Healing length
+
+- 1D, no potential 
 
 $$
-\xi\equiv \frac{1}{\sqrt{2m n U_0}}
+\left[-\frac{1}{2m}\partial_x^2-\mu+U_0|\varphi|^2\right]\varphi(x)=0.
 $$
 
-- __healing length__ $\xi$ is scale over which $\varphi(\br)$ is disturbed by introduction
-of a localized potential of scale $\ll \xi$
+- Dimensionless form $\varphi(\br)=\sqrt{n}\phi(\br/\xi)$ for $\mu=U_0n$
+
+$$
+\left[-\frac{1}{2m \xi^2}\phi''+\mu (|\phi|^2-1)\right]\phi(x)=0.
+$$
+
+
+- If we set $\xi\equiv \frac{1}{\sqrt{2m \mu}}=\frac{1}{\sqrt{2m n U_0}}$ then
+
+$$
+\left[-\phi''+|\phi|^2-1\right]\phi(x)=0.
+$$
+
+---
+
+- __Healing length__ $\xi$ is scale on which $\varphi(\br)$ disturbed by localized perturbation of scale $\ll \xi$
 
 > Near a wall
 >
@@ -186,13 +201,21 @@ of a localized potential of scale $\ll \xi$
 >  \varphi(x)=\varphi_{\infty}\tanh \frac{x}{\sqrt{2}\xi}
 > $$
 >
-> where $x$ is distance from wall, and $\varphi_{\infty}=\sqrt{n_{\infty}}$ is fixed by the density far away.
+> where $x$ is distance from wall, and $\varphi_{\infty}=\sqrt{n}$ is fixed by the density far away.
+
+---
+
+### [Condensate in a Can](https://physics.aps.org/articles/v6/s72)
+
+<p align="center">
+<img src="assets/can.png" alt="drawing" width="700" class="center"/>
+</p>
 
 ---
 
 ### Some Observables
 
-- ensity and current density
+- Density and current density
 
 `$$
 \begin{align}
@@ -207,9 +230,7 @@ $$
 	\varphi(\br)=\sqrt{\rho(\br)}e^{i\theta(\br)}.
 $$
 
-- Using $\mathbf{j}=\rho \mathbf{v}$
-
-- __Superfluid velocity__
+- Using $\mathbf{j}=\rho \mathbf{v}$ we get __superfluid velocity__
 
 $$
 	\mathbf{v}_{s}\equiv\frac{1}{m}\nabla\theta.
@@ -220,34 +241,360 @@ $$
 
 ### Example: Vortex
 
-Expect \mathbf{v}_{s} to be _irrotational_
-
-$$
+- Expect $\mathbf{v}_{s}=\frac{1}{m}\nabla\theta$ to be _irrotational_
+`$$
 \nabla\times \mathbf{v}_s = 0,
-$$
+$$`
 
-or equivalently to have vanishing _circulation_
+- Equivalently to have vanishing _circulation_ around any closed loop
 
-$$
+`$$
 \oint \mathbf{v}_s\cdot d\mathbf{l}=0
-$$
+$$`
 
-around any closed loop. 
+- But phase of wavefunction can _increase_ by a multiple of $2\pi$ around a closed loop, so in general
+`$$
+\oint \mathbf{v}_s\cdot d\mathbf{l}=\frac{2\pi \ell}{m},\quad \ell\in\mathbb{Z},
+$$`
+__Onsager--Feynmann quantization condition__. 
 
 ---
 
-However, it is possible for the phase of the wavefunction to increase by a multiple of $2\pi$ around a closed loop, which still gives a single-valued condensate wavefunction since $\varphi(\br)=\sqrt{\rho(\br)}e^{i\theta(\br)}$. Thus in general the circulation
+- Localized configuration with finite circulation is a __vortex__ in fluid dynamics
 
-$$
-\oint \mathbf{v}_s\cdot d\mathbf{l}=\frac{2\pi \ell}{m},\quad \ell\in\mathbb{Z},
-$$
-
-which is known as the __Onsager--Feynmann quantization condition__. A localized configuration with finite circulation is called a __vortex__ in fluid dynamics, but in a normal fluid there is no reason for the vorticity to be quantized. Restoring Planck's constant just this once
-
-$$
+- In normal fluid there is no reason for the vorticity to be quantized
+`$$
 \oint \mathbf{v}_s\cdot d\mathbf{l}=\frac{h\ell}{m},\quad \ell\in\mathbb{Z},
-$$
-
+$$`
 shows that this is a truly _quantum_ phenomenon.
 
-A non-zero winding of the phase requires that $\rho(\br)$ vanishes at a point (in two dimensions) or on a line (in three). Let's see how such configurations are described by the Gross--Pitaevskii theory.
+- A non-zero winding of phase requires that $\rho(\br)$ vanishes at a point (in 2D) or on a line (in 3D)
+
+---
+
+- Look for 2D solutions where phase winds $\ell$ times around origin
+
+$$
+\varphi(r,\theta)\xrightarrow{r\to\infty} \sqrt{n} e^{i\ell\theta}.
+\label{bose_vortex}
+$$
+
+- Paremeterize $\varphi(r,\theta) = \sqrt{n} f(r/\xi)e^{i\ell\theta}$ to give an equation in $s\equiv r/\xi$ (set $\mu=U_0 n$ as before).
+
+$$
+-f'' -\frac{f'}{s} + \frac{\ell^2 f}{s^2} - f +f^3 =0.
+$$
+
+> Without finding the solution explicitly, show that $f(s)\sim s^\ell$ for small $s$, and $f(s\to\infty) \to 1$.
+
+---
+
+- Region of suppressed density size $\xi$, is  __vortex core__
+
+- In three dimensions, vortex core is a line
+
+- Find energy of vortex by substituting solution back into energy
+
+`$$
+\begin{align}
+\braket{\Psi}{H}{\Psi}=\int d\br \left[\frac{1}{2m}|\nabla\varphi|^2+V(\br)|\varphi(\br)|^2
+\right]+\frac{1}{2}U_0\int d\br |\varphi(\br)|^4.
+\end{align}
+$$`
+
+- Excess energy (relative to uniform state of density $n$)
+
+$$
+\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\theta)^2
+$$
+
+---
+
+$$
+\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\theta)^2
+$$
+
+- First integral is finite: due to density $\neq$ bulk value
+
+- Second is KE contribution from winding of vortex
+
+$$
+\nabla \theta = \frac{\ell}{r}\hat{\mathbf{e}}_\theta,
+$$
+
+- This contribution to the energy is _logarithmically divergent_.
+
+$$
+\Delta E = \text{const.} + \frac{\pi n \ell^2}{m}\log\left(\frac{L}{\xi}\right).
+$$
+
+---
+
+- Far-reaching analogy between superfluid velocity fields of vortices and magnetostatics of current-carrying wires,
+
+Vortices | Magnetostatics
+--- | ---
+Vortex cores | Wires
+Superfluid velocity $\mathbf{v}_s$ | Magnetic field, $\mathbf{B}$
+Kinetic Energy | Magnetostatic Energy
+
+- Vortices with $\abs{\ell}>1$ generally unstable: break into multiple vortices of winding $\ell=\pm 1$
+
+---
+
+- Like vortices repel each other, and can form spectacular __vortex lattices__, akin to crystals.
+
+
+<p align="center">
+<img src="assets/3dLattices.jpg" alt="drawing" width="500" class="center"/>
+</p>
+
+-  Vortices are one manifestation of __superfluidity__
+
+---
+
+## Bogoliubov Theory
+
+- How can we improve Gross--Pitaevskii approximation? 
+
+- What about __excited states__?
+
+- From now on... uniform condensate with no $V(\br)=0$
+
+  
+---
+
+- As usual work in a plane wave basis, where Hamiltonian is
+`$$
+H =\sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk + \overbrace{\frac{U_0}{2V}\sum_{\bk_1+\bk_2=\bk_3+\bk_4} \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}}^{\equiv H_\text{int}},
+$$`
+with $\epsilon(\bk)=\bk^2/2m$, and $V$ the volume
+
+- GP approximation to ground state is $\ket{\Psi_\text{GP}} = \frac{1}{\sqrt{N!}}\left(\adop_0\right)^N\ket{\text{VAC}}$
+
+- Act with $H_\text{int}$: only terms that contribute have $\bk_3=\bk_4=0$
+
+$$
+H_\text{int}\ket{\Psi_\text{GP}} =  \frac{U_0}{2V}\sum_{\bk} \adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0}\ket{\Psi_\text{GP}}.
+$$
+
+- For a better wavefunction, need to add some $(\bk, -\bk)$ pairs!
+
+---
+
+### Bogoliubov Hamiltonian
+
+- When interactions _weak_, expect true ground state close to $\ket{\Psi_\text{GP}}$
+
+- Most particles in zero momentum state, with few $(\bk, -\bk)$ pairs
+
+- Remember that
+
+$$
+\aop\ket{N} = \sqrt{N}\ket{N-1},\quad \adop\ket{N} = \sqrt{N+1}\ket{N+1},
+\label{bose_aN}
+$$
+
+- A term in $H_\text{int}$ with $\aop_0$ or $\adop_0$ is more important than one without. Arrange Hamiltonian by occurrences of $\aop_0$, $\adop_0$
+
+---
+
+`$$
+\begin{align}
+H_\text{int} = \frac{U_0}{2V}\adop_0\adop_0\aop_0\aop_0 + \frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+4\adop_\bk\adop_0\aop_0\aop_\bk\right]\\\nonumber
++\frac{U_0}{V}\sum_{\substack{\bk_1=\bk_2+\bk_3\\ \bk_{1,2,3}\neq 0}}\left[\adop_{\bk_3}\adop_{\bk_2}\aop_{\bk_1}\aop_0 +\adop_0\adop_{\bk_1}\aop_{\bk_2}\aop_{\bk_3}\right]+\frac{U_0}{2V}\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk_4\\ \bk_{1,2,3,4}\neq 0}} \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}.
+\end{align}
+$$`
+
+- Gross--Pitaevskii approximation corresponds to the first term
+
+- We now keep second term, and neglect third and fourth
+
+`$$
+\begin{align}
+H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}\adop_0\adop_0\aop_0\aop_0 \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+4\adop_\bk\adop_0\aop_0\aop_\bk\right].
+\label{bose_Hpair}
+\end{align}
+$$`
+
+---
+
+`$$
+\begin{align}
+H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}\adop_0\adop_0\aop_0\aop_0 \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+4\adop_\bk\adop_0\aop_0\aop_\bk\right].
+\end{align}
+$$`
+
+- Rewrite second term using
+`$$
+\adop_0\aop_0 = N - N',\quad N'\equiv \sum_{\bk\neq 0} N_\bk
+$$`
+so that $\adop_0\adop_0\aop_0\aop_0 =  N(N-1) - 2N'N_0+O(N_0^0	)$
+
+`$$
+\begin{align}
+H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right].
+\label{bose_Hpair2}
+\end{align}
+$$`
+
+---
+
+`$$
+\begin{align}
+H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right].
+\end{align}
+$$`
+
+> Weird trick alert!
+> __Replace__  $\adop_0$, $\aop_0$ with $\sqrt{N}$, giving quadratic Hamiltonian (that we can solve)
+
+- Resulting Hamiltonian no longer conserves particle number
+
+---
+
+<p align="center">
+<img src="assets/wut.png" alt="drawing" width="500" class="center"/>
+</p>
+
+---
+
+ - Let's see why this is a good approximation.
+
+- Consider action of Hamiltonian on product state of form $\ket{\Psi'}\otimes\ket{N_0}_0$
+
+`$$
+\adop_\bk\aop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \aop_0\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0}\ket{N_0-1}_0.
+$$`
+$$
+\aop_\bk\adop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \adop_0\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0+1}\ket{N_0+1}_0.
+$$
+
+- Ignore the difference between $N_0$ and $N_0+1$
+
+- If $N_0$ doesn't fluctuate much __matrix elements__ of $H_\text{pair}$ are approximately unchanged when replace operator with numbers
+
+---
+
+- Result is __Bogoliubov Hamiltonian__
+`$$
+\begin{align}
+H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0n_0}{2}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk} + \aop_{\bk}\aop_{-\bk}+2\adop_\bk\aop_\bk\right].
+\label{bose_Hpair3}
+\end{align}
+$$`
+$n_0 = N_0/V$ is density of particles in zero momentum state
+
+- Hamiltonian diagonalized by __Bogoliubov transformation__
+
+`$$
+\bop_\bp=\aop_\bp\cosh\kappa_\bp+\adop_{-\bp}\sinh\kappa_\bp\nonumber\\
+\tanh2\kappa_\bp=\frac{n_0 U_0}{\epsilon(\bp)+n_0 U_0}.
+$$`
+
+- $\kappa_\bp$ chosen so there are no 'anomalous' $\bdop_\bp\bdop_{-\bp}$ or $\bop_\bp\bop_{-\bp}$ terms left
+
+---
+
+$$
+H=E_0+\sum_{\bp\neq 0}\omega(\bp)\bdop_\bp
+\bop_\bp.
+$$
+
+- $\omega(\bp)$ is the Bogoliubov dispersion relation
+
+$$
+\omega(\bp) = \sqrt{\epsilon(\bp)\left(\epsilon(\bp)+2U_0n_0\right)},
+$$
+
+- Ground state energy is
+
+$$
+E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0\right].
+$$
+
+---
+
+$$
+E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0\right].
+$$
+
+- Annoyingly, this integral is divergent at high momenta
+
+- Nothing to do with many body physics. We can cure the problem by writing
+
+$$
+E_0=\frac{1}{2}nU_0  N\left[1-\frac{1}{V}\sum_\bp \frac{U_0}{2\epsilon(\bp)}\right]+\sum_{\bp\neq 0}\frac{1}
+{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0+ \frac{(n_0U_0)^2}{2\epsilon(\bp)}\right].
+$$
+
+- Term added and subtracted is next order in Born
+approximation for scattering length $a=a_0+a_1+\cdots$
+
+---
+
+$$
+E_0=\frac{1}{2}nN\frac{4\pi}{m}\left(a_0+a_1\right)+\frac{1}{2}n_0N\frac{4\pi}{m}a_0\frac
+{128}{15\sqrt{\pi}}\left(n a_0^3\right)^{1/2}.
+$$
+
+- Where
+
+$$
+a_0=(m/4\pi)U_0,\qquad a_1=-(m/4\pi)\frac{U_0^2}{V}\sum_\bp \frac{1}{2\epsilon
+(\bp)}.
+$$
+
+---
+
+### The Ground State
+
+- So far, ground state defined by condition that it is a vacuum of Bogoliubov excitations
+
+$$
+\bop_\bk\ket{0}=\left(\cosh\kappa_\bk \aop_\bk+\sinh\kappa_\bk \adop_{-\bk}\right)\ket{0}=0.
+$$
+
+- A state (unnormalized) that satisfies this condition is
+
+$$
+\ket{0}=\prod_{\bk\neq 0} \exp\left(-\frac{1}{2}\tanh\kappa_\bk\adop_{\bk}\adop_{-\bk}\right)\ket{\Psi_\text{GP}}
+\label{bose_BogWave}
+$$
+
+> Show this. If you've seen coherent states before, remember that the state $e^{\alpha \adop}\ket{\text{VAC}}$ is an eigenstate of $\aop$ with eigenvalue $\alpha$.
+
+---
+
+- Recall that Fourier components of density operator are
+
+$$
+\rho_\bq = \sum_\bk \adop_{\bk-\bq}\aop_\bk.
+$$
+
+- Most important terms will be those where one of $\adop_{\bk-\bq}$ or $\aop_\bk$ acts on the condensate
+
+$$
+\rho_\bq \sim \sqrt{N}\left(\adop_{-\bq} + \aop_{\bq}\right) = \sqrt{N}e^{-\kappa_\bq} \left(\bdop_{-\bq} + \bop_{\bq}\right),
+$$
+
+- where
+
+$$
+e^{-\kappa_\bq} = \sqrt{\frac{\epsilon(\bq)}{\omega(\bq)}}.
+$$
+
+---
+
+- Density fluctuations in ground state
+
+$$
+\braket{0}{\rho_{-\bq}\rho_{\bq}}{0} = N\frac{\epsilon(\bq)}{\omega(\bq)}\xrightarrow{\bq\to 0} \frac{N\abs{\bq}}{2mc}.
+$$
+
+- We have used the low momentum form of the Bogoliubov dispersion
+$$
+\omega(\bq)\xrightarrow{\bq\to 0} c\abs{\bq}
+$$
+where $c = \sqrt{\frac{n_0U_0}{m}}$ is the speed of sound. 
+
