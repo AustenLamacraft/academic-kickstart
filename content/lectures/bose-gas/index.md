@@ -467,7 +467,7 @@ $$`
 \adop_\bk\aop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \aop_0\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0}\ket{N_0-1}_0.
 $$`
 $$
-\aop_\bk\adop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \adop_0\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0+1}\ket{N_0+1}_0.
+\aop_\bk\adop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \adop_0\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0+1}\ket{N_0+1}_0.
 $$
 
 - Ignore the difference between $N_0$ and $N_0+1$
@@ -519,14 +519,23 @@ $$
 E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0\right].
 $$
 
-- Annoyingly, this integral is divergent at high momenta
-
-- Nothing to do with many body physics. We can cure the problem by writing
+- Annoyingly, this integral is divergent at high momenta because
 
 $$
-E_0=\frac{1}{2}nU_0  N\left[1-\frac{1}{V}\sum_\bp \frac{U_0}{2\epsilon(\bp)}\right]+\sum_{\bp\neq 0}\frac{1}
+\omega(\bp)\underset{|\bp| \to \infty}{\longrightarrow} \epsilon(\bp) + n_0 U_0 -\frac{(n_0 U_0)^2}{2\epsilon(\bp)}
+$$
+
+---
+
+- We can cure the problem by writing
+
+`$$
+\begin{align}
+E_0&=\frac{1}{2}nU_0  N\left[1-\frac{1}{V}\sum_\bp \frac{U_0}{2\epsilon(\bp)}\right]\\
+&+\sum_{\bp\neq 0}\frac{1}
 {2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0+ \frac{(n_0U_0)^2}{2\epsilon(\bp)}\right].
-$$
+\end{align}
+$$`
 
 - Term added and subtracted is next order in Born
 approximation for scattering length $a=a_0+a_1+\cdots$
@@ -572,13 +581,11 @@ $$
 \rho_\bq = \sum_\bk \adop_{\bk-\bq}\aop_\bk.
 $$
 
-- Most important terms will be those where one of $\adop_{\bk-\bq}$ or $\aop_\bk$ acts on the condensate
+- Most important terms: $\adop_{\bk-\bq}$ or $\aop_\bk$ acts on the condensate
 
 $$
 \rho_\bq \sim \sqrt{N}\left(\adop_{-\bq} + \aop_{\bq}\right) = \sqrt{N}e^{-\kappa_\bq} \left(\bdop_{-\bq} + \bop_{\bq}\right),
 $$
-
-- where
 
 $$
 e^{-\kappa_\bq} = \sqrt{\frac{\epsilon(\bq)}{\omega(\bq)}}.
@@ -587,14 +594,51 @@ $$
 ---
 
 - Density fluctuations in ground state
-
 $$
 \braket{0}{\rho_{-\bq}\rho_{\bq}}{0} = N\frac{\epsilon(\bq)}{\omega(\bq)}\xrightarrow{\bq\to 0} \frac{N\abs{\bq}}{2mc}.
 $$
-
-- We have used the low momentum form of the Bogoliubov dispersion
+(Used low momentum form of Bogoliubov dispersion
 $$
 \omega(\bq)\xrightarrow{\bq\to 0} c\abs{\bq}
 $$
-where $c = \sqrt{\frac{n_0U_0}{m}}$ is the speed of sound. 
+where $c = \sqrt{\frac{n_0U_0}{m}}$ is the speed of sound) 
 
+- c.f Gross--Pitaevskii ground state (Poissonian fluctuations)
+$$
+\braket{0}{\rho_{-\bq}\rho_{\bq}}{0} = N.
+$$
+
+
+---
+
+### Quantum Depletion
+
+- Finite fraction of particles have $\bp\neq 0$. Let's find $\langle N_\bp \rangle$
+
+- $N_\bp=\adop_{\bp}\aop_{\bp}$ in terms of Bogoliubov quasiparticles
+
+$$
+	\adop_{\bp}\aop_{\bp}=(\bdop_\bp\cosh\kappa_{\bp}-\bop_{-\bp}\sinh\kappa_{\bp})(\bop_\bp\cosh\kappa_{\bp}-\bdop_{-\bp}\sinh\kappa_{\bp}),
+$$
+
+- Then evaluate expectation
+
+$$
+\langle N_\bp\rangle=\langle \adop_{\bp}\aop_{\bp}\rangle = \sinh^2\kappa_{p}\xrightarrow{ \abs{\bp}\ll \xi^{-1}}\frac{mc_s}{2\abs{\bp}}.
+$$
+
+- Radial density distribution $4\pi p^2 N_\bp$ peaked around $\xi^{-1}$
+
+---
+
+- Fraction of atoms _not_ in the condensate
+$$
+\frac{1}{N}\sum_{\bp\neq 0} \langle N_\bp\rangle=\frac{8}{3\sqrt{\pi}}\sqrt{n a^3},
+$$
+Born approximation for scattering length $a=\frac{mU_0}{4\pi}$
+
+- Typical experimental conditions in experiments on ultracold atoms: depletion does not much exceed $0.01$, which justifies GP approximation
+
+- Liquid He$^{4}$ can be described as an interacting Bose condensate, but the depletion is much larger. Bogoliubov not accurate here
+
+- Applying a lattice can lead to total depletion and a __quantum phase transition__ out of superfluid state 
