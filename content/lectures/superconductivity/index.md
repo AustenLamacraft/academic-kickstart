@@ -73,6 +73,10 @@ $$
 
 --- 
 
+> Discussion: Cooper's problem
+
+---
+
 ### The BCS Wavefunction
 
 In momentum space our Hamiltonian is
@@ -92,10 +96,10 @@ $$
 ---
 
 Application of interaction Hamiltonian $H_\text{int}$ generates terms of form
-
-$$
-\adop_{\bp+\bq\uparrow}\adop_{-\bp\downarrow}\aop_{-\bp'\downarrow}\aop_{\bp'+\bq\uparrow}\ket{\text{FS}}.\qquad |\bp|,|\bp+\bq|>k_\text{F},\, |\bp'|,|\bp'+\bq|<k_\text{F}.
-$$
+`$$
+\adop_{\bp+\bq\uparrow}\adop_{-\bp\downarrow}\aop_{-\bp'\downarrow}\aop_{\bp'+\bq\uparrow}\ket{\text{FS}}.
+$$`
+$|\bp|,|\bp+\bq|>k_\text{F}$  $|\bp'|,|\bp'+\bq|<k_\text{F}$
 
 - Note difference from Bose case: don't just
 create pair excitations with zero centre of mass momentum $\bq=0$
