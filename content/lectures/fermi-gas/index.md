@@ -288,12 +288,12 @@ $\phi$ is the angle between $\bk$ and $\bk'$ i.e. $\abs{\bk-\bk'}=2q=2k_\text{F}
 
 - To write things in invariant way, think of occupation number $N(\bk)$ as $2\times 2$ matrix
 
-$$
+`$$
 \mathsf{N}(\bk)=\begin{pmatrix}
 N_{\uparrow\uparrow}(\bk) & N_{\uparrow\downarrow}(\bk) \\
 N_{\downarrow\uparrow}(\bk) & N_{\downarrow\downarrow}(\bk).
 \end{pmatrix}
-$$
+$$`
 
 - $f$-function then has _four_ spin indices
 
@@ -316,4 +316,234 @@ $$`
 >\nu(E_F)f_{s_1s_2,s_3s_4}(\bk,\bk') = F(\phi) \delta_{s_1s_3}\delta_{s_2s_4} + G(\phi)\boldsymbol{\sigma}_{s_1s_3}\cdot\boldsymbol{\sigma}_{s_2s_4}.
 > $$
 >$F(\phi)$ and $G(\phi)$ made dimensionless by scaling by density of states at Fermi surface $\nu(E_F)\equiv k_{\text{F}}m/\pi^2$.
+
+---
+
+# Review
+
+`$$
+\begin{align}
+E^{(1)}(\mathbf{N}) &= \braket{\mathbf{N}}{H_\text{int}}{\mathbf{N}}\\
+E^{(2)}(\mathbf{N}) &= \sum_{\mathbf{N}'\neq \mathbf N}\frac{\abs{\braket{\mathbf{N'}}{H_\text{int}}{\mathbf{N}}}^2}{E^{(0)}(\mathbf{N})-E^{(0)}(\mathbf{N}')}.
+\end{align}
+$$`
+
+- Expand $N_{s}(\bk) = \theta(k_F-\abs{\bk}) + n_{s}(\bk)+\cdots.$
+
+$$
+\Delta E = \sum_{\bk,s} \varepsilon_s(\bk)n_{s}(\bk) + \frac{1}{2V}\sum_{\bk, s,\bk', s'} f_{s^{}s'}(\bk,\bk')n_{s}(\bk)n_{s'}(\bk').
+$$
+
+- $E^{(2)}(\mathbf{N})$ has three momentum sums
+
+- $f_{s s'}(\bk,\bk')$ only one (the other two are $\sum_{\bk,\bk'})$)
+
+---
+
+- Generalize to arbitrary spin directions $n_s(\bk)\longrightarrow n_{s_1 s_2}(\bk)$ and
+
+`$$
+\frac{1}{2V}\sum_{\bk, s_1,s_2,\bk', s_3,s_4} f_{s_1s_2,s_3s_4}(\bk,\bk')n_{s_1s_2}(\bk)n_{s_3s_4}(\bk'),
+$$`
+
+$$
+\nu(E_F)f_{s_1s_2,s_3s_4}(\bk,\bk') = F(\phi) \delta_{s_1s_3}\delta_{s_2s_4} + G(\phi)\boldsymbol{\sigma}_{s_1s_3}\cdot\boldsymbol{\sigma}_{s_2s_4}.
+$$
+
+
+---
+
+### Quasiparticle energy $\varepsilon_s(\bk)$
+
+$$
+\Delta E = \sum_{\bk,s} \varepsilon_s(\bk)n_{s}(\bk) + \frac{1}{2V}\sum_{\bk, s,\bk', s'} f_{s^{}s'}(\bk,\bk')n_{s}(\bk)n_{s'}(\bk').
+$$
+
+- $\varepsilon_s(\bk)$ will involve two momentum sums 😟
+
+- What can we say on general grounds? Near Fermi surface expect
+
+$$
+\varepsilon_s(\bk) - E_\text{F} \approx v_\text{F}(\abs{\bk}-k_\text{F}).
+\label{fermi_vfdef}
+$$
+
+- Fermi velocity `$v_\text{F}$` altered by interactions. Define __effective mass__
+
+$$
+m_* = \frac{k_\text{F}}{v_\text{F}}.
+\label{fermi_mdef}
+$$
+
+---
+
+- Can get $m_*$ using results we have alrady, using one simple trick
+
+- Shift momentum of each quasiparticle by $\delta\bk$, giving new $N_s(\bk)$
+
+`$$
+\begin{align}
+N_s(\bk-\delta\bk) &=\theta(k_F-\abs{\bk-\delta\bk}) + n_{s}(\bk-\delta\bk)+\cdots\nonumber\\
+&=\theta(k_F-\abs{\bk}) + n_s(\bk) + \delta(k_F-\abs{\bk})\hat\bk\cdot\delta\bk -  \delta\bk \nabla_\bk n_{s}(\bk)+\cdots.
+\end{align}
+$$`
+
+<p align="center">
+<img src="assets/FermiShift.png" alt="drawing" width="500" class="center"/>
+</p>
+
+---
+
+- Compute energy using Landau functional
+
+`$$
+\begin{align}
+N_s(\bk-\delta\bk) &=\theta(k_F-\abs{\bk}) + n_s(\bk) + \delta(k_F-\abs{\bk})\hat\bk\cdot\delta\bk -  \delta\bk \nabla_\bk n_{s}(\bk)+\cdots.
+\end{align}
+$$`
+
+- Treat last three terms as $n_s(\bk)$. Excitation energy changes 
+`$$
+\begin{align}
+\Delta E(\text{after})-\Delta E(\text{before}) = \sum_{\bk,s} n_{s}(\bk)\delta\bk\cdot\nabla_\bk\varepsilon_s(\bk) \nonumber\\
++\frac{1}{V}\sum_{\bk, s,\bk', s'} f_{s^{}s'}(\bk,\bk')n_{s}(\bk)\left[\delta(k_F-\abs{\bk'})\hat\bk'\cdot\delta\bk - \nabla_{\bk'}n_{s'}(\bk')\right]\cdot\delta\bk.
+\end{align}
+$$`
+(to first order in $\delta\bk$. Integrate by parts in first term)
+
+---
+
+- On grounds of Galilean invariance, this change must be
+$$
+\Delta E(\text{after})-\Delta E(\text{before}) = \frac{\mathbf{P}}{m}\cdot\delta\bk,
+\label{fermi_gal}
+$$
+where total momentum $\mathbf{P}$ is
+
+$$
+\mathbf{P} = \sum_{\bk,s} \bk n_{s}(\bk).
+$$
+
+---
+
+- If two expressions for $\Delta E(\text{after})-\Delta E(\text{before})$ equal for all $n_s(\bk)$ and $\delta\bk$ to first order
+
+$$
+\frac{\bk}{m} = \nabla_\bk\varepsilon_s(\bk) +  \sum_{s'}\int  f_{s^{}s'}(\bk,\bk')\delta(k_F-\abs{\bk'})\hat\bk' \frac{d\bk'}{(2\pi)^3}.
+$$
+
+- For momenta close to the Fermi surface
+
+$$
+\frac{\bk}{m} = \frac{\bk}{m_*} +\frac{1}{m} \int F(\phi) \bk' \frac{d\Omega_{\bk'}}{4\pi}.
+$$
+
+- If $\bk'=\cos\phi \bk + \sin\phi \bk_\perp$, with $\bk_\perp\cdot\bk=0$, this gives Landau's famous result
+
+$$
+\frac{1}{m} = \frac{1}{m_*} +\frac{1}{m} \int F(\phi) \cos\phi \frac{\sin\phi d\phi}{2}.
+$$
+
+---
+
+- For the $F(\phi)$ that we found in $2^{\text{nd}}$ order perturbation theory
+$$
+\frac{m_*}{m} = 1 + \frac{1}{30\pi^4}(7\log 2 - 1)\left(mU_0k_\text{F}\right)^2+\cdots.
+$$
+(Use the substitution $u=\sin\phi/2$ to do the integral.) 
+
+- In systems with strong interactions $m_*/m$ may be much larger!
+
+ - In [heavy fermion materials](https://en.wikipedia.org/wiki/Heavy_fermion_material) $m_*/m$ can approach 1000! Landau's picture of fermionic quasiparticles still applies.
+
+ ---
+
+### Eigenstates in Perturbation Theory: What is a Quasiparticle?
+
+- What do these quasiparticle states _look_ like? Let's see what perturbation theory says
+
+- At first order we have
+
+$$
+\ket{\mathbf{N}^{(1)}} = \sum_{\mathbf{N}'\neq \mathbf N}\frac{\braket{\mathbf{N'}}{H_\text{int}}{\mathbf{N}}}{E^{(0)}(\mathbf{N})-E^{(0)}(\mathbf{N}')}\ket{\mathbf{N}'}.
+$$
+
+---
+
+- Consider the Fermi sea ground state $\ket{\text{FS}}$. What states $\ket{\mathbf{N'}}$ can appear  this case? 
+
+- Only possibility is that the interaction creates two particle-hole pairs out of the Fermi sea, with total momentum zero.
+
+
+<p align="center">
+<img src="assets/2ph.png" alt="drawing" width="500" class="center"/>
+</p>
+
+---
+
+- What about an excited state? If we consider the state
+$$
+\adop_{\bk,s}\ket{\text{FS}},
+$$
+two kinds of states can contribute
+
+    1. Create a pair of particle-hole pairs
+
+    2. Create a single particle-hole pair and move particle at $\bk$
+
+<p align="center">
+<img src="assets/phscatter.png" alt="drawing" width="400" class="center"/>
+</p>
+
+
+---
+
+- Consider `$\adop_{\bk,s}\ket{0}$`, creating a particle in _exact_ ground state
+
+ - Since $\ket{0}$ includes the first type of state (2 particle-hole pair states), $\adop_{\bk,s}\ket{0}$ is only missing second kind
+ 
+ - Single quasiparticle state is
+`$$
+\begin{align}
+\ket{\bk,s} &= \sqrt{\frac{z_k}{\braket{0}{\aop_{\bk,s}\adop_{\bk,s}}{0}}}\adop_{\bk,s}\ket{\text{FS}} \\
+&+ \frac{U_0}{V}\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk\\ s,s'}}\frac{\adop_{\bk_1,s}\adop_{\bk_2,s'}\aop_{\bk_3,s'}\ket{\text{FS}}}{\epsilon(\bk_1)+\epsilon(\bk_2)-\epsilon(\bk_3)-\epsilon(\bk)},
+\end{align}
+$$`
+$\sqrt{z_k}$ is a normalization factor
+
+---
+
+Normalizing, $1-z_\bk$ is
+
+`$$
+\begin{align}
+\left(\frac{U_0}{V}\right)^2\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk\\\abs{\bk_3}<k_\text{F},\abs{\bk_2}>k_\text{F}, \abs{\bk_1}>k_\text{F}\\ s,s'}}\frac{1}{\left[\epsilon(\bk_1)+\epsilon(\bk_2)-\epsilon(\bk_3)-\epsilon(\bk)\right]^2}+\cdots.
+\end{align}
+$$`
+
+- This is overlap of single quasiparticle state $\ket{\bk,s}$ with $\adop_{s,\bk}\ket{0}$.
+
+$$
+z_\bk = \frac{\abs{\braket{\bk,s}{\adop_{\bk,s}}{0}}^2}{\braket{0}{\aop_{\bk,s}\adop_{\bk,s}}{0}}
+$$
+
+---
+
+- A finite overlap -- for quasiparticles at the Fermi surface -- is requirement for Fermi liquid picture to hold
+
+-  If it were to vanish, any resemblance of the quasiparticle to a free fermion would disappear!
+
+- For our example (hard!):
+$$
+z_{\abs{\bk}=k_\text{F}} = 1 - \frac{(mUk_\text{F})^2}{8\pi^4}\left[\log 2 + \frac{1}{3}\right]
+$$
+
+---
+
+> This is also the occupation number of the original fermions $\braket{0}{\adop_{\bk,s}\aop_{\bk,s}}{0}$ (not the quasiparticles!) just below the Fermi surface in the ground state. There is a corresponding result just above. Even with interactions, there is a finite step in the distribution function at the Fermi surface.
+
+<p align="center">
+<img src="assets/FermiJump.png" alt="drawing" width="500" class="center"/>
+</p>
+
 

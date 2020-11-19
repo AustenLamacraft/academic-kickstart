@@ -1,6 +1,6 @@
 ---
 title: Fermi Gas
-summary: Gross--Pitaevskii approximation. Superfluidity. Bogoliubov theory.
+summary: Interactions described by perturbation theory. Quasiparticles. Landau Fermi liquid.
 authors: [Austen Lamacraft]
 tags: []
 categories: []
