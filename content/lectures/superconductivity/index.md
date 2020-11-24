@@ -133,14 +133,14 @@ $$
 
 ---
 
-- Introduce the pair operators $\bdop_\bp=\adop_{\bp\uparrow}\adop_{-\bp}$, $\bop_\bp=\aop_{-\bp}\aop_{\bp\uparrow}$
+- Introduce the pair operators $\bdop_\bp=\adop_{\bp\uparrow}\adop_{-\bp}$, $\bop_\bp=\aop_{-\bp,\downarrow}\aop_{\bp\uparrow}$
 
 - For $\braket{\text{pair}}{\cdots}{\text{pair}}$ we can replace $H\to H_\text{pair}$
 `$$
 H_{\text{pair}}=2\sum_{\bp}\epsilon_{\bp}\bdop_\bp\bop_\bp+\frac{U_0}{V}\sum'_{\bp,\bp'} \bdop_\bp
 \bop_{\bp'}
 $$`
-since $\bdop_\bp\bop_\bp = \adop_{\bp,\uparrow}\aop_{\bp,\uparrow}+\adop_{-\bp,\uparrow}\aop_{-\bp,\uparrow}$ on these states
+since $2\bdop_\bp\bop_\bp = \adop_{\bp,\uparrow}\aop_{\bp,\uparrow}+\adop_{-\bp,\uparrow}\aop_{-\bp,\uparrow}$ on these states
 
 - _Looks_ quadratic. Can we solve it?
 
@@ -293,7 +293,7 @@ $$`
 $$
 \langle n^P_{\bp}\rangle=v_\bp^2=\left[1-\cos\theta_\bp\right]/2,
 $$
-so this corresponds to sharp fermi step. 
+so this corresponds to sharp Fermi step. 
 
 <p align="center">
 <img src="assets/sharp-step.png" alt="drawing" width="500" class="center"/>
