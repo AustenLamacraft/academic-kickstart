@@ -414,3 +414,88 @@ $$
 as we found before.
 
 ---
+
+
+- For system of oscillators we _could_ express  $y(t)$ in terms of normal modes as
+$$
+y(t) = \sum_k \left[c^{}_k \adop_k(t) + c_k^* \aop_k(t)\right],
+\label{res_ymode}
+$$
+where time evolution of mode operators is
+
+$$
+\adop_k(t) = e^{i\omega_k t}\adop_k,\quad \aop_k(t) = e^{-i\omega_k t}\aop_k.
+$$
+
+- Repeating calculation of $S(\omega)$ gives
+
+$$
+\begin{align}
+S(\omega)= 2\pi\sum_k |c_k|^2\left[n_\text{B}(\omega_k)\delta(\omega+\omega_k)+(n_\text{B}(\omega_k)+1)\delta(\omega-\omega_k)\right].
+\label{res_QSHONoiseGen}
+\end{align}
+$$
+
+- In continuum, get smooth response
+
+---
+
+For a system of oscillators, find response by solving Heisenberg equations of motion 
+
+$$
+H = \sum_k \omega_k \adop_k\aop_k - f(t)y,
+$$
+
+where $y$ is written in terms of the normal modes. Equation of motion for the modes is
+
+$$
+\frac{d\aop_k}{dt} = -i\omega_k \aop_k +i c_k f(t),
+$$
+
+so that the response of the oscillator is
+
+$$
+\adop_k(\omega) = \frac{c_k}{\omega_k-\omega-i0} f(\omega).
+$$
+(response is analytic in UHP)
+
+---
+
+$$
+y(\omega) = \sum_k |c_k|^2\left[\frac{1}{\omega_k-\omega-i0}+\frac{1}{\omega_k+\omega+i0}\right]f(\omega).
+$$
+
+- Thus we have
+$$
+\chi(\omega) = \sum_k |c_k|^2\left[\frac{1}{\omega_k-\omega-i0}+\frac{1}{\omega_k+\omega+i0}\right],
+\label{res_chi_modes}
+$$
+but we also know the LHS from the classical calculation
+
+- Using 
+
+$$
+\Im \frac{1}{x\mp i0} = \pm\pi\delta(x),
+$$
+
+---
+
+- Can then show
+
+$$
+\chi''(\omega) = \pi\sum_k |c_k|^2\delta(\omega_k-\omega),\quad \omega>0,
+\label{res_Imchi_modes}
+$$
+with $\chi''(-\omega)=-\chi''(\omega)$. 
+
+- Comparing with classical answer allows us to to find the $|c_k|$ without having to go through the trouble of finding the normal modes explicitly (although we'd be using our knowledge of their density of states).
+
+$S(\omega)$ and $\chi''(\omega)$ are then related by
+
+$$
+S(\omega) = 2\chi''(\omega)\left[n_\text{B}(\omega)+1\right].
+\label{res_FDTAsym}
+$$
+
+- This is a quantum fluctuation dissipation relation.
+
