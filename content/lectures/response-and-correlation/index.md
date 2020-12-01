@@ -441,7 +441,7 @@ $$
 
 ### Response of oscillator system
 
-Solve Heisenberg equations of motion 
+- Solve Heisenberg equations of motion 
 $$
 H = \sum_k \omega_k \adop_k\aop_k - f(t)y,
 $$
@@ -449,12 +449,16 @@ where $y$ is written in terms of normal modes
 $$
 \frac{d\aop_k}{dt} = -i\omega_k \aop_k +i c_k f(t),
 $$
+
+- Solution is $\aop_k(t) = e^{-i\omega_k t}\aop_k(0)+a_{k,f}(t)$ with
 $$
-\adop_k(\omega) = \frac{c_k}{\omega_k-\omega-i0} f(\omega).
+\aop_{k,f}(\omega) \equiv \frac{c_k}{\omega_k-\omega-i0} f(\omega).
 $$
-(response is analytic in UHP)
+($-i0$ introduced for response analytic in UHP i.e. causal)
 
 ---
+
+- Response of $\aop_k(t)\longrightarrow y(t)$ gives
 
 $$
 y(\omega) = \sum_k |c_k|^2\left[\frac{1}{\omega_k-\omega-i0}+\frac{1}{\omega_k+\omega+i0}\right]f(\omega).
@@ -465,19 +469,19 @@ $$
 \chi(\omega) = \sum_k |c_k|^2\left[\frac{1}{\omega_k-\omega-i0}+\frac{1}{\omega_k+\omega+i0}\right],
 \label{res_chi_modes}
 $$
-but we also know the LHS from the classical calculation
 
----
+- Then use... 
 
-- Using 
 $$
 \text{Im} \frac{1}{x\mp i0} = \pm\pi\delta(x),
 $$
-$$
-\chi''(\omega) = \pi\sum_k |c_k|^2\delta(\omega_k-\omega),\quad \omega>0,
+
+---
+
+`$$
+\chi''(\omega) =\sgn(\omega)\pi\sum_k |c_k|^2\delta(\omega_k-\omega) 
 \label{res_Imchi_modes}
-$$
-with $\chi''(-\omega)=-\chi''(\omega)$ (comparing with classical answer allows us to to find $|c_k|$ without having finding normal modes explicitly)
+$$`
 
 - $S(\omega)$ and $\chi''(\omega)$ are then related by
 
@@ -859,7 +863,7 @@ S_\rho(\bq,\omega) \sim 2\pi S_\rho(\bq) \delta(\omega - \omega(\bq)),
 $$
 for low $\bq$, where $\omega(\bq)$ is dispersion relation of collective excitations (e.g. Bogoliubov modes)
 
-- In this approximation, the f-sum rule tells us that
+- In this approximation, f-sum rule tells us that
 
 $$
 S_\rho(\bq) = \frac{N\bq^2}{2m\omega(\bq)}.
