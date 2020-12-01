@@ -439,7 +439,7 @@ $$
 
 ---
 
-### Reponse of oscillator system
+### Response of oscillator system
 
 Solve Heisenberg equations of motion 
 $$
@@ -763,7 +763,7 @@ $$
 
 ### Sum rules
 
-- $S_\rho(\bq,\omega)$ obeys certain general relations irrespective of the particular model under consideration: __sum rules__
+- `$S_\rho(\bq,\omega)$` obeys certain general relations irrespective of the particular model under consideration
 
 - If interaction depends only on density, it commutes with $\rho_\bq$, so the commutator is determined by kinetic energy
 
@@ -771,10 +771,28 @@ $$
 T = -\frac{1}{2m}\sum_{j=1}^N \nabla_i^2.
 $$
 
-- Taking `$\rho_\bq =\sum_{j=1}^N e^{-i\bq\cdot\br_j}$`, we find __f-sum rule__
+- Taking `$\rho_\bq =\sum_{j=1}^N e^{-i\bq\cdot\br_j}$`, we find
 $$
 [[H,\rho_\bq],\rho_{-\bq}] = -\frac{N\bq^2}{m}.
 $$
+
+---
+
+- Evaluate by introducing resolution of the identity $\sum_n \ket{n}\bra{n}=1$
+
+`$$
+\begin{align}
+\braket{0}{[[H,\rho_\bq],\rho_{-\bq}]}{0}&=\braket{0}{H\rho_\bq \rho_{-\bq}- \rho_\bq H\rho_{-\bq}-\rho_{-\bq} H\rho_\bq+\rho_{-\bq}\rho_\bq H}{0}\\
+&=2\sum_n|\bra{0}\rho_\bq\ket{n}|^2\left(E_0-E_n\right)
+\end{align}
+$$`
+
+- We can relate this to `$S(\bq,\omega)$` using spectral representation
+`$$
+S_\rho(\bq,\omega) = 2\pi\sum_{n}  |\bra{0}\rho_\bq\ket{n}|^2 \delta(\omega-E_n+E_0),
+$$`
+to give the __f-sum rule__
+
 $$
 \int_{-\infty}^\infty \omega S(\bq,\omega) \frac{d\omega}{2\pi}= \frac{N\bq^2}{2m}.
 $$
@@ -782,7 +800,7 @@ $$
 
 ---
 
-- The compressibility is defined in terms of the volume $V$ and pressure $p$ as
+- Compressibility defined in terms of volume $V$ and pressure $p$ as
 
 $$
 \kappa=-\frac{1}{V}\frac{\partial V}{\partial p}.
@@ -794,7 +812,7 @@ $$
 p = -\frac{\partial E_0}{\partial V},
 $$
 
-- We expect $E_0 = V \epsilon(\rho)$, where $\rho = N/V$ is the density, and $\epsilon(\rho)$ the energy per unit volume. Then
+- Expect $E_0 = V \epsilon(\rho)$, where $\rho = N/V$ is density, and $\epsilon(\rho)$ energy per unit volume
 
 $$
 \kappa^{-1} = \rho^2 \epsilon''(\rho).
@@ -802,34 +820,46 @@ $$
 
 ---
 
-Recall that the chemical potential $\mu = \frac{\partial E_0}{\partial N}=\epsilon'(\rho)$. Then
+- The chemical potential $\mu = \frac{\partial E_0}{\partial N}=\epsilon'(\rho)$, so
 
 $$
-\kappa = \rho^{-2} \frac{\partial \rho}{\partial \mu} = \frac{1}{\rho N}\chi'(0,0).  
+\kappa = \rho^{-2} \frac{\partial \rho}{\partial \mu}
 $$
 
-Now $\chi'(\bq,\omega)$ can be written in terms of $\chi''(\bq,\omega)$ (Kramers--Kronig) and $\chi''(\bq,\omega)$ is related to $S_\rho(\bq,\omega)$. This gives the __compressibility sum rule__ at zero temperature
+- But $\frac{\partial \rho}{\partial \mu}$ is a response function, in fact
+
+$$
+\frac{\partial \rho}{\partial \mu} = \frac{1}{V}\chi'(0,0).  
+$$
+
+---
+
+- $\chi'(\bq,\omega)$ can be written in terms of $\chi''(\bq,\omega)$ (Kramers--Kronig) and $\chi''(\bq,\omega)$ is related to $S_\rho(\bq,\omega)$
+
+- This gives the __compressibility sum rule__ at zero temperature
 
 $$
 \lim_{\bq\to 0}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi} = \frac{N\rho\kappa}{2}.
 $$
 
----
-
-The compressibility sum rule is often written in terms of the speed of sound $c = (\kappa m \rho)^{-1/2}$ as
+- Compressibility sum rule often written in terms of speed of sound $c = (\kappa m \rho)^{-1/2}$
 
 $$
 \lim_{\bq\to 0}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi} = \frac{N}{2mc^2}.
 $$
 
-Let's consider a simple example. Some systems, notably Bose gases, have a zero temperature dynamical structure factor that at low momentum has the following approximate form
+---
 
+### Single Mode Approximation
+
+- Some systems (e.g Bose gases), are well described by
 $$
 S_\rho(\bq,\omega) \sim 2\pi S_\rho(\bq) \delta(\omega - \omega(\bq)),
 \label{res_SMA}
 $$
+for low $\bq$, where $\omega(\bq)$ is dispersion relation of collective excitations (e.g. Bogoliubov modes)
 
-where $\omega(\bq)$ is the dispersion relation of the collective excitations. In reality, the $\delta$-function is never infinitely sharp, but has a finite width on account of interactions between excitations causing scattering and / or decay. In the approximation $\eqref{res_SMA}$, often known as the __single mode approximation__, the f-sum rule tells us that
+- In this approximation, the f-sum rule tells us that
 
 $$
 S_\rho(\bq) = \frac{N\bq^2}{2m\omega(\bq)}.
@@ -837,3 +867,25 @@ $$
 
 ---
 
+### Example 1: BEC (no interactions)
+
+- Excitations out of the condensate are free particles $\omega(\bq) = \frac{\bq^2}{2m}$
+$$
+S_\rho(\bq) = N.
+$$
+
+- Completely uncorrelated particle positions (Poisson statistics).
+
+---
+
+### Example 2: interacting BEC / elastic chain
+
+- $\omega(\bq) = c|\bq|$ i.e. linear dispersion with finite speed of sound
+
+$$
+S_\rho(\bq) = \frac{N|\bq|}{2mc}.
+$$
+
+- Density fluctuations vanish as wavevector goes to zero, indicating long-range correlations between positions in the ground state.
+
+> Check compressibility sum rule
