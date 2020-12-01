@@ -379,13 +379,12 @@ $$
 - At zero temperature $\beta\to\infty$ and we can see that $S(\omega<0)=0$.
 
 - Let's evaluate $S(\omega)$ for oscillator. The matrix elements are
-
-$$
+`$$
 \bra{n}y\ket{m} = \frac{1}{\sqrt{2m\omega_0}}\begin{cases}
 \sqrt{m+1} & \text{if } n=m+1 \\
 \sqrt{m} & \text{if } n=m-1.
 \end{cases}
-$$
+$$`
 `$$
 \begin{align}
 S(\omega)&=\frac{\pi}{m\omega_0} \sum_n \frac{e^{-\beta E_n}}{Z} \left[n\delta(\omega+\omega_0)+(n+1)\delta(\omega-\omega_0)\right]\nonumber\\
@@ -416,7 +415,7 @@ as we found before.
 ---
 
 
-- For system of oscillators we _could_ express  $y(t)$ in terms of normal modes as
+- We can express  $y(t)$ in terms of normal modes as
 $$
 y(t) = \sum_k \left[c^{}_k \adop_k(t) + c_k^* \aop_k(t)\right],
 \label{res_ymode}
@@ -436,24 +435,20 @@ S(\omega)= 2\pi\sum_k |c_k|^2\left[n_\text{B}(\omega_k)\delta(\omega+\omega_k)+(
 \end{align}
 $$
 
-- In continuum, get smooth response
+- In continuum limit sum of $\delta(\omega\pm\omega_k)\longrightarrow$ smooth $S(\omega)$
 
 ---
 
-For a system of oscillators, find response by solving Heisenberg equations of motion 
+### Reponse of oscillator system
 
+Solve Heisenberg equations of motion 
 $$
 H = \sum_k \omega_k \adop_k\aop_k - f(t)y,
 $$
-
-where $y$ is written in terms of the normal modes. Equation of motion for the modes is
-
+where $y$ is written in terms of normal modes
 $$
 \frac{d\aop_k}{dt} = -i\omega_k \aop_k +i c_k f(t),
 $$
-
-so that the response of the oscillator is
-
 $$
 \adop_k(\omega) = \frac{c_k}{\omega_k-\omega-i0} f(\omega).
 $$
@@ -472,30 +467,296 @@ $$
 $$
 but we also know the LHS from the classical calculation
 
-- Using 
-
-$$
-\Im \frac{1}{x\mp i0} = \pm\pi\delta(x),
-$$
-
 ---
 
-- Can then show
-
+- Using 
+$$
+\text{Im} \frac{1}{x\mp i0} = \pm\pi\delta(x),
+$$
 $$
 \chi''(\omega) = \pi\sum_k |c_k|^2\delta(\omega_k-\omega),\quad \omega>0,
 \label{res_Imchi_modes}
 $$
-with $\chi''(-\omega)=-\chi''(\omega)$. 
+with $\chi''(-\omega)=-\chi''(\omega)$ (comparing with classical answer allows us to to find $|c_k|$ without having finding normal modes explicitly)
 
-- Comparing with classical answer allows us to to find the $|c_k|$ without having to go through the trouble of finding the normal modes explicitly (although we'd be using our knowledge of their density of states).
-
-$S(\omega)$ and $\chi''(\omega)$ are then related by
+- $S(\omega)$ and $\chi''(\omega)$ are then related by
 
 $$
 S(\omega) = 2\chi''(\omega)\left[n_\text{B}(\omega)+1\right].
 \label{res_FDTAsym}
 $$
 
-- This is a quantum fluctuation dissipation relation.
+- This is a __quantum fluctuation dissipation relation__
+
+---
+
+> Check that in the classical limit ($k_\text{B}T\gg \hbar \omega$)
+$$
+S(\omega) = 2\chi''(\omega)\left[n_\text{B}(\omega)+1\right].
+$$
+reduces to 
+$$
+S(\omega)=\frac{2k_\text{B}T}{\omega} \chi''(\omega).
+$$
+
+---
+
+### Golden Rule and Dissipation
+
+- We saw that classically $\text{Im}\\,\chi(\omega)$ related to dissipation
+
+- FDT relates $\text{Im}\\,\chi(\omega)$ and $S(\omega)$. How is $S(\omega)$ related to dissipation?
+
+- Regard driving force as perturbation that causes transitions between energy eigenstates
+$$
+H_\text{pert} = - f(t)y,
+$$
+with $f(t)=f_0\cos\omega t$
+
+---
+
+- In lowest order perturbation theory, system can make a transitions $\pm\omega$ in energy. Rates found from Fermi's golden rule
+
+$$
+\Gamma_{n\to m} = 2\pi \left(\frac{f_0}{2}\right)^2|\bra{n}y\ket{m}|^2 \delta(\pm\omega+E_m-E_n).
+$$
+
+
+- Total rate is sum over all initial ($\ket{n}$) and final states ($\ket{m}$), including probability $e^{-\beta E_n}/Z$ of finding the system initially in $\ket{n}$
+
+- c.f. spectral representation of $S(\omega)$
+
+$$
+S(\omega) = 2\pi\sum_{m,n} \frac{e^{-\beta E_n}}{Z} |\bra{n}y\ket{m}|^2 \delta(\omega-E_m+E_n).
+$$
+
+$$
+\Gamma(\omega) = S(\omega)\left(\frac{f_0}{2}\right)^2.
+$$
+
+---
+
+- $S(\omega)$ measures rate of transitions _absorbing_ energy $\omega$; $S(-\omega)$ the rate for _emitting_ energy $\omega$. 
+
+- Asymmetry of $S(\omega)$ is asymmetry between emission and absorption of radiation
+
+- The rate of energy absorption is
+
+$$
+\omega\Gamma(\omega) = \omega S(\omega)\left(\frac{f_0}{2}\right)^2 = \frac{1}{2}\omega\chi''(\omega)\left[n_\text{B}(\omega)+1\right]f_0^2.
+\label{res_absorb}
+$$
+
+---
+
+$$
+\omega\Gamma(\omega) = \omega S(\omega)\left(\frac{f_0}{2}\right)^2 = \frac{1}{2}\omega\chi''(\omega)\left[n_\text{B}(\omega)+1\right]f_0^2.
+$$
+
+>Compare with 
+$$
+\begin{align}
+W_\text{diss} = \langle f(t) \dot y(t)\rangle = \frac{1}{2}\omega\chi''(\omega)f_0^2.
+\end{align}
+$$
+They agree when $n_\text{B}(\omega)\to 0$: energy of transition being much larger than thermal energy $\hbar\omega\gg k_B T$.
+
+---
+
+## Linear Response: Formal Theory
+
+- So far, considered only response of _linear systems_!
+
+- How do we talk about linear response _in general_?
+
+---
+
+### Kubo Formula
+
+- How does observable $A$ depend on $\lambda_t$, which appears (for small variations) linearly in the Hamiltonian
+
+$$
+H_t = H_0 - \lambda_t B?
+$$
+
+- $B=-\frac{\partial H}{\partial \lambda}$ is __generalized force__; $\lambda$ __generalized displacement__
+
+---
+
+- In the interaction picture $\ket{\Psi_I(t)} \equiv e^{iH_0 t}\ket{\Psi(t)}$
+$$
+i\frac{\partial \ket{\Psi_I(t)}}{\partial t} = -\lambda_t B_I(t) \ket{\Psi_I(t)},
+$$
+where $B_I(t) = e^{iH_0 t}B e^{-iH_0 t}$
+
+- Result of first order time dependent perturbation theory is $\ket{\Psi_I(t)}=\ket{\Psi(0)}+\ket{\Psi^{(1)}_I(t)}+\cdots$, with
+
+`$$
+\ket{\Psi^{(1)}_I(t)} = i\int_0^t dt' \lambda_{t'} B_I(t') \ket{\Psi(0)}.
+$$`
+`$$
+\begin{align}
+\bra{\Psi(t)}A\ket{\Psi(t)} &= \bra{\Psi_I(t)}A_I(t) \ket{\Psi_I(t)} \nonumber\\
+&=\bra{\Psi(0)}A_I(t)\ket{\Psi(0)} +i \int_0^t dt' \lambda_{t'}\bra{\Psi(0)} \left[A_I(t),B_I(t')\right] \ket{\Psi(0)}.
+\end{align}
+$$`
+
+---
+
+- Mixed states can be treated by averaging over a distribution of quantum states $\langle\cdots \rangle \longrightarrow \langle\langle\cdots\rangle\rangle$
+
+- $\chi_{AB}(t)$ of $A$ due to perturbation that couples to $B$
+$$
+\chi_{AB}(t) = i\langle\langle\left[A_I(t),B_I(0)\right]\rangle\rangle,\quad t>0.
+\label{res_kubo}
+$$
+(Normally write $A(t)$ rather than $A_I(t)$: Heisenberg picture for the unperturbed problem) 
+
+- Thi is the __Kubo formula__. It expresses the response of a system in terms of the dynamics of the unperturbed system.
+
+---
+
+### Fluctuation Dissipation Theorem (general)
+ 
+- Start from the correlation function
+
+$$
+S_{AB}(t) \equiv \langle\langle A_I(t)B_I(0)\rangle\rangle.
+$$
+
+- Recalling that 
+`$$
+\langle\langle\cdots \rangle\rangle = \frac{1}{Z}\tr\left[e^{-\beta H}\cdots\right]
+$$`
+you should be able to show that
+$$
+S_{AB}(t) = S_{BA}(-t-i\beta).
+$$
+
+> Hint: use the cyclic property of the trace.
+
+---
+
+$$
+S_{AB}(t) = S_{BA}(-t-i\beta).
+$$
+
+- Fourier transforming, we arrive at
+$$
+S_{AB}(\omega) = e^{\beta\omega} S_{BA}(-\omega).
+$$
+(we've seen this before!)
+
+- $\chi_{AB}(t)$ (a commutator) can be written in terms of $S_{AB}(\omega)$
+
+`$$
+\begin{align}
+\chi_{AB}(t) &= \begin{cases}
+i\left[S_{AB}(t)-S_{BA}(-t)\right] & t>0\\
+0 & t<0.
+\end{cases}\\
+&= i\theta(t)\left[S_{AB}(t)-S_{BA}(-t)\right]
+\end{align}
+$$`
+
+---
+
+$$
+\chi_{AB}(t)=i\theta(t)\left[S_{AB}(t)-S_{BA}(-t)\right]
+$$
+
+- $\chi_{AB}(\omega)$ can then be expressed as the convolution. The Fourier transform of the step function is
+
+$$
+\tilde\theta(\omega) = \frac{i}{\omega+i0},
+$$
+`$$
+\begin{align}
+\chi_{AB}(\omega)&= -\int \frac{d\omega'}{2\pi}\frac{S_{AB}(\omega')-S_{BA}(-\omega')}{\omega-\omega'+i0}\\
+&=-\int \frac{d\omega'}{2\pi}\frac{S_{AB}(\omega')\left[1-e^{-\beta\omega'}\right]}{\omega-\omega'+i0}.
+\label{res_Conv}
+\end{align}
+$$`
+
+---
+
+- To make sense of this formula, use the Kramers--Kronig relation
+
+`$$
+\begin{align}
+\chi_{AB}(\omega) &=\chi'(\omega) + i\chi''(\omega)\\
+&= \cP \int_{-\infty}^\infty \frac{d\omega'}{\pi}\frac{\chi''(\omega')}{\omega'-\omega} + i\chi''(\omega)\\
+&= \int_{-\infty}^\infty \frac{d\omega'}{\pi}\frac{\chi''(\omega')}{\omega'-\omega-i0},
+\label{res_KKchi}
+\end{align}
+$$`
+where we used
+$$
+\frac{1}{x+i0} = \mathcal{P}\frac{1}{x} -i\pi\delta(x).
+$$
+
+Finally!
+
+$$
+S_{AB}(\omega) = 2\chi_{AB}''(\omega)\left[n_\text{B}(\omega)+1\right].
+\label{res_FDTGen}
+$$
+
+---
+
+### Spectral Representation
+
+The quantites $\chi_{AB}(\omega)$ and $S_{AB}(\omega)$ have spectral representations in terms of energy eigenstates and eigenvalues
+
+$$
+S_{AB}(\omega)  = 2\pi\sum_{m,n} \frac{e^{-\beta E_m}}{Z} \bra{m}A\ket{n}\bra{n}B\ket{m} \delta(\omega-E_n+E_m).
+\label{res_SABSpectral}
+$$
+
+
+> Use the spectral representation to prove the fluctuation dissipation relation
+
+-  $S_{AA}(\omega)$ can be interpreted in terms of Fermi golden rule, as we saw for oscillator. Notice that $S_AA(\omega)>0$.
+
+---
+
+## Response of Matter
+
+- Back to many body physics!
+
+---
+
+### Density Response
+
+- Suppose system is subject to time dependent potential corresponding to a term in Hamiltonian
+
+$$
+H_\text{pert} = \sum_{j=1}^N V(\br_i,t) = \int  V(\br,t)\rho(\br)\, d\br = \frac{1}{L^3}\sum_\bq V_\bq(t) \rho_{-\bq}.
+$$
+
+- Perturbation couples to the density: how is density affected? In a translationally invariant system
+$$
+\langle\langle \rho_\bq(t)\rangle\rangle = -\frac{1}{L^3} \int_{-\infty}^t  \chi^{\rho}_\bq(t-t') V_\bq(t)\,dt',
+$$
+where the density response function $\chi^\rho_\bq(t)$ is
+$$
+\chi_\rho(\bq,t) = i\langle\langle\left[\rho_\bq(t),\rho_{-\bq}(0)\right]\rangle\rangle.
+\label{res_kubo_density}
+$$
+
+---
+
+- General theory applies with $A=\rho_\bq$ and $B=\rho_{-\bq}$. At zero temperature
+$$
+S_\rho(\bq,\omega) = 2\pi\sum_{n}  |\bra{0}\rho_\bq\ket{n}|^2 \delta(\omega-E_n+E_0),
+\label{res_Sdef}
+$$
+where we have used `$\rho_\bq^\dagger=\rho_{-\bq}^{}$` This is the __dynamical structure factor__, on account of its importance in scattering experiments.
+
+- The __static structure factor__ is
+$$
+S_\rho(\bq) = \int S_\rho(\bq,\omega) \frac{d\omega}{2\pi} = \langle\langle\rho_\bq\rho_{-\bq}\rangle\rangle
+$$
+
+---
 
