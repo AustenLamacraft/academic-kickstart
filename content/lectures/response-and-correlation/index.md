@@ -746,7 +746,7 @@ $$
 
 ---
 
-- General theory applies with $A=\rho_\bq$ and $B=\rho_{-\bq}$. At zero temperature
+- General theory applies with `$A=\rho_\bq$` and `$B=\rho_{-\bq}$`. At zero temperature
 $$
 S_\rho(\bq,\omega) = 2\pi\sum_{n}  |\bra{0}\rho_\bq\ket{n}|^2 \delta(\omega-E_n+E_0),
 \label{res_Sdef}
@@ -756,6 +756,83 @@ where we have used `$\rho_\bq^\dagger=\rho_{-\bq}^{}$` This is the __dynamical s
 - The __static structure factor__ is
 $$
 S_\rho(\bq) = \int S_\rho(\bq,\omega) \frac{d\omega}{2\pi} = \langle\langle\rho_\bq\rho_{-\bq}\rangle\rangle
+$$
+
+---
+
+
+### Sum rules
+
+- $S_\rho(\bq,\omega)$ obeys certain general relations irrespective of the particular model under consideration: __sum rules__
+
+- If interaction depends only on density, it commutes with $\rho_\bq$, so the commutator is determined by kinetic energy
+
+$$
+T = -\frac{1}{2m}\sum_{j=1}^N \nabla_i^2.
+$$
+
+- Taking `$\rho_\bq =\sum_{j=1}^N e^{-i\bq\cdot\br_j}$`, we find __f-sum rule__
+$$
+[[H,\rho_\bq],\rho_{-\bq}] = -\frac{N\bq^2}{m}.
+$$
+$$
+\int_{-\infty}^\infty \omega S(\bq,\omega) \frac{d\omega}{2\pi}= \frac{N\bq^2}{2m}.
+$$
+
+
+---
+
+- The compressibility is defined in terms of the volume $V$ and pressure $p$ as
+
+$$
+\kappa=-\frac{1}{V}\frac{\partial V}{\partial p}.
+$$
+
+- At zero temperature, the pressure is
+
+$$
+p = -\frac{\partial E_0}{\partial V},
+$$
+
+- We expect $E_0 = V \epsilon(\rho)$, where $\rho = N/V$ is the density, and $\epsilon(\rho)$ the energy per unit volume. Then
+
+$$
+\kappa^{-1} = \rho^2 \epsilon''(\rho).
+$$
+
+---
+
+Recall that the chemical potential $\mu = \frac{\partial E_0}{\partial N}=\epsilon'(\rho)$. Then
+
+$$
+\kappa = \rho^{-2} \frac{\partial \rho}{\partial \mu} = \frac{1}{\rho N}\chi'(0,0).  
+$$
+
+Now $\chi'(\bq,\omega)$ can be written in terms of $\chi''(\bq,\omega)$ (Kramers--Kronig) and $\chi''(\bq,\omega)$ is related to $S_\rho(\bq,\omega)$. This gives the __compressibility sum rule__ at zero temperature
+
+$$
+\lim_{\bq\to 0}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi} = \frac{N\rho\kappa}{2}.
+$$
+
+---
+
+The compressibility sum rule is often written in terms of the speed of sound $c = (\kappa m \rho)^{-1/2}$ as
+
+$$
+\lim_{\bq\to 0}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi} = \frac{N}{2mc^2}.
+$$
+
+Let's consider a simple example. Some systems, notably Bose gases, have a zero temperature dynamical structure factor that at low momentum has the following approximate form
+
+$$
+S_\rho(\bq,\omega) \sim 2\pi S_\rho(\bq) \delta(\omega - \omega(\bq)),
+\label{res_SMA}
+$$
+
+where $\omega(\bq)$ is the dispersion relation of the collective excitations. In reality, the $\delta$-function is never infinitely sharp, but has a finite width on account of interactions between excitations causing scattering and / or decay. In the approximation $\eqref{res_SMA}$, often known as the __single mode approximation__, the f-sum rule tells us that
+
+$$
+S_\rho(\bq) = \frac{N\bq^2}{2m\omega(\bq)}.
 $$
 
 ---
