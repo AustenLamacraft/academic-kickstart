@@ -322,6 +322,7 @@ $$`
 </p>
 
 - Generic: decay governed by dominant eigenvalue of channel
+- Can evaluate correlations _inside_ light cone, just need a bigger channel (see later)!
 
 ---
 
@@ -336,22 +337,6 @@ $$`
 Bertini, Kos, Prosen (2019)
 </a>
 </p>
-
----
-
-## Evaluating correlations
-
-- Quantum channel picture
-
----
-
-## Phenomenology for qubits
-
----
-
-## Inside the light cone
-
-- Using quantum channel picture 
 
 ---
 
@@ -409,7 +394,7 @@ $v_\text{B}\to 1$ as $q\to\infty$
 - Light cone coordinates $n_+ = (t+ x)/2$, $n_- = (t- x+2)/2$
 
 <p align="center">
-<img src="diag_def_LTR_even.png" width="600"/>
+<img src="diag_def_LTR_even.png" width="400"/>
 </p>
 
 `$$
@@ -425,7 +410,7 @@ $$`
 ### Transfer matrix
 
 <p align="center">
-<img src="diag_def_Tmat.png" width="800"/>
+<img src="diag_def_Tmat.png" width="600"/>
 </p>
 
 <!-- - Appears also in operator entanglement ([Bertini, Kos, Prosen 2020](https://www.scipost.org/SciPostPhys.8.4.067/pdf)) -->
