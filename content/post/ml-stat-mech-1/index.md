@@ -1,22 +1,22 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Dynamic Entropy"
+title: "ML and Statistical Mechanics"
 subtitle: ""
 summary: ""
 authors: []
 tags: []
 categories: []
-date: 2020-06-24T17:50:40+01:00
-lastmod: 2020-06-24T17:50:40+01:00
+date: 2021-05-19T16:50:40+01:00
+lastmod: 2021-06-19T16:50:40+01:00
 featured: false
-draft: true
+draft: false
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
-  caption: "Source [XKCD](https://xkcd.com/2318/)"
+  caption: ""
   focal_point: ""
   preview_only: false
 
@@ -27,4 +27,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
+
+Here we are! Trying to write something! rebuild does it work? No it doesn't. Where is fast build?
+
 
