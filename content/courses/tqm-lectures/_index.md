@@ -29,10 +29,10 @@ If you ever want access to the LaTeX for the mathematical expressions, right cli
 
 ## Past exam papers (with solutions)
 
-- {{% staticref "files/2017-tqm-solutions.pdf" %}}2017{{% /staticref %}}
-- {{% staticref "files/2018-tqm-solutions.pdf" %}}2018{{% /staticref %}}
-- {{% staticref "files/2019-tqm-solutions.pdf" %}}2019{{% /staticref %}}
-- {{% staticref "files/2020-tqm-solutions.pdf" %}}2020{{% /staticref %}}
+- {{% staticref "uploads/2017-tqm-solutions.pdf" "newtab" %}}2017{{% /staticref %}}
+- {{% staticref "uploads/2018-tqm-solutions.pdf" "newtab" %}}2018{{% /staticref %}}
+- {{% staticref "uploads/2019-tqm-solutions.pdf" "newtab" %}}2019{{% /staticref %}}
+- {{% staticref "uploads/2020-tqm-solutions.pdf" "newtab" %}}2020{{% /staticref %}}
 
 ## Some books that you may find useful
 
