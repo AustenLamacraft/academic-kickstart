@@ -173,7 +173,7 @@ $$
 We deduce [Bayes' theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem)
 
 $$
-p(y|x)=\frac{p(x|y)p(y)}{p(y)}
+p(y|x)=\frac{p(x|y)p(y)}{p(x)}
 $$
 
 Note that if we are dealing with continuous variables, any change in dimensions in going from a distribution over $x$ to a distribution over $y$ is handled by the ratio $p(y)/p(x)$.

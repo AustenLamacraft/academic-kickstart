@@ -206,7 +206,7 @@ $$
 - We deduce [Bayes' theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem)
 
 $$
-p(y|x)=\frac{p(x|y)p(y)}{p(y)}
+p(y|x)=\frac{p(x|y)p(y)}{p(x)}
 $$
 
 ---
