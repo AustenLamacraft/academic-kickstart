@@ -10,7 +10,7 @@ categories: []
 date: 2021-05-19T16:50:40+01:00
 lastmod: 2021-05-19T16:50:40+01:00
 featured: false
-draft: true
+draft: false
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -82,17 +82,15 @@ If you ever find yourself talking to a probabilist, you may find it helpful to k
 
 What about ML? Let's take computer vision, one of the problems in which ML has made great progress in recent years. A (static) image is defined by a set of $(R,G,B)$ values at each pixel, each defined by eight bits i.e. an integer in $[0,255]$. The **basic hypothesis** on which probabilistic machine learning rests is that a dataset represents a set of independent and identically distributed (**iid**) samples of some random variables. In the case of an image, the random variables are the RGB values of all the pixels. The distribution of these variables has to be highly correlated and have a great deal of complex structure: rather than generating white noise for each sample we instead get (say) cats and dogs.
 
-While this may seem like a funny way of thinking about a stack of photos it does conceptually have a lot in common with the way probability is often used in physics. After all, classical statistical mechanics is built on the notion that the motion of gas molecules is completely deterministic but incredibly complicated. While detailed knowledge of the dynamics is completely beyond our reach it is also irrelevant for the thermodynamic behaviour of interest: two boxes of gas behave in exactly the same way despite the underlying configurations of the molecules being completely different.
+While this may seem like a funny way of thinking about a stack of photos it does conceptually have a lot in common with the way probability is often used in physics. After all, classical statistical mechanics is built on the notion that the motion of gas molecules is completely deterministic but incredibly complicated. While detailed knowledge of the dynamics is completely beyond our reach it is also irrelevant for the thermodynamic behaviour of interest: two boxes of gas behave in exactly the same way despite the underlying configurations of the molecules being completely different. Physics is used, however, to constrain our probability model. For example, collisions between molecules are elastic and momentum conserving.
 
 The **difference** from the SM situation is that we don't know the probability distribution up front. The goal is to *infer* the distribution from data. Conceptually then, probabilistic ML is the same as [statistical inference](https://en.wikipedia.org/wiki/Statistical_inference). The different terms mostly reflect the differing background of practitioners: ML comes from computer science; statistical inference from mathematics. It all comes down to the tools you use: in recent years probabilistic ML has made great strides using models based on neural networks together with the associated training algorithms, which have allowed very rich probability distributions, describing datasets of images or audio signals, to be successfully modelled. 
 
-
-
-Should note that the iid assumption is clearly wrong
+<!-- Should note that the iid assumption is clearly wrong -->
 
 
 
-The tone will be theoretical.
+<!-- The tone will be theoretical.
 
 Applications of probablistic ML
 
@@ -109,7 +107,7 @@ Planted ensembles
 
 - [ ] Contrast Ising model and pics of faces
 - [ ] Not going to discuss supervised learning, labels and all that
-- [ ] Refer to Alemi here?
+- [ ] Refer to Alemi here? -->
 
 
 ## Lecture 1: Fundamentals
@@ -225,7 +223,7 @@ Latent variable models are also the basis of **generative modelling**: sampling 
 In SM we're familiar with the entropy associated with a probability distribution. This quantity arrived in ML from information theory and is given the symbol $H$ (for [Hartley](https://en.wikipedia.org/wiki/Ralph_Hartley)?)
 
 $$
-H[p]=- \sum_x p(x)\log_2(x).
+H[p]=- \sum_x p(x)\log_2 p(x).
 $$
 
 Taking the logarithm base 2 means we measure in bits (the natural logarithm that is normally used for the Gibbs entropy is measured in "nats"). In the following we'll normally drop the base.
@@ -366,7 +364,7 @@ $$
 
 with equality if and only if $p=q$. 
 
-By the way, the term **divergence** is used to distinguish from a **distance**, which is symmetric and satisfies the triangle inequality.
+<!-- By the way, the term **divergence** is used to distinguish from a **distance**, which is symmetric and satisfies the triangle inequality.
 
 
 
@@ -384,7 +382,7 @@ How compressed is your signal in practice? KL
 
 Minimal description length
 
-- [ ] Forward and reverse KL and the meaning
+- [ ] Forward and reverse KL and the meaning -->
 
 ### Variational inference (VI)
 
@@ -514,9 +512,9 @@ $$
 
 By improving our posterior we can saturate the second equality. By improving our generative model $p(x|z)$ we can saturate the first. 
 
-A popular modern approach is to introduce models $q_\theta(x|z)$ and $p_\phi(z|x)$, often parameterized in terms of neural networks, and optimize both sets of parameters $\theta$ and $\phi$ simulataneously. This is the basis of the [Variational Autoencoder](https://en.wikipedia.org/wiki/Autoencoder#Variational_autoencoder_(VAE)), which we'll meet in the next lecture.
+A popular modern approach is to introduce models $q_\theta(x|z)$ and $p_\phi(z|x)$, often parameterized in terms of neural networks, and optimize both sets of parameters $\theta$ and $\phi$ simultaneously. This is the basis of the [Variational Autoencoder](https://en.wikipedia.org/wiki/Autoencoder#Variational_autoencoder_(VAE)), which we'll meet in the next lecture.
 
-#### A toy model
+<!-- #### A toy model
 
 
 Community detection
@@ -567,4 +565,4 @@ Jarzynski inequality. Annealed importance sampling
 
 ### Schrodinger bridge
 
-Turning a model into an autoregressive model
+Turning a model into an autoregressive model -->

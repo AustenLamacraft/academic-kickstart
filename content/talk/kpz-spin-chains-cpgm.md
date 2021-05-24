@@ -1,6 +1,6 @@
 ---
 title: Superdiffusion in spin chains
-event: Many Body Physics in Open Quantum Systems, PCTS January 2021
+event: CPGM meeting
 summary: Recent excitement about KPZ physics in quantum spin chains at high temperatures
 authors: [Austen Lamacraft]
 tags: []
