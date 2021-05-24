@@ -27,14 +27,16 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
-$$
-\DeclareMathOperator*{\E}{\mathbb{E}}
-\newcommand{\cE}{\mathcal{E}}
-$$
+
 
 In these lectures we are going to explore some connections between machine learning (ML) and (classical) statistical mechanics (SM). To be precise, we are going to see how the appearance of *probabilistic models* with *large numbers of variables* in both fields means that certain theoretical concepts and tools can be applied in both. To get things going, let's see how this probabilistic viewpoint arises in the two settings.
 
 {{% toc %}}
+
+$$
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\newcommand{\cE}{\mathcal{E}}
+$$
 
 ### Probability in Statistical Mechanics
 
@@ -223,7 +225,7 @@ Latent variable models are also the basis of **generative modelling**: sampling 
 In SM we're familiar with the entropy associated with a probability distribution. This quantity arrived in ML from information theory and is given the symbol $H$ (for [Hartley](https://en.wikipedia.org/wiki/Ralph_Hartley)?)
 
 $$
-H[p]=- \sum_x p(x)\log_2 p(x).
+H[p]=- \sum_x p(x)\log_2p(x).
 $$
 
 Taking the logarithm base 2 means we measure in bits (the natural logarithm that is normally used for the Gibbs entropy is measured in "nats"). In the following we'll normally drop the base.
