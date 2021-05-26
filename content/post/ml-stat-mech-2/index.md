@@ -290,7 +290,7 @@ $$
   \label{eq:im-time}
 $$
 
-also known as the imaginary time Schr\"odinger equation. The FK formula expresses the solution as an expectation over Brownian paths
+also known as the imaginary time Schrödinger equation. The FK formula expresses the solution as an expectation over Brownian paths
 
 $$
   \psi(\br_2,t_2) =  \E_{\br(t_2)=\br_2}\left[\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)\psi(\br(t_1),t_1)\right],
@@ -298,7 +298,7 @@ $$
 
 where the paths must finish at $\br_2$ at time $t_2$. If you've seen the path integral before and are asking yourself what happened to the term in the exponent that derives from the kinetic energy: *that's* what describes the distribution over Brownian paths.
 
-In this way quantum mechanics is brought into the realm of stochastic processes, albeit in "imaginary time". Whilst this formulation is therefore not of direct utility in studying quantum dynamics, it provides a very useful tool for studying *ground states*. This is because the propagator $K(\br_2,t_2;\br_1,t_1)$ for \eqref{eq:im-time} has a spectral representation in terms of the eigenfunctions $\varphi_n$ and eigenenergies $E_n$ of the time independent Schr\"odinger equation $H\varphi_n = E_n\varphi_n$ as
+In this way quantum mechanics is brought into the realm of stochastic processes, albeit in "imaginary time". Whilst this formulation is therefore not of direct utility in studying quantum dynamics, it provides a very useful tool for studying *ground states*. This is because the propagator $K(\br_2,t_2;\br_1,t_1)$ for \eqref{eq:im-time} has a spectral representation in terms of the eigenfunctions $\varphi_n$ and eigenenergies $E_n$ of the time independent Schrödinger equation $H\varphi_n = E_n\varphi_n$ as
 
 $$
 K(\br_2,t_2;\br_1,t_1) = \sum_n \varphi_n(\br_2)\varphi^*_n(\br_1)e^{-E_n(t_2-t_1)}.
@@ -371,4 +371,4 @@ irrespective of the initial state distribution (as $T\to\infty$ the final state 
 
 #### Training
 
-For details of how the model is parameterized and trained see [our paper](http://proceedings.mlr.press/v107/barr20a.html) 
+For details of how the model is parameterized and trained see [our paper](http://proceedings.mlr.press/v107/barr20a.html).
