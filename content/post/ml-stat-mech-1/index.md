@@ -158,7 +158,7 @@ p(x_1,\ldots x_N)=p(x_1)p(x_2|x_1)p(x_3|x_2,x_1)\cdots p(x_N|x_1,\ldots x_{N-1})
 \label{eq:chain}
 $$
 
-which is sometimes called the [chain rule of probability](https://en.wikipedia.org/wiki/Chain_rule_(probability)). Although it's always possible *in principle* to express a joint probability like this, there's no guarantee it's easy to do or useful. One situation in which one may expect it to be a convenient description is when there is a natural order to the variables. For example, words or characters in text or any kind of time series. In this case the model may stil be useful if the conditional probabilities involve only a fixed number $p$ of the preceding variables, even as $N\to\infty$. Such models are called [autoregressive](https://en.wikipedia.org/wiki/Autoregressive_model), although a physicist may be tempted to call them *causal*.
+which is sometimes called the [chain rule of probability](https://en.wikipedia.org/wiki/Chain_rule_(probability)). Although it's always possible *in principle* to express a joint probability like this, there's no guarantee it's easy to do or useful. One situation in which one may expect it to be a convenient description is when there is a natural order to the variables. For example, words or characters in text or any kind of time series. In this case the model may still be useful if the conditional probabilities involve only a fixed number $p$ of the preceding variables, even as $N\to\infty$. Such models are called [autoregressive](https://en.wikipedia.org/wiki/Autoregressive_model), although a physicist may be tempted to call them *causal*.
 
 Sampling from a highly complex joint distribution $p(x_1,\ldots x_N)$ is generally difficult. One of the benefits of formulating a model as in $\eqref{eq:chain}$ is that producing samples is much easier. First you sample $x_1$ using $p(\cdot)$, then sample $x_2$ using $p(\cdot|x_1)$, and so on. You never have to sample more than one variable at once!
 
@@ -264,7 +264,7 @@ $$
 \lim_{N\to\infty} \frac{1}{N}\log p(x_1,\ldots x_N) = -H[p].
 $$
 
-This is called the [asymptotic partition property](https://en.wikipedia.org/wiki/Asymptotic_equipartition_property). It probably looks a bit strange. Shouldn't the probability depend on what you actually get? After all, some outcomes *are* more likely than others. Suppose you have a biased coin that give heads with probability $p_H>0.5$ and tails with probability $p_T=1-p_H$. In a very long sequence of tosses the chance of getting half heads and half tails becomes exponentially small. What you're going to get instead is
+This is called the [asymptotic partition property](https://en.wikipedia.org/wiki/Asymptotic_equipartition_property). It probably looks a bit strange. Shouldn't the probability depend on what you actually get? After all, some outcomes *are* more likely than others. Suppose you have a biased coin that gives heads with probability $p_H>0.5$ and tails with probability $p_T=1-p_H$. In a very long sequence of tosses the chance of getting half heads and half tails becomes exponentially small. What you're going to get instead is
 
 $$
 \frac{N_H}{N}\to p_H\qquad \frac{N_T}{N}\to p_T\qquad .
