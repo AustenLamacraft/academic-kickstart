@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Machine Learning and Statistical Mechanics"
+title: "Machine Learning and Statistical Mechanics I"
 subtitle: ""
 summary: ""
 authors: []
@@ -414,12 +414,12 @@ p(\sigma) = \frac{\exp\left[-\beta\cE(\sigma)\right]}{Z}.
 \label{eq:boltzmann}
 $$
 
-The goal is to find expectations, for example the average energy $\E\_{\sigma\sim p}\left[\cE(\sigma)\right]$. Since this is difficult for the $p(\sigma)$ nature gives us we are going to try and approximate $p(\sigma)$ by a *simpler* class of distributions $q_\theta(\sigma)$, where $\theta$ denote the parameters that define the family, and find the *best* approximation.
+The goal is to find expectations, for example the average energy $\E\_{\sigma\sim p}\left[\cE(\sigma)\right]$. Since this is difficult for the $p(\sigma)$ nature gives us we are going to try and approximate $p(\sigma)$ by a *simpler* class of distributions $q\_\phi(\sigma)$, where $\phi$ denote the parameters that define the family, and find the *best* approximation.
 
 What does *simpler* mean? It means one where we can actually calculate expectations (with the resources we have available). Probably the most drastic simplification we can take is to suppose that the variables are independent, so that the probability distribution factorizes
 
 $$
-q_\theta(\sigma)=\prod_n q_{\theta_n}(\sigma_n).
+q_\phi(\sigma)=\prod_n q_{\phi_n}(\sigma_n).
 \tag{5}
 \label{eq:factor}
 $$
@@ -429,38 +429,38 @@ We are allowing for the single spin distributions to be different, which will be
 What does *best* mean? We've seen that the KL quantifies the difference between distributions, so it's natural to try to minimize 
 
 $$
-D(q||p)=\E_{\sigma\sim q_\theta}\left[\log\left(\frac{q_\theta(\sigma)}{p(\sigma)}\right)\right].
+D_\text{KL}(q||p)=\E_{\sigma\sim q_\phi}\left[\log\left(\frac{q_\phi(\sigma)}{p(\sigma)}\right)\right].
 $$
 
 Why do we minimize $D(q||p)$ and not $D(p||q)$? The pragmatic answer is: *$D(q||p)$ is the one we can calculate*, as it involves an expectation with respect to the tractable trial distribution. Substituting in the Boltzmann distribution $\eqref{eq:boltzmann}$ we find
 
 $$
-D(q||p)= \log Z - H[q_\theta] + \beta \E_{\sigma\sim q_\theta}\left[\cE(\sigma)\right]\geq 0,
+D_\text{KL}(q||p)= \log Z - H[q_\phi] + \beta \E_{\sigma\sim q_\phi}\left[\cE(\sigma)\right]\geq 0,
 $$
 
 or in usual SM language
 
 $$
-\E_{\sigma\sim q_\theta}\left[\cE(\sigma)\right]-TH[q_\theta] \geq F,
+\E_{\sigma\sim q_\phi}\left[\cE(\sigma)\right]-TH[q_\phi] \geq F,
 \tag{6}
 \label{eq:mft}
 $$
 
-where $F=-T\log Z$ is the Helmholtz free energy. This is known as variously as the [Bogoliubov](https://en.wikipedia.org/wiki/Helmholtz_free_energy#Bogoliubov_inequality) or [Gibbs](https://en.wikipedia.org/wiki/Gibbs%27_inequality) inequality. By optimizing the left hand side over $\theta$ we can find the best approximation within our family, and it will achieve a free energy closest to the true value.
+where $F=-T\log Z$ is the Helmholtz free energy. This is known as variously as the [Bogoliubov](https://en.wikipedia.org/wiki/Helmholtz_free_energy#Bogoliubov_inequality) or [Gibbs](https://en.wikipedia.org/wiki/Gibbs%27_inequality) inequality. By optimizing the left hand side over $\phi$ we can find the best approximation within our family, and it will achieve a free energy closest to the true value.
 
 For Ising spins our factorized distributions $\eqref{eq:factor}$ are defined by fields on each site
 
 $$
-q_{\theta_n}(\sigma_n) = \frac{\exp\left[-\beta\theta_n\sigma_n\right]}{2\cosh (\beta\theta_n)}, 
+q_{\phi_n}(\sigma_n) = \frac{\exp\left[-\beta\phi_n\sigma_n\right]}{2\cosh (\beta\phi_n)}, 
 $$
 
 with average spin
 
 $$
-\E_{\sigma_n\sim q_n}\left[\sigma_n\right] = -\tanh\left(\beta\theta_n\right).
+\E_{\sigma_n\sim q_n}\left[\sigma_n\right] = -\tanh\left(\beta\phi_n\right).
 $$
 
-Optimizing $\eqref{eq:mft}$ with respect to $\theta_n$ reproduces the equations of [mean field theory](https://en.wikipedia.org/wiki/Mean-field_theory#Ising_model). The optimal values of $\theta_n$ are interpreted as the "mean fields" due to the applied field and the other spins coupled to $\sigma_n$.
+Optimizing $\eqref{eq:mft}$ with respect to $\phi_n$ reproduces the equations of [mean field theory](https://en.wikipedia.org/wiki/Mean-field_theory#Ising_model). The optimal values of $\phi_n$ are interpreted as the "mean fields" due to the applied field and the other spins coupled to $\sigma_n$.
 
 #### VI in latent variable models
 
@@ -473,7 +473,7 @@ $$
 (we add the subscript "M" for model) The role of the spins $\sigma$ is now played by the latent variables. Following exactly the same steps leads us to 
 
 $$
-\log p_\text{M}(x) \geq \E_{z\sim q_\theta(\cdot|x)}\left[\log p(x,z)\right]+ H[q_\theta(\cdot|z)].
+\log p_\text{M}(x) \geq \E_{z\sim q_\phi(\cdot|x)}\left[\log p(x,z)\right]+ H[q_\phi(\cdot|z)].
 \tag{7}
 \label{eq:elbo}
 $$
@@ -483,12 +483,12 @@ The right hand side is called the [Evidence lower bound](https://en.wikipedia.or
 It's possible to re-write $\eqref{eq:elbo}$ as
 
 $$
-\log p_\text{M}(x) \geq \log p(x) - D_\text{KL}(q_\theta(\cdot|x)||p(\cdot|x)),
+\log p_\text{M}(x) \geq \log p_\text{M}(x) - D_\text{KL}(q_\phi(\cdot|x)||p(\cdot|x)),
 $$
 
 so the bound is saturated when the variational posterior for the latent variables coincides with the true posterior $p(z|x)=p(x,z)/p_\text{M}(x)$. 
 
-For complicated models it isn't practical to optimize the ELBO for each data point $x$ to obtain the best $\theta(x)$. Instead, we average over the entire data set (this is called *amortization*, a pretty confusing term). I like to think of this as follows. We have two representations of the same joint distribution. One ("forward") in terms of the generative model and the prior
+For complicated models it isn't practical to optimize the ELBO for each data point $x$ to obtain the best $\phi(x)$. Instead, we average over the entire data set (this is called *amortization*, a pretty confusing term). I like to think of this as follows. We have two representations of the same joint distribution. One ("forward") in terms of the generative model and the prior
 
 $$
 p_\text{F}(x,z)= p(x|z)p(z)
@@ -497,43 +497,34 @@ $$
 and the other ("backward") in terms of the data distribution $p_\text{D}(x)$ and the posterior
 
 $$
-p_\text{B}(x,z)= q_\theta(z|x)p_\text{D}(x).
+p_\text{B}(x,z)= q_\phi(z|x)p_\text{D}(x).
 $$
 
 To make the two equal we should minimize the KL over joint distributions
 
 $$
-D(p_\text{B}||p_\text{F})=\E_{x\sim \text{Data}}\left[\E_{z\sim q_\theta(\cdot|x)}\left[\log\left(\frac{q_\theta(z|x)p_\text{D}(x)}{p(x|z)p(z)}\right)\right]\right]\geq 0,
+D_\text{KL}(q||p)(p_\text{B}||p_\text{F})=\E_{x\sim \text{Data}}\left[\E_{z\sim q_\phi(\cdot|x)}\left[\log\left(\frac{q_\phi(z|x)p_\text{D}(x)}{p(x|z)p(z)}\right)\right]\right]\geq 0,
 $$
 
 or
 
 $$
-H[p_\text{D}]\leq H(p_\text{D}, p_\text{M}) \leq \E_{x\sim \text{Data}}\left[\E_{z\sim q_\theta(\cdot|x)}\left[\log\left(\frac{q_\theta(z|x)}{p(x|z)p(z)}\right)\right]\right].
+H[p_\text{D}]\leq H(p_\text{D}, p_\text{M}) \leq \E_{x\sim \text{Data}}\left[\E_{z\sim q_\phi(\cdot|x)}\left[\log\left(\frac{q_\phi(z|x)}{p(x|z)p(z)}\right)\right]\right].
 $$
 
 By improving our posterior we can saturate the second equality. By improving our generative model $p(x|z)$ we can saturate the first. 
 
-A popular modern approach is to introduce models $q_\theta(x|z)$ and $p_\phi(z|x)$, often parameterized in terms of neural networks, and optimize both sets of parameters $\theta$ and $\phi$ simultaneously. This is the basis of the [Variational Autoencoder](https://en.wikipedia.org/wiki/Autoencoder#Variational_autoencoder_(VAE)), which we'll meet in the next lecture.
+A popular modern approach is to introduce models $q_\phi(x|z)$ and $p_\theta(z|x)$, often parameterized in terms of neural networks, and optimize both sets of parameters $\theta$ and $\phi$ simultaneously. This is the basis of the [Variational Autoencoder](https://en.wikipedia.org/wiki/Autoencoder#Variational_autoencoder_(VAE)), which we'll meet in the next lecture.
 
 <!-- #### A toy model
 
 
 Community detection
-
-amortization
-
-The only real difference here is
-
-
-
 Other stuff. Message passing
 
 Example of planted models
 
 ### A zoo of models
-
-Latent variable models. What does it mean?
 
 Graphical models, Markov models, autoregressive models
 

@@ -300,7 +300,7 @@ $$
 - Arrived in ML from information theory
 
 $$
-H[p]=- \sum_x p(x)\log_2(x).
+H[p]=- \sum_x p(x)\log_2 p(x).
 $$
 
 - Taking the logarithm base 2 means we measure in bits 
@@ -485,14 +485,14 @@ $$
 - Natural to try to minimize 
 
 $$
-D(q||p)=\E_{\sigma\sim q_\theta}\left[\log\left(\frac{q_\theta(\sigma)}{p(\sigma)}\right)\right].
+D_\text{KL}(q||p)(q||p)=\E_{\sigma\sim q_\theta}\left[\log\left(\frac{q_\theta(\sigma)}{p(\sigma)}\right)\right].
 $$
 
 ---
 
 - Substituting in the Boltzmann distribution
 $$
-D(q||p)= \log Z - H[q_\theta] + \beta \E_{\sigma\sim q_\theta}\left[\cE(\sigma)\right]\geq 0,
+D_\text{KL}(q||p)(q||p)= \log Z - H[q_\theta] + \beta \E_{\sigma\sim q_\theta}\left[\cE(\sigma)\right]\geq 0,
 $$
 or in usual SM language
 $$
@@ -537,7 +537,7 @@ $$
 
 - Possible to rewrite as
 $$
-\log p_\text{M}(x) \geq \log p(x) - D_\text{KL}(q_\theta(\cdot|x)||p(\cdot|x)),
+\log p_\text{M}(x) \geq \log p_\text{M}(x) - D_\text{KL}(q_\theta(\cdot|x)||p(\cdot|x)),
 $$
 so the bound is saturated when the variational posterior for the latent variables coincides with the true posterior 
 $$
