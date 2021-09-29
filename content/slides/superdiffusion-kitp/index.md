@@ -130,7 +130,7 @@ H = \sum_{j,a} \left[(J + \xi_j(t))\sigma^a_j \sigma^a_{j+1}\right]
 - Infinite temperature spin-spin correlator
 
 $$
-C^{ab}_{jk}(t)\equiv\frac{1}{2^N}\mathop{\mathrm{tr}}\left[\sigma^a_j(0) \sigma^b_k(t)\right]\qquad \sigma^b_k(t)=\mathcal{U}_t \sigma^b_k \mathcal{U}_t^\dagger.
+C^{ab}_{jk}(t)\equiv\frac{1}{2^N}\mathop{\mathrm{tr}}\left[\sigma^a_j(0) \sigma^b_k(t)\right]\qquad \sigma^b_k(t)=\mathcal{U}^\dagger_t \sigma^b_k \mathcal{U}_t.
 $$
 
 - $SU(2)$ invariance: $C^{ab}\_{jk}(t)\equiv\delta_{ab}C_{jk}(t)$ with $\sum_{k=1}^N C_{jk}(t)=1$
