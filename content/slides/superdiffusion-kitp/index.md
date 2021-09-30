@@ -30,9 +30,15 @@ $$
 Work with Pieter Claeys and Jonah Herzog-Arbeitman
 
 <p align="center">
-<img src="pieter.png" height="300">
-<img src="operator-spreading.png" height="300">
-<img src="jonah.png" height="300">
+<img src="pieter.png" height="250">
+<img src="operator-spreading.png" height="250">
+<img src="jonah.png" height="250">
+</p>
+
+<p align="right">
+<a source="https://auste.nl/slides/superdiffusion-kitp/">
+auste.nl/slides/superdiffusion-kitp/
+</a>
 </p>
 
 
