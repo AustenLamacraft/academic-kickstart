@@ -472,7 +472,7 @@ $$
 - [Glorioso _et al._ (2020)](https://www.scipost.org/10.21468/SciPostPhys.10.1.015): corrections to current
 
 $$
-J^a = -D\nabla s^a + \lambda \epsilon_{abc} s^b s^c
+J^a = -D\nabla s^a + \lambda \epsilon_{abc} s^b \nabla s^c
 $$
 
 - Implies $\sim \lambda^2/\sqrt{t}$ corrections to diffusion constant
