@@ -72,7 +72,7 @@ $$
 
 - Hard for atoms / molecules: __impossible__ for matter $N\sim N_A$!
 
-- __Goal__: what _is_ a solid / metal / superconductor?  
+- __Goal__: what _is_ a solid / metal / superconductor / superfluid?  
 
 ---
 
@@ -96,11 +96,11 @@ $$
 
 ## Housekeeping
 
-- Course website 
-  - [tqm.courses.phy.cam.ac.uk/docs/](http://tqm.courses.phy.cam.ac.uk/docs/) (old) or 
-  - [auste.nl/courses/](https://auste.nl/courses/) (updated with slides)
+- $\hbar=1$
 
-- Lecture capture on Moodle (after today all three screens)
+- Course website [auste.nl/courses/](https://auste.nl/courses/) (updated with slides)
+
+- Lecture capture (left and centre blackboards + centre screen)
 
 - Supervision details to follow
 
@@ -179,23 +179,26 @@ $$`
 
 ## Hong--Ou--Mandel effect
 
-<p align="center">
-<img src="assets/HOM.png" alt="drawing" width="1000" class="center"/>
-</p>
-
 - Two photons (bosons) approach a beam splitter from either side.  
 
 - Start in orthogonal states, end up in orthogonal states e.g.
 
 $$
-\ket{\text{Top/Bottom}}=\frac{1}{\sqrt{2}}\left(\ket{\text{Top}}\pm \ket{\text{Bottom}}\right)
+\begin{align}
+\ket{\text{Left}}\to\frac{1}{\sqrt{2}}\left(\ket{\text{Left}}+ \ket{\text{Right}}\right)\\\\
+\ket{\text{Right}}\to\frac{1}{\sqrt{2}}\left(\ket{\text{Left}}- \ket{\text{Right}}\right)
+\end{align}
 $$
 
 ---
 
 > If we start in 
->$$\frac{1}{\sqrt{2}}[\varphi_\text{T}(\br_1)\varphi_\text{B}(\br_2)\pm \varphi_\text{B}(\br_1)\varphi_\text{T}(\br_2)]$$
+>$$\frac{1}{\sqrt{2}}[\varphi_\text{L}(\br_1)\varphi_\text{R}(\br_2)\pm \varphi_\text{R}(\br_1)\varphi_\text{L}(\br_2)]$$
 > What state do we end up in?
+
+<p align="center">
+<img src="assets/HOM.png" alt="drawing" width="1000" class="center"/>
+</p>
 
 ---
 
@@ -220,18 +223,22 @@ $$
 E = \sum_{j=1}^N E_{\alpha_j}
 $$
 
+> What are the energy eigenstates?
+
 ---
 
 ## Symmetrize / Antisymmetrize
 
 $$
  \label{quantum_statistics_SymAntisym}
-   \mathcal{S}=\frac{1}{N!}\sum_{P} P, \qquad \mathcal{A}=\frac{1}{N!}\sum_{P} \sgn(P)P
+   \mathcal{S}=\frac{1}{N!}\sum_{\pi} P_\pi, \qquad \mathcal{A}=\frac{1}{N!}\sum_{\pi} \sgn(\pi)P_\pi
 $$
 
-- Sum over all $N!$ permutations of $N$ objects
+- $\pi$ is one of $N!$ permutations of $N$ objects
 
-- $P$ is corresponding permutation operator e.g. for two particles
+- $P\_\pi$ is permutation _operator_ for permutation $\pi$
+
+- For two particles 
 
 $$
 P_{12}\Psi(\br_1,\br_2) = \Psi(\br_2,\br_1)
@@ -241,9 +248,9 @@ $$
 
 ## Signature of Permutation
 
-- $\sgn(P)$ is the __signature__ of the permutation
+- $\sgn(\pi)$ is the __signature__ of the permutation
 
-- $\pm1$ for $P$ involving an even (odd) number of exchanges
+- $\pm1$ for $\pi$ involving an even (odd) number of exchanges
 
 ---
 
