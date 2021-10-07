@@ -238,10 +238,10 @@ $$
 
 - $P\_\pi$ is permutation _operator_ for permutation $\pi$
 
-- For two particles 
+- For two particles there are two permutations: $\pi=(12)$ and $\pi=(21)$
 
 $$
-P_{12}\Psi(\br_1,\br_2) = \Psi(\br_2,\br_1)
+P_{(21)}\Psi(\br_1,\br_2) = \Psi(\br_2,\br_1)
 $$
 
 ---
