@@ -14,6 +14,7 @@ $$
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cH}{\mathcal{H}}
 \newcommand{\cN}{\mathcal{N}}
+\newcommand{\cC}{\mathcal{C}}
 \newcommand{\br}{\mathbf{r}}
 \newcommand{\bp}{\mathbf{p}}
 \newcommand{\bk}{\mathbf{k}}
