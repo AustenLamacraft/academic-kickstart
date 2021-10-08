@@ -284,7 +284,7 @@ $$
 
 - When interactions are finite but small, we will see in the next lecture that the result is a __superfluid__. 
 
-- The boundaries that we have have found can be connected ([Problem Set 2]({{< ref "problem-set-2" >}}) for a variational approach)
+- The boundaries that we have have found can be connected ([Problem Set 2]({{< ref "courses/tqm/problem-sets/problem-set-2" >}}) for a variational approach)
 
 
 ---
