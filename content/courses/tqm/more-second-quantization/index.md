@@ -4,12 +4,9 @@ summary: Density correlations. Hanbury Brown and Twiss effect. Hartree--Fock the
 author: Austen Lamacraft
 draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
-type: docs  # Do not modify.
+type: book  # Do not modify.
 markup: pandoc
-menu:
-  tqm:
-    parent: Lectures
-    weight: 6
+weight: 60
 ---
 
 $$

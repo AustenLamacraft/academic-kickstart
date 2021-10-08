@@ -4,12 +4,9 @@ summary: Tight binding models. Hubbard models and the Mott transition. Superexch
 author: Austen Lamacraft
 draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
-type: docs  # Do not modify.
+type: book  # Do not modify.
 markup: pandoc
-menu:
-  tqm:
-    parent: Lectures
-    weight: 7
+weight: 70
 ---
 
 $$
