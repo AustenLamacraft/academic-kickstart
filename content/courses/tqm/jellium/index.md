@@ -4,7 +4,7 @@ summary: Perturbation series for partition function and free energy. Screening.
 author: Austen Lamacraft
 draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
-type: weight  # Do not modify.
+type: book  # Do not modify.
 markup: pandoc
 weight: 130
 ---
@@ -72,11 +72,11 @@ $$
 
 We have already encountered the following states in Fermi gases, roughly in order of increasing interaction strength:
 
-1. The [Landau Fermi liquid]({{ site.baseurl }}/lectures/FermiGas/).
+1. The [Landau Fermi liquid]({{< ref "fermi-gas" >}}).
 
-2. [Ferromagnetism]({{ site.baseurl }}/lectures/MoreSecondQuantization/#stoner-criterion-for-ferromagnetism), when the Stoner criterion is reached. Although we discussed a microscopic calculation, the same criterion can easily be phrased in terms of the Landau function $G(\phi)$.
+2. [Ferromagnetism]({{< ref "more-second-quantization/#stoner-criterion-for-ferromagnetism" >}}), when the Stoner criterion is reached. Although we discussed a microscopic calculation, the same criterion can easily be phrased in terms of the Landau function $G(\phi)$.
 
-3. [Mott states]({{ site.baseurl }}/lectures/Lattice/#fermi-hubbard-model) that can occur in a lattice potential, giving insulating behaviour in systems band theory predicts to be metallic.
+3. [Mott states]({{< ref "lattice-models/#fermi-hubbard-model" >}}) that can occur in a lattice potential, giving insulating behaviour in systems band theory predicts to be metallic.
 
 For very strong interactions, corresponding $r_s$ values greater than 100, the system can form a [Wigner crystal](https://en.wikipedia.org/wiki/Wigner_crystal), breaking the continuous symmetry of spatial translations.
 
@@ -150,7 +150,7 @@ $$
 U_\bq = \frac{4\pi e^2}{\abs{\bq}^2}
 $$
 
-is the Fourier transform of the Coulomb potential. We have already discussed the expectation value of $H_\text{int}$ in a product state in [Lecture 6]({{ site.baseurl }}/lectures/MoreSecondQuantization/#excited-state-energies). Recall that the Hartree and Fock terms arise from two different 'pairings' of creation operators with annihilation operators. This sum over different pairings is a feature of expectations in a product state. Since $e^{-\beta H_0}$ represents a statistical mixture of product states in which the occupation of each momentum state is independent
+is the Fourier transform of the Coulomb potential. We have already discussed the expectation value of $H_\text{int}$ in a product state in [Lecture 6]({{< ref "more-second-quantization/#excited-state-energies" >}}). Recall that the Hartree and Fock terms arise from two different 'pairings' of creation operators with annihilation operators. This sum over different pairings is a feature of expectations in a product state. Since $e^{-\beta H_0}$ represents a statistical mixture of product states in which the occupation of each momentum state is independent
 
 $$
 e^{-\beta H_0} =\prod_\bk e^{-\beta\xi(\bk)N_\bk},
@@ -181,7 +181,7 @@ $$
 \end{align}
 $$
 
-The dots in the second equality are the accounting errors that we argued in [Lecture 6]({{ site.baseurl }}/lectures/MoreSecondQuantization/#excited-state-energies) can be ignored in the thermodynamic limit. There are no signs on account of the even number of transpositions to shift things into order in the second term. On the other hand
+The dots in the second equality are the accounting errors that we argued in [Lecture 6]({{< ref "more-second-quantization/#excited-state-energies" >}}) can be ignored in the thermodynamic limit. There are no signs on account of the even number of transpositions to shift things into order in the second term. On the other hand
 
 $$
 \begin{align}
@@ -267,9 +267,7 @@ $$
 \label{GF_eq}
 $$
 
-<p class="message">
-Make sure you understand where those $\delta$-functions on the right hand side come from!
-</p>
+> Make sure you understand where those $\delta$-functions on the right hand side come from!
 
 The name is slightly unfortunate, because $G(\br,\tau,\br',\tau')$ has a physical meaning in its own right, apart from being useful in perturbation calculation, and we can define it for an interacting system by taking expectations in \eqref{GF_def} with respect to the density matrix of the interacting system. In that case, however, $G(\br,\tau,\br',\tau')$ does not obey a differential equation like \eqref{GF_eq}. So in general many body Green's functions are _not_ Green's functions in the sense of differential equations. Just to confuse you.
 
@@ -315,17 +313,13 @@ Z &= \tr\left[e^{-\beta H_0}T_\tau \exp\left(-\int_0^\beta H_\text{int}(\tau)d\t
 \end{align}
 $$
 
-When we discussed Hartree--Fock theory in [Lecture 6]({{ site.baseurl}}/lectures/MoreSecondQuantization/#excited-state-energies), we represented the Hartree and Fock terms by the diagrams
+When we discussed Hartree--Fock theory in [Lecture 6]({{< ref "more-second-quantization/#excited-state-energies" >}}), we represented the Hartree and Fock terms by the diagrams
 
-<a name="HFDiag"></a>
-![]({{ site.baseurl }}/assets/HFDiag.png)
-_Graphical representation of the Hartree and Fock terms._
+{{< figure src="HFDiag.png" title="Graphical representation of the Hartree and Fock terms." numbered="true" lightbox="true" >}}
 
 corresponding to the different ways of pairing the operators. Some of the diagrams arising at the second term in \eqref{Z_exp} are shown below
 
-<a name="HFDiag"></a>
-![]({{ site.baseurl }}/assets/2ndOrderDiagrams.png)
-_Some of the diagrams contributing at second order. 1. is a pair of disconnected components, each corresponding to the Fock diagram at first order. 2. and 3. are connected diagrams._
+{{< figure src="2ndOrderDiagrams.png" title="Some of the diagrams contributing at second order. 1. is a pair of disconnected components, each corresponding to the Fock diagram at first order. 2. and 3. are connected diagrams." numbered="true" lightbox="true" >}}
 
 We see that some of these diagrams consist of a _single_ connected component of interaction vertices joined by lines corresponding to pairing of creation and annihilation operators. The other diagrams consists of two disconnected copies of those that have already appeared at first order. The contribution from a diagram consisting of disconnected components factorizes, so there's no difficulty including these repeated components as we will have already calculated them at a lower order in the series.
 
@@ -343,17 +337,13 @@ $$
 
 is the internal energy. Fortunately, we have the following amazing fact, known as the __linked cluster theorem__:
 
-<p class="message">
-The expansion of $\log Z$ involves only those diagrams forming a <strong>single connected component </strong>.
-</p>
+> The expansion of $\log Z$ involves only those diagrams forming a <strong>single connected component </strong>.
 
 ### Summing the Singular Diagrams
 
 Let's see how this works by evaluating the second order contribution to the free energy. According to the linked cluster theorem, this involves the diagrams
 
-<a name="HFDiag"></a>
-![]({{ site.baseurl }}/assets/2ndOrderConnectedDiagrams.png)
-_Diagrams contributing to the logarithm of the partition function at second order._
+{{< figure src="2ndOrderConnectedDiagrams.png" title="Diagrams contributing to the logarithm of the partition function at second order." numbered="true" lightbox="true" >}}
 
 For Coulomb interactions, the first of these causes the biggest headache. To see what the problem is, let's first write out the contribution of this diagram using Wick's theorem.
 
@@ -383,9 +373,7 @@ The factor of $2$ arises from the two ways in which one can pair the operators t
 
 Since $U_\bq = \frac{4\pi e^2}{\abs{\bq}^2}$, we can see that -- unless the behaviour of $\pi_{\bq,\omega_n}$ saves us -- these integrands will contain infrared divergences. Furthermore, higher order ring diagrams have even worse divergences!
 
-<a name="HFDiag"></a>
-![]({{ site.baseurl }}/assets/3rdOrderRing.png)
-_Third order ring diagram._
+{{< figure src="3rdOrderRing.png" title="Third order ring diagram." numbered="true" lightbox="true" >}}
 
 There's no sense in which these higher order diagrams are negligible. Fortunately, there's a simple way to sum all diagrams of this class. Pairing operators to get a ring of $p$ bubbles can be done in $2^{p-1}(p-1)!$ ways. To see this, fix one of the factors of $H_\text{int}$, and then choose one of the $(n-1)$ factors to pair with it. There are two ways to do it - depending on whether we pair with the top or bottom. Continuing this process gives the factor $2^{p-1}(p-1)!$.
 
@@ -410,9 +398,7 @@ $$
 
 The above argument shows, however, that we cannot neglect the effect of the bubble diagrams, which now form a chain:
 
-<a name="BubbleChain"></a>
-![]({{ site.baseurl }}/assets/BubbleChain.png)
-_Chain of bubbles giving the effective interaction._
+{{< figure src="BubbleChain.png" title="Chain of bubbles giving the effective interaction." numbered="true" lightbox="true" >}}
 
 The combinatoric factor here is $2^p p!$ at $p^\text{th}$ order, showing that we now have a _geometric_ series, rather than a logarithm. The overall effect is that at second order in $\delta n(\br)$, the change in the free energy is still given by \eqref{inhomog}, but now with the __effective interaction__
 
@@ -449,9 +435,7 @@ $$
 
 where the contour $\cC$ encircles anti-clockwise _only_ the poles of $\tanh\left(\frac{\beta\epsilon}{2}\right)$, which lie at $i\epsilon_n$. The formula then follows from finding the residues.
 
-<a name="Poles"></a>
-![]({{ site.baseurl }}/assets/Poles.png)
-_Contour of integration for \eqref{MatsubaraSum}, showing the poles of $\tanh\left(\frac{\beta\epsilon}{2}\right)$ and the extra two poles when $f(\epsilon)=G\_{\bp,-i\epsilon}G\_{\bp+\bq,\omega\_n-i\epsilon}$._
+{{< figure src="Poles.png" title="Contour of integration for \eqref{MatsubaraSum}, showing the poles of $\tanh\left(\frac{\beta\epsilon}{2}\right)$ and the extra two poles when $f(\epsilon)=G\_{\bp,-i\epsilon}G\_{\bp+\bq,\omega\_n-i\epsilon}$." numbered="true" lightbox="true" >}}
 
 After writing \eqref{pol} as an integral, we can take the contour $\cC$ to encircle _clockwise_ the other poles of the integral, arising from the pair of Green's functions, considered as functions of $\epsilon$
 

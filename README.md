@@ -1,11 +1,6 @@
+1. Rename markdown files to `.pdc` or use `markup: pandoc` in front matter to use pandoc as external helper.
 
-1. __To initialize courses__ use `git submodule update --init` from the `content/courses` directory
-
-2. __To update lecture notes__ use e.g. `git submodule update --remote content/courses/tqm` for the TQM course
-
-3. Rename markdown files to `.pdc` or use `markup: pandoc` in front matter to use pandoc as external helper.
-
-4. MathJax config in `assets/js/mathjax-config.js`.
+2. MathJax config in `assets/js/mathjax-config.js`.
 
 # [Academic Kickstart](https://sourcethemes.com/academic/)
 

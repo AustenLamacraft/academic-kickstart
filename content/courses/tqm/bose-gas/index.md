@@ -454,7 +454,7 @@ $$
 \braket{0}{\rho_{-\bq}\rho_{\bq}}{0} = N.
 $$
 
-corresponding to uncorrelated, Poissonian fluctuations of number inside any volume of the gas. If we were to take a snapshot of the particles at any instant in the interacting gas, we would see a picture similar to the image of the Laughlin state in [Lecture 1]({{< ref "many-body-wavefunctions" >}}).
+corresponding to uncorrelated, Poissonian fluctuations of number inside any volume of the gas. If we were to take a snapshot of the particles at any instant in the interacting gas, we would see a picture similar to the image of the Laughlin state in [Lecture 2]({{< ref "quantum-hall-effect" >}}).
 
 The other qualitatively new feature of the Bogoliubov ground state is that the zero momentum state is _depleted_. We find the momentum distribution by first writing the number operator $N_\bp=\adop_{\bp}\aop_{\bp}$ in terms of the Bogoliubov quasiparticles
 
