@@ -112,7 +112,7 @@ $$
 \label{int_pic}
 $$
 
-where $H_\text{int}(\tau)\equiv e^{\tau H_0} H_\text{int}e^{-\tau H_0}$ corresponds to the perturbation in the interaction picture at time $t=-i\tau$. The formal solution to \eqref{int_pic} at $\tau=\beta$  
+where $H_\text{int}(\tau)\equiv e^{\tau H_0} H_\text{int}e^{-\tau H_0}$ corresponds to the perturbation in the interaction picture at time $t=-i\tau$. The formal solution to $\eqref{int_pic}$ at $\tau=\beta$  
 
 $$
 e^{\beta H_0}e^{-\beta H} = T_\tau \exp\left(-\int_0^\beta H_\text{int}(\tau)d\tau\right),
@@ -138,7 +138,7 @@ Perturbation theory then involves computing averages of a string of $H_\text{int
 
 ### Wick's Theorem
 
-Let's see how this works by considering the lowest order term when $H_\text{int}$ is given by \eqref{jelliumH}. In this case we just have to compute the thermal average of $H_\text{int}$: the time dependence vanishes by virtue of the cyclic property of the trace. Writing out the perturbation in terms of the Fourier modes gives
+Let's see how this works by considering the lowest order term when $H_\text{int}$ is given by $\eqref{jelliumH}$. In this case we just have to compute the thermal average of $H_\text{int}$: the time dependence vanishes by virtue of the cyclic property of the trace. Writing out the perturbation in terms of the Fourier modes gives
 
 $$
 H_\text{int}  = \frac{1}{2V} \sum_{\bk_1+\bk_2=\bk_3+\bk_4} U_{\bk_1-\bk_4} :(\adop_{\bk_1}\aop_{\bk_4}-nV\delta_{\bk_1,\bk_4})(\adop_{\bk_2}\aop_{\bk_3}-nV\delta_{\bk_2,\bk_3}):,
@@ -200,7 +200,7 @@ $$
 \label{2nd_Hint}
 $$
 
-This is a function of $\tau_1-\tau_2$, again as a result of the cyclic property. Including the time dependence in \eqref{Hint_exp} is straightforward
+This is a function of $\tau_1-\tau_2$, again as a result of the cyclic property. Including the time dependence in $\eqref{Hint_exp}$ is straightforward
 
 $$
 H_\text{int}(\tau)  = \frac{1}{2V} \sum_{\bk_1+\bk_2=\bk_3+\bk_4} U_{\bk_1-\bk_4} :(\adop_{\bk_1}(\tau)\aop_{\bk_4}(\tau)-nV)(\adop_{\bk_2}(\tau)\aop_{\bk_3}(\tau)-nV):,
@@ -213,7 +213,7 @@ $$
 \aop_\bk(\tau) = e^{-\tau\xi(\bk)}\aop_\bk,\quad \adop_\bk(\tau) = e^{\tau\xi(\bk)}\adop_\bk.
 $$
 
-How to we evaluate expectations of time ordered products? It's fairly clear that our example \eqref{Wick_Example} is also an identity in this case
+How to we evaluate expectations of time ordered products? It's fairly clear that our example $\eqref{Wick_Example}$ is also an identity in this case
 
 $$
 \begin{align}
@@ -242,7 +242,7 @@ $$
 \end{align}
 $$
 
-Since the first term on the right hand side contains time ordered products, this identity is only described correctly by \eqref{Wick_ExampleT} if we use the above convention.
+Since the first term on the right hand side contains time ordered products, this identity is only described correctly by $\eqref{Wick_ExampleT}$ if we use the above convention.
 
 One further note about $T_\tau$-products: operators appearing in a $T_\tau$ product can be regarded as (anti-)commuting, because the actual order that they appear in depends on their $\tau$ labels. For instance $T_\tau A(\tau_1)B(\tau_2) = \pm T_\tau B(\tau_2)A(\tau_1)$, depending on whether the operators are bosonic or fermionic.
 
@@ -250,7 +250,7 @@ To outcome of this discussion is __Wick's theorem__:
 
 > An expectation of a $T_\tau$-product of operators with respect to a free Hamiltonian can be written as a sum of terms corresponding to all possible pairings of the operators. Each term consists of the product of $T_\tau$-product expectations for each pair. In the case of fermions, each term will have a sign corresponding to the signature of the permutation reordering the operators so that paired operators are adjacent.
 
-This is the basic result used for evaluating the time ordered products like \eqref{2nd_Hint}.
+This is the basic result used for evaluating the time ordered products like $\eqref{2nd_Hint}$.
 
 ### Green's functions
 
@@ -270,16 +270,16 @@ $$
 
 > Make sure you understand where those $\delta$-functions on the right hand side come from!
 
-The name is slightly unfortunate, because $G(\br,\tau,\br',\tau')$ has a physical meaning in its own right, apart from being useful in perturbation calculation, and we can define it for an interacting system by taking expectations in \eqref{GF_def} with respect to the density matrix of the interacting system. In that case, however, $G(\br,\tau,\br',\tau')$ does not obey a differential equation like \eqref{GF_eq}. So in general many body Green's functions are _not_ Green's functions in the sense of differential equations. Just to confuse you.
+The name is slightly unfortunate, because $G(\br,\tau,\br',\tau')$ has a physical meaning in its own right, apart from being useful in perturbation calculation, and we can define it for an interacting system by taking expectations in $\eqref{GF_def}$ with respect to the density matrix of the interacting system. In that case, however, $G(\br,\tau,\br',\tau')$ does not obey a differential equation like $\eqref{GF_eq}$. So in general many body Green's functions are _not_ Green's functions in the sense of differential equations. Just to confuse you.
 
-For the noninteracting Green's functions that appear in our perturbation calculations \eqref{GF_eq} is very useful, allowing us to find $G(\br,\tau,\br',\tau')$ using Fourier analysis. The Green's function depends on $\tau-\tau'$ (by the cyclic property of the trace), and in a translationally invariant system it will depend on $\br-\br'$. What about boundary conditions? They are very simple
+For the noninteracting Green's functions that appear in our perturbation calculations $\eqref{GF_eq}$ is very useful, allowing us to find $G(\br,\tau,\br',\tau')$ using Fourier analysis. The Green's function depends on $\tau-\tau'$ (by the cyclic property of the trace), and in a translationally invariant system it will depend on $\br-\br'$. What about boundary conditions? They are very simple
 
 $$
 G(\br,\tau) = \pm G(\br,\tau+\beta).
 \label{GF_bc}
 $$
 
-The Green's function is periodic in $\beta$ for bosons, and antiperiodic for fermions. This follows from carefully writing out the definition \eqref{GF_def} and using the cyclic property of the trace, not forgetting \eqref{Fermi_Tdef} in the case of fermions. As a result of \eqref{GF_bc}, we can expand $G(\br,\tau)$ in a Fourier series.
+The Green's function is periodic in $\beta$ for bosons, and antiperiodic for fermions. This follows from carefully writing out the definition $\eqref{GF_def}$ and using the cyclic property of the trace, not forgetting $\eqref{Fermi_Tdef}$ in the case of fermions. As a result of $\eqref{GF_bc}$, we can expand $G(\br,\tau)$ in a Fourier series.
 
 $$
 G(\br,\tau) = k_\text{B}T\sum_{n=-\infty}^\infty G_{\omega_n}(\br) e^{-i\omega_n \tau}.
@@ -318,7 +318,7 @@ When we discussed Hartree--Fock theory in [Lecture 6]({{< ref "more-second-quant
 
 {{< figure src="HFDiag.png" title="Graphical representation of the Hartree and Fock terms." numbered="true" lightbox="true" >}}
 
-corresponding to the different ways of pairing the operators. Some of the diagrams arising at the second term in \eqref{Z_exp} are shown below
+corresponding to the different ways of pairing the operators. Some of the diagrams arising at the second term in $\eqref{Z_exp}$ are shown below
 
 {{< figure src="2ndOrderDiagrams.png" title="Some of the diagrams contributing at second order. 1. is a pair of disconnected components, each corresponding to the Fock diagram at first order. 2. and 3. are connected diagrams." numbered="true" lightbox="true" >}}
 
@@ -362,7 +362,7 @@ $$
 \pi(\br,\tau) \equiv -\langle T_\tau \left(\rho(\br,\tau)-n\right)\left(\rho(0,0)-n\right)\rangle = G(\br,\tau)G(-\br,-\tau).
 $$
 
-Writing \eqref{2bubb} in terms of momentum and frequency gives
+Writing $\eqref{2bubb}$ in terms of momentum and frequency gives
 
 $$
 \begin{align}
@@ -401,7 +401,7 @@ The above argument shows, however, that we cannot neglect the effect of the bubb
 
 {{< figure src="BubbleChain.png" title="Chain of bubbles giving the effective interaction." numbered="true" lightbox="true" >}}
 
-The combinatoric factor here is $2^p p!$ at $p^\text{th}$ order, showing that we now have a _geometric_ series, rather than a logarithm. The overall effect is that at second order in $\delta n(\br)$, the change in the free energy is still given by \eqref{inhomog}, but now with the __effective interaction__
+The combinatoric factor here is $2^p p!$ at $p^\text{th}$ order, showing that we now have a _geometric_ series, rather than a logarithm. The overall effect is that at second order in $\delta n(\br)$, the change in the free energy is still given by $\eqref{inhomog}$, but now with the __effective interaction__
 
 $$
 U_{\text{eff},\bq} = \frac{U_\bq}{1-U_\bq \pi_{\bq,0}}.
@@ -427,7 +427,7 @@ $$
 
 Recall that $\epsilon_m = 2\pi\left(m+\frac{1}{2}\right) T$ for fermions, while $\omega_n$, being a sum of two fermionic Matsubara frequencies, is $\omega_n = 2\pi n T$.
 
-The sum in \eqref{pol} can be turned into an integral using the following neat formula
+The sum in $\eqref{pol}$ can be turned into an integral using the following neat formula
 
 $$
 \sum_{\epsilon_n} f(i\epsilon_n)=-i\frac{\beta}{4\pi }\int_\cC \tanh\left(\frac{\beta\epsilon}{2}\right)f(\epsilon) d\epsilon,
@@ -436,9 +436,9 @@ $$
 
 where the contour $\cC$ encircles anti-clockwise _only_ the poles of $\tanh\left(\frac{\beta\epsilon}{2}\right)$, which lie at $i\epsilon_n$. The formula then follows from finding the residues.
 
-{{< figure src="Poles.png" title="Contour of integration for \eqref{MatsubaraSum}, showing the poles of $\tanh\left(\frac{\beta\epsilon}{2}\right)$ and the extra two poles when $f(\epsilon)=G\_{\bp,-i\epsilon}G\_{\bp+\bq,\omega\_n-i\epsilon}$." numbered="true" lightbox="true" >}}
+{{< figure src="Poles.png" title="Contour of integration for $\eqref{MatsubaraSum}$, showing the poles of $\tanh\left(\frac{\beta\epsilon}{2}\right)$ and the extra two poles when $f(\epsilon)=G\_{\bp,-i\epsilon}G\_{\bp+\bq,\omega\_n-i\epsilon}$." numbered="true" lightbox="true" >}}
 
-After writing \eqref{pol} as an integral, we can take the contour $\cC$ to encircle _clockwise_ the other poles of the integral, arising from the pair of Green's functions, considered as functions of $\epsilon$
+After writing $\eqref{pol}$ as an integral, we can take the contour $\cC$ to encircle _clockwise_ the other poles of the integral, arising from the pair of Green's functions, considered as functions of $\epsilon$
 
 $$
 G_{\bp,-i\epsilon}G_{\bp+\bq,\omega_n-i\epsilon} = \frac{1}{\left[\xi(\bp)-\epsilon\right]\left[\xi(\bp+\bq)-\epsilon-i\omega_n\right]}.
@@ -478,7 +478,7 @@ Although this is still a complicated looking function, there are a couple of sim
     \pi_{\bq,\omega_n} \longrightarrow -\frac{n\bq^2}{m\omega_n^2}
     $$
 
-    If we continue to real frequencies $i\omega_n\to \omega + i0$, we find that in this limit the dielectric function in \eqref{dielectric} becomes
+    If we continue to real frequencies $i\omega_n\to \omega + i0$, we find that in this limit the dielectric function in $\eqref{dielectric}$ becomes
 
     $$
     \varepsilon(\bq,\omega) = 1-\frac{\omega_\text{p}^2}{\omega^2}

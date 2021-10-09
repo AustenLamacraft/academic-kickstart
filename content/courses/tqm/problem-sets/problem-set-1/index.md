@@ -177,7 +177,7 @@ for both the ferromagnetic $J<0$ and antiferromagnetic $J>0$ cases.
   $$
   This is a method for representing spins called __Schwinger bosons__. Identify which states $\ket{N_a}_a\ket{N_b}_b$ of the oscillators correspond to the states of a spin $s$.
 
-3. By considering the action of \eqref{schwinger} on the oscillator states corresponding to spin $s$, show that one can write their effect in terms of a _single_ oscillator, and that this gives the Holstein--Primakoff representation.
+3. By considering the action of $\eqref{schwinger}$ on the oscillator states corresponding to spin $s$, show that one can write their effect in terms of a _single_ oscillator, and that this gives the Holstein--Primakoff representation.
 
 ## Spin Waves from Bogoliubov Transformation
 

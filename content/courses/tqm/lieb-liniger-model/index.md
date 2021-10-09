@@ -6,7 +6,7 @@ draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
 type: book  # Do not modify.
 markup: pandoc
-weight: 140
+weight: 150
 ---
 
 $$
@@ -61,7 +61,7 @@ H = -\frac{1}{2m}\sum_j \frac{\partial^2}{\partial x_j^2} + c\sum_{j<k}\delta(x_
 \label{LL_LL}
 $$
 
-describing a system of interacting one dimensional bosons. We showed that the $c\to\infty$ limit of this model can be described in terms of noninteracting fermions. We are now going to discuss the solution for general $c$. This is possible because the eigenfunctions, which are not product states, have a very special form first written down by Hans Bethe in 1931 -- so soon after the birth of quantum mechanics! -- in the context of the Heisenberg model of a spin chain (see [Lecture 4]({{ site.baseurl }}/lectures/SpinModels/)).  Bethe's approach was applied to the model \eqref{LL_LL} by Lieb and Liniger in 1963 {% cite Lieb:1963aa %}, and for that reason it is usually known as the __Lieb--Liniger model__.
+describing a system of interacting one dimensional bosons. We showed that the $c\to\infty$ limit of this model can be described in terms of noninteracting fermions. We are now going to discuss the solution for general $c$. This is possible because the eigenfunctions, which are not product states, have a very special form first written down by Hans Bethe in 1931 -- so soon after the birth of quantum mechanics! -- in the context of the Heisenberg model of a spin chain (see [Lecture 4]({{ site.baseurl }}/lectures/SpinModels/)).  Bethe's approach was applied to the model $\eqref{LL_LL}$ by Lieb and Liniger in 1963 {% cite Lieb:1963aa %}, and for that reason it is usually known as the __Lieb--Liniger model__.
 
 ## Bethe's Wavefunction
 
@@ -85,7 +85,7 @@ $$
 \label{LL_1wave}
 $$
 
-\eqref{LL_1wave} describes a state with momentum $P_\text{tot}= k_1+k_2$ and energy $E_\text{tot} = \frac{k_1^2}{2}+\frac{k_2^2}{2}$. Note that for given values of $P_\text{tot}$ and $E_\text{tot}$, the most general solution contains only the two terms
+$\eqref{LL_1wave}$ describes a state with momentum $P_\text{tot}= k_1+k_2$ and energy $E_\text{tot} = \frac{k_1^2}{2}+\frac{k_2^2}{2}$. Note that for given values of $P_\text{tot}$ and $E_\text{tot}$, the most general solution contains only the two terms
 
 $$
 \Psi(x_1,x_2) = A_{12} \exp(i[k_1 x_1 + k_2 x_2]) + A_{21} \exp(i[k_1 x_2 + k_2 x_1]),\quad x_1\leq x_2,
@@ -99,7 +99,7 @@ $$
 \label{LL_Psi2b}
 $$
 
-The relationship between the amplitudes $A_{12}$ and $A_{21}$ is determined by the interaction. Substituting \eqref{LL_Psi2} into the Schrödinger equation \eqref{LL_2part} gives
+The relationship between the amplitudes $A_{12}$ and $A_{21}$ is determined by the interaction. Substituting $\eqref{LL_Psi2}$ into the Schrödinger equation $\eqref{LL_2part}$ gives
 
 $$
 -i\left[A_{12}(k_2-k_1) + A_{21}(k_1-k_2)\right] + c\left[A_{12}+A_{21}\right]=0,
@@ -171,7 +171,7 @@ _irrespective_ of which transpositions of neighbouring momenta we used to get fr
 
 ### Bethe Ansatz for $N$ Particles
 
-The Bethe ansatz for $N$ particles is a straightforward generalization of \eqref{LL_3part}, and depends on a set of $N$ momenta $k_1,\ldots k_N$
+The Bethe ansatz for $N$ particles is a straightforward generalization of $\eqref{LL_3part}$, and depends on a set of $N$ momenta $k_1,\ldots k_N$
 
 $$
 \Psi(x_1,x_2,\ldots,x_N) = \sum_P A_P \exp\left(i\sum_{j=1}^N k_{P(j)}x_j\right),\quad x_1\leq x_2\leq\cdots x_N.
@@ -184,7 +184,7 @@ $$
 P_\text{tot} = \sum_{j=1}^N k_j,\qquad E_\text{tot} = \sum_{j=1}^N\frac{k_j^2}{2}.
 $$
 
-I want to emphasize that, despite the apparent complexity of the wavefunction \eqref{LL_Npart}, consisting of a sum over $N!$ permutations, it represents a _huge_ simplification over the most general superposition of plane wave states of fixed energy and momentum.
+I want to emphasize that, despite the apparent complexity of the wavefunction $\eqref{LL_Npart}$, consisting of a sum over $N!$ permutations, it represents a _huge_ simplification over the most general superposition of plane wave states of fixed energy and momentum.
 
 By considering the condition at $x_j=x_{j+1}$ we obtain a relationship between $A_P$ and $A_{P'}$, where the permutations $P$ and $P'$ are related by the exchange of $P(j)$ and $P(j+1)$
 
@@ -243,13 +243,13 @@ A_P e^{ik_{Q(1)}L} = A_Q.
 \label{LL_quant}
 $$
 
-Using the relation between amplitudes \eqref{LL_NExchange}, we can find
+Using the relation between amplitudes $\eqref{LL_NExchange}$, we can find
 
 $$
 \frac{A_P}{A_Q}= \prod_{j=2}^N \exp\left[-i\theta(k_{Q(1)}-k_{Q(j)})\right].
 $$
 
-Putting this together with \eqref{LL_quant} gives the quantization conditions
+Putting this together with $\eqref{LL_quant}$ gives the quantization conditions
 
 $$
 1 = e^{ik_jL}\prod_{\substack{n=1\\n\neq j}}^N e^{-i\theta(k_j-k_n)}.
@@ -271,7 +271,7 @@ I_j=-(N-1)/2, -(N-3)/2,\ldots, -1, 0, 1 \ldots (N-1)/2,
 \label{LL_NevenI}
 $$
 
-just as when we discussed the Fermi gas. For the case of an _even_ number of particles, there is a small hitch. In \eqref{LL_BE} the sum is over an _odd_ number, and in the impenetrable limit gives $(N-1)\pi$. Thus the quantization condition for $N$ even is
+just as when we discussed the Fermi gas. For the case of an _even_ number of particles, there is a small hitch. In $\eqref{LL_BE}$ the sum is over an _odd_ number, and in the impenetrable limit gives $(N-1)\pi$. Thus the quantization condition for $N$ even is
 
 $$
 k_jL = 2\pi\left(I_j+\frac{1}{2}\right).
@@ -285,9 +285,9 @@ I_j=-N/2, -N/2+1,\ldots, -1/2, 1/2, 3/2 \ldots N/2.
 \label{LL_NoddI}
 $$
 
-However, if we do that we'll have to shift $\theta(k)$ by $\pi$. Either way, we get a ground state distribution of $k_j$ that is symmetrically distributed around zero. If you think about the fermion problem, the quantization condition \eqref{LL_Nodd} is a bit odd, as it corresponds to _antiperiodic_ boundary conditions. This doesn't bother the bosons, since their wavefunction is the modulus of the fermionic wavefunction. Note that the ground state of an even number of fermions with periodic boundary conditions is actually two fold degenerate, with an 'extra' fermion at one of the Fermi points. For the bosons this would correspond to putting an extra $\pi$ into \eqref{LL_BE}.
+However, if we do that we'll have to shift $\theta(k)$ by $\pi$. Either way, we get a ground state distribution of $k_j$ that is symmetrically distributed around zero. If you think about the fermion problem, the quantization condition $\eqref{LL_Nodd}$ is a bit odd, as it corresponds to _antiperiodic_ boundary conditions. This doesn't bother the bosons, since their wavefunction is the modulus of the fermionic wavefunction. Note that the ground state of an even number of fermions with periodic boundary conditions is actually two fold degenerate, with an 'extra' fermion at one of the Fermi points. For the bosons this would correspond to putting an extra $\pi$ into $\eqref{LL_BE}$.
 
-As we begin to reduce $c$ from $\infty$, and as long as the values of $k_j$ evolve smoothly, without any jumps, we can stick with the assignments \eqref{LL_NevenI} or \eqref{LL_NoddI} of $I_j$ for the ground state.
+As we begin to reduce $c$ from $\infty$, and as long as the values of $k_j$ evolve smoothly, without any jumps, we can stick with the assignments $\eqref{LL_NevenI}$ or $\eqref{LL_NoddI}$ of $I_j$ for the ground state.
 
 
 ### Thermodynamic Limit
@@ -300,7 +300,7 @@ $$
 
 where $L\rho(k)dk$ is the number of $k_j$ in the interval $dk$ in the limit, and $\pm q$ represents the region of $k$ where the distribution $\rho(k)$ of Bethe roots is nonvanishing.
 
-The continuum limit of the Bethe equations \eqref{LL_BE} is then
+The continuum limit of the Bethe equations $\eqref{LL_BE}$ is then
 
 $$
 kL = 2\pi I + L\int_{-q}^q \theta(k-k')\rho(k')dk'.
@@ -325,7 +325,7 @@ $$
 n\equiv \frac{N}{L} = \int_{-q}^q \rho(k)dk.
 $$
 
-{{< figure src="BetheSolution.png" title="Solution of the Bethe equation \eqref{LL_BetheIntegral} for $c=1$." numbered="true" lightbox="true" >}}
+{{< figure src="BetheSolution.png" title="Solution of the Bethe equation $\eqref{LL_BetheIntegral}$ for $c=1$." numbered="true" lightbox="true" >}}
 
 In terms of $\rho(k)$, the momentum and energy are
 
@@ -374,7 +374,7 @@ We can keep track of these excitations as we reduce $c$ from $\infty$. Lieb and 
 
 Let's consider the type I excitations first. We imagine making a 'hole' in the distribution of roots and moving one particle above the 'Fermi surface' (by which I mean the largest root in the ground state distribution). The complication now is that doing so causes all the other roots to change slightly from their ground state values.
 
-Instead of solving \eqref{LL_BE} with a set of consecutive integers on the right hand side, the final (largest) root -- we'll call it $k_{I}$ -- should correspond to an integer 'standing apart' from the others. We can think of this as the ground state of an $N-1$ particle problem, with the $N-1$ roots being affected by the presence of another root at $k_{I}$. However, if we want to get the $N$ particle ground state back as $k_I$ returns to join the others, we have to choose an assignment of the $I_j$ corresponding to $N$ particles, not $N-1$.
+Instead of solving $\eqref{LL_BE}$ with a set of consecutive integers on the right hand side, the final (largest) root -- we'll call it $k_{I}$ -- should correspond to an integer 'standing apart' from the others. We can think of this as the ground state of an $N-1$ particle problem, with the $N-1$ roots being affected by the presence of another root at $k_{I}$. However, if we want to get the $N$ particle ground state back as $k_I$ returns to join the others, we have to choose an assignment of the $I_j$ corresponding to $N$ particles, not $N-1$.
 
 {{< figure src="PiShift.png" title="(Working in the impenetrable limit for clarity). To get back the 7 particle ground state when $k_I$ joins the others, we have to shift the other $k_j$ half a quantum number from where they would be in the 6 particle ground state." numbered="true" lightbox="true" >}}
 
@@ -391,7 +391,7 @@ $$
 \label{LL_typeI}
 $$
 
-To derive this equation we need the integral equation for $\rho(k)$ \eqref{LL_BetheIntegral}.
+To derive this equation we need the integral equation for $\rho(k)$ $\eqref{LL_BetheIntegral}$.
 
 The energy and momentum of the excitation (that is, the energy and momentum _difference_ of this state from the ground state) are
 
@@ -405,7 +405,7 @@ $$
 
 where $\mu=E_{0}(N)-E_{0}(N-1)$ is the difference in ground state energies for $N$ and $N-1$ particles.
 
-In these equations $k_{I}$ is a parameter that determines $\gamma(k)$ from \eqref{LL_typeI} and the dispersion relation $(E,P)$ is generated parametrically. Note that in \eqref{LL_disp} the last term in each expression is the result of the other roots being pushed around.
+In these equations $k_{I}$ is a parameter that determines $\gamma(k)$ from $\eqref{LL_typeI}$ and the dispersion relation $(E,P)$ is generated parametrically. Note that in $\eqref{LL_disp}$ the last term in each expression is the result of the other roots being pushed around.
 
 Now we turn to the type II excitations. By taking $\delta k$ to be the shift in the roots of the ground state of the $N+1$ particle problem caused by the presence of a hole, we can show that the corresponding set of equations is
 

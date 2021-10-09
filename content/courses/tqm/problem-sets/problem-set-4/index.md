@@ -87,7 +87,7 @@ where we have chosen the labels so that the hermiticity condition $\left(\rho^R_
 
 2. Show that the left moving commutator has the opposite sign, so the total density $\rho^R(x)+\rho^L(x)$ still commutes at different points.
 
-3. \eqref{Anom} tells us that $\rho^R_q$ can be written
+3. $\eqref{Anom}$ tells us that $\rho^R_q$ can be written
 
 	$$
 	\begin{align}
@@ -96,7 +96,7 @@ where we have chosen the labels so that the hermiticity condition $\left(\rho^R_
 	\end{align}
 	$$
 
-	where $\left[r_q,r_{q'}^\dagger\right]=\delta_{q,q'}$. From the definition \eqref{rhodef} we see that $\rho_q^R$ annihilates the ground state, while $\rho^R_{-q}$ creates an excitation with momentum $q$.
+	where $\left[r_q,r_{q'}^\dagger\right]=\delta_{q,q'}$. From the definition $\eqref{rhodef}$ we see that $\rho_q^R$ annihilates the ground state, while $\rho^R_{-q}$ creates an excitation with momentum $q$.
 
 4. Show that the structure factor of the density $\rho_q = \rho^R_q+\rho^L_q$ saturates the Onsager bound discussed in [Problem Set 3]({{< ref "problem-set-3" >}}).
 
@@ -180,7 +180,7 @@ $$
 \bk'_1,s'_1,\bk'_2,s'_2\longrightarrow \bk_1,s_1,\bk_2,s_2,
 $$
 
-and show that the total scattering rate, averaged over intial spin states of the fermions and the impurity spin $S$, is
+and show that the total scattering rate, averaged over initial spin states of the fermions and the impurity spin $S$, is
 
 $$
 \begin{align}
@@ -195,7 +195,7 @@ $$
 N_\text{imp} n_\text{F}(\epsilon_2)\left[1-n_\text{F}(\epsilon_3)\right]\left[1-n_\text{F}(\epsilon_4)\right]\nu^3 V^3 d\xi_2 d\xi_3 d\xi_4,
 $$
 
-where $\nu$ is the density of states per spin per unit volume. $n_\text{F}(\epsilon)$ is the Fermi distribution, as states $2$ must be occupied, while $3$ and $4$ must be empty. This rate is volume independent, as it should be. Note that if we wanted the _total_ rate for all particles in state 1 we'd need another $ n_\text{F}(\epsilon_1)\nu Vd\xi_1$, which would be proportional to volume.
+where $\nu$ is the density of states per spin per unit volume. $n_\text{F}(\epsilon)$ is the Fermi distribution, as states $2$ must be occupied, while $3$ and $4$ must be empty. This rate is volume independent, as it should be. Note that if we wanted the _total_ rate for all particles in state 1 we'd need another $n_\text{F}(\epsilon_1)\nu Vd\xi_1$, which would be proportional to volume.
 
 ## Kondo Effect Without Spin
 
@@ -245,7 +245,7 @@ $$
 \Psi(x_1,\ldots,x_N) = \prod_{j<k}\exp\left(-\frac{\abs{c}}{2}\abs{x_j-x_k}\right),\quad x_1<x_2<\cdots <x_N
 $$
 
-Show that this is a Bethe state, find the Bethe roots, and calculate the energy. Compare with the prediction of the Gross--Pitaevskii equation found in [Problem Set 2]({{< ref "problem-set-2" >}}).
+Show that this is a Bethe state, find the Bethe roots, and calculate the energy. Compare with the prediction of the Gross--Pitaevskii equation found in [Problem Set 2]({{< ref "problem-set-2/#bose-gas-with-attractive-interactions" >}}).
 
 
 ## Density Correlations in Lieb--Liniger
