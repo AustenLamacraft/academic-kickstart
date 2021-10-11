@@ -9,23 +9,28 @@ title: TQM Lectures 2021
 # date: "2018-09-09T00:00:00Z"
 # lastmod: "2018-09-09T00:00:00Z"
 draft: false  # Is this a draft? true/false
-toc: true  # Show table of contents? true/false
+# toc: true  # Show table of contents? true/false
 type: book  # Do not modify.
-view: 3
-
-
-# Add menu entry to sidebar.
-# - name: Declare this menu item as a parent with ID `name`.
-# - weight: Position of link in menu.
-menu:
-  tqm-lectures:
-    name: TQM Lectures
-    weight: 1
 ---
+
 
 These are the slides from Michaelmas 2021. If you want a nice printable version for saving as a PDF, you can use e.g. [auste.nl/lectures/many-body-wavefunctions/?print-pdf#/](https://auste.nl/lectures/many-body-wavefunctions/?print-pdf#/)
 
 If you ever want access to the LaTeX for the mathematical expressions, right click and select `Show Math As > TeX Commands`
+
+## Lectures
+
+- Take place in the Small Lecture Theatre at the Cavendish Laboratory from 10:00-11:30 on Tuesdays and Thursdays.
+
+{{% callout note %}}
+__Advance warning:__ there will be be no lecture on Thursday 25/11/21 due to a booking clash. The last lecture will therefore take place on Thursday 2/12/21 and _not_ Tuesday 30/11/21
+{{% /callout %}}
+
+## Course materials
+
+- [Lecture notes]({{< ref "courses/tqm" >}})
+
+- [Problem sets]({{< ref "courses/tqm/problem-sets" >}})
 
 ## Past exam papers (with solutions)
 

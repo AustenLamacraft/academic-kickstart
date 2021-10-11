@@ -10,10 +10,7 @@ publishDate: "2020-10-01T22:30:00Z"
 all_day: false
 lecture_slides: quantum-hall-effect
 math: true
-menu:
-  tqm-lectures:
-    parent: Lectures
-    weight: 2
+weight: 20
 ---
 
 Read all about [Wirtinger derivatives](https://en.wikipedia.org/wiki/Wirtinger_derivatives), used in this lecture.

@@ -10,8 +10,5 @@ publishDate: "2020-10-01T22:30:00Z"
 all_day: false
 lecture_slides: lattice-models
 math: true
-menu:
-  tqm-lectures:
-    parent: Lectures
-    weight: 7
+weight: 70
 ---

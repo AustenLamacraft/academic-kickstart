@@ -10,9 +10,6 @@ publishDate: "2020-10-01T22:30:00Z"
 all_day: false
 lecture_slides: fermi-gas
 math: true
-menu:
-  tqm-lectures:
-    parent: Lectures
-    weight: 9
+weight: 90
 ---
 

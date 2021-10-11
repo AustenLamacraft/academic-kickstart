@@ -7,8 +7,5 @@ categories: []
 all_day: false
 lecture_slides: many-body-wavefunctions
 math: true
-menu:
-  tqm-lectures:
-    parent: Lectures
-    weight: 1
+weight: 10
 ---

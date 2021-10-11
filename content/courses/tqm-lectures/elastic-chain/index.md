@@ -10,10 +10,7 @@ publishDate: "2020-10-01T22:30:00Z"
 all_day: false
 lecture_slides: elastic-chain
 math: true
-menu:
-  tqm-lectures:
-    parent: Lectures
-    weight: 3
+weight: 30
 ---
 
 This lecture has audio notes. The controls should be visible if you move the cursor to the bottom of the slide. Works on Chrome. 
