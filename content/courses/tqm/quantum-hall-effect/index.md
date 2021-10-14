@@ -231,6 +231,8 @@ Although we ignored the effect of summing over all configuration of the particle
 
 >One odd thing about the above calculation is that if the charge density is uniform, how does the droplet know where to sit? The location of the origin is obviously dictated by the minimum of the quadratic term in the energy, but we could have located that anywhere in the plane and still had a uniform charge density. Cast your mind back to the old problem of a mass undergoing simple harmonic motion through a hole in the earth...
 
+{{< figure src="laughlin-state.png" title="A Laughlin Laughlin state." numbered="true" lightbox="true" >}}
+
 ### Fractional Charge
 
 Laughlin also suggested wavefunctions to describe excited states of the system, the simplest being the __quasihole__ wavefunction

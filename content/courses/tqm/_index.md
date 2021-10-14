@@ -2,16 +2,13 @@
 # Course title, summary, and position.
 linktitle: Theories of Quantum Matter
 summary: Part III Physics Course on Many Body Physics
-weight: 1
 
 # Page metadata.
 title: Theories of Quantum Matter
-date: "2018-09-09T00:00:00Z"
-lastmod: "2018-09-09T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
 type: book  # Do not modify.
-weight: 100
+weight: 10
 markup: pandoc
 ---
 

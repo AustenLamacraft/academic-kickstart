@@ -5,7 +5,7 @@ slides:
   # Choose a code highlighting style (if highlighting enabled in `params.toml`)
   #   Light style: github. Dark style: dracula (default).
   highlight_style: github
-scripts: []
+scripts: ["https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js", "assets/laughlin.js"]
 
 ---
 
@@ -305,6 +305,9 @@ $$`
 
 - Plasma will screen this charge, leaving a 'hole' in density distribution of charge $-q/m$
 
+---
+
+<p id="laughlin"></p>
 
 ---
 

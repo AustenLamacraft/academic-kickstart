@@ -6,13 +6,10 @@ weight: 1
 
 # Page metadata.
 title: TQM Lectures 2021
-# date: "2018-09-09T00:00:00Z"
-# lastmod: "2018-09-09T00:00:00Z"
 draft: false  # Is this a draft? true/false
 # toc: true  # Show table of contents? true/false
 type: book  # Do not modify.
 ---
-
 
 These are the slides from Michaelmas 2021. If you want a nice printable version for saving as a PDF, you can use e.g. [auste.nl/lectures/many-body-wavefunctions/?print-pdf#/](https://auste.nl/lectures/many-body-wavefunctions/?print-pdf#/)
 
