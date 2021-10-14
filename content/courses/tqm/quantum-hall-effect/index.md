@@ -228,7 +228,6 @@ On the basis of this approximation, we conclude that the density is fixed at $1/
 
 Although we ignored the effect of summing over all configuration of the particles in the partition function (i.e. we ignored the contribution of entropy to the free energy), it turns out that this effect can be ignored in the large $N$ limit.
 
-
 >One odd thing about the above calculation is that if the charge density is uniform, how does the droplet know where to sit? The location of the origin is obviously dictated by the minimum of the quadratic term in the energy, but we could have located that anywhere in the plane and still had a uniform charge density. Cast your mind back to the old problem of a mass undergoing simple harmonic motion through a hole in the earth...
 
 {{< figure src="laughlin-state.png" title="A Laughlin Laughlin state." numbered="true" lightbox="true" >}}

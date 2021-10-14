@@ -307,7 +307,13 @@ $$`
 
 ---
 
-<p id="laughlin"></p>
+## Hole state
+
+- Hole with charge -10 for clarity
+
+<div id="p5div" >
+</div>
+
 
 ---
 

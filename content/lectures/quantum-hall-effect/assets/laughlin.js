@@ -18,10 +18,10 @@ const vy = new Array(particlesQ);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function setup() {
-	let canvas = createCanvas(windowWidth, windowHeight);
-	canvas.parent('laughlin')
+	let canvas = createCanvas(windowWidth, displayHeight);
+	canvas.parent('p5div')
+	// canvas.position(-100, -50);
 	noStroke();
-	fill(0, 128);
 
 	// slider = createSlider(0, 0.000005, 0.0000025, 0);
 	// slider.position(0, height - 32);
@@ -60,16 +60,16 @@ function draw() {
 			}
 		}
 
-		var d = sqrt((x[a] - windowWidth / 2)**2 + (y[a] - windowHeight / 2)**2);
-		if (d < 1) {
-			d = 1;
-		}
+		// var d = sqrt((x[a] - windowWidth / 2)**2 + (y[a] - windowHeight / 2)**2);
+		// if (d < 1) {
+		// 	d = 1;
+		// }
 
-		ax +=  - (x[a] - 0.65*windowWidth / 2) / radius;
-		ay +=  - (y[a] - 0.65*windowHeight / 2) / radius;
+		ax +=  - (x[a] - windowWidth / 4) / radius;
+		ay +=  - (y[a] - windowHeight / 4) / radius;
 
-		dx = mouseX - x[a] - 0.2*windowWidth / 2;
-		dy = mouseY - y[a] - 0.2*windowWidth / 2;
+		dx = mouseX - x[a];
+		dy = mouseY - y[a];
 
 		const d_ab = sqrt(dx*dx + dy*dy);
 		//if (d < 1) d = 1;
@@ -94,13 +94,21 @@ function draw() {
 
 	background(255);
 
+	fill(0, 128);
 	for (let i = 0; i < c; i++) {
-		ellipse(x[i], y[i], 8, 8);
+		circle(x[i], y[i], 8);
 	}
+	
+	fill('red');
+	circle(mouseX, mouseY, 20);
 
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+  }
 
 function addNewParticle() {
 	// if (mouseY < height - 50) {
