@@ -385,11 +385,13 @@ u_j = \frac{1}{\sqrt{N}}\sum_{|n| \leq (N-1)/2} q_n e^{i\eta_n j},
 $$
 and
 $$
-q_n = \sqrt{\frac{1}{2m\omega(\eta_n)}}\left(a_n + a_{-n}^*\right).
+q_n = \sqrt{\frac{1}{2m\omega(\eta_n)}}\left(a_n + a_{-n}^\dagger\right).
 $$
 To evaluate $\eqref{coll_gsfluct}$, we write the two factors $(u_j-u_k)(u_j-u_k)$ in terms of the $\aop_n$ and $\adop_n$. Contributions to the ground state expectation value arise from terms with $\aop_n$ in the left factor and $\adop_n$ in the right for some $n$. All other terms vanish. This gives
 $$
-\bra{0}\left(u_j-u_k\right)^2\ket{0} = \frac{1}{2mN} \sum_{|n| \leq (N-1)/2} \frac{1}{\omega(\eta_n)} \left[e^{i\eta_n j}- e^{i\eta_n k}\right]\left[e^{-i\eta_n j}- e^{-i\eta_n k}\right].
+\begin{multline}
+\bra{0}\left(u_j-u_k\right)^2\ket{0} \\ = \frac{1}{2mN} \sum_{|n| \leq (N-1)/2} \frac{1}{\omega(\eta_n)} \left[e^{i\eta_n j}- e^{i\eta_n k}\right]\left[e^{-i\eta_n j}- e^{-i\eta_n k}\right].
+\end{multline}
 $$
 Taking the $N\to\infty$ limit in the sum gives
 $$
@@ -470,7 +472,7 @@ $$
 >$$
 >\exp(\lambda \aop + \mu \adop) = \exp(\lambda \mu /2) \exp(\mu\adop)\exp(\lambda\aop).
 >$$
->[Hint: Consider the differential equations obeyed by $F_1(x)=e^{s(A+B)}$ and $F_2(s)=e^{sA}e^{sB}$]
+>[Hint: Consider the differential equations obeyed by $F_1(s)=e^{s(A+B)}$ and $F_2(s)=e^{sA}e^{sB}$]
 
 >Use this result to show that
 >

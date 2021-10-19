@@ -12,5 +12,3 @@ lecture_slides: elastic-chain
 math: true
 weight: 30
 ---
-
-This lecture has audio notes. The controls should be visible if you move the cursor to the bottom of the slide. Works on Chrome. 

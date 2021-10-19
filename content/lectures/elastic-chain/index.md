@@ -135,7 +135,7 @@ $$
 
 - Expressed as superposition of normal modes
 $$
-u_j(t) = \frac{1}{\sqrt{N}}\sum_{|n| \leq (N-1)/2} q_n(t) e^{i\eta_n j},
+u_j(t) = \frac{1}{\sqrt{N}}\sum_{|n| \leq (N-1)/2} q_n(t) e^{i\eta_n j}
 \label{coll_modes}
 $$
 
@@ -180,7 +180,7 @@ $$`
 $$`
 
 $$
-T = \frac{1}{2m}\sum_{|n| \leq (N-1)/2} \pi_n  \pi_{-n} = 
+T = \frac{1}{2m}\sum_{|n| \leq (N-1)/2} \pi_n  \pi_{-n} 
 $$
 
 ---
@@ -218,7 +218,7 @@ $$
 - Hamilton's equations are
 `$$
 \begin{align}
-\dot a &= \{a, H \} = -i\omega a\\
+\dot a &= \{a, H \} = -i \frac{\partial H}{\partial a^*}= -i\omega a\\
 \dot a^* &= \{a^*, H \} = i\omega a^*.
 \end{align}
 $$`
@@ -272,15 +272,11 @@ $$
 - Key property is
 $$
 \begin{align}
-\left[\aop, H\right] &= \omega\aop,\\
+\left[\aop, H\right] &= \omega\aop,\\\\
 \left[\adop, H\right] &= -\omega \adop.
 \end{align}
 $$
-- If $\ket{\psi}$ is an eigenstate of the Hamiltonian
-$$
-H \ket{\psi} = E \ket{\psi},
-$$
-then $\adop\ket{\psi}$ is an eigenstate with energy $E+\omega$
+- If $\ket{\psi}$ is an eigenstate of the Hamiltonian $H \ket{\psi} = E \ket{\psi}$ then $\adop\ket{\psi}$ is an eigenstate with energy $E+\omega$
 $$
 H \adop \ket{\psi} = \adop H \ket{\psi} + [H, \adop] \ket{\psi} = \left(E+\omega\right)\adop\ket{\psi}.
 $$
@@ -464,7 +460,7 @@ $$
 `$$
 \begin{align}
 u_j &= \frac{1}{\sqrt{N}}\sum_{|n| \leq (N-1)/2} q_n e^{i\eta_n j}\\
-q_n &= \sqrt{\frac{1}{2m\omega(\eta_n)}}\left(a_n + a_{-n}^*\right)
+q_n &= \sqrt{\frac{1}{2m\omega(\eta_n)}}\left(a_n + a_{-n}^\dagger\right)
 \end{align}
 $$`
 
@@ -473,7 +469,9 @@ $$`
 - Result:
 
 $$
-\bra{0}\left(u_j-u_k\right)^2\ket{0} = \frac{1}{2mN} \sum_{|n| \leq (N-1)/2} \frac{1}{\omega(\eta_n)} \left[e^{i\eta_n j}- e^{i\eta_n k}\right]\left[e^{-i\eta_n j}- e^{-i\eta_n k}\right].
+\begin{multline}
+\bra{0}\left(u_j-u_k\right)^2\ket{0} \\\\ = \frac{1}{2mN} \sum_{|n| \leq (N-1)/2} \frac{1}{\omega(\eta_n)} \left[e^{i\eta_n j}- e^{i\eta_n k}\right]\left[e^{-i\eta_n j}- e^{-i\eta_n k}\right]
+\end{multline}
 $$
 $N\to\infty$ limit
 
@@ -580,7 +578,7 @@ $$
 >$$
 >\exp(\lambda \aop + \mu \adop) = \exp(\lambda \mu /2) \exp(\mu\adop)\exp(\lambda\aop).
 >$$
->[Hint: Consider the differential equations obeyed by $F_1(x)=e^{s(A+B)}$ and $F_2(s)=e^{sA}e^{sB}$]
+>[Hint: Consider the differential equations obeyed by $F_1(s)=e^{s(A+B)}$ and $F_2(s)=e^{sA}e^{sB}$]
 
 ---
 
