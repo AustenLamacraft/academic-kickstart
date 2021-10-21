@@ -320,6 +320,8 @@ $$`
 $$`
 spin flip terms cause spins to move about. Ground state is more complicated!
 
+---
+
 - For the AFM chain, quantum fluctuations too strong for AFM order
 
 - __Antiferromagnets__ do exist in higher dimensions, and [Néel](https://en.wikipedia.org/wiki/Louis_N%C3%A9el) state $\ket{\text{AFM}}$ is good starting approximation
@@ -384,7 +386,7 @@ $$
 ## Another way...
 
 <p align="center">
-<img src="assets/tangent-plane.png" alt="drawing" width="450" class="center"/>
+<img src="assets/tangent-plane.png" alt="drawing" width="400" class="center"/>
 </p>
 
 - Classical spin described by point on sphere of radius $\sim s$
