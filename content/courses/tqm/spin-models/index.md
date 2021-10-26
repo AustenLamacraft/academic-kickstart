@@ -378,7 +378,8 @@ To evaluate $\eqref{spin_deplete}$, we write it in terms of $\adop_\eta$, $a_\et
 
 $$
 \begin{align}
-\Delta s = - \bra{0}\frac{1}{N}\sum_{j=1}^N \adop_j \aop_j\ket{0} &= \frac{1}{2}-\frac{1}{4N}\sum_n \left[|\tan(\eta_n/2)| + |\cot(\eta_n/2)|\right].\\
+\Delta s &= - \bra{0}\frac{1}{N}\sum_{j=1}^N \adop_j \aop_j\ket{0}\nonumber\\
+ &= \frac{1}{2}-\frac{1}{4N}\sum_n \left[|\tan(\eta_n/2)| + |\cot(\eta_n/2)|\right].\nonumber\\
  &= \frac{1}{2}- \frac{1}{4}\int_{-\pi}^\pi \frac{d\eta}{2\pi} \left[|\tan(\eta_n/2)| + |\cot(\eta_n/2)|\right].
 \end{align}
 $$

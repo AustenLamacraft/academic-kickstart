@@ -226,7 +226,7 @@ $$
 
 ## First Excited States
 
-What about?
+- What about?
 
 `$$
 \ket{j} = \ket{+}_1\ket{+}_2\cdots \ket{+}_{j-1} \ket{-}_j\ket{+}_{j+1}\cdots \ket{+}_N.
@@ -587,7 +587,7 @@ and is zero in the ground state (c.f. ground state energy)
 ## AFM case
 
 $$
-s^z_j = (-1)^j(s-\adop_j\adop_j)
+s^z_j = (-1)^j(s-\adop_j\aop_j)
 $$
 
 - $q_n q_{-n} + \pi_n\pi_{-n}$ doesn't commute with $\sin^2(\eta/2)q_n q_{-n} + \cos^2(\eta/2)\pi_n\pi_{-n}$
