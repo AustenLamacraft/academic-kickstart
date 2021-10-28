@@ -188,7 +188,7 @@ $$
 \label{A_CCRBasis}
 $$
 
-Then we have
+- Then we have
 
 $$
 \begin{align}
@@ -308,7 +308,7 @@ $$`
 >What is the wavefunction of the two-particle state
 >
 >$$
->\sum_\bk c_k \adop_\bk\adop_{-\bk}\ket{\text{VAC}}?
+>\sum_\bk c_\bk \adop_\bk\adop_{-\bk}\ket{\text{VAC}}?
 >$$
 
 ---
@@ -606,25 +606,23 @@ $$
 
 ---
 
-- We evaluated $g(x,y)$ for ground state of 1D Fermi gas using Slater determinant
-
 - For 3D $N_{\bk}=1$ for $\abs{\bk}<k_{F}$, and $0$ otherwise
 
 $$
 \ket{\text{Fermi sea}} = \prod_{|\bk|<k_F} \adop_\bk\ket{\text{VAC}}
 $$
 
-> Show that
->
 >$$
->\begin{aligned}
->	\label{2nd_quant_FermiDensityMatrix}
->	g(\br,\br')=\frac{1}{V}\sum_{|\bk|<k_{F}} e^{i\bk\cdot(\br'-\br)}&=\int_{|\bk|<k_{F}} \frac{d\bk}{(2\pi)^{3}}\,e^{i\bk\cdot(\br'-\br)}\nonumber\\
+>\begin{align}
+>	g(\br,\br')&=\frac{1}{V}\sum_{|\bk|<k_{F}} e^{i\bk\cdot(\br'-\br)}=\int_{|\bk|<k_{F}} \frac{d\bk}{(2\pi)^{3}}\,e^{i\bk\cdot(\br'-\br)}\nonumber\\\\
 >	&=\frac{k_{F}^{3}}{2\pi^{2}}\left[\frac{\sin\left(k_{F}|\br'-\br|\right)}{(k_{F}|\br'-\br|)^{3}}-\frac{\cos\left(k_{F}|\br'-\br|\right)}{(k_{F}|\br'-\br|)^{2}}\right].
->\end{aligned}
+>\end{align}
 >$$
 >
 >Note that $g(\br,\br)=\frac{k_{F}^{3}}{6\pi^{2}}=n$
+
+- c.f. earlier calculation in 1D using Slater determinant
+
 
 ---
 
