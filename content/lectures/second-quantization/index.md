@@ -335,7 +335,7 @@ $$`
 
 ---
 
-- `$\left\{\adop(\psi),\adop(\phi)\right\}=0$` can be deduced from inner product
+- `$\left\{\aop(\psi),\adop(\phi)\right\}=0$` can be deduced from inner product
 `$$
 \bra{\Psi}\Phi\rangle = \sum_P (-1)^P\prod_{n=1}^N\bra{\psi_n}\phi_{P_n}\rangle = \det \bra{\psi_m}\phi_{n}\rangle,
 \label{A_det}
