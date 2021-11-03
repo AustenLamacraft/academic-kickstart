@@ -590,7 +590,7 @@ $$
 $$
 
 
-> Show that this can be written in terms of our field operators as
+> Show that this can be written as
 >
 >$$
 >	\label{2nd_quant_SPDensity}
@@ -719,7 +719,7 @@ H = -\frac{1}{2m}\sum_j \frac{\partial^2}{\partial x_j^2} + \overbrace{c\sum_{j<
 $$`
 has second quantized form
 `$$
-H = \int dx \left[\frac{1}{2}\partial_x\pdop(x)\partial_x\pop(x) + \frac{c}{2}\pdop(x)\pdop(x)\pop(x)\pop(x)\right],
+H = \int dx \left[\frac{1}{2}\partial_x\pdop(x)\partial_x\pop(x) + \frac{c}{2}\pdop(x)\pdop(x)\pop(x)\pop(x)\right].
 $$`
 $\pop(x)$, $\pdop(x)$ satisfy the canonical bosonic commutation relations
 
