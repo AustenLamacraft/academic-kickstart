@@ -11,7 +11,7 @@ draft: false  # Is this a draft? true/false
 type: book  # Do not modify.
 ---
 
-These are the slides from Michaelmas 2021. If you want a nice printable version for saving as a PDF, you can use e.g. [auste.nl/lectures/many-body-wavefunctions/?print-pdf#/](https://auste.nl/lectures/many-body-wavefunctions/?print-pdf#/)
+These are the slides from Michaelmas 2021. If you want a nice printable version for saving as a PDF, you can use e.g. [austen.uk/lectures/many-body-wavefunctions/?print-pdf#/](https://austen.uk/lectures/many-body-wavefunctions/?print-pdf#/)
 
 If you ever want access to the LaTeX for the mathematical expressions, right click and select `Show Math As > TeX Commands`
 

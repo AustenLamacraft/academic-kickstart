@@ -19,8 +19,8 @@ $$
 # Machine Learning and Statistical Mechanics
 
 - TCM graduate lectures
-- Slides: [auste.nl/slides/ml-stat-mech-1](https://auste.nl/slides/ml-stat-mech-1)
-- Text: [auste.nl/post/ml-stat-mech-1](https://auste.nl/post/ml-stat-mech-1)
+- Slides: [austen.uk/slides/ml-stat-mech-1](https://austen.uk/slides/ml-stat-mech-1)
+- Text: [austen.uk/post/ml-stat-mech-1](https://austen.uk/post/ml-stat-mech-1)
 
 ---
 

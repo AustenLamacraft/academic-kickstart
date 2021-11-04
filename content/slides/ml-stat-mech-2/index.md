@@ -13,8 +13,8 @@ scripts: []
 
 # ML and SM 2
 
-- Slides: [auste.nl/slides/ml-stat-mech-2](https://auste.nl/slides/ml-stat-mech-2)
-- Text: [auste.nl/post/ml-stat-mech-2](https://auste.nl/post/ml-stat-mech-2)
+- Slides: [austen.uk/slides/ml-stat-mech-2](https://austen.uk/slides/ml-stat-mech-2)
+- Text: [austen.uk/post/ml-stat-mech-2](https://austen.uk/post/ml-stat-mech-2)
 
 ---
 
