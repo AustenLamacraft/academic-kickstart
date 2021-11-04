@@ -64,7 +64,7 @@ $$
 
 - From [Lecture 1]({{< ref "many-body-wavefunctions" >}}): __pair distribution function__
 $$
-\rho_2(x_1,x_2) = N(N-1) \int dx_3\ldots dx_N \,\left|\Psi(x_1,x_2,\ldots,x_N)\right|^2,
+\rho_2(x_1,x_2) = N(N-1) \int dx_3\ldots dx_N \left|\Psi(x_1,x_2,\ldots,x_N)\right|^2
 \label{more_pdf}
 $$
 measures likelihood of finding particles at $x_1$ and $x_2$
@@ -243,7 +243,7 @@ $$`
 
 ---
 
-- $N$ noninteracting bosons occupying in ground state $\varphi_{0}(\br)$ of some potential: a __Bose condensate__
+- $N$ noninteracting bosons occupying in ground state $\varphi\_{0}(\br)$ of some potential: a __Bose condensate__
 
 - $N$-body wavefunction is
 `$$
