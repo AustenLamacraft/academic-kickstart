@@ -2,7 +2,7 @@
 
 These are the materials for the Part III course Theories of Quantum Matter at the University of Cambridge
 
-- The `master` branch contains the lecture notes that are published on [my site](https://auste.nl).
+- The `master` branch contains the lecture notes that are published on [my site](https://austen.uk).
 
 - The branch `lecture-notes-<year>` contains the files with annotations made during the lectures in `<year>`.
 

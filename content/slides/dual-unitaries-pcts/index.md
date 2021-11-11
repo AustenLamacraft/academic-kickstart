@@ -28,7 +28,7 @@ Sarang Gopalakrishnan and AL [2019](https://journals.aps.org/prb/abstract/10.110
 
 Pieter Claeys and AL [2020](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032), and [arXiv:2009.03791](https://arxiv.org/abs/2009.03791)
 
-Slides at [auste.nl/slides/dual-unitaries-pcts](https://auste.nl/slides/dual-unitaries-pcts)
+Slides at [austen.uk/slides/dual-unitaries-pcts](https://austen.uk/slides/dual-unitaries-pcts)
 
 ---
 
