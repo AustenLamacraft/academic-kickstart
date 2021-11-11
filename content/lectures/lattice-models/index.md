@@ -323,7 +323,7 @@ $$
 
 ---
 
-### $U/t\to infty$
+### $U/t\to \infty$
 
 
 - Three Mott staes to 0, 1, or 2 particles per site
