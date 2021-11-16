@@ -255,7 +255,7 @@ Vortices with $\abs{\ell}>1$ are generally unstable, and will break into multipl
 
 {{< figure src="3dLattices.jpg" title="Vortex lattice in a Bose--Einstein condensate of Sodium atoms. Source: [Ketterle group, MIT](http://cua.mit.edu/ketterle_group/)." numbered="true" lightbox="true" >}}
 
-Vortices are one manifestation of the phenomenon of __superfluidity__: persistent flow without resistance. The true ground state of the system does not have such flows, of course, so these flows are only _metastable_ (as long as rotational symmetry is broken, so that angular momentum is not conserved). In the case of the vortex, it can only decay by its core leaving the system. An even simpler example is provided by currents flowing in a ring, a situation studied in [Problem Set 2]({{< ref "problem-set-2" >}}), which illustrates the important role played by repulsive interactions.
+Vortices are one manifestation of the phenomenon of __superfluidity__: persistent flow without resistance. The true ground state of the system does not have such flows, of course, so these flows are only _metastable_ (as long as rotational symmetry is broken, so that angular momentum is not conserved). In the case of the vortex, it can only decay by its core leaving the system. An even simpler example is provided by currents flowing in a ring, a situation studied in [Problem Set 2]({{< ref "problem-set-2#persistent-currents-without-rotational-symmetry" >}}), which illustrates the important role played by repulsive interactions.
 
 ## Bogoliubov Theory
 
@@ -465,7 +465,7 @@ $$
 E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\tilde\epsilon(\bp)-n_0U_0\right].
 $$
 
-Somewhat annoyingly, this integral is divergent in the ultraviolet. However, this is actually nothing to do with the many body physics of the problem, but is rather related to the need to regularize a $\delta$-function potential in three dimensions. We can cure the problem by writing
+Somewhat annoyingly, this integral is divergent in the ultraviolet. However, this is actually nothing to do with the many body physics of the problem, but is rather related to the need to regularize a $\delta$-function potential in three dimensions (see [Problem Set 2]({{< ref "courses/tqm/problem-sets/problem-set-2#perturbation-theory-for-the-bose-gas" >}})). We can cure the problem by writing
 
 $$
 \begin{align}

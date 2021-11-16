@@ -98,7 +98,7 @@ where we have chosen the labels so that the hermiticity condition $\left(\rho^R_
 
 	where $\left[r_q,r_{q'}^\dagger\right]=\delta_{q,q'}$. From the definition $\eqref{rhodef}$ we see that $\rho_q^R$ annihilates the ground state, while $\rho^R_{-q}$ creates an excitation with momentum $q$.
 
-4. Show that the structure factor of the density $\rho_q = \rho^R_q+\rho^L_q$ saturates the Onsager bound discussed in [Problem Set 3]({{< ref "problem-set-3" >}}).
+4. Show that the structure factor of the density $\rho_q = \rho^R_q+\rho^L_q$ saturates the Onsager bound discussed in [Problem Set 3]({{< ref "problem-set-3#an-inequality-for-the-static-structure-factor" >}}).
 
 ## Bosonized Form of the Fermion Operator
 

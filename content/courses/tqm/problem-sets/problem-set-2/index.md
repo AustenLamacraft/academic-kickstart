@@ -250,7 +250,7 @@ and show that:
 
 ## Perturbation Theory for the Bose gas
 
-1. Find an expression for the ground state energy of the Bose gas at second order in the interaction, and confirm the ultraviolet divergence found in the lectures. This can be 'cured' by recognizing that a real potential as a finite range, which cuts off the integral.
+1. Find an expression for the ground state energy of the Bose gas at second order in the interaction, and confirm the ultraviolet divergence found in the lectures. This can be 'cured' by recognizing that a real potential has a finite range, which cuts off the integral.
 
 2. _[Harder]_. The expression for the _third order_ perturbative correction is
 
