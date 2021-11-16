@@ -331,20 +331,28 @@ H_\text{pair} = &N\epsilon(0)+\frac{U_0}{2V}N(N-1) \nonumber\\\nonumber
 \end{align}
 $$
 
-Even though $\epsilon(0)=0$ for the situation we are interested in right now, we have included the general case in $\eqref{bose_Hpair2}$ to emphasize that is the energy _difference_ between $0$ and $\bk$ that is important: any energy offset appears as a constant in the first term.
+Even though $\epsilon(0)=0$ for the situation we are interested in right now, we have included the general case in $\eqref{bose_Hpair2}$ to emphasize that it is the energy _difference_ between $0$ and $\bk$ that is important: any energy offset appears as a constant in the first term.
 
 Even now it's not so easy to solve this problem. One last vital simplification is needed. We are going to replace the operators $\adop_0$, $\aop_0$ with $\sqrt{N}$, giving a quadratic Hamiltonian. That may sound like a pretty odd thing to do: after all, the resulting Hamiltonian no longer conserves the number of particles! Let's see why this is a good approximation.
 
-Consider the action of the Hamiltonian $\eqref{bose_Hpair}$ on a product state of the form $\ket{\Psi'}\otimes\ket{N_0}_0$, where we are 'factoring off' the Hilbert space of non-zero momentum states from the Fock state of the zero momentum state. The action of $\adop_\bk \aop_0$ on this state is
+Consider the action of the Hamiltonian $\eqref{bose_Hpair}$ on a product state of the form $\ket{\Psi'}\otimes\ket{N_0}_0$, where $\ket{\Psi'}$ lives in the many body Hilbert space made from non-zero momentum single particle states and $\ket{N_0}_0$ has $N_0$ particles in the zero momentum state. 
+
+The action of $\adop_\bk \aop_0$ on this state is
 
 $$
-\adop_\bk\aop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \aop_0\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0}\ket{N_0-1}_0.
+\begin{align}
+\adop_\bk\aop_0\ket{\Psi'}\otimes\ket{N_0}_0 &= \left(\adop_\bk \ket{\Psi'}\right)\otimes \aop_0\ket{N_0}_0\nonumber\\
+ &= \left(\adop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0}\ket{N_0-1}_0.
+\end{align}
 $$
 
 Likewise
 
 $$
-\aop_\bk\adop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \adop_0\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0+1}\ket{N_0+1}_0.
+\begin{align}
+\aop_\bk\adop_0\ket{\Psi'}\otimes\ket{N_0}_0 &= \left(\aop_\bk \ket{\Psi'}\right)\otimes \adop_0\ket{N_0}_0 \nonumber\\
+&= \left(\aop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0+1}\ket{N_0+1}_0.
+\end{align}
 $$
 
 Since $N_0$ is assumed to be large, we ignore the difference between $N_0$ and $N_0+1$. To be more precise, we are assuming that in the states we are going to find, $N_0$ will not fluctuate substantially. If this is the case, the _matrix elements_ of $H_\text{pair}$ are approximately unchanged when we make the replacement mentioned above, leaving us with the __Bogoliubov Hamiltonian__
@@ -386,7 +394,7 @@ h = \begin{pmatrix}
 \end{pmatrix}
 \begin{pmatrix}
 \aop_1 \\ \adop_2
-\end{pmatrix}-\delta
+\end{pmatrix}-\epsilon
 $$
 
 It is possible to express $h$ in terms of some new bosons $\bop_{1,2}$ in the form
@@ -421,7 +429,7 @@ $$
 \begin{pmatrix}
 \cosh\kappa & \sinh\kappa \\
 \sinh\kappa & \cosh\kappa
-\end{pmatrix}
+\end{pmatrix}.
 $$
 
 Notice the differences from a rotation matrix:
