@@ -162,13 +162,13 @@ $$
 Alternatively, one may write this is terms of the velocity field of the gas, using $\mathbf{j}=\rho \mathbf{v}$, and the decomposition of $\varphi(\br)$ into magnitude and phase
 
 $$
-	\varphi(\br)=\sqrt{\rho(\br)}e^{i\theta(\br)}.
+	\varphi(\br)=\sqrt{\rho(\br)}e^{i\chi(\br)}.
 $$
 
 We thus find the __superfluid velocity__
 
 $$
-	\mathbf{v}_{s}\equiv\frac{1}{m}\nabla\theta.
+	\mathbf{v}_{s}\equiv\frac{1}{m}\nabla\chi.
   \label{bose_vs}
 $$
 
@@ -190,7 +190,7 @@ $$
 \oint \mathbf{v}_s\cdot d\mathbf{l}=0
 $$
 
-around any closed loop. However, it is possible for the phase of the wavefunction to increase by a multiple of $2\pi$ around a closed loop, which still gives a single-valued condensate wavefunction since $\varphi(\br)=\sqrt{\rho(\br)}e^{i\theta(\br)}$. Thus in general the circulation
+around any closed loop. However, it is possible for the phase of the wavefunction to increase by a multiple of $2\pi$ around a closed loop, which still gives a single-valued condensate wavefunction since $\varphi(\br)=\sqrt{\rho(\br)}e^{i\chi(\br)}$. Thus in general the circulation
 
 $$
 \oint \mathbf{v}_s\cdot d\mathbf{l}=\frac{2\pi \ell}{m},\quad \ell\in\mathbb{Z},
@@ -225,16 +225,16 @@ We take $\mu = U_0 n$ to get the behaviour $\eqref{bose_vortex}$ at infinity.
 
 The region of suppressed density, of characteristic size $\xi$, is called the __vortex core__. In three dimensions, the vortex core is a line.
 
-We can find the energy of the vortex state by substituting the solution back into the energy functional $\eqref{bose_energy}$ to find the energy excess relative to uniform state of density $n$
+We can find the energy of the vortex state by substituting the solution back into the energy functional $\eqref{bose_energy}$ to find the energy excess relative to a uniform state of density $n$
 
 $$
-\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\theta)^2.
+\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\chi)^2.
 $$
 
 The first integral is finite, and arises purely from the departure of the density away from its bulk value. The second represents the contribution to the kinetic energy arising from the winding of the vortex's phase. Since we have
 
 $$
-\nabla \theta = \frac{\ell}{r}\hat{\mathbf{e}}_\theta,
+\nabla \chi = \frac{\ell}{r}\hat{\mathbf{e}}_\theta,
 $$
 
 this contribution to the energy is _logarithmically divergent_.
@@ -368,10 +368,10 @@ where $n_0 = N_0/V$ is the density of particles in the zero momentum state, and 
 
 ### Bogoliubov transformation
 
-This is a change of variables that arises often in many body physics, so we'll take some time to introduce it in a general context. Suppose we have a Hermitian operator that is quadratic in two bosons $\aop_{1,2}$
+This is a change of variables that arises often in many body physics, so we'll take some time to introduce it in a general context. Suppose we have a Hermitian operator that is quadratic in two bosons $\aop_{1,2}$ with the following form
 
 $$
-h = A_1\adop_1\aop_1+A_2\adop_2\aop_2 + B\adop_1\adop_2+B^*\aop_1\aop_2.
+h = \epsilon\left[\adop_1\aop_1+\adop_2\aop_2\right] + \delta\left[\adop_1\adop_2+\aop_1\aop_2\right].
 $$
 
 It's convenient to write this as
@@ -381,21 +381,18 @@ h = \begin{pmatrix}
 \adop_1 & \aop_2
 \end{pmatrix}
 \begin{pmatrix}
-A_1 & B \\
-B^* & A_2
+\epsilon & \delta \\
+\delta & \epsilon
 \end{pmatrix}
 \begin{pmatrix}
 \aop_1 \\ \adop_2
-\end{pmatrix}
+\end{pmatrix}-\delta
 $$
 
-(We could consider more general forms e.g. a $4\times 4$ structure where the row vectors are $\begin{pmatrix}
-\adop_1 & \adop_2 & \aop_1 & \aop_2 \end{pmatrix}$ and $A_{1,2}$ and $B$ are $2\times 2$ matrices, but this is enough to be going on with)
-
-We would like to express $h$ in terms of some new bosons $\bop_{1,2}$ in the form
+It is possible to express $h$ in terms of some new bosons $\bop_{1,2}$ in the form
 
 $$
-h = \frac{\varepsilon_1}{2}\left(\bdop_1\bop_1+\bop_1\bdop_1\right) + \frac{\varepsilon_2}{2}\left(\bdop_2\bop_2+\bop_2\bdop_2\right) 
+h = \Omega\left[\bdop_1\bop_1+\bdop_2\bop_2\right] +\text{const.}
 $$
 
 (because then the spectrum is obvious). We look to express the new bosons linearly in terms of the old as follows
@@ -417,12 +414,39 @@ where $\Lambda$ is some $2\times 2$ matrix. What conditions should $\Lambda$ sat
 > \Lambda^\dagger \sigma_3 \Lambda = \sigma_3
 > $$
 
+The following parameterization satisfies this condition and is sufficiently general for our needs
+
 $$
-\bop_\bp=\aop_\bp\cosh\kappa_\bp+\adop_{-\bp}\sinh\kappa_\bp\nonumber\\
-\tanh2\kappa_\bp=\frac{n_0 U_0}{\tilde\epsilon(\bp)+n_0 U_0}.
+\Lambda=
+\begin{pmatrix}
+\cosh\kappa & \sinh\kappa \\
+\sinh\kappa & \cosh\kappa
+\end{pmatrix}
 $$
 
-The parameter $\kappa_\bp$ of the transformation is chosen in order that there are no 'anomalous' $\bdop_\bp\bdop_{-\bp}$ or $\bop_\bp\bop_{-\bp}$ terms left in the Hamiltonian, which then takes the form of a sum of oscillators
+Notice the differences from a rotation matrix:
+
+1. Hyperbolic instead of trignometric functions
+2. No sign difference between the off digaonal elements.
+
+> Show that 
+>$$
+>\begin{align}
+> \tanh 2\kappa = \frac{\delta}{\epsilon},\qquad \Omega = \sqrt{\epsilon^2-\delta^2\nonumber}\\
+> h = \Omega\left[\bdop_1\bop_1+\bdop_2\bop_2\right] + \Omega - \epsilon.
+>\end{align}
+>$$
+>
+> The form of $\Omega$ is most easily understood by noting that the transformation preserves the determinant ($\det\Lambda=1$). What happens if $\delta>\epsilon$?
+
+Applying the same logic to our Hamiltonian $\eqref{bose_Hpair3}$ gives
+
+$$
+\bop_\bp=\aop_\bp\cosh\kappa_\bp+\adop_{-\bp}\sinh\kappa_\bp\nonumber\\
+\qquad \tanh2\kappa_\bp=\frac{n_0 U_0}{\tilde\epsilon(\bp)+n_0 U_0},
+$$
+
+(make sure you understand where the $1/2$ went!) and
 
 $$
 H=E_0+\sum_{\bp\neq 0}\omega(\bp)\bdop_\bp
