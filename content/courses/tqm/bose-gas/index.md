@@ -277,7 +277,7 @@ $$
 H_\text{int}\ket{\Psi_\text{GP}} =  \frac{U_0}{2V}\sum_{\bk} \adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0}\ket{\Psi_\text{GP}}.
 $$
 
-Thus, if we want a better wavefunction, we are going to have to add some $(\bk, -\bk)$ pairs!
+Thus, if we want a better wavefunction, we are going to have to add some $(+\bk, -\bk)$ pairs!
 
 ### Bogoliubov Hamiltonian
 
@@ -292,12 +292,14 @@ we see that a term in the Hamiltonian with $\aop_0$ or $\adop_0$ is going to be 
 
 $$
 \begin{align}
-H_\text{int} = \frac{U_0}{2V}\adop_0\adop_0\aop_0\aop_0 + \frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+4\adop_\bk\adop_0\aop_0\aop_\bk\right]\\\nonumber
-+\frac{U_0}{V}\sum_{\substack{\bk_1=\bk_2+\bk_3\\ \bk_{1,2,3}\neq 0}}\left[\adop_{\bk_3}\adop_{\bk_2}\aop_{\bk_1}\aop_0 +\adop_0\adop_{\bk_1}\aop_{\bk_2}\aop_{\bk_3}\right]+\frac{U_0}{2V}\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk_4\\ \bk_{1,2,3,4}\neq 0}} \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}.
+H_\text{int} = &\frac{U_0}{2V}\adop_0\adop_0\aop_0\aop_0 \\\nonumber 
+&+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+4\adop_\bk\adop_0\aop_0\aop_\bk\right]\\\nonumber
+&+\frac{U_0}{V}\sum_{\substack{\bk_1=\bk_2+\bk_3\\ \bk_{1,2,3}\neq 0}}\left[\adop_{\bk_3}\adop_{\bk_2}\aop_{\bk_1}\aop_0 +\adop_0\adop_{\bk_1}\aop_{\bk_2}\aop_{\bk_3}\right]\\\nonumber
+&+\frac{U_0}{2V}\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk_4\\ \bk_{1,2,3,4}\neq 0}} \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}.
 \end{align}
 $$
 
-The Gross--Pitaevskii approximation corresponds to the first term. We are now going to keep the second term, and neglect the third and fourth. Thus we study the Hamiltonian
+The Gross--Pitaevskii approximation corresponds to the first term. We are now going to additionally keep the second term, and neglect the third and fourth. Thus we study the Hamiltonian
 
 $$
 \begin{align}
@@ -306,7 +308,7 @@ H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}\adop_0
 \end{align}
 $$
 
-In fact, it's convenient to rewrite the second term of this Hamiltonian using
+The second line describes the movement of pairs between zero momentum and $(+\bk,-\bk)$. To separate as much as possible the $\bk\neq 0$ modes from the $\bk=0$ mode we use
 
 $$
 \adop_0\aop_0 = N - N',\quad N'\equiv \sum_{\bk\neq 0} N_\bk
@@ -318,14 +320,18 @@ $$
 \adop_0\adop_0\aop_0\aop_0 =  N(N-1) - 2N'N_0+O(N_0^0	).
 $$
 
-In this approximation, we get
+In this way, $\eqref{bose_Hpair}$ becomes
 
 $$
 \begin{align}
-H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right].
+H_\text{pair} = &N\epsilon(0)+\frac{U_0}{2V}N(N-1) \nonumber\\\nonumber
+&+\sum_{\bk\neq 0}\left(\left[\epsilon(\bk)-\epsilon(0)\right]\adop_\bk\aop_\bk\right.\\
+&\left.+\frac{U_0}{2V}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right]\right).
 \label{bose_Hpair2}
 \end{align}
 $$
+
+Even though $\epsilon(0)=0$ for the situation we are interested in right now, we have included the general case in $\eqref{bose_Hpair2}$ to emphasize that is the energy _difference_ between $0$ and $\bk$ that is important: any energy offset appears as a constant in the first term.
 
 Even now it's not so easy to solve this problem. One last vital simplification is needed. We are going to replace the operators $\adop_0$, $\aop_0$ with $\sqrt{N}$, giving a quadratic Hamiltonian. That may sound like a pretty odd thing to do: after all, the resulting Hamiltonian no longer conserves the number of particles! Let's see why this is a good approximation.
 
@@ -343,18 +349,77 @@ $$
 
 Since $N_0$ is assumed to be large, we ignore the difference between $N_0$ and $N_0+1$. To be more precise, we are assuming that in the states we are going to find, $N_0$ will not fluctuate substantially. If this is the case, the _matrix elements_ of $H_\text{pair}$ are approximately unchanged when we make the replacement mentioned above, leaving us with the __Bogoliubov Hamiltonian__
 
-$$
+<!-- $$
 \begin{align}
 H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0n_0}{2}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk} + \aop_{\bk}\aop_{-\bk}+2\adop_\bk\aop_\bk\right].
 \label{bose_Hpair3}
 \end{align}
+$$ -->
+
+$$
+\begin{align}
+H_\text{pair} &= N\epsilon(0)+\frac{U_0}{2V}N(N-1) \nonumber\\
+&+\sum_{\bk\neq 0}\left(\left[\tilde\epsilon(\bk)+U_0n_0\right]\adop_\bk\aop_\bk+\frac{U_0n_0}{2}\left[\adop_{\bk}\adop_{-\bk} + \aop_{\bk}\aop_{-\bk}\right]\right).
+\label{bose_Hpair3}
+\end{align}
 $$
 
-where $n_0 = N_0/V$ is the density of particles in the zero momentum state. The Hamiltonian $\eqref{bose_Hpair3}$ can be diagonalized by a __Bogoliubov transformation__
+where $n_0 = N_0/V$ is the density of particles in the zero momentum state, and we have defined $\tilde\epsilon(\bk)\equiv\epsilon(\bk)-\epsilon(0)$. The Hamiltonian $\eqref{bose_Hpair3}$ can be diagonalized by a __Bogoliubov transformation__.
+
+### Bogoliubov transformation
+
+This is a change of variables that arises often in many body physics, so we'll take some time to introduce it in a general context. Suppose we have a Hermitian operator that is quadratic in two bosons $\aop_{1,2}$
+
+$$
+h = A_1\adop_1\aop_1+A_2\adop_2\aop_2 + B\adop_1\adop_2+B^*\aop_1\aop_2.
+$$
+
+It's convenient to write this as
+
+$$
+h = \begin{pmatrix}
+\adop_1 & \aop_2
+\end{pmatrix}
+\begin{pmatrix}
+A_1 & B \\
+B^* & A_2
+\end{pmatrix}
+\begin{pmatrix}
+\aop_1 \\ \adop_2
+\end{pmatrix}
+$$
+
+(We could consider more general forms e.g. a $4\times 4$ structure where the row vectors are $\begin{pmatrix}
+\adop_1 & \adop_2 & \aop_1 & \aop_2 \end{pmatrix}$ and $A_{1,2}$ and $B$ are $2\times 2$ matrices, but this is enough to be going on with)
+
+We would like to express $h$ in terms of some new bosons $\bop_{1,2}$ in the form
+
+$$
+h = \frac{\varepsilon_1}{2}\left(\bdop_1\bop_1+\bop_1\bdop_1\right) + \frac{\varepsilon_2}{2}\left(\bdop_2\bop_2+\bop_2\bdop_2\right) 
+$$
+
+(because then the spectrum is obvious). We look to express the new bosons linearly in terms of the old as follows
+
+$$
+\begin{pmatrix}
+\bop_1 \\ \bdop_2
+\end{pmatrix}=
+\Lambda
+\begin{pmatrix}
+\aop_1 \\ \adop_2
+\end{pmatrix}
+$$
+
+where $\Lambda$ is some $2\times 2$ matrix. What conditions should $\Lambda$ satisfy?
+
+> Show that if we want the new bosons $\bop_{1,2}$ to satisfy the same commutation relations as the original $a_{1,2}$, we must have
+> $$
+> \Lambda^\dagger \sigma_3 \Lambda = \sigma_3
+> $$
 
 $$
 \bop_\bp=\aop_\bp\cosh\kappa_\bp+\adop_{-\bp}\sinh\kappa_\bp\nonumber\\
-\tanh2\kappa_\bp=\frac{n_0 U_0}{\epsilon(\bp)+n_0 U_0}.
+\tanh2\kappa_\bp=\frac{n_0 U_0}{\tilde\epsilon(\bp)+n_0 U_0}.
 $$
 
 The parameter $\kappa_\bp$ of the transformation is chosen in order that there are no 'anomalous' $\bdop_\bp\bdop_{-\bp}$ or $\bop_\bp\bop_{-\bp}$ terms left in the Hamiltonian, which then takes the form of a sum of oscillators
@@ -367,20 +432,20 @@ $$
 Here $\omega(\bp)$ is the Bogoliubov dispersion relation
 
 $$
-\omega(\bp) = \sqrt{\epsilon(\bp)\left(\epsilon(\bp)+2U_0n_0\right)},
+\omega(\bp) = \sqrt{\tilde\epsilon(\bp)\left(\tilde\epsilon(\bp)+2U_0n_0\right)},
 $$
 
 and the ground state energy is
 
 $$
-E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0\right].
+E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\tilde\epsilon(\bp)-n_0U_0\right].
 $$
 
 Somewhat annoyingly, this integral is divergent in the ultraviolet. However, this is actually nothing to do with the many body physics of the problem, but is rather related to the need to regularize a $\delta$-function potential in three dimensions. We can cure the problem by writing
 
 $$
-E_0=\frac{1}{2}nU_0  N\left[1-\frac{1}{V}\sum_\bp \frac{U_0}{2\epsilon(\bp)}\right]+\sum_{\bp\neq 0}\frac{1}
-{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0+ \frac{(n_0U_0)^2}{2\epsilon(\bp)}\right].
+E_0=\frac{1}{2}nU_0  N\left[1-\frac{1}{V}\sum_\bp \frac{U_0}{2\tilde\epsilon(\bp)}\right]+\sum_{\bp\neq 0}\frac{1}
+{2}\left[\omega(\bp)-\tilde\epsilon(\bp)-n_0U_0+ \frac{(n_0U_0)^2}{2\tilde\epsilon(\bp)}\right].
 $$
 
 In this form, the term we have added and subtracted is recognized as the next order in the Born
@@ -395,7 +460,7 @@ $$
 Where
 
 $$
-a_0=(m/4\pi)U_0,\qquad a_1=-(m/4\pi)\frac{U_0^2}{V}\sum_\bp \frac{1}{2\epsilon
+a_0=(m/4\pi)U_0,\qquad a_1=-(m/4\pi)\frac{U_0^2}{V}\sum_\bp \frac{1}{2\tilde\epsilon
 (\bp)}.
 $$
 
@@ -433,13 +498,13 @@ $$
 where
 
 $$
-e^{-\kappa_\bq} = \sqrt{\frac{\epsilon(\bq)}{\omega(\bq)}}.
+e^{-\kappa_\bq} = \sqrt{\frac{\tilde\epsilon(\bq)}{\omega(\bq)}}.
 $$
 
 The density fluctuations in the ground state are then
 
 $$
-\braket{0}{\rho_{-\bq}\rho_{\bq}}{0} = N\frac{\epsilon(\bq)}{\omega(\bq)}\xrightarrow{\bq\to 0} \frac{N\abs{\bq}}{2mc}.
+\braket{0}{\rho_{-\bq}\rho_{\bq}}{0} = N\frac{\tilde\epsilon(\bq)}{\omega(\bq)}\xrightarrow{\bq\to 0} \frac{N\abs{\bq}}{2mc}.
 $$
 
 On the right hand side we have used the low momentum form of the Bogoliubov dispersion

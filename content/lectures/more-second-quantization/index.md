@@ -474,7 +474,7 @@ $$`
 
 ---
 
-Suppose $U(\br)=U_0 \delta(\br)$
+Suppose $U(\br)=V_0 \delta(\br)$
 
 `$$
 \begin{align}

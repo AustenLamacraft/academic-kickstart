@@ -23,6 +23,8 @@ If you ever want access to the LaTeX for the mathematical expressions, right cli
 __Advance warning:__ there will be be no lecture on Thursday 25/11/21 due to a booking clash. The last lecture will therefore take place on Thursday 2/12/21 and _not_ Tuesday 30/11/21
 {{% /callout %}}
 
+- [Please fill out the feedback survey](https://cambridge.eu.qualtrics.com/jfe/form/SV_1YzWD2aCK9VKfm6). Closes 28th November.
+
 ## Course materials
 
 - [Lecture notes]({{< ref "courses/tqm" >}})
@@ -35,6 +37,7 @@ __Advance warning:__ there will be be no lecture on Thursday 25/11/21 due to a b
 - {{% staticref "uploads/2018-tqm-solutions.pdf" "newtab" %}}2018{{% /staticref %}}
 - {{% staticref "uploads/2019-tqm-solutions.pdf" "newtab" %}}2019{{% /staticref %}}
 - {{% staticref "uploads/2020-tqm-solutions.pdf" "newtab" %}}2020{{% /staticref %}}
+- {{% staticref "uploads/2021-tqm-solutions.pdf" "newtab" %}}2021{{% /staticref %}}
 
 ## Some books that you may find useful
 

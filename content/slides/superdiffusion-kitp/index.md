@@ -36,8 +36,8 @@ Work with Pieter Claeys and Jonah Herzog-Arbeitman
 </p>
 
 <p align="right">
-<a source="https://auste.nl/slides/superdiffusion-kitp/">
-auste.nl/slides/superdiffusion-kitp/
+<a source="https://austen.uk/slides/superdiffusion-kitp/">
+austen.uk/slides/superdiffusion-kitp/
 </a>
 </p>
 

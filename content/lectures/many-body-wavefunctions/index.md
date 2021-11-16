@@ -98,7 +98,7 @@ $$
 
 - $\hbar=1$
 
-- Course website [auste.nl/courses/](https://auste.nl/courses/) (updated with slides)
+- Course website [austen.uk/courses/](https://austen.uk/courses/) (updated with slides)
 
 - Lecture capture (left and centre blackboards + centre screen)
 
