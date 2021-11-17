@@ -629,7 +629,7 @@ a_0=(m/4\pi)U_0,\qquad a_1=-(m/4\pi)\frac{U_0^2}{V}\sum_\bp \frac{1}{2\tilde\eps
 (\bp)}.
 $$
 
-are the first two terms in the Born approximation for the scattering length $a=a_0+a_1+\cdots$. This strongly suggests that these two terms can really be expressed only in erms of the true scattering length. Notice also that the second term has a weird $U_0^{5/2}$ dependence on the interaction strength, which is presumably connected to perturbation theory breaking down between the second and third orders.
+are the first two terms in the Born approximation for the scattering length $a=a_0+a_1+\cdots$. This strongly suggests that these two terms can really be expressed only in erms of the true scattering length. Notice also that the second term has a weird $U_0^{5/2}$ dependence on the interaction strength, which is presumably connected to perturbation theory breaking down at the third order (see [Problem Set 2]({{< ref "courses/tqm/problem-sets/problem-set-2#perturbation-theory-for-the-bose-gas" >}})).
 
 References
 ----------
