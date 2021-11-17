@@ -162,13 +162,13 @@ $$
 Alternatively, one may write this is terms of the velocity field of the gas, using $\mathbf{j}=\rho \mathbf{v}$, and the decomposition of $\varphi(\br)$ into magnitude and phase
 
 $$
-	\varphi(\br)=\sqrt{\rho(\br)}e^{i\theta(\br)}.
+	\varphi(\br)=\sqrt{\rho(\br)}e^{i\chi(\br)}.
 $$
 
 We thus find the __superfluid velocity__
 
 $$
-	\mathbf{v}_{s}\equiv\frac{1}{m}\nabla\theta.
+	\mathbf{v}_{s}\equiv\frac{1}{m}\nabla\chi.
   \label{bose_vs}
 $$
 
@@ -190,7 +190,7 @@ $$
 \oint \mathbf{v}_s\cdot d\mathbf{l}=0
 $$
 
-around any closed loop. However, it is possible for the phase of the wavefunction to increase by a multiple of $2\pi$ around a closed loop, which still gives a single-valued condensate wavefunction since $\varphi(\br)=\sqrt{\rho(\br)}e^{i\theta(\br)}$. Thus in general the circulation
+around any closed loop. However, it is possible for the phase of the wavefunction to increase by a multiple of $2\pi$ around a closed loop, which still gives a single-valued condensate wavefunction since $\varphi(\br)=\sqrt{\rho(\br)}e^{i\chi(\br)}$. Thus in general the circulation
 
 $$
 \oint \mathbf{v}_s\cdot d\mathbf{l}=\frac{2\pi \ell}{m},\quad \ell\in\mathbb{Z},
@@ -225,16 +225,16 @@ We take $\mu = U_0 n$ to get the behaviour $\eqref{bose_vortex}$ at infinity.
 
 The region of suppressed density, of characteristic size $\xi$, is called the __vortex core__. In three dimensions, the vortex core is a line.
 
-We can find the energy of the vortex state by substituting the solution back into the energy functional $\eqref{bose_energy}$ to find the energy excess relative to uniform state of density $n$
+We can find the energy of the vortex state by substituting the solution back into the energy functional $\eqref{bose_energy}$ to find the energy excess relative to a uniform state of density $n$
 
 $$
-\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\theta)^2.
+\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\chi)^2.
 $$
 
 The first integral is finite, and arises purely from the departure of the density away from its bulk value. The second represents the contribution to the kinetic energy arising from the winding of the vortex's phase. Since we have
 
 $$
-\nabla \theta = \frac{\ell}{r}\hat{\mathbf{e}}_\theta,
+\nabla \chi = \frac{\ell}{r}\hat{\mathbf{e}}_\theta,
 $$
 
 this contribution to the energy is _logarithmically divergent_.
@@ -255,7 +255,7 @@ Vortices with $\abs{\ell}>1$ are generally unstable, and will break into multipl
 
 {{< figure src="3dLattices.jpg" title="Vortex lattice in a Bose--Einstein condensate of Sodium atoms. Source: [Ketterle group, MIT](http://cua.mit.edu/ketterle_group/)." numbered="true" lightbox="true" >}}
 
-Vortices are one manifestation of the phenomenon of __superfluidity__: persistent flow without resistance. The true ground state of the system does not have such flows, of course, so these flows are only _metastable_ (as long as rotational symmetry is broken, so that angular momentum is not conserved). In the case of the vortex, it can only decay by its core leaving the system. An even simpler example is provided by currents flowing in a ring, a situation studied in [Problem Set 2]({{< ref "problem-set-2" >}}), which illustrates the important role played by repulsive interactions.
+Vortices are one manifestation of the phenomenon of __superfluidity__: persistent flow without resistance. The true ground state of the system does not have such flows, of course, so these flows are only _metastable_ (as long as rotational symmetry is broken, so that angular momentum is not conserved). In the case of the vortex, it can only decay by its core leaving the system. An even simpler example is provided by currents flowing in a ring, a situation studied in [Problem Set 2]({{< ref "problem-set-2#persistent-currents-without-rotational-symmetry" >}}), which illustrates the important role played by repulsive interactions.
 
 ## Bogoliubov Theory
 
@@ -331,20 +331,28 @@ H_\text{pair} = &N\epsilon(0)+\frac{U_0}{2V}N(N-1) \nonumber\\\nonumber
 \end{align}
 $$
 
-Even though $\epsilon(0)=0$ for the situation we are interested in right now, we have included the general case in $\eqref{bose_Hpair2}$ to emphasize that is the energy _difference_ between $0$ and $\bk$ that is important: any energy offset appears as a constant in the first term.
+Even though $\epsilon(0)=0$ for the situation we are interested in right now, we have included the general case in $\eqref{bose_Hpair2}$ to emphasize that it is the energy _difference_ between $0$ and $\bk$ that is important: any energy offset appears as a constant in the first term.
 
 Even now it's not so easy to solve this problem. One last vital simplification is needed. We are going to replace the operators $\adop_0$, $\aop_0$ with $\sqrt{N}$, giving a quadratic Hamiltonian. That may sound like a pretty odd thing to do: after all, the resulting Hamiltonian no longer conserves the number of particles! Let's see why this is a good approximation.
 
-Consider the action of the Hamiltonian $\eqref{bose_Hpair}$ on a product state of the form $\ket{\Psi'}\otimes\ket{N_0}_0$, where we are 'factoring off' the Hilbert space of non-zero momentum states from the Fock state of the zero momentum state. The action of $\adop_\bk \aop_0$ on this state is
+Consider the action of the Hamiltonian $\eqref{bose_Hpair}$ on a product state of the form $\ket{\Psi'}\otimes\ket{N_0}_0$, where $\ket{\Psi'}$ lives in the many body Hilbert space made from non-zero momentum single particle states and $\ket{N_0}_0$ has $N_0$ particles in the zero momentum state. 
+
+The action of $\adop_\bk \aop_0$ on this state is
 
 $$
-\adop_\bk\aop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \aop_0\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0}\ket{N_0-1}_0.
+\begin{align}
+\adop_\bk\aop_0\ket{\Psi'}\otimes\ket{N_0}_0 &= \left(\adop_\bk \ket{\Psi'}\right)\otimes \aop_0\ket{N_0}_0\nonumber\\
+ &= \left(\adop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0}\ket{N_0-1}_0.
+\end{align}
 $$
 
 Likewise
 
 $$
-\aop_\bk\adop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \adop_0\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0+1}\ket{N_0+1}_0.
+\begin{align}
+\aop_\bk\adop_0\ket{\Psi'}\otimes\ket{N_0}_0 &= \left(\aop_\bk \ket{\Psi'}\right)\otimes \adop_0\ket{N_0}_0 \nonumber\\
+&= \left(\aop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0+1}\ket{N_0+1}_0.
+\end{align}
 $$
 
 Since $N_0$ is assumed to be large, we ignore the difference between $N_0$ and $N_0+1$. To be more precise, we are assuming that in the states we are going to find, $N_0$ will not fluctuate substantially. If this is the case, the _matrix elements_ of $H_\text{pair}$ are approximately unchanged when we make the replacement mentioned above, leaving us with the __Bogoliubov Hamiltonian__
@@ -368,10 +376,10 @@ where $n_0 = N_0/V$ is the density of particles in the zero momentum state, and 
 
 ### Bogoliubov transformation
 
-This is a change of variables that arises often in many body physics, so we'll take some time to introduce it in a general context. Suppose we have a Hermitian operator that is quadratic in two bosons $\aop_{1,2}$
+This is a change of variables that arises often in many body physics, so we'll take some time to introduce it in a general context. Suppose we have a Hermitian operator that is quadratic in two bosons $\aop_{1,2}$ with the following form
 
 $$
-h = A_1\adop_1\aop_1+A_2\adop_2\aop_2 + B\adop_1\adop_2+B^*\aop_1\aop_2.
+h = \epsilon\left[\adop_1\aop_1+\adop_2\aop_2\right] + \delta\left[\adop_1\adop_2+\aop_1\aop_2\right].
 $$
 
 It's convenient to write this as
@@ -381,21 +389,18 @@ h = \begin{pmatrix}
 \adop_1 & \aop_2
 \end{pmatrix}
 \begin{pmatrix}
-A_1 & B \\
-B^* & A_2
+\epsilon & \delta \\
+\delta & \epsilon
 \end{pmatrix}
 \begin{pmatrix}
 \aop_1 \\ \adop_2
-\end{pmatrix}
+\end{pmatrix}-\epsilon
 $$
 
-(We could consider more general forms e.g. a $4\times 4$ structure where the row vectors are $\begin{pmatrix}
-\adop_1 & \adop_2 & \aop_1 & \aop_2 \end{pmatrix}$ and $A_{1,2}$ and $B$ are $2\times 2$ matrices, but this is enough to be going on with)
-
-We would like to express $h$ in terms of some new bosons $\bop_{1,2}$ in the form
+It is possible to express $h$ in terms of some new bosons $\bop_{1,2}$ in the form
 
 $$
-h = \frac{\varepsilon_1}{2}\left(\bdop_1\bop_1+\bop_1\bdop_1\right) + \frac{\varepsilon_2}{2}\left(\bdop_2\bop_2+\bop_2\bdop_2\right) 
+h = \Omega\left[\bdop_1\bop_1+\bdop_2\bop_2\right] +\text{const.}
 $$
 
 (because then the spectrum is obvious). We look to express the new bosons linearly in terms of the old as follows
@@ -417,12 +422,39 @@ where $\Lambda$ is some $2\times 2$ matrix. What conditions should $\Lambda$ sat
 > \Lambda^\dagger \sigma_3 \Lambda = \sigma_3
 > $$
 
+The following parameterization satisfies this condition and is sufficiently general for our needs
+
 $$
-\bop_\bp=\aop_\bp\cosh\kappa_\bp+\adop_{-\bp}\sinh\kappa_\bp\nonumber\\
-\tanh2\kappa_\bp=\frac{n_0 U_0}{\tilde\epsilon(\bp)+n_0 U_0}.
+\Lambda=
+\begin{pmatrix}
+\cosh\kappa & \sinh\kappa \\
+\sinh\kappa & \cosh\kappa
+\end{pmatrix}.
 $$
 
-The parameter $\kappa_\bp$ of the transformation is chosen in order that there are no 'anomalous' $\bdop_\bp\bdop_{-\bp}$ or $\bop_\bp\bop_{-\bp}$ terms left in the Hamiltonian, which then takes the form of a sum of oscillators
+Notice the differences from a rotation matrix:
+
+1. Hyperbolic instead of trignometric functions
+2. No sign difference between the off digaonal elements.
+
+> Show that 
+>$$
+>\begin{align}
+> \tanh 2\kappa = \frac{\delta}{\epsilon},\qquad \Omega = \sqrt{\epsilon^2-\delta^2\nonumber}\\
+> h = \Omega\left[\bdop_1\bop_1+\bdop_2\bop_2\right] + \Omega - \epsilon.
+>\end{align}
+>$$
+>
+> The form of $\Omega$ is most easily understood by noting that the transformation preserves the determinant ($\det\Lambda=1$). What happens if $\delta>\epsilon$?
+
+Applying the same logic to our Hamiltonian $\eqref{bose_Hpair3}$ gives
+
+$$
+\bop_\bp=\aop_\bp\cosh\kappa_\bp+\adop_{-\bp}\sinh\kappa_\bp\nonumber\\
+\qquad \tanh2\kappa_\bp=\frac{n_0 U_0}{\tilde\epsilon(\bp)+n_0 U_0},
+$$
+
+(make sure you understand where the $1/2$ went!) and
 
 $$
 H=E_0+\sum_{\bp\neq 0}\omega(\bp)\bdop_\bp
@@ -441,7 +473,7 @@ $$
 E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\tilde\epsilon(\bp)-n_0U_0\right].
 $$
 
-Somewhat annoyingly, this integral is divergent in the ultraviolet. However, this is actually nothing to do with the many body physics of the problem, but is rather related to the need to regularize a $\delta$-function potential in three dimensions. The cure is described in the [Appendix]({{< ref "#regularizing-the-ground-state-energy" >}}), but it isn't too important in what follows.
+Somewhat annoyingly, this integral is divergent in the ultraviolet. However, this is actually nothing to do with the many body physics of the problem, but is rather related to the need to regularize a $\delta$-function potential in three dimensions (see [Problem Set 2]({{< ref "courses/tqm/problem-sets/problem-set-2#perturbation-theory-for-the-bose-gas" >}})). The cure is described in the [Appendix]({{< ref "#regularizing-the-ground-state-energy" >}}), but it isn't too important in what follows.
 
 ### The Ground State
 

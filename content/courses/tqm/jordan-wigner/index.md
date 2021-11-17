@@ -193,7 +193,7 @@ $$
 
 ### Solving the XY Model
 
-The XY model is a particular case of the anisotropic spin chain (see [Problem Set 1]({{< ref "problem-set-1" >}}) in which only the $x$ and $y$ components of the spins are coupled (hence the name)
+The XY model is a particular case of the anisotropic spin chain (see [Problem Set 1]({{< ref "problem-set-1#anisotropic-heisenberg-model" >}}) in which only the $x$ and $y$ components of the spins are coupled (hence the name)
 
 $$
 \begin{align}

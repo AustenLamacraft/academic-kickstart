@@ -227,13 +227,13 @@ $$`
 - Useful decomposition into magnitude and phase
 
 $$
-	\varphi(\br)=\sqrt{\rho(\br)}e^{i\theta(\br)}.
+	\varphi(\br)=\sqrt{\rho(\br)}e^{i\chi(\br)}.
 $$
 
 - Using $\mathbf{j}=\rho \mathbf{v}$ we get __superfluid velocity__
 
 $$
-	\mathbf{v}_{s}\equiv\frac{1}{m}\nabla\theta.
+	\mathbf{v}_{s}\equiv\frac{1}{m}\nabla\chi.
   \label{bose_vs}
 $$
 
@@ -241,7 +241,7 @@ $$
 
 ### Example: Vortex
 
-- Expect $\mathbf{v}_{s}=\frac{1}{m}\nabla\theta$ to be _irrotational_
+- Expect $\mathbf{v}_{s}=\frac{1}{m}\nabla\chi$ to be _irrotational_
 `$$
 \nabla\times \mathbf{v}_s = 0,
 $$`
@@ -305,13 +305,13 @@ $$`
 - Excess energy (relative to uniform state of density $n$)
 
 $$
-\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\theta)^2
+\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\\, f^2(\nabla\chi)^2
 $$
 
 ---
 
 $$
-\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\theta)^2
+\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\\, f^2(\nabla\chi)^2
 $$
 
 - First integral is finite: due to density $\neq$ bulk value
@@ -319,7 +319,7 @@ $$
 - Second is KE contribution from winding of vortex
 
 $$
-\nabla \theta = \frac{\ell}{r}\hat{\mathbf{e}}_\theta,
+\nabla \chi = \frac{\ell}{r}\hat{\mathbf{e}}_\theta,
 $$
 
 - This contribution to the energy is _logarithmically divergent_.

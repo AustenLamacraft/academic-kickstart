@@ -227,7 +227,7 @@ S^z &= \left(s - \adop \aop\right).
 \end{align}
 $$
 
-I'm going to leave it up to you to confirm that $[\aop,\adop]=1$ reproduces the spin commutation relations, and [Problem Set 1]({{< ref "problem-set-1" >}}) should demystify why this works to some extent. A rough understanding is as follows. $S^{\pm}$ and $\aop$, $\adop$ evidently have something in common in that they shift us up and down a ladder of states. That's why the relation between $S^z$ and the number of quanta in the oscillator is so simple. The oscillator ground state corresponds to $\ket{s,s}$.
+I'm going to leave it up to you to confirm that $[\aop,\adop]=1$ reproduces the spin commutation relations, and [Problem Set 1]({{< ref "problem-set-1#from-schwinger-bosons-to-holsteinprimakoff" >}}) should demystify why this works to some extent. A rough understanding is as follows. $S^{\pm}$ and $\aop$, $\adop$ evidently have something in common in that they shift us up and down a ladder of states. That's why the relation between $S^z$ and the number of quanta in the oscillator is so simple. The oscillator ground state corresponds to $\ket{s,s}$.
 
 The difference is that in the spin case the ladder is finite, while in the oscillator it is (semi-)infinte. Thus we can't just have $S^+\propto \aop$. We must have something that stops us lowering beyond $S^z=-s$. That's the function of the factor in the square root in $S^-$.
 
@@ -354,7 +354,7 @@ $$
 \label{spin_DepEval}
 $$
 
-This commutes with the harmonic Hamiltonian $\eqref{spin_H2FM}$, and is zero in the ground state (c.f. $\eqref{eq:H2gs}$). In fact, this is an exact statement not restricted to the harmonic approximation: the total number of Holstein--Primakoff bosons is conserved. The same is not true for the antiferromagnetic case $\eqref{spin_H2FM}$. If we had written this Hamiltonian in terms of the operators $\adop_j$, $\aop_j$, we would have found terms involving $\adop_j\adop_{j+1}$ and $\aop_j\aop_{j+1}$ that create pairs of bosons (see [Problem Set 1]({{< ref "problem-set-1" >}}).
+This commutes with the harmonic Hamiltonian $\eqref{spin_H2FM}$, and is zero in the ground state (c.f. $\eqref{eq:H2gs}$). In fact, this is an exact statement not restricted to the harmonic approximation: the total number of Holstein--Primakoff bosons is conserved. The same is not true for the antiferromagnetic case $\eqref{spin_H2FM}$. If we had written this Hamiltonian in terms of the operators $\adop_j$, $\aop_j$, we would have found terms involving $\adop_j\adop_{j+1}$ and $\aop_j\aop_{j+1}$ that create pairs of bosons (see [Problem Set 1]({{< ref "problem-set-1#spin-waves-from-bogoliubov-transformation" >}})).
 
 Next we use the oscillator coordinates just as in [Lecture 3]({{< ref "elastic-chain" >}}). Since we want to express $\eqref{spin_H2AFM}$ in terms of ladder operators, we have to adapt our definition accordingly. For $\eta\neq 0, \pi$ the operators
 
