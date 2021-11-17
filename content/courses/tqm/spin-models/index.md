@@ -187,7 +187,7 @@ If we are thinking of the down spin as a particle, then the eigenstates $\eqref{
 
 ### $N$-Magnon States
 
-Any system at finite temperature has a finite energy density, or a total energy proportional to the system size. Since a magnon has a microscopic energy set by $J$, such a system will presumably have _many_ magnons (many flipped spins). As we increase the number of flipped spins, we increase the size of the subspace in which $H$ acts -- it has dimension $\binom{N}{n}$ for $n$ flipped spins i.e. $S^z = N/2-n$. Things are obviously going to get difficult quickly! It turns out that for the Heisenberg model we are lucky, and we know the form of a general energy eigenstate. It's called __Bethe's ansatz__ and we'll meet it in [Lecture 15]({{< ref "lieb-liniger-model" >}}).
+Any system at finite temperature has a finite energy density, or a total energy proportional to the system size. Since a magnon has a microscopic energy set by $J$, such a system will presumably have _many_ magnons (many flipped spins). As we increase the number of flipped spins, we increase the size of the subspace in which $H$ acts -- it has dimension $\binom{N}{n}$ for $n$ flipped spins i.e. $S^z = N/2-n$. Things are obviously going to get difficult quickly! The case of two magnons is discussed in the [Appendix]({{< ref "#two-magnon-states" >}}). It turns out that for the Heisenberg model we are lucky, and we even know the form of a _general_ energy eigenstate with $n$ flipped spin. It's called __Bethe's ansatz__ and we'll meet it in [Lecture 15]({{< ref "lieb-liniger-model" >}}).
 
 We started our discussion with the ground state of the ferromagnetic $J<0$ Heisenberg model. What about $J>0$? Can we guess the ground state in this case (of course, that's equivalent to finding the _highest_ excited state of the ferromagnet). Bethe's ansatz tells us that it must be some complicated gas of magnons, all scattering off each other. Why are things so complicated?
 
@@ -202,7 +202,7 @@ $$
 
 assuming $N$ is even. Acting with the $H$ reveals that we are out of luck, however. The reason is simple: regarding the down spins as particles arranged on every other site, the spin flip terms of the Hamiltonian cause them to move about. This is Bethe's dense gas of interacting magnons.
 
-But antiferromagnets, with the kind of alternating order described by $\eqref{spin_AFM}$ do exist! In fact, their existence was predicted  by [Louis Néel](https://en.wikipedia.org/wiki/Louis_Néel) in 1936 _before_ their experimental discovery. $\eqref{spin_AFM}$ is sometimes called a __Néel state__ for this reason.
+But antiferromagnets, with the kind of alternating order described by $\eqref{spin_AFM}$ do exist! In fact, their existence was predicted  by [Louis Néel](https://en.wikipedia.org/wiki/Louis_Néel) in 1936 _before_ their experimental discovery. $\eqref{spin_AFM}$ is sometimes called a __Néel state__ for this reason. In the [Appendix]({{< ref "#the-anderson-tower" >}}) you'll find a discussion of what we mean when say that a system has an antiferromagnetic ground state, using a simple model.
 
 The Heisenberg antiferromagnetic spin chain does not have an antiferromagnetic ground state. The reason, as we'll see, is similar to that behind the absence of Bragg peaks in the elastic chain: quantum fluctuations are too strong. On the square and cubic lattices, the Heisenberg model _does_ display antiferromagnetism in the ground state. The above considerations show us, however, that these states are a bit more complicated than $\eqref{spin_AFM}$.
 
@@ -536,7 +536,7 @@ $$
 gives all the wavevectors in the Brillouin zone. It's easier to assume $N$ is even here, to accommodate antiferromagnetic order. In terms of $\tilde{\mathbf{s}}_\boldsymbol{\eta}$, the $d$-dimensional version of the Heisenberg Hamiltonian $\eqref{spin_Hberg}$ on the square / cubic / hypercubic lattice can be written
 
 $$
-H = JN^d\sum_{\boldsymbol{\eta}\in \text{BZ}}\gamma_{\boldsymbol{\eta}}\tilde{\mathbf{s}}_\boldsymbol{\eta}\cdot \tilde{\mathbf{s}}_\boldsymbol{-\eta},
+H = JN^d\sum_{\boldsymbol{\eta}\in \text{BZ}}\gamma_{\boldsymbol{\eta}}\tilde{\mathbf{s}}_\boldsymbol{\eta}\cdot \tilde{\mathbf{s}}_{\boldsymbol{-\eta}},
 \label{spin_HbergFT}
 $$
 
@@ -573,7 +573,7 @@ $$
 
 which is extensive. What about the excited states? There are two options for the first excited states:
 
-1. Stick with spins of size $\cN/4$ for the sublattices, but combine them to make a total spin $>0$.
+1. Stick with spins of size $\cN/4$ for the sublattices, but combine them to make a total spin $S>0$.
 
 2. Make smaller spins on the sublattices, and combine them.
 
@@ -583,9 +583,9 @@ $$
 E_S - E_0 = \frac{2J}{\cN} S(S+1),
 $$
 
-with degeneracy $2S+1$. In the second case, reducing $S_A\to \cN/4 - 1$ means that $\Delta\mathbf{S}_A^2 = -\frac{\cN}{8}$. From $\eqref{spin_HAB2}$ we see that this is going to cause the energy to increase by an amount of order $J$, while in the first case our excitations were of order $J/\cN$. The two kinds of excitations only have comparable energies when $S$ is $O(\sqrt{N})$.
+with degeneracy $2S+1$. In the second case, reducing $S_A\to \cN/4 - 1$ means that $\Delta\mathbf{S}_A^2 = -\frac{\cN}{8}$. From $\eqref{spin_HAB2}$ we see that this is going to cause the energy to increase by an amount of order $J$, while in the first case our excitations were of order $J/\cN$. The two kinds of excitations only have comparable energies when $S$ is $O(\sqrt{N})$. For smaller values of $S$ the "type 1" states have a lower energy
 
-Let's describe these low energy states in more detail. The two spins of magnitude $S_A = S_B = \frac{\cN}{4}$ can be combined to make a total spin between $\cN/2$ and $0$ (assuming $\cN$ even). We can thus decompose the Hilbert space of the two spins as
+Let's describe the type 1 energy states in more detail. The two spins of magnitude $S_A = S_B = \frac{\cN}{4}$ can be combined to make a total spin between $\cN/2$ and $0$ (assuming $\cN$ even). We can thus decompose the Hilbert space of the two spins as
 
 $$
 \mathcal{H}_A\otimes \mathcal{H}_B = \mathcal{H}^{(0)}\oplus\mathcal{H}^{(1)}\oplus\cdots \mathcal{H}^{(\cN/2)},

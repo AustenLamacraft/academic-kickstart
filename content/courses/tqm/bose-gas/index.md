@@ -441,28 +441,7 @@ $$
 E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\tilde\epsilon(\bp)-n_0U_0\right].
 $$
 
-Somewhat annoyingly, this integral is divergent in the ultraviolet. However, this is actually nothing to do with the many body physics of the problem, but is rather related to the need to regularize a $\delta$-function potential in three dimensions. We can cure the problem by writing
-
-$$
-E_0=\frac{1}{2}nU_0  N\left[1-\frac{1}{V}\sum_\bp \frac{U_0}{2\tilde\epsilon(\bp)}\right]+\sum_{\bp\neq 0}\frac{1}
-{2}\left[\omega(\bp)-\tilde\epsilon(\bp)-n_0U_0+ \frac{(n_0U_0)^2}{2\tilde\epsilon(\bp)}\right].
-$$
-
-In this form, the term we have added and subtracted is recognized as the next order in the Born
-approximation for the scattering length $a=a_0+a_1+\cdots$. The second term can now be evaluated
-to give
-
-$$
-E_0=\frac{1}{2}nN\frac{4\pi}{m}\left(a_0+a_1\right)+\frac{1}{2}n_0N\frac{4\pi}{m}a_0\frac
-{128}{15\sqrt{\pi}}\left(n a_0^3\right)^{1/2}.
-$$
-
-Where
-
-$$
-a_0=(m/4\pi)U_0,\qquad a_1=-(m/4\pi)\frac{U_0^2}{V}\sum_\bp \frac{1}{2\tilde\epsilon
-(\bp)}.
-$$
+Somewhat annoyingly, this integral is divergent in the ultraviolet. However, this is actually nothing to do with the many body physics of the problem, but is rather related to the need to regularize a $\delta$-function potential in three dimensions. The cure is described in the [Appendix]({{< ref "#regularizing-the-ground-state-energy" >}}), but it isn't too important in what follows.
 
 ### The Ground State
 
@@ -545,6 +524,80 @@ Under typical experimental conditions in experiments on ultracold atoms the depl
 
 In the previous lecture we met another situation where the depletion can be increased. Applying a lattice effectively reduces the kinetic energy relative to the interaction, and leads eventually to a __quantum phase transition__ out of the superfluid state.
 
+
+Appendix
+--------
+
+### Regularizing the ground state energy
+
+To find the ground state energy in the Bogoliubov theory we have to compute the sum
+
+$$
+\begin{equation}
+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\frac{\bp^2}{2m}-n_0U_0\right].
+\label{bog-sum}
+\end{equation}
+$$
+
+After turning it into an integral in the usual way, we have
+
+$$
+\frac{V}{4\pi^2 m}\left[\overbrace{\int_0^\Lambda p^2 \sqrt{p^2\left(p^2+\frac{2}{\xi^2}\right)}dp}^{\equiv I(\Lambda)} - \int_0^\Lambda \left(p^4 + \frac{p^2}{\xi^2}\right) dp \right]
+$$
+
+where we have introduced an upper cutoff $\Lambda$ to see what happens as it increases to infinity. The first integral comes from the $\omega(\bp)$ in the summand. $\xi\equiv \frac{1}{\sqrt{2m n U_0}}$ is the healing length as before. Introducing the substitution $u=p^2$ gives
+
+$$
+\begin{align}
+I(\Lambda) &= \frac{1}{2}\int^{\Lambda^2}_0 u\sqrt{u+\frac{2}{\xi^2}} du \nonumber \\
+&= \left[\frac{1}{5}\left(u+\frac{2}{\xi^2}\right)^{5/2}-\frac{2}{3\xi^2} \left(u+\frac{2}{\xi^2}\right)^{3/2}\right]^{\Lambda^2}_0\nonumber \\
+&= \frac{\Lambda^5}{5} + \frac{\Lambda^3}{3\xi^2} -\frac{\Lambda}{2\xi^4}+\cdots.
+\label{int-eval}
+\end{align}
+$$
+In the expansion we have retained only the terms with positive powers of $\Lambda$. By comparing with the definition of $I(\Lambda)$, we can see that these terms arise from the first three terms in the large $p$ expansion of the integrand
+
+$$
+\begin{equation}
+p^2 \sqrt{p^2\left(p^2+\frac{2}{\xi^2}\right)} = p^4 + \frac{p^2}{\xi^2} - \frac{1}{2\xi^2}.
+\label{exp-integrand}
+\end{equation}
+$$
+
+In the original sum $\eqref{bog-sum}$ the contributions of the first two terms in $\eqref{exp-integrand}$ are cancelled by subtracting $\frac{1}{2}\left[\frac{\bp^2}{2m}+n_0U_0\right]$. This still leaves us with a divergence $\propto \Lambda$ arising from last term of $\eqref{exp-integrand}$. On the other hand, the sum
+
+$$
+E_\text{reg}\equiv\sum_{\bp\neq 0}\frac{1}
+{2}\left[\omega(\bp)-\tilde\epsilon(\bp)-n_0U_0+ \frac{(n_0U_0)^2}{2\tilde\epsilon(\bp)}\right]
+$$
+
+_is_ finite as $\Lambda\to \infty$, because all positive powers of $\Lambda$ cancelled. The value is then given by the lower limit of the expression in $\eqref{int-eval}$.
+
+$$
+E_\text{reg} = \frac{V}{m\pi^2}\frac{16}{15}(mnU_0)^{5/2}
+$$
+
+OK, but so what? That isn't what we wanted. But notice that the regularized energy can be used to write the total energy as
+
+$$
+E_0=\frac{1}{2}nU_0  N\left[1-\frac{1}{V}\sum_\bp \frac{U_0}{2\tilde\epsilon(\bp)}\right]+E_\text{reg}.
+$$
+
+In this form, the term we have added and subtracted can be identified as the contribution to the ground state energy in second order perturbation theory. This is divergent at large momentum for a delta function interaction, but this divergence goes away when we consider a finite range potential (we won't show this, but it's not too hard). Assuming that this contribution is finite because the interaction potential has a small (relative to $\xi$) but finite range, we can then write
+
+$$
+E_0=\frac{1}{2}nN\frac{4\pi}{m}\left(a_0+a_1\right)+\frac{1}{2}n_0N\frac{4\pi}{m}a_0\frac
+{128}{15\sqrt{\pi}}\left(n a_0^3\right)^{1/2},
+$$
+
+where
+
+$$
+a_0=(m/4\pi)U_0,\qquad a_1=-(m/4\pi)\frac{U_0^2}{V}\sum_\bp \frac{1}{2\tilde\epsilon
+(\bp)}.
+$$
+
+are the first two terms in the Born approximation for the scattering length $a=a_0+a_1+\cdots$. This strongly suggests that these two terms can really be expressed only in erms of the true scattering length. Notice also that the second term has a weird $U_0^{5/2}$ dependence on the interaction strength, which is presumably connected to perturbation theory breaking down between the second and third orders.
 
 References
 ----------
