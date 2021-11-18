@@ -433,8 +433,9 @@ so that $\adop_0\adop_0\aop_0\aop_0 =  N(N-1) - 2N'N_0+O(N_0^0	)$
 
 `$$
 \begin{align}
-H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right].
-\label{bose_Hpair2}
+H_\text{pair} = &N\epsilon(0)+\frac{U_0}{2V}N(N-1) 
++\sum_{\bk\neq 0}\left[\epsilon(\bk)-\epsilon(0)\right]\adop_\bk\aop_\bk\\
+&+\frac{U_0}{2V}\sum_{\bk\neq 0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right].
 \end{align}
 $$`
 
@@ -442,7 +443,9 @@ $$`
 
 `$$
 \begin{align}
-H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right].
+H_\text{pair} = &N\epsilon(0)+\frac{U_0}{2V}N(N-1) 
++\sum_{\bk\neq 0}\left[\epsilon(\bk)-\epsilon(0)\right]\adop_\bk\aop_\bk\\
+&+\frac{U_0}{2V}\sum_{\bk\neq 0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right].
 \end{align}
 $$`
 
@@ -450,12 +453,6 @@ $$`
 > __Replace__  $\adop_0$, $\aop_0$ with $\sqrt{N}$, giving quadratic Hamiltonian (that we can solve)
 
 - Resulting Hamiltonian no longer conserves particle number
-
----
-
-<p align="center">
-<img src="assets/wut.png" alt="drawing" width="500" class="center"/>
-</p>
 
 ---
 
@@ -487,12 +484,122 @@ $n_0 = N_0/V$ is density of particles in zero momentum state
 
 - Hamiltonian diagonalized by __Bogoliubov transformation__
 
+---
+
+## Bogoliubov transformation
+
+- Suppose we have an operator
+
+$$
+h = \epsilon\left[\adop_1\aop_1+\adop_2\aop_2\right] + \delta\left[\adop_1\adop_2+\aop_1\aop_2\right].
+$$
+
+-  Want to express $h$ in terms of some new bosons $\bop_{1,2}$ as
+$$
+h = \Omega\left[\bdop_1\bop_1+\bdop_2\bop_2\right] +\text{const.}
+$$
+(because then the spectrum is obvious). 
+
+---
+
+$$
+h = \begin{pmatrix}
+\adop_1 & \aop_2
+\end{pmatrix}
+\begin{pmatrix}
+\epsilon & \delta \\\\
+\delta & \epsilon
+\end{pmatrix}
+\begin{pmatrix}
+\aop_1 \\ \adop_2
+\end{pmatrix}-\epsilon
+$$
+
+- Try to express new bosons linearly in terms of old
+$$
+\begin{pmatrix}
+\bop_1 \\\\ \bdop_2
+\end{pmatrix}=
+\Lambda
+\begin{pmatrix}
+\aop_1 \\\\ \adop_2
+\end{pmatrix}
+$$
+$\Lambda$ is some $2\times 2$ matrix. What conditions should it satisfy?
+
+> If $\bop_{1,2}$ satisfy usual commutation relations then
+> $$
+> \Lambda^\dagger \sigma_3 \Lambda = \sigma_3
+> $$
+
+---
+
+- Following parameterization is sufficient for our $h$
+
+$$
+\Lambda=
+\begin{pmatrix}
+\cosh\kappa & \sinh\kappa \\\\
+\sinh\kappa & \cosh\kappa
+\end{pmatrix}.
+$$
+
+- Notice differences from rotation matrix:
+
+  1. Hyperbolic instead of trignometric functions
+  2. No sign difference between the off digaonal elements.
+
+---
+
+$$
+h = \begin{pmatrix}
+\adop_1 & \aop_2
+\end{pmatrix}
+\begin{pmatrix}
+\epsilon & \delta \\\\
+\delta & \epsilon
+\end{pmatrix}
+\begin{pmatrix}
+\aop_1 \\ \adop_2
+\end{pmatrix}-\epsilon
+$$
+
+$$
+\begin{pmatrix}
+\bop_1 \\\\ \bdop_2
+\end{pmatrix}=
+\begin{pmatrix}
+\cosh\kappa & \sinh\kappa \\\\
+\sinh\kappa & \cosh\kappa
+\end{pmatrix}
+\begin{pmatrix}
+\aop_1 \\\\ \adop_2
+\end{pmatrix}
+$$
+
+>`$$
+>\begin{align}
+> \tanh 2\kappa = \frac{\delta}{\epsilon},\qquad \Omega = \sqrt{\epsilon^2-\delta^2\nonumber}\\
+> h = \Omega\left[\bdop_1\bop_1+\bdop_2\bop_2\right] + \Omega - \epsilon.
+>\end{align}
+>$$`
+> What happens if $\delta>\epsilon$?
+
+---
+
+- Apply to Bogoliubov Hamiltonian 
+
+`$$
+\begin{align}
+H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0n_0}{2}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk} + \aop_{\bk}\aop_{-\bk}+2\adop_\bk\aop_\bk\right].
+\end{align}
+$$`
+
 `$$
 \bop_\bp=\aop_\bp\cosh\kappa_\bp+\adop_{-\bp}\sinh\kappa_\bp\nonumber\\
 \tanh2\kappa_\bp=\frac{n_0 U_0}{\epsilon(\bp)+n_0 U_0}.
 $$`
 
-- $\kappa_\bp$ chosen so there are no 'anomalous' $\bdop_\bp\bdop_{-\bp}$ or $\bop_\bp\bop_{-\bp}$ terms left
 
 ---
 
@@ -531,28 +638,15 @@ $$
 
 `$$
 \begin{align}
-E_0&=\frac{1}{2}nU_0  N\left[1-\frac{1}{V}\sum_\bp \frac{U_0}{2\epsilon(\bp)}\right]\\
-&+\sum_{\bp\neq 0}\frac{1}
-{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0+ \frac{(n_0U_0)^2}{2\epsilon(\bp)}\right].
+E_0&=\overbrace{\frac{1}{2}nU_0  N\left[1-\frac{1}{V}\sum_\bp \frac{U_0}{2\epsilon(\bp)}\right]}^{\text{1st and 2nd order PT}}\\
+&+\overbrace{\sum_{\bp\neq 0}\frac{1}
+{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0+ \frac{(n_0U_0)^2}{2\epsilon(\bp)}\right]}^{\text{finite}}.
 \end{align}
 $$`
 
-- Term added and subtracted is next order in Born
-approximation for scattering length $a=a_0+a_1+\cdots$
+- Term added and subtracted is contribution to the ground state energy in second order perturbation theory
 
----
-
-$$
-E_0=\frac{1}{2}nN\frac{4\pi}{m}\left(a_0+a_1\right)+\frac{1}{2}n_0N\frac{4\pi}{m}a_0\frac
-{128}{15\sqrt{\pi}}\left(n a_0^3\right)^{1/2}.
-$$
-
-- Where
-
-$$
-a_0=(m/4\pi)U_0,\qquad a_1=-(m/4\pi)\frac{U_0^2}{V}\sum_\bp \frac{1}{2\epsilon
-(\bp)}.
-$$
+- See [Appendix]({{< ref "courses/tqm/bose-gas#regularizing-the-ground-state-energy" >}}) and [Problem Set 2]({{< ref "courses/tqm/problem-sets/problem-set-2#perturbation-theory-for-the-bose-gas" >}}) for further discussion
 
 ---
 
