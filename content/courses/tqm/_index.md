@@ -9,7 +9,6 @@ draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
 type: book  # Do not modify.
 weight: 10
-markup: pandoc
 ---
 
 

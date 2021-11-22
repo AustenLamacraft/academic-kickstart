@@ -9,6 +9,7 @@ title: TQM Lectures 2021
 draft: false  # Is this a draft? true/false
 # toc: true  # Show table of contents? true/false
 type: book  # Do not modify.
+
 ---
 
 These are the slides from Michaelmas 2021. If you want a nice printable version for saving as a PDF, you can use e.g. [austen.uk/lectures/many-body-wavefunctions/?print-pdf#/](https://austen.uk/lectures/many-body-wavefunctions/?print-pdf#/)
@@ -24,6 +25,10 @@ __Advance warning:__ there will be be no lecture on Thursday 25/11/21 due to a b
 {{% /callout %}}
 
 - [Please fill out the feedback survey](https://cambridge.eu.qualtrics.com/jfe/form/SV_1YzWD2aCK9VKfm6). Closes 28th November.
+
+### Synopsis
+
+{{< list_children >}}
 
 ## Course materials
 
