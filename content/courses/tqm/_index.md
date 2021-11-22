@@ -1,7 +1,7 @@
 ---
 # Course title, summary, and position.
 linktitle: Theories of Quantum Matter
-summary: Part III Physics Course on Many Body Physics
+summary: A Course of Lectures on Many Body Physics
 
 # Page metadata.
 title: Theories of Quantum Matter
