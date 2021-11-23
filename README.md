@@ -49,11 +49,11 @@ Released under the [MIT](https://github.com/sourcethemes/academic-kickstart/blob
 
 1. Is there a factor of 2 in Eq. (40) of Lattice models?
 
+1. Discussion of quasiparticle decay based on Fano model.
+
 1. Background charge density in Jellium lecture handled correctly?
 
 1. Improve discussion of fractional statistics
-
-1. Question on condensate fluctuations (essentially in my atoms notes)
 
 1. Sawada for plasmons
 

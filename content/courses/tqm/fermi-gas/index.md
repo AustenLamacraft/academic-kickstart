@@ -427,7 +427,7 @@ $$
 z_{\abs{\bk}=k_\text{F}} = 1 - \frac{(mUk_\text{F})^2}{8\pi^4}\left[\log 2 + \frac{1}{3}\right]
 $$
 
-> This is also the occupation number of the original fermions $\braket{0}{\adop_{\bk,s}\aop_{\bk,s}}{0}$ (not the quasiparticles!) just below the Fermi surface in the ground state. There is a corresponding result just above. Even with interactions, there is a finite step in the distribution function at the Fermi surface.
+> This is also the occupation number of the original fermions $\braket{0}{\adop_{\bk,s}\aop_{\bk,s}}{0}$ (not the quasiparticles!) just below the Fermi surface in the ground state (see [Problem Set 3]({{< ref "problem-sets/problem-set-3#nbk-in-the-ground-state" >}})). There is a corresponding result just above. Even with interactions, there is a finite step in the distribution function at the Fermi surface.
 
 {{< figure src="FermiJump.png" title="Discontinutity in the ground state occupation number." numbered="true" lightbox="true" >}}
 
