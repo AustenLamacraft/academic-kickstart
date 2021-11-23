@@ -397,8 +397,11 @@ having momentum $\bk$ and spin $s$. When the interactions are switched on, this 
 Let’s compare $\ket{\bk,s}$ with $\adop_{\bk,s}\ket{0}$, the state obtained by creating a particle in the _exact_ ground state of the problem. In first order perturbation theory, $\ket{0}$ includes the first kind of state above (2 particle-hole pair states). The states only differ because of the contribution of the second kind. To first order, the single quasiparticle state is therefore
 
 $$
-\ket{\bk,s} = \sqrt{\frac{z_k}{\braket{0}{\aop_{\bk,s}\adop_{\bk,s}}{0}}}\adop_{\bk,s}\ket{0} + \frac{U_0}{V}\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk\\ s,s'}}\frac{\adop_{\bk_1,s}\adop_{\bk_2,s'}\aop_{\bk_3,s'}\ket{\text{FS}}}{\epsilon(\bk_1)+\epsilon(\bk_2)-\epsilon(\bk_3)-\epsilon(\bk)},
+\begin{align}
+\ket{\bk,s} &= \sqrt{\frac{z_k}{\braket{0}{\aop_{\bk,s}\adop_{\bk,s}}{0}}}\adop_{\bk,s}\ket{0} \nonumber\\
+&\qquad + \frac{U_0}{V}\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk\\ s,s'}}\frac{\adop_{\bk_1,s}\adop_{\bk_2,s'}\aop_{\bk_3,s'}\ket{\text{FS}}}{\epsilon(\bk_1)+\epsilon(\bk_2)-\epsilon(\bk_3)-\epsilon(\bk)},
 \label{fermi_phpeturb}
+\end{align}
 $$
 
 where $\sqrt{z_k}$ is a normalization factor. As we go to successively higher orders of perturbation theory, the quasiparticle state is 'dressed' with more particle-hole pairs. The quasiparticle retains the conserved quantum numbers (momentum and spin in this case) of the fermions of the noninteracting theory.
@@ -406,7 +409,7 @@ where $\sqrt{z_k}$ is a normalization factor. As we go to successively higher or
 Normalizing $\eqref{fermi_phpeturb}$ gives
 
 $$
-z_\bk = 1 - \left(\frac{U_0}{V}\right)^2\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk\\\abs{\bk_3}<k_\text{F},\abs{\bk_2}>k_\text{F}, \abs{\bk_1}>k_\text{F}\\ s,s'}}\frac{1}{\left[\epsilon(\bk_1)+\epsilon(\bk_2)-\epsilon(\bk_3)-\epsilon(\bk)\right]^2}+\cdots.
+z_\bk = 1 - \left(\frac{U_0}{V}\right)^2\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk\\\abs{\bk_3}<k_\text{F},\abs{\bk_2},\abs{\bk_1}>k_\text{F}\\ s,s'}}\frac{1}{\left[\epsilon(\bk_1)+\epsilon(\bk_2)-\epsilon(\bk_3)-\epsilon(\bk)\right]^2}+\cdots.
 \label{fermi_z}
 $$
 

@@ -10,3 +10,6 @@ math: true
 weight: 90
 ---
 
+{{% callout note %}}
+In the lecture there was a typo on [Slide 25]({{< ref "lectures/fermi-gas#225" >}}) that has now been corrected. 
+{{% /callout %}}
