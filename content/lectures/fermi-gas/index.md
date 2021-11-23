@@ -148,7 +148,7 @@ $$
 - `$n_\bk$` is _mean_ deviation from Fermi sphere in continuum limit: 
 
 <p align="center">
-<img src="assets/FermiN.png" alt="drawing" width="500" class="center"/>
+<img src="assets/FermiN.png" alt="drawing" width="450" class="center"/>
 </p>
 
 ---
@@ -188,8 +188,8 @@ $$`
 - At low $T$ take $\abs{\bk}=\abs{\bk'}=k_\text{F}$
 `$$
 \begin{align}
-f_{\uparrow\uparrow}(\bk,\bk') = -\frac{U_0^2}{V}&\left[\sum_{\bk+\bk_3=\bk'+\bk_2} \frac{N(\bk_3)(1-N(\bk_2))}{\epsilon(\bk_3)-\epsilon(\bk_2)}\\
-\qquad+\sum_{\bk'+\bk_3=\bk+\bk_2}\frac{N(\bk_3)(1-N(\bk_2))}{\epsilon(\bk_3)-\epsilon(\bk_2)}\right].
+f_{\uparrow\uparrow}(\bk,\bk') = -\frac{U_0^2}{V}&\left[\sum_{\bk+\bk_3=\bk'+\bk_2} \frac{N(\bk_3)(1-N(\bk_2))}{\epsilon(\bk_3)-\epsilon(\bk_2)}
++\sum_{\bk'+\bk_3=\bk+\bk_2}\frac{N(\bk_3)(1-N(\bk_2))}{\epsilon(\bk_3)-\epsilon(\bk_2)}\right].
 \end{align}
 $$`
 (assume ground state unpolarized, i.e. $N_{s}(\bk)$ independent of $s$)
@@ -237,7 +237,7 @@ $$
 - Notation $\mathbf{K} = \frac{1}{2}\left(\bk_2+\bk_3\right),\quad \bq = \frac{1}{2}\left(\bk_2-\bk_3\right)$
 
 <p align="center">
-<img src="assets/FermiGeometry.png" alt="drawing" width="500" class="center"/>
+<img src="assets/FermiGeometry.png" alt="drawing" width="450" class="center"/>
 </p>
 
 ---
@@ -257,9 +257,9 @@ $$
 $$
 which gives range of $K_-(\theta)<\abs{\mathbf{K}}<K_+(\theta)$
 $$
-K_{\pm}(\theta)=\pm q\abs{\cos\theta}+\sqrt{k_\text{F}^2-q^2\sin^2\theta},
+K_{\pm}(\theta)=\pm q\abs{\cos\theta}+\sqrt{k_\text{F}^2-q^2\sin^2\theta},\qquad  \theta<\pi/2
 $$
-$\theta<\pi/2$
+
 
 ---
 
@@ -319,40 +319,6 @@ $$`
 
 ---
 
-# Review
-
-`$$
-\begin{align}
-E^{(1)}(\mathbf{N}) &= \braket{\mathbf{N}}{H_\text{int}}{\mathbf{N}}\\
-E^{(2)}(\mathbf{N}) &= \sum_{\mathbf{N}'\neq \mathbf N}\frac{\abs{\braket{\mathbf{N'}}{H_\text{int}}{\mathbf{N}}}^2}{E^{(0)}(\mathbf{N})-E^{(0)}(\mathbf{N}')}.
-\end{align}
-$$`
-
-- Expand $N_{s}(\bk) = \theta(k_F-\abs{\bk}) + n_{s}(\bk)+\cdots.$
-
-$$
-\Delta E = \sum_{\bk,s} \varepsilon_s(\bk)n_{s}(\bk) + \frac{1}{2V}\sum_{\bk, s,\bk', s'} f_{s^{}s'}(\bk,\bk')n_{s}(\bk)n_{s'}(\bk').
-$$
-
-- $E^{(2)}(\mathbf{N})$ has three momentum sums
-
-- $f_{s s'}(\bk,\bk')$ only one (the other two are $\sum_{\bk,\bk'})$)
-
----
-
-- Generalize to arbitrary spin directions $n_s(\bk)\longrightarrow n_{s_1 s_2}(\bk)$ and
-
-`$$
-\frac{1}{2V}\sum_{\bk, s_1,s_2,\bk', s_3,s_4} f_{s_1s_2,s_3s_4}(\bk,\bk')n_{s_1s_2}(\bk)n_{s_3s_4}(\bk'),
-$$`
-
-$$
-\nu(E_F)f_{s_1s_2,s_3s_4}(\bk,\bk') = F(\phi) \delta_{s_1s_3}\delta_{s_2s_4} + G(\phi)\boldsymbol{\sigma}_{s_1s_3}\cdot\boldsymbol{\sigma}_{s_2s_4}.
-$$
-
-
----
-
 ### Quasiparticle energy $\varepsilon_s(\bk)$
 
 $$
@@ -389,7 +355,7 @@ N_s(\bk-\delta\bk) &=\theta(k_F-\abs{\bk-\delta\bk}) + n_{s}(\bk-\delta\bk)+\cdo
 $$`
 
 <p align="center">
-<img src="assets/FermiShift.png" alt="drawing" width="500" class="center"/>
+<img src="assets/FermiShift.png" alt="drawing" width="400" class="center"/>
 </p>
 
 ---
@@ -438,7 +404,7 @@ $$
 \frac{\bk}{m} = \frac{\bk}{m_*} +\frac{1}{m} \int F(\phi) \bk' \frac{d\Omega_{\bk'}}{4\pi}.
 $$
 
-- If $\bk'=\cos\phi \bk + \sin\phi \bk_\perp$, with $\bk_\perp\cdot\bk=0$, this gives Landau's famous result
+- If $\bk'=\cos\phi \bk + \sin\phi \bk_\perp$, with $\bk_\perp\cdot\bk=0$, we get
 
 $$
 \frac{1}{m} = \frac{1}{m_*} +\frac{1}{m} \int F(\phi) \cos\phi \frac{\sin\phi d\phi}{2}.
@@ -476,7 +442,7 @@ $$
 
 
 <p align="center">
-<img src="assets/2ph.png" alt="drawing" width="500" class="center"/>
+<img src="assets/2ph.png" alt="drawing" width="450" class="center"/>
 </p>
 
 ---
@@ -492,7 +458,7 @@ two kinds of states can contribute
     2. Create a single particle-hole pair and move particle at $\bk$
 
 <p align="center">
-<img src="assets/phscatter.png" alt="drawing" width="400" class="center"/>
+<img src="assets/phscatter.png" alt="drawing" width="250" class="center"/>
 </p>
 
 
@@ -540,7 +506,7 @@ $$
 
 ---
 
-> This is also the occupation number of the original fermions $\braket{0}{\adop_{\bk,s}\aop_{\bk,s}}{0}$ (not the quasiparticles!) just below the Fermi surface in the ground state. There is a corresponding result just above. Even with interactions, there is a finite step in the distribution function at the Fermi surface.
+> This is also the occupation number of the original fermions $\braket{0}{\adop_{\bk,s}\aop_{\bk,s}}{0}$ (not the quasiparticles!) just below the Fermi surface in the ground state (see [Problem Set 3]({{< ref "courses/tqm/problem-sets/problem-set-3#nbk-in-the-ground-state" >}}). There is a corresponding result just above. Even with interactions, there is a finite step in the distribution function at the Fermi surface.
 
 <p align="center">
 <img src="assets/FermiJump.png" alt="drawing" width="500" class="center"/>
