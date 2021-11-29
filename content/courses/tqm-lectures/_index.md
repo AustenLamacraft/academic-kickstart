@@ -9,7 +9,6 @@ title: TQM Lectures 2021
 draft: false  # Is this a draft? true/false
 # toc: true  # Show table of contents? true/false
 type: book  # Do not modify.
-
 ---
 
 These are the slides from Michaelmas 2021. If you want a nice printable version for saving as a PDF, you can use e.g. [austen.uk/lectures/many-body-wavefunctions/?print-pdf#/](https://austen.uk/lectures/many-body-wavefunctions/?print-pdf#/)
@@ -49,3 +48,21 @@ __Advance warning:__ there will be be no lecture on Thursday 25/11/21 due to a b
 - [Advanced Quantum Mechanics - A Practical Guide](https://www.cambridge.org/core/books/advanced-quantum-mechanics/863118E8C23B5CFE4945A9C32F4B5405), Nazarov and Danon
 - [Introduction to Many-Body Physics](https://www.cambridge.org/core/books/introduction-to-manybody-physics/B7598FC1FCEE0285F5EC767E835854C8), Coleman
 - [Interacting Electrons and Quantum Magnetism](https://www.springer.com/gp/book/9780387942865), Assa Auerbach
+
+## Comments
+
+To leave comments you'll need a [GitHub](https://github.com/) account. $\LaTeX$ should work between `$$...$$` or `$...$` for inline. If you need to edit a comment you'll have to head over to the [GitHub discussions page](https://github.com/AustenLamacraft/dooftown/discussions) (no $\LaTeX$ rendering).
+
+<script src="https://giscus-one.vercel.app/client.js"
+        data-repo="AustenLamacraft/dooftown"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMDcyOTM3MTQ="
+        data-category="Announcements"
+        data-category-id="DIC_kwDODFsNEs4B_-r4"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
