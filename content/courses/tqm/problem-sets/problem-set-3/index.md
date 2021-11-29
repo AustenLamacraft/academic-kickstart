@@ -4,7 +4,7 @@ summary: Fermi gas; Superconductivity; Response and Correlation; Jellium.
 author: Austen Lamacraft
 draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
-type: docs  # Do not modify.
+type: book  # Do not modify.
 markup: pandoc
 menu:
   tqm:
