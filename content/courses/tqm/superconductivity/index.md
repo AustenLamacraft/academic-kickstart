@@ -152,7 +152,7 @@ $$
 $$
 
 corresponding to $\eqref{pair_fermi}$ but with a set of coefficients $c_{\{n^P_\bp\}}$ that factorizes.
-Finding the variational energy of Equation (\ref{bcs_cons}) is still a tricky problem. For instance, what is the
+Finding the variational energy of $\eqref{bcs_cons}$ is still a tricky problem. For instance, what is the
 expectation value of the kinetic energy?
 
 $$
@@ -171,8 +171,7 @@ $$
 \label{bcs}
 $$
 
-This is a superposition of states with different total number of particles. One can see quite easily,
-however, that the projection onto a fixed number $N$ of particles corresponds exactly to $\eqref{bcs_cons}$ if $c_\bp=v_\bp/u_\bp$. Since $\eqref{bcs}$) is a product of factors corresponding to each
+This is a superposition of states with different total number of particles. Apart from the overall normalization, the projection of $\eqref{bcs}$ onto a fixed number $N$ of particles corresponds exactly to $\eqref{bcs_cons}$ if $c_\bp=v_\bp/u_\bp$. Since $\eqref{bcs}$ is a product of factors corresponding to each
 momentum separately,  $\langle n^P_\bp\rangle$ is easily found to be $v_\bp^2$. The total variational
 energy of this state is
 
@@ -226,7 +225,7 @@ H_{\text{pair}}-\mu N=2\sum_\bp \xi({\bp})S_\bp^z+\frac{U_0}{V}\sum_{\bp,\bp'}S^
 $$
 
 where we have included the chemical potential by defining $\xi_\bp\equiv\epsilon(\bp)-\mu$. If we parameterize $\left(u_\bp,v_\bp\right)$ as $(\cos(\theta/2)e^{-i\varphi/2},\sin(\theta/2)e^{i\varphi/2})$
-then the variational energy Equation (\ref{bcs_en}) has the form (except for a constant)
+then the variational energy $\eqref{bcs_en}$ has the form (except for a constant)
 
 $$
 \braket{\text{BCS}}{H}{\text{BCS}}=-\sum_\bp \xi_\bp\cos\theta_\bp+\frac{U_0}{4V}\sum_{\bp,\bp'}\sin
@@ -249,7 +248,7 @@ $$
 
 so we see that this corresponds simply to a sharp fermi step. For $U_0<0$, the system can lower its
 energy by taking $\sin\theta_\bp\neq 0$. The lowering of the interaction energy more than compensates
-the increase in kinetic energy that comes from smearing the step, see Equation (\ref{ke}). Clearly all of the
+the increase in kinetic energy that comes from smearing the step, see $\eqref{ke}$. Clearly all of the
 angles $\varphi_\bp$, describing the angle in the x-y plane, should be equal. Taking  the extremum of
 $\eqref{spin_en}$ with respect to the angles $\theta_{\bp}$ gives the condition
 
