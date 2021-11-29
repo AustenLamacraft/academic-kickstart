@@ -126,7 +126,7 @@ H_{\text{pair}}=2\sum_{\bp}\epsilon_{\bp}\bdop_\bp\bop_\bp+\frac{U_0}{V}\sum_{\b
 \bop_{\bp'},
 \label{pair_h}
 $$
-where $2\bdop_\bp\bop_\bp = \adop_{\bp,\uparrow}\aop_{\bp,\uparrow}+\adop_{-\bp,\uparrow}\aop_{-\bp,\uparrow}$ on paired states.
+where $2\bdop_\bp\bop_\bp = \adop_{\bp,\uparrow}\aop_{\bp,\uparrow}+\adop_{-\bp,\downarrow}\aop_{-\bp,\downarrow}$ on paired states.
 
 
 Now, can we solve $\eqref{pair_h}$? This may now look like a quadratic problem, but the pair operators $\bop_\bp$, while commuting at different momenta

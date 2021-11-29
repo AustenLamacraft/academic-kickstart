@@ -140,7 +140,7 @@ $$
 H_{\text{pair}}=2\sum_{\bp}\epsilon_{\bp}\bdop_\bp\bop_\bp+\frac{U_0}{V}\sum'_{\bp,\bp'} \bdop_\bp
 \bop_{\bp'}
 $$`
-since $2\bdop_\bp\bop_\bp = \adop_{\bp,\uparrow}\aop_{\bp,\uparrow}+\adop_{-\bp,\uparrow}\aop_{-\bp,\uparrow}$ on these states
+since $2\bdop_\bp\bop_\bp = \adop_{\bp,\uparrow}\aop_{\bp,\uparrow}+\adop_{-\bp,\downarrow}\aop_{-\bp,\downarrow}$ on these states
 
 - _Looks_ quadratic. Can we solve it?
 
