@@ -66,7 +66,7 @@ $$
 - For a pair of particles of opposite spin, this is equivalent to
 
 $$
-H = -\frac{1}{2m}\left[\nabla_1^2+\nabla^2\right] + U_0\delta(\br_1-\br_2).
+H = -\frac{1}{2m}\left[\nabla_1^2+\nabla_2^2\right] + U_0\delta(\br_1-\br_2).
 $$
 
 - For $U_0<0$ and sufficiently large, expect a bound state to form with a symmetric spatial wavefunction and a spin singlet
