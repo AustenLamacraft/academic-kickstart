@@ -35,6 +35,12 @@ __Advance warning:__ there will be be no lecture on Thursday 25/11/21 due to a b
 
 - [Problem sets]({{< ref "courses/tqm/problem-sets" >}})
 
+## Some books that you may find useful
+
+- [Advanced Quantum Mechanics - A Practical Guide](https://www.cambridge.org/core/books/advanced-quantum-mechanics/863118E8C23B5CFE4945A9C32F4B5405), Nazarov and Danon
+- [Introduction to Many-Body Physics](https://www.cambridge.org/core/books/introduction-to-manybody-physics/B7598FC1FCEE0285F5EC767E835854C8), Coleman
+- [Interacting Electrons and Quantum Magnetism](https://www.springer.com/gp/book/9780387942865), Assa Auerbach
+
 ## Past exam papers (with solutions)
 
 - {{% staticref "uploads/2017-tqm-solutions.pdf" "newtab" %}}2017{{% /staticref %}}
@@ -42,12 +48,6 @@ __Advance warning:__ there will be be no lecture on Thursday 25/11/21 due to a b
 - {{% staticref "uploads/2019-tqm-solutions.pdf" "newtab" %}}2019{{% /staticref %}}
 - {{% staticref "uploads/2020-tqm-solutions.pdf" "newtab" %}}2020{{% /staticref %}}
 - {{% staticref "uploads/2021-tqm-solutions.pdf" "newtab" %}}2021{{% /staticref %}}
-
-## Some books that you may find useful
-
-- [Advanced Quantum Mechanics - A Practical Guide](https://www.cambridge.org/core/books/advanced-quantum-mechanics/863118E8C23B5CFE4945A9C32F4B5405), Nazarov and Danon
-- [Introduction to Many-Body Physics](https://www.cambridge.org/core/books/introduction-to-manybody-physics/B7598FC1FCEE0285F5EC767E835854C8), Coleman
-- [Interacting Electrons and Quantum Magnetism](https://www.springer.com/gp/book/9780387942865), Assa Auerbach
 
 ## Discuss
 
