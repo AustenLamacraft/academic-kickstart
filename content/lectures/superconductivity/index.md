@@ -66,7 +66,7 @@ $$
 - For a pair of particles of opposite spin, this is equivalent to
 
 $$
-H = -\frac{1}{2m}\left[\nabla_1^2+\nabla^2\right] + U_0\delta(\br_1-\br_2).
+H = -\frac{1}{2m}\left[\nabla_1^2+\nabla_2^2\right] + U_0\delta(\br_1-\br_2).
 $$
 
 - For $U_0<0$ and sufficiently large, expect a bound state to form with a symmetric spatial wavefunction and a spin singlet
@@ -146,7 +146,7 @@ since $2\bdop_\bp\bop_\bp = \adop_{\bp,\uparrow}\aop_{\bp,\uparrow}+\adop_{-\bp,
 
 ---
 
-- Nope! $\bdop_\bp$ $\bop_\bp$ don't obey canonical Bose commutation relations
+- Nope! $\bdop_\bp$, $\bop_\bp$ don't obey canonical Bose commutation relations
 
 - Pair operators `$\bop_\bp$` commute at different momenta
 `$$
@@ -313,7 +313,11 @@ so this corresponds to sharp Fermi step.
 
 ---
 
-- Taking  the extremum of energy with respect to angles `$\theta_{\bp}$` gives condition
+`$$
+\braket{\text{BCS}}{H}{\text{BCS}}=-\sum_\bp \xi_\bp\cos\theta_\bp+\frac{U_0}{4V}\sum_{\bp,\bp'}\sin
+\theta_\bp\sin\theta_{\bp'}
+$$`
+- Taking  the extremum of energy with respect to angles `$\theta_{\bp}$` gives
 `$$
 \xi_{\bp}\sin\theta_\bp-|\Delta|\cos\theta_\bp=0,
 $$`
