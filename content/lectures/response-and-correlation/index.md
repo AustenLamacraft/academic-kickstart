@@ -609,7 +609,7 @@ $$
 
 - Second order perturbation theory for ground state
 $$
-E^{(2)} =\frac{V_0^2}{4} \sum_{n\neq 0} \frac{|\braket{0}{\rho_\bq}{n}|^2}{E_0-E_n} =\frac{V_0^2}{4}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi}
+E^{(2)} =\frac{V_0^2}{4} \sum_{n\neq 0} \frac{|\braket{0}{\rho_\bq}{n}|^2}{E_0-E_n} =-\frac{V_0^2}{4}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi}
 $$
 (first order vanishes)
 
@@ -627,7 +627,7 @@ $$
 \lim_{\bq\to 0}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi} = \frac{N\rho\beta}{2}.
 $$
 
-- Compressibility sum rule often written in terms of speed of sound $c = (\kappa m \rho)^{-1/2}$
+- Compressibility sum rule often written in terms of speed of sound $c = (\beta m \rho)^{-1/2}$
 
 $$
 \lim_{\bq\to 0}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi} = \frac{N}{2mc^2}.
