@@ -58,259 +58,6 @@ $$
 \DeclareMathOperator*{\tr}{tr}
 $$
 
-
-
----
-
-## Response of a Damped Oscillator
-
-- Start with the simple stuff...
-
-$$
-m\ddot y +m\omega_0^2 y + \gamma \dot y =f(t).
-\label{res_sho}
-$$
-
-- Find $y(t)$ given $f(t)$. Linear system, so by superposition have
-
-$$
-y(t) = \int \chi(t,s) f(s)\,ds.
-$$
-
-- $\chi(t,s)$ is first example of a __response function__, __Green's function__, or __susceptibility__
-
----
-
-## General properties
-
-1. Response is __causal__, meaning that, since effect follows cause:
-
-$$
-\chi(t,s)=0,\quad \text{for }t<s.
-$$
-
-2. No explicit time dependence in equation of motion, so in face $\chi(t,s)=\chi(t-s)$
-
-3. $\chi(t)$ is solution with a $\delta$-function force at $t=0$.
-
-$$
-m\ddot \chi +m\omega_0^2 \chi + \gamma \dot \chi =\delta(t).
-\label{res_chiode}
-$$
-
----
-
-## Finding $\chi(t-s)$: Method 1
-
-
-- Free motion of the oscillator can be written $e^{-i\omega t}$, where $\omega$ satisfies
-$$
-m\omega^2+i\gamma\omega - m\omega_0^2 =0,
-$$
-$$
-\omega_{\pm} = \pm \sqrt{\omega_0^2-\frac{\gamma^2}{4m^2}}-i\frac{\gamma}{2m} \equiv \pm\omega_1-i\frac{\gamma}{2m}.
-$$
-
-- Since $\chi(t)=0$ for $t<0$, so to get $\delta$-function in
-$$
-m\ddot \chi +m\omega_0^2 \chi + \gamma \dot \chi =\delta(t).
-$$
-choose a superposition of $e^{-i\omega_\pm t}$ such that $\chi'(0+)=m^{-1}$
-
-$$
-\chi(t) = \begin{cases}
-0 & t\leq 0 \\
-\frac{1}{m\omega_1}\sin(\omega_1 t )e^{-\gamma/2mt} & t>0.
-\end{cases}
-$$
-
----
-
-## Finding $\chi(t-s)$: Method 2
-
-
-- Solve equation in frequency space
-$$
-\left[-m\omega^2+m\omega_0^2-i\gamma\omega\right]\tilde\chi(\omega) = 1,
-$$
-$$
-\tilde\chi(\omega) = \frac{1}{m(\omega_0^2-\omega^2)-i\gamma\omega}.
-\label{res_chi_SHO}
-$$
-(c.f. amplitude response of oscillator)
-
-- Fourier transforming to time domain
-
-$$
-\chi(t) = \int_{-\infty}^\infty \tilde\chi(\omega)e^{-i\omega t}\\,\frac{d\omega}{2\pi} = -\frac{1}{m} \int_{-\infty}^\infty \frac{e^{-i\omega t}}{(\omega-\omega_+)(\omega-\omega_-)}\\,\frac{d\omega}{2\pi}.
-\label{res_chiFT}
-$$
-
----
-
-$$
-\chi(t) = -\frac{1}{m} \int_{-\infty}^\infty \frac{e^{-i\omega t}}{(\omega-\omega_+)(\omega-\omega_-)}\\,\frac{d\omega}{2\pi}.
-$$
-
-- Since $\gamma>0$, integrand has two poles in lower half plane at $\omega_\pm$
-
-- Frequency response is _analytic in the upper half plane_
-
-- This is _equivalent to causality_ in real time response
-
-    1. $t<0$: close contour in upper half plane, avoiding poles and getting zero by Cauchy's theorem
-    2. $t>0$ close in lower half plane (not forgetting - from going other way) and use residue theorem 
-
-$$
-\chi(t) = \frac{i}{m}\left(\frac{e^{-i\omega_+ t}}{\omega_+-\omega_-} + \frac{e^{-i\omega_- t}}{\omega_--\omega_+}\right) = \frac{1}{m\omega_1}\sin(\omega_1 t )e^{-\gamma/2mt} \quad  t>0,
-$$
-
----
-
-### Properties of the Susceptibility
-
-[drop tilde from $\tilde\chi(\omega)$]
-
-- Analytic functions are _special_. Split $\chi(\omega)$ into its real and imaginary parts
-
-$$
-\chi(\omega) = \chi'(\omega) + i\chi''(\omega).
-$$
-
-- Analyticity in the UHP implies the __Kramers--Kronig relation__
-$$
-\chi'(\omega) = \cP \int_{-\infty}^\infty \frac{d\omega'}{\pi}\frac{\chi''(\omega')}{\omega'-\omega},
-\label{res_KK}
-$$
-where $\cP$ denotes the principal part. 
-
-> Check this for the oscillator response.
-
----
-
-- $\chi(t)$ is real $\to$ $\chi(-\omega)^*=\chi(\omega)$ $\to$ $\chi'(\omega)$ is even; $\chi''(\omega)$ is odd.
-
-- Real and imaginary parts encode different aspects of response
-
-- Imaginary part is related to the power dissipated by a driving force. For $f=f_0\cos\omega t$ we have
-
-$$
-\begin{align}
-W_\text{diss} = \langle f(t) \dot y(t)\rangle = \frac{1}{2}\omega\chi''(\omega)f_0^2.
-\label{res_ClassDiss}
-\end{align}
-$$
-
-- For stability we must have $\omega\chi''(\omega)>0$ (and even).
-
----
-
-- Real part is related to shift in _energy_ of system in presence of driving force
-
-- The applied force appears in the Hamiltonian as $-f(t)y(t)$
-
-$$
-E_\text{shift} = -\langle f(t) y(t)\rangle  = -\frac{1}{2}\chi'(\omega)f_0^2
-$$
-
-- For damped oscillator, sign of $\chi'(\omega)$ changes at resonance
-
-- Drive lowers energy beneath resonance, and raises it above.
-
----
-
-### Mechanical Model of Dissipation
-
-- How to include dissipation in Hamiltonian ($\to$ quantum)
-
-- Attaching an undamped oscillator to a string under tension $\tau$ gives
-
-`$$
-\begin{align}
-&m\ddot y +m\omega_0^2 y =\tau\frac{\partial u(x,t)}{\partial x}\Bigg|_{x=0}\nonumber\\
-&\frac{\partial^2 u}{\partial x^2}-\frac{1}{c^2}\frac{\partial^2 u}{\partial t^2}=0,\quad x>0\qquad u(0,t) = y(t).
-\label{res_SHOString}
-\end{align}
-$$`
-
-- If waves only propagate away from string $u(x,t) = y(t-x/c)$, so $\frac{\partial u(x,t)}{\partial x}\big\|_{x=0} = -\dot y/c$, and
-$$
-\ddot y +\omega_0^2 y + \gamma \dot y =0.
-\label{res_sho2}
-$$
-with $\gamma=\tau/c$. Note that this is the impedance of the string.
-
----
-
-### Finite Temperature Fluctuations
-
-- $T\neq 0$ string has thermal motion $\to$ waves approaching osciilator
-
-$$
-u(x,t) = u_\text{in}(t+x/c) + u_\text{out}(t-x/c).
-$$
-
-- Force on oscillator is proportional to
-
-`$$
-\frac{\partial u(x,t)}{\partial x}\Bigg|_{x=0} = c^{-1}\left(u'_\text{in}(t)-u'_\text{out}(t)\right) = c^{-1}\left(2u'_\text{in}(t)-\dot y(t)\right).
-$$`
-
-- Equation of motion then
-$$
-m\ddot y +m\omega_0^2 y + \gamma \dot y =f_\text{noise}(t),
-\label{res_sho2_noise}
-$$
-$f_\text{noise}(t) = \frac{2\tau}{c}u'_\text{in}(t)$ is random force due thermal fluctuations
-
-> Noise and the damping have a common origin!
-
----
-
-- On account of infinite bandwidth of the string, `$f_\text{noise}$` is white noise
-`$$
-\E\left[f_\text{noise}(t)f_\text{noise}(t')\right] = 2\gamma k_\text{B}T\delta(t-t').
-\label{res_noise_var}
-$$`
-__Langevin__ or __stochastic differential equation__ (SDE) 
-
-> This is a consequence of equipartition theorem
-
----
-
-- Motion in response to thermal noise from response function
-
-$$
-\E\left[\tilde f_\text{noise}(\omega)\tilde f_\text{noise}(\omega')\right] = 4\pi \gamma k_\text{B}T\delta(\omega+\omega'),
-$$
-
-- Since $\tilde y(\omega) = \chi(\omega)\tilde f_\text{noise}(\omega)$
-
-$$
-\E\left[\tilde y(\omega)\tilde y(\omega')\right] = 4\pi \gamma k_\text{B}T |\chi(\omega)|^2 \delta(\omega+\omega').
-\label{res_power}
-$$
-$$
-\chi''(\omega) =  \frac{\gamma \omega}{(\omega_0^2-\omega^2)^2+\gamma^2\omega^2} = \gamma\omega |\chi(\omega)|^2
-$$
-
----
-
-- Defining $\E\left[\tilde y(\omega)\tilde y(\omega')\right] = 2\pi S(\omega)\delta(\omega+\omega'),$
-
-$$
-S(\omega)=\frac{2k_\text{B}T}{\omega} \chi''(\omega).
-\label{res_ClassicalFDT}
-$$
-
-$$
-S(\omega)=\frac{2k_\text{B}T}{\omega} \chi''(\omega).
-$$
-
-- $S(\omega)=S(-\omega)$ since $\chi''(\omega)$ is odd
-
-- First example of __fluctuation--dissipation relation__
-
 ---
 
 ### Quantum fluctuations: one oscillator
@@ -818,46 +565,66 @@ $$
 
 ---
 
-- Compressibility defined in terms of volume $V$ and pressure $p$ as
+### Compressibility sum rule
+
+- Compressibility
+$$
+\beta=-\frac{1}{V}\frac{\partial V}{\partial p}.
+$$
+(inverse of Bulk modulus)
+
+- $p = -\frac{\partial E_0}{\partial V}$ at $T=0$. If $E_0 = V \epsilon(\rho)$, then
 
 $$
-\kappa=-\frac{1}{V}\frac{\partial V}{\partial p}.
-$$
-
-- At zero temperature, the pressure is
-
-$$
-p = -\frac{\partial E_0}{\partial V},
-$$
-
-- Expect $E_0 = V \epsilon(\rho)$, where $\rho = N/V$ is density, and $\epsilon(\rho)$ energy per unit volume
-
-$$
-\kappa^{-1} = \rho^2 \epsilon''(\rho).
+\beta^{-1} = \rho^2 \epsilon''(\rho).
 $$
 
 ---
 
-- The chemical potential $\mu = \frac{\partial E_0}{\partial N}=\epsilon'(\rho)$, so
-
 $$
-\kappa = \rho^{-2} \frac{\partial \rho}{\partial \mu}
+\beta^{-1} = \rho^2 \epsilon''(\rho).
 $$
 
-- But $\frac{\partial \rho}{\partial \mu}$ is a response function, in fact
+- In the presence of a potential $V(\br)$, energy density is 
 
 $$
-\frac{\partial \rho}{\partial \mu} = \frac{1}{V}\operatorname{Re}\chi(0,0).  
+\epsilon(\rho_0+\delta\rho) = \frac{1}{2\beta\rho_0^2} \left[\delta\rho\right]^2 + V(\br)\delta\rho
 $$
+
+- Minimizing with respect to $\delta\rho$ gives
+
+$$
+\epsilon(V(\br)) = - \frac{\beta\rho_0^2}{2} \left[V(\br)\right]^2
+$$
+
+- Compare with perturbation theory
 
 ---
 
-- $\chi'(\bq,\omega)$ can be written in terms of $\chi''(\bq,\omega)$ (Kramers--Kronig) and $\chi''(\bq,\omega)$ is related to $S_\rho(\bq,\omega)$
+- Change in energy due to perturbation 
+
+$$
+\sum_j V_0 \cos(\bq\cdot \br_j) = \frac{V_0}{2}\left[\rho_\bq+\rho_{-\bq}\right] 
+$$
+
+- Second order perturbation theory for ground state
+$$
+E^{(2)} =\frac{V_0^2}{4} \sum_{n\neq 0} \frac{|\braket{0}{\rho_\bq}{n}|^2}{E_0-E_n} =\frac{V_0^2}{4}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi}
+$$
+(first order vanishes)
+
+---
+
+- Compare with 
+
+$$
+\epsilon(V(\br)) = - \frac{\beta\rho_0^2}{2} \left[V(\br)\right]^2
+$$
 
 - This gives the __compressibility sum rule__ at zero temperature
 
 $$
-\lim_{\bq\to 0}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi} = \frac{N\rho\kappa}{2}.
+\lim_{\bq\to 0}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi} = \frac{N\rho\beta}{2}.
 $$
 
 - Compressibility sum rule often written in terms of speed of sound $c = (\kappa m \rho)^{-1/2}$
@@ -868,17 +635,6 @@ $$
 
 ---
 
-### Compressibility sum rule
-
-- Change in energy due to perturbation 
-
-$$
-\sum_j V_0 \cos(\bq\cdot \br_j) = V_0\int \cos(\bq\cdot\br)\rho(\br) d\br 
-$$
-
-- Assuming expectation of $\rho(\br)$ constant 1st order correction vanishes
-
----
 
 ### Single Mode Approximation
 
