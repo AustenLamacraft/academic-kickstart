@@ -313,7 +313,7 @@ $$
 
 ---
 
-### Quantum Fluctuations
+### Quantum fluctuations: one oscillator
 
 - For a single (undamped) oscillator we have ground state fluctuations
 $$
@@ -414,6 +414,20 @@ as we found before.
 
 ---
 
+### Classical limit $\beta\omega\to 0$
+
+`$$
+\begin{align}
+S(\omega)&= \frac{\pi}{m\omega_0}\left[n_\text{B}(\omega_0)\delta(\omega+\omega_0)+(n_\text{B}(\omega_0)+1)\delta(\omega-\omega_0)\right]\\\\
+&\to \frac{k_\text{B}T}{2m\omega_0^2} \times 2\pi\left[\delta(\omega+\omega_0)+\delta(\omega-\omega_0)\right]
+\end{align}
+$$`
+
+- Consistent with equipartition: $\frac{1}{2}m\omega_0^2 \langle y^2\rangle=\frac{1}{2}k_\text{B}T$
+
+---
+
+### Many oscillators
 
 - We can express  $y(t)$ in terms of normal modes as
 $$
@@ -464,9 +478,9 @@ $$
 y(\omega) = \sum_k |c_k|^2\left[\frac{1}{\omega_k-\omega-i0}+\frac{1}{\omega_k+\omega+i0}\right]f(\omega).
 $$
 
-- Thus we have
+- This defines the __response function__ $\chi(\omega)$
 $$
-\chi(\omega) = \sum_k |c_k|^2\left[\frac{1}{\omega_k-\omega-i0}+\frac{1}{\omega_k+\omega+i0}\right],
+\chi(\omega)\equiv \frac{y(\omega)}{f(\omega)} = \sum_k |c_k|^2\left[\frac{1}{\omega_k-\omega-i0}+\frac{1}{\omega_k+\omega+i0}\right].
 \label{res_chi_modes}
 $$
 
@@ -479,14 +493,14 @@ $$
 ---
 
 `$$
-\chi''(\omega) =\sgn(\omega)\pi\sum_k |c_k|^2\delta(\omega_k-\omega) 
+\operatorname{Im}\chi(\omega) =\sgn(\omega)\pi\sum_k |c_k|^2\delta(\omega_k-\omega) 
 \label{res_Imchi_modes}
 $$`
 
-- $S(\omega)$ and $\chi''(\omega)$ are then related by
+- $S(\omega)$ and $\operatorname{Im}\chi(\omega)$ are then related by
 
 $$
-S(\omega) = 2\chi''(\omega)\left[n_\text{B}(\omega)+1\right].
+S(\omega) = 2\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right].
 \label{res_FDTAsym}
 $$
 
@@ -496,12 +510,13 @@ $$
 
 > Check that in the classical limit ($k_\text{B}T\gg \hbar \omega$)
 $$
-S(\omega) = 2\chi''(\omega)\left[n_\text{B}(\omega)+1\right].
+S(\omega) = 2\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right].
 $$
 reduces to 
 $$
-S(\omega)=\frac{2k_\text{B}T}{\omega} \chi''(\omega).
+S(\omega)=\frac{2k_\text{B}T}{\omega} \operatorname{Im}\chi(\omega).
 $$
+Consistent with classical equipartition
 
 ---
 
@@ -509,7 +524,7 @@ $$
 
 - We saw that classically $\text{Im}\\,\chi(\omega)$ related to dissipation
 
-- FDT relates $\text{Im}\\,\chi(\omega)$ and $S(\omega)$. How is $S(\omega)$ related to dissipation?
+- FDT relates $\operatorname{Im}\chi(\omega)$ and $S(\omega)$. How is $S(\omega)$ related to dissipation?
 
 - Regard driving force as perturbation that causes transitions between energy eigenstates
 $$
@@ -547,20 +562,20 @@ $$
 - The rate of energy absorption is
 
 $$
-\omega\Gamma(\omega) = \omega S(\omega)\left(\frac{f_0}{2}\right)^2 = \frac{1}{2}\omega\chi''(\omega)\left[n_\text{B}(\omega)+1\right]f_0^2.
+\omega\Gamma(\omega) = \omega S(\omega)\left(\frac{f_0}{2}\right)^2 = \frac{1}{2}\omega\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right]f_0^2.
 \label{res_absorb}
 $$
 
 ---
 
 $$
-\omega\Gamma(\omega) = \omega S(\omega)\left(\frac{f_0}{2}\right)^2 = \frac{1}{2}\omega\chi''(\omega)\left[n_\text{B}(\omega)+1\right]f_0^2.
+\omega\Gamma(\omega) = \omega S(\omega)\left(\frac{f_0}{2}\right)^2 = \frac{1}{2}\omega\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right]f_0^2.
 $$
 
 >Compare with 
 $$
 \begin{align}
-W_\text{diss} = \langle f(t) \dot y(t)\rangle = \frac{1}{2}\omega\chi''(\omega)f_0^2.
+W_\text{diss} = \langle f(t) \dot y(t)\rangle = \frac{1}{2}\omega\operatorname{Im}\chi(\omega)f_0^2.
 \end{align}
 $$
 They agree when $n_\text{B}(\omega)\to 0$: energy of transition being much larger than thermal energy $\hbar\omega\gg k_B T$.
@@ -616,7 +631,7 @@ $$
 $$
 (Normally write $A(t)$ rather than $A_I(t)$: Heisenberg picture for the unperturbed problem) 
 
-- Thi is the __Kubo formula__. It expresses the response of a system in terms of the dynamics of the unperturbed system.
+- This is the __Kubo formula__. It expresses the response of a system in terms of the dynamics of the unperturbed system.
 
 ---
 
@@ -685,12 +700,11 @@ $$`
 ---
 
 - To make sense of this formula, use the Kramers--Kronig relation
-
 `$$
 \begin{align}
-\chi_{AB}(\omega) &=\chi'(\omega) + i\chi''(\omega)\\
-&= \cP \int_{-\infty}^\infty \frac{d\omega'}{\pi}\frac{\chi''(\omega')}{\omega'-\omega} + i\chi''(\omega)\\
-&= \int_{-\infty}^\infty \frac{d\omega'}{\pi}\frac{\chi''(\omega')}{\omega'-\omega-i0},
+\chi_{AB}(\omega) &=\operatorname{Re}\chi_{AB}(\omega) + i\operatorname{Im}\chi_{AB}(\omega)\\
+&= \cP \int_{-\infty}^\infty \frac{d\omega'}{\pi}\frac{\operatorname{Im}\chi_{AB}(\omega')}{\omega'-\omega} + i\operatorname{Im}\chi_{AB}(\omega)\\
+&= \int_{-\infty}^\infty \frac{d\omega'}{\pi}\frac{\operatorname{Im}\chi_{AB}(\omega')}{\omega'-\omega-i0},
 \label{res_KKchi}
 \end{align}
 $$`
@@ -698,11 +712,9 @@ where we used
 $$
 \frac{1}{x+i0} = \mathcal{P}\frac{1}{x} -i\pi\delta(x).
 $$
-
-Finally!
-
+- Finally!
 $$
-S_{AB}(\omega) = 2\chi_{AB}''(\omega)\left[n_\text{B}(\omega)+1\right].
+S_{AB}(\omega) = 2\operatorname{Im}\chi_{AB}(\omega)\left[n_\text{B}(\omega)+1\right].
 \label{res_FDTGen}
 $$
 
@@ -720,7 +732,7 @@ $$
 
 > Use the spectral representation to prove the fluctuation dissipation relation
 
--  $S_{AA}(\omega)$ can be interpreted in terms of Fermi golden rule, as we saw for oscillator. Notice that $S_AA(\omega)>0$.
+-  $S_{AA}(\omega)$ can be interpreted in terms of Fermi golden rule, as we saw for oscillator. Notice that $S_{AA}(\omega)>0$.
 
 ---
 
@@ -750,12 +762,13 @@ $$
 
 ---
 
-- General theory applies with `$A=\rho_\bq$` and `$B=\rho_{-\bq}$`. At zero temperature
+- General theory applies with `$A=\rho_\bq$` and `$B=\rho_{-\bq}$`. At $T=0$
 $$
 S_\rho(\bq,\omega) = 2\pi\sum_{n}  |\bra{0}\rho_\bq\ket{n}|^2 \delta(\omega-E_n+E_0),
 \label{res_Sdef}
 $$
-where we have used `$\rho_\bq^\dagger=\rho_{-\bq}^{}$` This is the __dynamical structure factor__, on account of its importance in scattering experiments.
+
+- This is the __dynamical structure factor__, on account of its importance in scattering experiments.
 
 - The __static structure factor__ is
 $$
@@ -776,6 +789,7 @@ T = -\frac{1}{2m}\sum_{j=1}^N \nabla_i^2.
 $$
 
 - Taking `$\rho_\bq =\sum_{j=1}^N e^{-i\bq\cdot\br_j}$`, we find
+
 $$
 [[H,\rho_\bq],\rho_{-\bq}] = -\frac{N\bq^2}{m}.
 $$
@@ -833,7 +847,7 @@ $$
 - But $\frac{\partial \rho}{\partial \mu}$ is a response function, in fact
 
 $$
-\frac{\partial \rho}{\partial \mu} = \frac{1}{V}\chi'(0,0).  
+\frac{\partial \rho}{\partial \mu} = \frac{1}{V}\operatorname{Re}\chi(0,0).  
 $$
 
 ---
@@ -851,6 +865,18 @@ $$
 $$
 \lim_{\bq\to 0}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi} = \frac{N}{2mc^2}.
 $$
+
+---
+
+### Compressibility sum rule
+
+- Change in energy due to perturbation 
+
+$$
+\sum_j V_0 \cos(\bq\cdot \br_j) = V_0\int \cos(\bq\cdot\br)\rho(\br) d\br 
+$$
+
+- Assuming expectation of $\rho(\br)$ constant 1st order correction vanishes
 
 ---
 
