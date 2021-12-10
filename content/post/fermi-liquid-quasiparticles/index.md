@@ -66,8 +66,8 @@ Writing the time-independent Schrödinger equation $H\ket{\Psi}=E\ket{\Psi}$ for
 
 $$
 \begin{align}
-\epsilon_0 a_0 + \sum_{j=1}^N t_j a_j = E a_0\\\\\nonumber
-\epsilon_j a_j + t^*_j a_0 = E a_j,
+\epsilon_0 a_0 + \sum_{j=1}^N t_j a_j &= E a_0\\\\\nonumber
+\epsilon_j a_j + t^*_j a_0 &= E a_j,\qquad j=1,\ldots N
 \end{align}
 $$
 
@@ -75,10 +75,83 @@ which can be solved to give an equation that must be satisfied by the energy $E$
 
 $$
 \epsilon_0 +  \sum_{j=1}^N \frac{|t_j|^2}{E-\epsilon_j} = E.
+\label{eigenvalue}
 $$
 
-We're more interested in the time dependent problem, though. What happens if we 
+We're more interested in the time-dependent problem where the system starts out in $\ket{0}$. Thus we solve
 
-It is often the case, however, that the energy eigenstates or the dynamics of a many-body system can be understood in terms of _quasiparticle_ like excitations
+$$
+\begin{align}
+i\partial_t a_0&=\epsilon_0 a_0 + \sum_{j=1}^N t_j a_j\\\\\nonumber
+i\partial_t a_j&=\epsilon_j a_j + t^*_j a_0,\qquad j=1,\ldots N
+\end{align}
+$$
+
+subject to the initial condition $a_0=1$, $a_j=0$ $j=1,\ldots N$. To do this we take the Laplace transform
+
+$$
+a_j(z) = \int_0^\infty a_j(t)e^{-zt}dt
+$$
+
+to give 
+
+$$
+\begin{align}
+-i a_0(0_+)&=(\epsilon_0-iz) a_0 + \sum_{j=1}^N t_j a_j\\\\\nonumber
+-i a_j(0_+)&=(\epsilon_j-iz) a_j + t^*_j a_0,\qquad j=1,\ldots N.
+\end{align}
+$$
+
+After imposing the boundary conditions and rearranging, we end up with
+
+$$
+a_0(z) = \frac{-i}{\epsilon_0-iz+\Sigma(z)}
+$$
+
+where $\Sigma(z)=\sum\_{j=1}^N \frac{|t_j|^2}{iz-\epsilon\_j}$ is called the _self-energy_. It contains all the information about the coupling of state $\ket{0}$ to the other states $\ket{j}$, as well as their energies $\epsilon_j$. 
+
+Defining things in terms of frequency / energy $\omega$, related to $z$ by $z=-i\omega$, we have
+
+$$
+a_0(\omega) = \frac{-i}{\epsilon_0-\omega+\Sigma(\omega)}.
+\label{response}
+$$
+
+By comparing $\eqref{eigenvalue}$ and $\eqref{response}$, you  can check that $a_0(\omega)$ has poles at the eigenvalues $E_\alpha$ of the Hamiltonian. 
+
+The time dependence of $a_0(t)$ is given by the integral
+
+$$
+a_0(t) = -i \int \frac{e^{-i\omega t}}{\epsilon_0-\omega+\Sigma(\omega)}\frac{d\omega}{2\pi}.
+$$
+
+$a_0(\omega)$ must be analytic in the upper half plane of $\omega$, in order to give $a_0(t<0)=0$. Taking the poles to be at $E_\alpha-i0$ allows us to evaluate
+
+$$
+a_0(t) = \theta(t)\sum_\alpha z_\alpha e^{-iE_\alpha t}
+\label{weights}
+$$
+
+where $z_\alpha\equiv \frac{1}{1-\Sigma'(E_\alpha)}$ is the weight contributed by the eigenstate with energy $E_\alpha$. When $t_j=0$, we know that the eigenstates are just $\ket{j}$ $j=0,\ldots N$ and the eigenergies are just $\epsilon_\alpha$. Furthermore, the only frequency appearing in $\eqref{weights}$ is $\epsilon_0$. This happens because $\Sigma'(\epsilon_0)\to 0$ but diverges at the other $\epsilon_j$.
+
+We could have got at the result $\eqref{weights}$ in a more direct way using the spectral resolution
+
+$$
+\braket{0|e^{-iHt}|0} = \sum_\alpha e^{-iE_\alpha t} |a^{(\alpha)}_0|^2.
+$$
+
+From normalization of the states $\ket{\alpha}$ and the eigenvalue equation $\eqref{eigenvalue}$ we have
+
+$$
+\begin{align}
+|a^{(\alpha)}\_0|^2 +\sum_{j=1}^N |a^{(\alpha)}_j|^2 &= 1 \nonumber \\\\
+|a^{(\alpha)}\_0|^2\left[1+ \sum_{j=1}^N \frac{|t_j|^2}{(E_\alpha-\epsilon_j)^2}\right]&= 1 \nonumber\\\\
+|a^{(\alpha)}\_0|^2 = \frac{1}{1-\Sigma'(E_\alpha)} = z_\alpha.
+\end{align}
+$$
+
+This also establishes that $\sum_\alpha z_\alpha =1$. As $N$ increases, the weights $z_\alpha$ will become small. If the scale of the energies $\epsilon_j$ remains fixed as $N\to\infty$, the eigenvalues $E_\alpha$ will approximate a continuous spectrum on this scale.
+
+Looks like decay...
 
 ## The Fermi Liquid

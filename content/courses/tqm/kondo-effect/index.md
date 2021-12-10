@@ -12,6 +12,7 @@ weight: 140
 $$
 \nonumber
 \newcommand{\cN}{\mathcal{N}}
+\newcommand{\cH}{\mathcal{H}}
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\br}{\mathbf{r}}
 \newcommand{\bx}{\mathbf{x}}

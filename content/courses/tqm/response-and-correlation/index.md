@@ -740,7 +740,7 @@ $$
 Next we discuss the __compressibility sum rule__. The compressibility is defined in terms of the volume $V$ and pressure $p$ as
 
 $$
-\kappa=-\frac{1}{V}\frac{\partial V}{\partial p}.
+\beta=-\frac{1}{V}\frac{\partial V}{\partial p}.
 $$
 
 At zero temperature, the pressure is
@@ -752,13 +752,27 @@ $$
 where $E_0$ is the ground state energy. Since energy is an extensive quentity we expect $E_0 = V \epsilon(\rho)$, where $\rho = N/V$ is the density, and $\epsilon(\rho)$ the energy per unit volume. Then
 
 $$
-\kappa^{-1} = \rho^2 \epsilon''(\rho).
+\beta^{-1} = \rho^2 \epsilon''(\rho).
 $$
+
+- In the presence of a potential $V(\br)$, energy density is 
+
+$$
+\epsilon(\rho_0+\delta\rho) = \frac{1}{2\beta\rho_0^2} \left[\delta\rho\right]^2 + V(\br)\delta\rho
+$$
+
+- Minimizing with respect to $\delta\rho$ gives
+
+$$
+\epsilon(V(\br)) = - \frac{\beta\rho_0^2}{2} \left[V(\br)\right]^2
+$$
+
+- Compare with perturbation theory
 
 Recall that the chemical potential $\mu = \frac{\partial E_0}{\partial N}=\epsilon'(\rho)$. Then
 
 $$
-\kappa = \rho^{-2} \frac{\partial \rho}{\partial \mu} = \frac{1}{\rho N}\chi'(0,0).  
+\beta = \rho^{-2} \frac{\partial \rho}{\partial \mu} = \frac{1}{\rho N}\chi'(0,0).  
 $$
 
 Now $\chi'(\bq,\omega)$ can be written in terms of $\chi''(\bq,\omega)$ (Kramers--Kronig) and $\chi''(\bq,\omega)$ is related to $S_\rho(\bq,\omega)$. This gives the compressibility sum rule at zero temperature
