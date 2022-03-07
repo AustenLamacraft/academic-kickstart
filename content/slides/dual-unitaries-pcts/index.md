@@ -115,7 +115,7 @@ $$
 - __Any $h_j$__; initial $Z_j$ product state
 
 <p align="center">
-<img src="bertini-ising.png" width="500"/>
+<img src="bertini.png" width="500"/>
 </p>
 
 ---

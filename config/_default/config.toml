@@ -103,18 +103,27 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
   [[related.indices]]
     name = "authors"
     weight = 20.0
-
+ 
+# For instructions regarding hugo-cite see https://github.com/wowchemy/wowchemy-hugo-themes/issues/830#issuecomment-753782484 
 [module]
-  [[module.imports]]
-    path = "github.com/wowchemy/wowchemy-hugo-modules/wowchemy-cms/v5"
+#  [[module.imports]]
+#    path = "github.com/loup-brun/hugo-cite"
   [[module.imports]]
     path = "github.com/wowchemy/wowchemy-hugo-modules/wowchemy/v5"
+  
 
 # Content Management System
 [cms]
  # Enable the admin panel. See https://wowchemy.com/docs/install/
- netlify_cms = true
+ netlify_cms = false
   
 # Icon Pack Extensions
 [icon.pack]
  ai = true  # Enable the Academicons icon pack https://jpswalsh.github.io/academicons/    
+
+[security]
+  [security.exec]
+    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^pandoc$']
+    osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM)$']
+  [security.funcs]
+    getenv = ['^HUGO_', '^WC_']

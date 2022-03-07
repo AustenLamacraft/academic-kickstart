@@ -31,9 +31,9 @@ body {
   font-weight: inherit;
   text-align: left;}
 
-.reveal .slides .sketch{
-  align="center";
-}
+/* .reveal .slides .sketch{
+  text-align: center;
+} */
 
 /*********************************************
  * HEADERS

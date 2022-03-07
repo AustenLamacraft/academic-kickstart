@@ -1,0 +1,26 @@
+[
+	{
+		"id": "nielsen-chuang-2002",
+		"type": "article-journal",
+		"ISSN": "0002-9505",
+		"note": "publisher: American Association of Physics Teachers",
+		"title": "Quantum computation and quantum information",
+		"author": [
+			{
+				"family": "Nielsen",
+				"given": "Michael A"
+			},
+			{
+				"family": "Chuang",
+				"given": "Isaac"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2002"
+				]
+			]
+		}
+	}
+]
