@@ -16,6 +16,12 @@ slides:
 scripts: []
 ---
 
+## Outline
+ 
+- Correlation functions
+- Operator spreading
+- OTOC 
+- Measurements
 
 ---
 
