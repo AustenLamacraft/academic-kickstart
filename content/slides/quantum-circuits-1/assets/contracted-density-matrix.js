@@ -24,7 +24,7 @@ SVG.on(document, 'DOMContentLoaded', function() {
     const circuitWidth = 12
     const circuitDepth = 4
 
-    const topContractions = [true, true, true, true, false, false, false, false, true, true]
+    const topContractions = [true, true, true, true, false, false, false, false, true, true, true, true]
 
     gate.size(gateWidth)
 

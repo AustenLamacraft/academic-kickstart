@@ -41,17 +41,16 @@ scripts: []
 
 ## [Possible operations](https://en.wikipedia.org/wiki/Quantum_logic_gate)
 
-<p align="center">
+<figure align="center">
 <img src="assets/Quantum_teleportation_circuit.svg.png" width="80%">
-</p>
-
-Source
+<figcaption>Source: <a href="https://en.wikipedia.org/wiki/Quantum_circuit">Wikipedia</a> </figcaption>
+</figure>
 
 1. $H$ (a [Hadamard gate](https://en.wikipedia.org/wiki/Quantum_logic_gate#Hadamard_gate)) is a __single qubit unitary__ 
 
-2. CNOT 
+2. Also __two qubit unitary gates__ (CNOT here)
 
-3. Measurement 
+3. Measurements 
 
 ---
 
@@ -359,11 +358,15 @@ $$`
 
 ## Computational complexity
 
-Difficulty of contraction. 
+<p align="center">
+<img src="assets/brickwall.png" width="450"/>
+</p>
 
-Preview of quantum supremacy.
+- Normally matrix-vector multiplication is $O(\operatorname{dim}^2)=2^{2N}$
 
-For low depth would move horizontally
+- Gates are _sparse_ so $O(\operatorname{dim})=2^{N}$, but _still exponentially hard_
+
+- For low depth $T<N$ move _horizontally_ instead
 
 ---
 
@@ -423,7 +426,7 @@ $$
 \ket{\Psi_{AB}} = \sum_{\alpha=1}^{\min(\operatorname{dim} \mathcal{H}_A, \operatorname{dim} \mathcal{H}_B)} \lambda_\alpha \ket{u_\alpha}_A\otimes\ket{v_\alpha}_B
 $$`
 
-- $\ket{u_\alpha}$ and $\ket{u_\alpha}$ orthonormal; $\lambda_\alpha\geq 0$
+- $\ket{u_\alpha}$ and $\ket{v_\alpha}$ orthonormal; $\lambda_\alpha\geq 0$
 
 - $\lambda_\alpha$ quantify _entanglement_ between A and B
 
@@ -444,8 +447,9 @@ $$`
 
 ## Schmidt rank
 
-- $\operatorname{rank}=\min(\operatorname{dim} \mathcal{H}_A, \operatorname{dim} \mathcal{H}_B)=2^{\min(2t, N_A)}$
+- $\operatorname{rank}=\min(\operatorname{dim} \mathcal{H}_A, \operatorname{dim} \mathcal{H}_B)=2^{\min(2t-2, N_A)}$
 
+- Here $t=4$, $N_A=4$
 <object data="assets/contracted-density-matrix.svg" type="image/svg+xml"></object>
 
 ---
@@ -461,10 +465,10 @@ S_A &= -\operatorname{tr}\left[\rho_A\log \rho_A\right]\\
 \end{align}
 $$`
 
-- Maximum value for equal probabilities $p_\alpha = \frac{1}{2^{\min(2t, N_A)}}$
+- Maximum value for equal probabilities $p_\alpha = \frac{1}{2^{\min(2t-2, N_A)}}$
 
 $$
-S_A \leq \min(2t, N_A)\log 2
+S_A \leq \min(2t-2, N_A)\log 2
 $$
 
 ---
@@ -474,7 +478,7 @@ $$
 - [Bertini, Kos, Prosen (2019)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033) found that when $|J|=|b|=\pi/4$
 
 $$
-\lim_{L\to\infty} S_A =\min(2t-2,N)\log 2,
+\lim_{L\to\infty} S_A =\min(2t-2,N_A)\log 2,
 $$
 
 - __Any $h_j$__; initial $Z_j$ product state
@@ -494,17 +498,17 @@ $$
   S^{(n)}_A = \frac{1}{1-n}\log \text{tr}\left[\rho^n\right]=\frac{1}{1-n}\sum_\alpha p_\alpha^n
 $$`
 
-- For SDKIM have $2^{\min(2t-2,N)}$ non-zero eigenvalues all equal
+- For SDKIM have $2^{\min(2t-2,N_A)}$ non-zero eigenvalues all equal
 
 $$
-p_\alpha = \left(\frac{1}{2}\right)^{\min(2t-2,N)}
+p_\alpha = \left(\frac{1}{2}\right)^{\min(2t-2,N_A)}
 $$
 
 ---
 
 ## Thermalization
 
-- After $N/2 + 1$ steps, reduced density matrix is $\propto \mathbb{1}$
+- After $N_A/2 + 1$ steps, reduced density matrix is $\propto \mathbb{1}$
 
 - All expectations (with $A$) take on infinite temperature value
 
@@ -566,74 +570,16 @@ $$`
 - RDM is unitary transformation of 
 
 $$
-\rho_0=\overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1} \otimes\overbrace{|Z_1\rangle\langle Z_1|\otimes |Z_2\rangle\langle Z_2| \cdots }^{N-2t+2 } \otimes \overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1}
+\rho_0=\overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1} \otimes\overbrace{|Z_1\rangle\langle Z_1|\otimes |Z_2\rangle\langle Z_2| \cdots }^{N_A-2t+2 } \otimes \overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1}
 $$
 
-- RDM has $2^{\min(2t-2,N)}$ non-zero eigenvalues all equal to $\left(\frac{1}{2}\right)^{\min(2t-2,N)}$
+- RDM has $2^{\min(2t-2,N_A)}$ non-zero eigenvalues all equal to $\left(\frac{1}{2}\right)^{\min(2t-2,N_A)}$
 
 ---
 
-## Dual unitaries in general
+## Further reading
 
-14 parameters
-
----
-
-### Correlation functions
-
-### OTOCs
-
-Have been measured in Google experiment
-
-https://www.science.org/doi/full/10.1126/science.abg5029?casa_token=TkmMj95XIYoAAAAA:NP67A_aYhL8lSDWtuG99i8oFfx1c79-Lz-UGKYsW1-bee3hQ7weJSxLLQwpPzfSEPvEqt6SPbB4UYA
-
-### Operator spreading
-
-### Reduced density matrix
-
-### Entanglement measures
-
-Page bound
-
-SVD, entropy. Hartle entropy. Linear growth of entanglement.
-
-Matrix product states
-
-SWAP generates no entanglement
-
-How big _could_ the entropy be?
-
-
-
-
-## Some particular classes of circuits
-
-### Random circuits
-
-### Clifford circuits
-
-Stabilizers
-
-### Dual unitary circuits
-
-Maximally entangling
-
-#### 2D circuits
-
-Harrow results on complexity
-
----
-
-## Frontiers
-
-[Recent review](https://arxiv.org/abs/2111.08018)
-
-### The effect of measurements
-
-### Quantum supremacy
-
-Was it reached?
-
-https://arxiv.org/abs/2103.03074
-
-
+- Dual unitary circuits were introduced in 
+  - [Gopalakrishnan and Lamacraft](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309) for kicked Ising
+  - [Bertini, Kos, and Prosen](https://arxiv.org/abs/1904.02140) in general
+  - [Piroli _et al_](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304) discuss more general initial conditions
