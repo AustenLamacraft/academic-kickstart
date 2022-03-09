@@ -581,5 +581,5 @@ $$
 
 - Dual unitary circuits were introduced in 
   - [Gopalakrishnan and Lamacraft](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309) for kicked Ising
-  - [Bertini, Kos, and Prosen](https://arxiv.org/abs/1904.02140) in general
+  - [Bertini, Kos, and Prosen](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601) in general
   - [Piroli _et al_](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304) discuss more general initial conditions
