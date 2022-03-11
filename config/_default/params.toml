@@ -9,20 +9,21 @@
 #   Latest themes (may require updating): https://sourcethemes.com/academic/themes/
 #   Browse built-in themes in `themes/academic/data/themes/`
 #   Browse user installed themes in `data/themes/`
-theme_day = "minimal"
+[appearance]
+  theme_day = "minimal"
 
 # Enable users to switch between day and night mode?
-day_night = false
+  day_night = false
 
 # Override the theme's font set (optional).
 #   Latest font sets (may require updating): https://sourcethemes.com/academic/themes/
 #   Browse built-in font sets in `themes/academic/data/fonts/`
 #   Browse user installed font sets in `data/fonts/`
-font = ""
+  font = ""
 
 # Choose a font size.
 # Sizes: XS (extra small), S (small), M (medium), L (large - DEFAULT), XL (extra large)
-font_size = "L"
+  font_size = "L"
 
 ############################
 ## Basic Info
@@ -60,7 +61,10 @@ highlight_languages = ["r"]  # Add support for highlighting additional languages
 
 # Enable LaTeX math rendering? true/false
 #   If false, you can enable math on a per page basis as needed.
-math = true
+[features]
+  [features.math]
+    enable = true
+
 
 # Enable diagram rendering? true/false
 #   If false, you can enable diagrams on a per page basis as needed.
