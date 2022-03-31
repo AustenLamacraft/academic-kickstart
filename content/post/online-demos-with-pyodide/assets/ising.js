@@ -25,7 +25,7 @@ let paused = false
 async function setup() {
     const ising = await loadSim();
     started = true
-    var canvas = createCanvas(400, 400);
+    const canvas = createCanvas(400, 400);
     canvas.parent('ising-simulation');
 
     const L = floor(width/w);

@@ -100,7 +100,7 @@ async function loadSim() {
 
 `loadPyodide` returns the `pyodide` module. If you're wondering where `loadPyodide` function came from: it's loaded as a script in the `index.html` of the page you're viewing: we'll get to that shortly. 
 
-Now comes one of the major oddities of using Python in the browser. Usually you import packages and modules from your file system. In the browser you don't have access to a real file system, so you have to load your code into a "virtual" file system before carrying (more or less) as normal. In this cases, the code at `assets/ising.py` is written to the virtual file system as `ising.py`, before `pyodide.pyimport("ising")` does what you'd normally expect `import ising` to do. So when we call `loadSim()` it will return our `ising` module and we'll be good to go.
+Now comes one of the major oddities of using Python in the browser. Usually you import packages and modules from your file system. In the browser you don't have access to a real file system, so you have to load your code into a "virtual" file system before carrying on (more or less) as normal. In this case, the code at `assets/ising.py` is written to the virtual file system as `ising.py`, before `pyodide.pyimport("ising")` does what you'd normally expect `import ising` to do. So when we call `loadSim()` it will return our `ising` module and we'll be good to go.
 
 For the visualization I'm using [p5.js](https://p5js.org/) (again loaded in `index.html`) because it's very friendly, but you could use whatever visualization library you like, or do it in raw JS if that's your thing. In p5.js you define functions like `setup()` and `draw()` that (you've guessd it) setup at the beginning and draw each frame.
 
@@ -115,7 +115,7 @@ let paused = false
 async function setup() {
     const ising = await loadSim();
     started = true
-    var canvas = createCanvas(500, 500);
+    const canvas = createCanvas(500, 500);
     canvas.parent('ising-simulation');
 
     const L = floor(width/w);
