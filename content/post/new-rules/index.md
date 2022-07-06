@@ -92,13 +92,22 @@ The other important point I'd like to make is that the rules, being *local*, giv
 
 ### Adding complexity
 
+Cambridge station
+
 Pokemon and multidomain
 
 WANKS
 
+Hashing, cryptography
+
+https://www.wolframscience.com/nks/p603--cryptography-and-cryptanalysis/
+
+Used as RNG in Wolfram: https://mathworld.wolfram.com/Rule30.html
+
+
 ## Chaos 
 
-*Chaos* in a dynamical system is characterized by the rapid growth of initially small differences between two trajectories $x_t$ and $y_t$. Since the degrees of freedom of CAs are discrete, the smallest change we can make is to toggle the value of a single site. By tracking the difference between the two trajectories we can observe the degree of chaos present in the system. More precisely, since are talking about binary variables, the natural quantity to monitor is the exclusive or – XOR – of the two variables, denoted $x_t\oplus y_t$ (although we'll frequently refer to it as the "difference" in the following). Instead of the exponential growth typical of chaotic behavior in continuous systems (characterized by a [Lyapunov exponent](https://en.wikipedia.org/wiki/Lyapunov_exponent)), the degree of chaos is naturally characterized by the number of differing sites, or [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) between two trajectories. Compare the behavior of the chaotic Rule 30 with Rule 15, for example.
+*Chaos* in a dynamical system is characterized by the rapid growth of initially small differences between two trajectories $x^t$ and $y^t$. Since the degrees of freedom of CAs are discrete, the smallest change we can make is to toggle the value of a single site. By tracking the difference between the two trajectories we can observe the degree of chaos present in the system. More precisely, since are talking about binary variables, the natural quantity to monitor is the exclusive or – XOR – of the two variables, denoted $x^t\oplus y^t$ (although we'll frequently refer to it as the "difference" in the following). Instead of the exponential growth typical of chaotic behavior in continuous systems (characterized by a [Lyapunov exponent](https://en.wikipedia.org/wiki/Lyapunov_exponent)), the degree of chaos is naturally characterized by the number of differing sites, or [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) between two trajectories. Compare the behavior of the chaotic Rule 30 with Rule 15, for example.
 
 <script src="assets/ca-difference.js"></script>
 <figure align="center">
@@ -117,10 +126,10 @@ One way forward that is often used in theoretical physics is to give up on the p
 <script src="assets/pca-chaos.js"></script>
 <figure align="center">
 <div id="pca-chaos" style="display: inline-block"></div>
-<figcaption>$x_t\oplus y_t$ for two PCAs starting from initial conditions that are random but only differ on one site ("site") or are random and independent ("row"). The number in the bottom right is the probability $p$ introduced in the text. Note that in this case the neighborhood includes next nearest neighbors.</figcaption>
+<figcaption>$x^t\oplus y^t$ for two PCAs starting from initial conditions that are random but only differ on one site ("site") or are random and independent ("row"). The number in the bottom right is the probability $p$ introduced in the text. Note that in this case the neighborhood includes next nearest neighbors.</figcaption>
 </figure>
 
-If we look at the dynamics of one of the copies things look very boring: since the output of each rule is chosen at random we just get white noise. Because the two copies are evolved with the same – albeit random – rules, the dynamics of $x_t\oplus y_t$ is still nontrivial: we see a propagating front, just as for many of the individual rules. The fluctuations of the front are larger and the average speed is definitely less than the maximal value.
+If we look at the dynamics of one of the copies things look very boring: since the output of each rule is chosen at random we just get white noise. Because the two copies are evolved with the same – albeit random – rules, the dynamics of $x^t\oplus y^t$ is still nontrivial: we see a propagating front, just as for many of the individual rules. The fluctuations of the front are larger and the average speed is definitely less than the maximal value.
 
 An interesting variation in behavior emerges if we introduce an extra parameter into our ensemble. With a uniform distribution on rules each possible input to an update function outputs 0 or 1 with equal probability. We can instead choose to output 1 with probability $0\leq p\leq 1$, with the uniform distribution corresponding to $p=1/2$. Deviating from $p=1/2$ tends to make the dynamics more boring. It also makes it less *injective*: distinct cell values within a neighborhood are more likely to be mapped to the same value.
 
@@ -130,21 +139,23 @@ Note that in a finite system the two copies will *always* merge after a sufficie
 
 ### Markov chain on differences
 
-The power of the probabilistic approach is that is possible to understand the above behavior in terms of a Markov chain on the difference $z_t\equiv x_t\oplus y_t$ *alone*, without reference to the individual configurations ([Derrida and Stauffer (1986)](https://iopscience.iop.org/article/10.1209/0295-5075/2/10/001/meta)). When $z_t=0$ on a neighborhood that provides an input to a rule, we have $z_t=0$ for the output. If the inputs differ on a least one site, however, $z_t=1$ at the output with probability $2p(1-p)$. 
+The power of the probabilistic approach is that is possible to understand the above behavior in terms of a Markov chain on the difference $z^t\equiv x^t\oplus y^t$ *alone*, without reference to the individual configurations ([Derrida and Stauffer (1986)](https://iopscience.iop.org/article/10.1209/0295-5075/2/10/001/meta)). When $z^t=0$ on a neighborhood that provides an input to a rule, we have $z^{t+1}=0$ for the output. If the inputs differ on at least one site, however, $z^{t+1}=1$ at the output with probability $2p(1-p)$. 
 
 Let's modify the rules slightly for a moment, so that the rules $f$ that determine how a site is updated depend only on the two neighboring sites, and not the site itself. The graph of dependencies then takes the form of a square lattice
 
 **TODO: figure**
 
-A given site has $z_t=1$ with probability $2p(1-p)$ only if one of its two antecedents did. It turns out this is a well known statistical mechanics model called (site) [directed percolation](https://en.wikipedia.org/wiki/Directed_percolation), in which one looks for a connected cluster of sites that are occupied with probability $x=2p(1-p)$. For nearest neigbor neighborhoods this probability $x\leq 1/2$ and is never high enough to reach the percolating phase where an infinite cluster is present, which occurs for $x\sim 0.706$. Thus in the experiment of the previous section we had to use next nearest neighbors.
+A given site has $z^t_n=1$ with probability $2p(1-p)$ only if one of its two antecedents $z^t_{n\pm 1}$ did. It turns out this is a well known statistical mechanics model called (site) [directed percolation](https://en.wikipedia.org/wiki/Directed_percolation), in which one looks for a connected cluster of sites that are occupied with probability $x=2p(1-p)$. For nearest neigbor neighborhoods this probability $x\leq 1/2$ and is never high enough to reach the percolating phase where an infinite cluster is present, which occurs for $x_\text{crit}\sim 0.706$. Thus in the experiment of the previous section we had to use next nearest neighbors.
 
 Parenthetically, directed percolation is one of the few phase transitions in which the critical exponents are unknown in the usually tractable case of two dimensions (i.e. one space and one time dimension). Part of the reason is the lack of symmetry between space and time, which means that conformal field theory is of no use, for instance.
+
+**TODO: point to http://www.scholarpedia.org/article/Synchronization_of_extended_chaotic_systems**
 
 ## Reversibility and block CAs
 
 We saw that the directed percolation phase transition in the dynamics of PCAs was a direct consequence of the breakdown of injectivity (one-to-oneness) in the rules. Given a CA, it's natural to ask whether it describes an invertible map (i.e. a bijection) on the state space, in which case two distinct trajectories can never merge. This is a [reversible cellular automaton](https://en.wikipedia.org/wiki/Reversible_cellular_automaton).
 
-Somewhat surprisingly, none of the elementary CAs are reversible (ignoring trivial cases where the output depends on only one of the inputs)! There are alternative constructions that do give rise to reversible CA, however: the simplest, and the most relevant for our later discussion of quantum circuits, is the [block cellular automaton](https://en.wikipedia.org/wiki/Block_cellular_automaton). The idea is to divide the cells into blocks (known as Margolus neighborhoods) and apply invertible mappings to each block. By alternating between two overlapping partitions at even and odd time steps, one obtains a dynamical system in which distant sites can become casually connected after enough steps.
+Somewhat surprisingly, none of the elementary CAs are reversible (ignoring trivial cases where the output depends on only one of the inputs)! There are alternative constructions that do give rise to reversible CA, however: the simplest, and the most relevant for our later discussion of quantum circuits, is the [block cellular automaton](https://en.wikipedia.org/wiki/Block_cellular_automaton). The idea is to partition the cells into blocks (known as Margolus neighborhoods) and apply invertible mappings to each block. By alternating between two overlapping partitions at even and odd time steps, one obtains a dynamical system in which distant sites can become casually connected after enough steps.
 
 <figure align="center">
 <img src="assets/Margolus_block_neighborhood.svg" width="50%"/>
@@ -169,6 +180,8 @@ How many possible blocks are there in this construction? Evidently a block must 
 0. (1234)
 1. (1243)
 2. (1324), and so on
+
+(i.e. in ascending numerical order )
 
 Thus block 2 is the map
 
@@ -232,12 +245,12 @@ A few of notes about this calculation:
 
 2. Even though the entropy of the initial distribution was only *half* the maximal entropy of 1 bit per site for the whole system, and the entropy of the whole system is conserved, the entropy $S(A)$ saturates at the *maximal* value of $|A|$ bits. Stated differently, $p_A$ becomes uniform in a time $\sim |A|/2$ set by the subsystem size. Our toy model therefore captures the idea of *thermalization*, with the thermalization time determined by appearance of a causal connection between the sites in the middle of $A$ and $\bar A$.
 
-3. It turns out that this model is not so special: any of the dual-unitary circuits described in the previous section will behave in the exact same way. 
+3. It turns out that this model is not so special: any of the dual reversible circuits described in the previous section will behave in the exact same way. 
 
 
 ## Quantum circuits
 
-Block CAs have a natural quantum analog in **unitary quantum circuits**. In general, a quantum circuit is a map on the quantum state of a system composed of many identical subsystems. Usually these subsystems are *qubits* (spin-1/2 systems with Hilbert space $\mathbb{C}$) in analogy to the two states of an elementary cellular automaton. The two states 0 and 1 become two quantum states $\ket{0}$ and $\ket{1}$ that define the **computational basis**.
+Block CAs have a natural quantum analog in **unitary quantum circuits**. In general, a quantum circuit is a map on the quantum state of a system composed of many identical subsystems. Usually these subsystems are *qubits* (spin-1/2 systems with Hilbert space $\mathbb{C}^2$) in analogy to the two states of an elementary cellular automaton. The two states 0 and 1 become two quantum states $\ket{0}$ and $\ket{1}$ that define the **computational basis**.
 
 <figure align="center">
 <img src="assets/Reversible_circuit_composition.svg.png" width="20%">
