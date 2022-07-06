@@ -89,7 +89,7 @@ Since the domain of $f$ consists of the $2^3=8$ possible assignments of the thre
 
 By playing with the above simulation you'll quickly realise that this simple set of rules encompasses quite a variety of behavior, from ordered (the Sierpinski triangle produced by Rule 18) to chaotic (Rule 30). Surprisingly, Rule 110 is capable of universal computation. Many of the rules are not interesting at all.
 
-The other important point I'd like to make is that the rules, being *local*, give rise to a notion of *causality* in the dynamics. That is, there is a *maximal speed* at which influences can propagate. With only a small abuse of terminology, we'll often speak of a "light cone" in these systems.
+The other important point I'd like to make is that the rules, being *local*, give rise to a notion of *causality* in the dynamics. That is, there is a *maximal speed* at which influences can propagate, corresponding to 45 degree lines in our pictures. With only a small abuse of terminology, we'll often speak of a "light cone" in these systems.
 
 ### Adding complexity
 
@@ -184,40 +184,371 @@ As before it's useful to plot the look at two trajectories that initially differ
 <script src="assets/block-ca.js"></script>
 <figure align="center">
 <div id="block"  style="display: inline-block"></div>
-<figcaption>All possible blocks for a two-site ?</figcaption>
+<figcaption>All possible blocks (0-23) for a two-cell Margolus neighborhood. </figcaption>
 </figure>
 
-Although 
-
-
-
-
+Again we can play the game of introducing an ensemble over blocks. The results are qualitatively the same as for the PCA in the chaotic phase that we discussed previously: a propagating front with average speed less than the maximal speed. Because all the blocks are reversible, there is no possibility of a phase transition. 
 
 ### Spacetime duality and self-duality
 
+Can we find an ensemble where the chaotic front propagates at maximal speed? It turns out that this is possible using a slightly roundabout argument. Our blocks describe bijections between the present and future. What if they also described bijections moving left to right i.e. in a spatial direction? It turns out that 12 of the 24 possible blocks have this property: we'll call them **self-dual**, which perhaps isn't a great name but it is one that has stuck in the quantum context. 
+
+If we draw each block in an iid fashion from the 12 self-dual blocks, then the dynamics can be regarded as a Markov process in *either* the time or space directions. It's therefore inevitable that in this ensemble the front propagates at the maximum possible velocity: it it moved slower, it would exceed the speed of light when viewed at 90 degrees!
+
 ### Dynamics of mutual information
 
-Credit Andrea here
+Looking at pairs of trajectories is only one possible way to characterize the dynamics of a CA. An alternative, recently suggested by [Pizzi *et al.* (2022)](https://arxiv.org/abs/2204.03016) by analogy (as we'll see) with the quantum case, is to look at the [mutual information](https://en.wikipedia.org/wiki/Mutual_information) of two disjoint spatial regions. 
 
-Mutual information
+The mutual information is a measure of the non-independence of two random variables $X$ and $Y$, and is defined as
+
+$$
+I(X;Y) \equiv S(X) + S(Y) - S(X,Y)
+$$
+
+where:
+
+- $S(X)$ is the entropy of $p_X(x)$, the marginal distribution of $X$
+- $S(Y)$ is the entropy of $p_Y(y)$, the marginal distribution of $Y$
+- $S(X,Y)$ is the entropy of the joint distribution $p(X,Y)$ of $X$ and $Y$. 
+
+$I(X;Y)$ is zero when the joint distribution factorizes i.e. $p_{(X,Y)}(x,y)=p_X(x)p_Y(y)$ and is positive otherwise.
+
+As a simple example, suppose that $X=0,1$, $Y=0,1$, with 0 and 1 equally likely but with $X$ and $Y$ always equal. The joint distribution is then $p_{(X,Y)}(0,0)=p_{(X,Y)}(1,1)=1/2$ and $p_{(X,Y)}(1,0)=p_{(X,Y)}(0,1)=0$. All three constituent entropies are 1 (measured in bits), so $I(X;Y)=1+1-1=1$.
+
+To get a feel for the dynamics of mutual information in a CA, consider the following toy model. Start with an initial distribution over states which factorizes over pairs $(x_0, x_1)$, $(x_2, x_3)$, and so on, each with the above distribution. Then apply a block CA consisting only of SWAPs (block 2 in our numbering scheme). 
+
+**Picture**
+
+Under this dynamics, the leftmost member of each correlated pair flies to the left; the rightmost to the right. Let's now consider the mutual information $I(A;\bar A)$ between a finite region $A$ and its complement $\bar A$. This is equal to 1 bit for every one of the initial pairs where one member is in $A$ and the other is in $\bar A$. Assuming we started out with a whole number of pairs in $A$ then after $t$ time steps we have
+
+$$
+I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits},
+$$
+
+where $|A|$ is the (even) number of sites in $A$. The mutual information thus increases linearly with time to a maximum value set by the system size. 
+
+A few of notes about this calculation:
+
+1. Since the CA corresponds to a bijection on the state space, the total entropy is conserved, analogously to the conservation of entropy due to Liouville's theorem in classical Hamiltonian dynamics, or under unitary evolution in quantum mechanics.
+
+2. Even though the entropy of the initial distribution was only *half* the maximal entropy of 1 bit per site for the whole system, and the entropy of the whole system is conserved, the entropy $S(A)$ saturates at the *maximal* value of $|A|$ bits. Stated differently, $p_A$ becomes uniform in a time $\sim |A|/2$ set by the subsystem size. Our toy model therefore captures the idea of *thermalization*, with the thermalization time determined by appearance of a causal connection between the sites in the middle of $A$ and $\bar A$.
+
+3. It turns out that this model is not so special: any of the dual-unitary circuits described in the previous section will behave in the exact same way. 
+
 
 ## Quantum circuits
 
-Block CAs have a natural quantum analog in **unitary quantum circuits**. In general a quantum circuit is a map on the quantum state of a system composed of many identical subsystems. Usually these subsystems are *qubits* (spin-1/2 systems with Hilbert space $\mathbb{C}$) in analogy to the two states of an elementary cellular automaton. 
+Block CAs have a natural quantum analog in **unitary quantum circuits**. In general, a quantum circuit is a map on the quantum state of a system composed of many identical subsystems. Usually these subsystems are *qubits* (spin-1/2 systems with Hilbert space $\mathbb{C}$) in analogy to the two states of an elementary cellular automaton. The two states 0 and 1 become two quantum states $\ket{0}$ and $\ket{1}$ that define the **computational basis**.
 
 <figure align="center">
 <img src="assets/Reversible_circuit_composition.svg.png" width="20%">
 <figcaption>Schematic of a quantum circuit. Reading from left to right, $f$ acts on top five qubits, then $g$ acts on lower seven.</figcaption>
 </figure>
 
+The bijections that apply to each block in a block CA are replaced with unitary operators (other kinds of operations – measurements, for example – are possible). Quantum circuits are an important model of universal quantum computation, but we will mostly be interested in exploring them as systems with discrete time, many body quantum dynamics. We'll frequently borrow terminology from quantum computing, however: the unitary operators appearing in our circuits are called **gates**. The most concrete way to think about a $n$-qubit unitary is in terms of its matrix elements $U_{x_1\ldots x_n,x'_1,\ldots, x'_n}$ in the computational basis. The condition of unitarity then has the form
+
+$$
+\sum\_{x_1'\ldots x_N'}U_{x_1\ldots x_n,x'_1,\ldots, x'_n} U^\dagger\_{x'_1\ldots x'_n,x''_1,\ldots, x''_n}=\delta\_{x_1,x_1''}\ldots \delta\_{x_N,x_N''},
+$$
+
+but we'll shortly introduce a graphical notation to avoid such awful looking expressions.
+
+### Everything is a tensor
+
+A general state of $N$ qubits expressed in product basis as
+  
+$$
+\ket{\Psi} = \sum_{x_{1:N}\in \{0,1\}^N} \Psi_{x_1\ldots x_N}\ket{x_1}_1\ket{x_2}_2\cdots \ket{x_N}_N
+$$
+
+where we write $\ket{x_1}\_1\ket{x_2}\_2\cdots \ket{x_N}\_N =\ket{x_1\cdots x_N}=\ket{x_{1:N}}$ for brevity. An operator on $N$ qubits has matrix elements
+
+$$
+\mathcal{O}\_{x_{1:N},x'_{1:N}} = \bra{x\_{1:N}}\mathcal{O}\ket{x'\_{1:N}}.
+$$
+
+To avoid writing multi-index expressions we'll often use [Penrose graphical notation](https://en.wikipedia.org/wiki/Penrose_graphical_notation), in which a quantity with $n$ indices – it's almost always called a "tensor", in the sense of algebra and not geometry – is represented by some kind of blog with $n$ legs. Note that the legs are distinguishable in general (unless the tensor is symmetric). The contraction of indices is indicated by joining legs appropriately. Some examples are shown below.
+
+<figure align="center">
+<img src="assets/tensors.png" width="70%">
+<figcaption>See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang's tutorial</a> </figcaption>
+</figure>
 
 
-Here the bijections that apply to each block are replaced with unitary operations that 
+### Some gates
+
+Let's look at some examples of two qubit gates. We'll work in the basis $\ket{00}$, $\ket{01}$, $\ket{10}$, $\ket{11}$. We've already met the simplest example, the [SWAP gate](https://en.wikipedia.org/wiki/Quantum_logic_gate#Swap_gate)
+
+$$
+\operatorname{SWAP}=\begin{pmatrix}
+1 & 0 & 0 & 0 \\\
+0 & 0 & 1 & 0 \\\
+0 & 1 & 0 & 0 \\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+$$.
+
+$\operatorname{SWAP}$ switches the occupancies of the two sites:
+
+$$
+\operatorname{SWAP}\ket{10} = \ket{01}.
+$$
+
+Note that it takes product states to product states. A slightly more complicated example is the square root of SWAP
+
+$$
+\sqrt{\operatorname{SWAP}}=\begin{pmatrix}
+1 & 0 & 0 & 0 \\\
+0 & \frac{1}{2}(1+i) & \frac{1}{2}(1-i) & 0 \\\
+0 & \frac{1}{2}(1-i) & \frac{1}{2}(1+i) & 0 \\\
+0 & 0 & 0 & 1
+\end{pmatrix}.
+$$
+
+Unlike $\operatorname{SWAP}$ this generates _entanglement_. That is, it takes a product state to a non-product state.
+
+$$
+\sqrt{\operatorname{SWAP}}\ket{10} = \frac{1}{2}\left[(1+i)\ket{10}+(1-i)\ket{01}\right].
+$$
+
+$\sqrt{\operatorname{SWAP}}$ conserves number of 1s and 0s. In fact, it is fully rotationally invariant. $\sqrt{\operatorname{SWAP}}$ together with arbitrary single qubit unitary operators form __universal gate set__ that allows for universal quantum computation.
+
+### Gate notation
+
+One of the additional complexities of quantum circuits relative to CAs is that we have to consider both unitaries and their conjugates (when we evolve an operator in the Heisenberg picture, for example). For this reason it's convenient to introduce a color-coded notation 
+
+<figure align="center">
+<img src="assets/matrix_elements.svg" width="70%">
+<figcaption> Notation for gates and their conjugates </figcaption>
+</figure>
+
+Putting all these notational elements together, it's possible to express the condition of unitarity of a two qubit gate in purely graphical form:
+
+<figure align="center">
+<img src="assets/diag_unitarity.png" width="70%">
+<figcaption> Unitarity of a two qubit gate expressed in graphical notation </figcaption>
+</figure>
+
+Much better!
+
+### Locality 
+
+In analogy with block CAs, we are going to be concerned with *brickwork unitary circuits*, in which a sequence of two qubit gates is applied in an alternating fashion. Just like their classical counterparts, we'll see that these systems come with an inbuilt notion of causality.
+
+Aside from the intrinsic interest of exploring the analogy to CAs, there is a very good reason to explore circuits in which unitaries act locally, rather than between abitrarily separated qubits. Namely, locality is often a feature of real quantum computing architectures, such as [Google's Sycamore processor](https://en.wikipedia.org/wiki/Sycamore_processor), where qubits are arranged in a square lattice with coupling between nearest neighbors. 
+
+<figure align="center">
+<img src="assets/google-sycamore-schematic.png" width="400"/>
+<img src="assets/google-sycamore-photo.png" width="400"/>
+<figcaption> (top) a schematic view of the Google Sycamore processor and (bottom) the real thing.</figcaption>
+</figure>
+
+The propagation of causal influences characeristic of local quantum circuits is therefore very much a feature of real quantum computing platforms, as we'll see in more detail later.
+
+### Computational complexity
+
+One big difference between a quantum circuit and a CA is the difficulty of simulating each on a (classical) computer. The state of a CA consists of a single bitstring giving the value of each cell, and the state at the next instant is obtained by applying a series of deterministic maps, which could easily be parallelised if necessary. On the other hand, the state of the qubits at an instant is a vector in $2^N$ dimensional space, which will become difficult to store when $N$ is not too large. Updating the state involves acting on this vector with a unitary matrix. Naive matrix-vector multiplication takes a number of operations $O(\operatorname{dim}^2)=2^{2N}$. Since our gates amount to *sparse* matrices, it is possible to instead accomplish this in $O(\operatorname{dim})=2^{N}$, but this is _still exponentially hard in the number of qubits_. The difficulty of performing such calculations on a classical computer is the basis of ["quantum supremacy"](https://en.wikipedia.org/wiki/Quantum_supremacy) demonstrations based on sampling the output of quantum circuits. Roughly, the idea is to measure (approximately) the distribution of bitstrings outputted by a quantum circuit from a fixed initial state, in a regime where a classical simulation of the same circuit is intractable.
+
+The total number of (time) steps $T$ taken is often referred to as the *depth* of the circuit. For low depth $T<N$ it pays to move  _horizontally_ instead (i.e. in the spatial direction). Note that the problem of finding the best way to contract a general tensor network is NP-hard.
+
+## Dynamics of quantum information
+
+We now turn to some of the features of dynamics in quantum circuits, beginning with the simplest question: computing the expectatio value of a (local) operator
+
+### Expectation values
+
+Here the goal is to evaluate $\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}$ for a local operator $\mathcal{O}$, where $\mathcal{U}$ is the *overall* unitary operator describing the whole circuit. The simplest example of such an operator is a Pauli operator $X$, $Y$, or $Z$ for one of the qubits. 
+
+This calculation
+ 
+<div align="center"> 
+<object data="assets/expectation.svg" type="image/svg+xml" width='600'></object>
+</div>
+
+Folded
+
+<figure align="center">
+<img src="assets/diag_folded.png" width="60%">
+<figcaption> The folded picture. The purple gate represents both $U$ and $U^\dagger$ for a gate.</figcaption>
+</figure>
+
+- After folding, lines correspond to two indices / 4 dimensions 
+
+---
+
+## Unitarity in folded picture
+
+- Semicircle denotes $\delta_{ab}$
+
+<figure align="center">
+<img src="assets/folded-unitarity.png" width="60%">
+</figure>
+
+<object data="assets/folded.svg" type="image/svg+xml" width='2000'></object>
 
 
+---
 
+## $\bra{\Psi}\mathcal{O}\ket{\Psi}$ in folded picture
+
+- Emergence of "light cone"
+
+<object data="assets/folded-expectation.svg" type="image/svg+xml"></object>
+
+---
+
+## Reduced density matrix
+
+$$
+\rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_B\left[U\ket{\Psi_0}\bra{\Psi_0}U^\dagger\right]
+$$
+
+<object data="assets/reduced-density-matrix.svg" type="image/svg+xml"></object>
+
+---
+
+## [Schmidt decomposition](https://en.wikipedia.org/wiki/Schmidt_decomposition)
+
+- In `$\mathcal{H}=\mathcal{H}_A\otimes\mathcal{H}_B$` any state `$\Psi_{AB}$` can be written
+
+`$$
+\ket{\Psi_{AB}} = \sum_{\alpha=1}^{\min(\operatorname{dim} \mathcal{H}_A, \operatorname{dim} \mathcal{H}_B)} \lambda_\alpha \ket{u_\alpha}_A\otimes\ket{v_\alpha}_B
+$$`
+
+- $\ket{u_\alpha}$ and $\ket{v_\alpha}$ orthonormal; $\lambda_\alpha\geq 0$
+
+- $\lambda_\alpha$ quantify _entanglement_ between A and B
+
+---
+
+## Apply to reduced density matrix
+
+`$$
+\begin{align}
+\rho_A &= \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right] \\
+&= \sum_\alpha \lambda_\alpha^2 \ket{u_\alpha}\bra{u_\alpha}
+\end{align}
+$$`
+
+- $p_\alpha\equiv \lambda_\alpha^2$ are the eigenvalues of $\rho_A$
+
+---
+
+## Schmidt rank
+
+- $\operatorname{rank}=\min(\operatorname{dim} \mathcal{H}_A, \operatorname{dim} \mathcal{H}_B)=2^{\min(2t-2, N_A)}$
+
+- Here $t=4$, $N_A=4$
+<object data="assets/contracted-density-matrix.svg" type="image/svg+xml"></object>
+
+---
+
+## Entanglement entropy
+
+- von Neumann entropy of $\rho_A$
+
+`$$
+\begin{align}
+S_A &= -\operatorname{tr}\left[\rho_A\log \rho_A\right]\\
+&=-\sum_\alpha p_\alpha \log p_\alpha
+\end{align}
+$$`
+
+- Maximum value for equal probabilities $p_\alpha = \frac{1}{2^{\min(2t-2, N_A)}}$
+
+$$
+S_A \leq \min(2t-2, N_A)\log 2
+$$
+
+---
+
+## Maximum entropy growth?
+
+Bell pairs and SWAPs
+
+---
+
+
+## Dual unitarity
+
+Includes the dual models we discussed so far in classical case
+
+---
+
+## Thermalization
+
+To infinite temperature at long enough times
+
+---
+
+
+## Operator spreading
+
+Introduce operator expansion
+
+---
+
+## OTOC
+
+In terms of operator expansion
+
+---
+
+## Maximal velocity circuits
+
+How does it look for dual unitaries?
+
+---
+
+## Google OTOC experiment
+
+---
+
+## What's so hard about quantum mechanics?
+
+- Can understand the average OTOC 
+
+---
+
+## Curved space?
+
+Higher dimensions, AdS, etc.
+
+---
+
+## Concrete model: kicked Ising
+
+---
+
+## Horizon effect
+
+Entanglement velocity and quasiparticle picture
+
+---
+
+## Maximal entangling states
+
+---
+
+## Maximal entanglement velocity implies dual unitarity
+
+---
+
+## Higher dimensions?
+
+---
+
+## Measurements and purification
+
+Resemblance to CA models with directed percolation
+
+---
+
+Applications: VQA ?
 
 
 ## Frontiers
 
 Measurements and complexity
+
+citation

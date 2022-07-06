@@ -22,7 +22,7 @@ const difference = function(p) {
         let inp = p.createInput(ruleNumber)
             .parent("difference")
             .style('font-size', '20px')
-            .position(320, -60)
+            .position(290, -60)
             .size(50)
             .style('position', 'relative')
 

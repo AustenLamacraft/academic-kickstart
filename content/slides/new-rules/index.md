@@ -536,7 +536,9 @@ $$
 
 - Semicircle denotes $\delta_{ab}$
 
-**Better figure here**
+<figure align="center">
+<img src="assets/folded-unitarity.png" width="60%">
+</figure>
 
 <object data="assets/folded.svg" type="image/svg+xml" width='2000'></object>
 

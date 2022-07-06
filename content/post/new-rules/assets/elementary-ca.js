@@ -9,6 +9,7 @@ const elementary = function(p) {
     let cells = [];
     
     let ruleNumber = 110
+    let initial = "single 1"
     
     p.setup = function() {
         p.createCanvas(800, 500);
@@ -17,18 +18,34 @@ const elementary = function(p) {
         col = p.floor(p.windowWidth / cellSize);
         rw = p.floor(p.windowHeight / cellSize);
 
-        let inp = p.createInput(ruleNumber);
-        inp.style('font-size', '40px')
-        inp.parent("elementary-ca")
-        inp.style('position', 'relative')
-        inp.position(-80, -15);
-        inp.size(70);
+        let inp = p.createInput(ruleNumber)
+            .parent("elementary-ca")
+            .style('font-size', '20px')
+            .position(320, -60)
+            .size(50)
+            .style('position', 'relative')
 
         const setRule = function() {
             ruleNumber = Number(this.elt.value)
         }
 
         inp.input(setRule);
+
+        initialCondition = p.createSelect()
+            .style('font-size', '20px')
+            .parent("elementary-ca")
+            .position(-340, -60)
+            .style('position', 'relative')
+            .size(100)
+            
+        initialCondition.option('single 1')
+        initialCondition.option('random')
+        
+        const setInitial = function() {
+            initial = initialCondition.value();
+        }
+
+        initialCondition.changed(setInitial);
         reset();
 
         
@@ -38,7 +55,9 @@ const elementary = function(p) {
     function reset() {
         // set cell to random val
         for (let i = 0; i < col; i++) {
-            cells[i] = p.floor(p.random(2));
+            (initial == "single 1")
+                ? cells[i] = (i != p.floor(col / 2)) ? "0" : "1"
+                : cells[i] = p.floor(p.random(2));
         }
 
         gen = 0;
