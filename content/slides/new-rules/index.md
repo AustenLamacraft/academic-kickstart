@@ -640,25 +640,24 @@ $$
 
 ### Toy model revisted 
 
+<figure align="center">
+<img src="assets/bell-swap.png" width="100%"/>
+</figure>
 
-
----
-
-- Each pair is now in [Bell state](https://en.wikipedia.org/wiki/Bell_state)
-
-`$$
+- Each pair in [Bell state](https://en.wikipedia.org/wiki/Bell_state) `$
 \ket{\Phi^+}_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}_{2n}\ket{0}_{2n+1}+ \ket{1}_{2n}\ket{1}_{2n+1}\right]
-$$`
+$`
 
-- Reduced density matrix for one member of pair
+- Reduced density matrix for one member: `$\operatorname{tr}_{2}\left[\ket{\Phi^+}_{12}\bra{\Phi^+}_{12}\right] = \frac{1}{2}\mathbb{1}_1$`
 
-`$$
-\operatorname{tr}_{2}\left[\ket{\Phi^+}_{12}\bra{\Phi^+}_{12}\right] = \frac{1}{2}\mathbb{1}_1
-$$`
 
 - Entanglement entropy of 1 bit
 
 ---
+
+<figure align="center">
+<img src="assets/bell-swap.png" width="100%"/>
+</figure>
 
 - For a Bell pair consisting of qubits at sites $m$ and $n$:
 
@@ -666,11 +665,9 @@ $$`
 
   - If $m, n\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$ (pure)
 
-- Only first case contributes to $S_A$
-
-$$
+- Only first case contributes to `$
  S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
-$$
+$`
 
 - Just like mutual information in classical version!
 

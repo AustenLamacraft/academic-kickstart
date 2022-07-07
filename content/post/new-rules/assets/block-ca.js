@@ -9,7 +9,7 @@
 const block = function(p) {
 
     let col, rw, gen;
-    const cellSize = 4
+    const cellSize = 2
     let cells = []; // will contain two copies of the system
     
     let blockNumber = 2 // From 0 to 23. 2 is SWAP
@@ -39,19 +39,17 @@ const block = function(p) {
     const allBlocks = permutator(inputs)
     
     p.setup = function() {
-        p.createCanvas(800, 500);
+        p.createCanvas(p.windowWidth / 1.5, p.windowHeight / 2);
         p.noStroke();
 
-        col = p.floor(p.windowWidth / cellSize);
-        rw = p.floor(p.windowHeight / cellSize);
-
-        let inp = p.createInput(blockNumber)
+        col = p.floor(p.width / cellSize);
+        rw = p.floor(p.height / cellSize);
+        
+        const inp = p.createInput(blockNumber)
             .style('font-size', '20px')
             .parent("block")
-            .position(450, -50)
-            .style('position', 'relative')
-        
-        inp.size(50);
+            .position(-55, -30, 'relative')
+            .size(50);
 
         const setRule = function() {
             blockNumber = Number(this.elt.value)
@@ -59,12 +57,11 @@ const block = function(p) {
 
         inp.input(setRule);
 
-        architectureSelector = p.createSelect()
+        const architectureSelector = p.createSelect()
             .style('font-size', '20px')
             .parent("block")
-            .position(-250, -45)
+            .position(-20, -50, 'relative')
             .size(170)
-            .style('position', 'relative')
             
         architectureSelector.option('single block')
         architectureSelector.option('random')
@@ -76,12 +73,11 @@ const block = function(p) {
 
         architectureSelector.changed(setArchitecture);
 
-        viewSelector = p.createSelect()
+        const viewSelector = p.createSelect()
             .style('font-size', '20px')
             .parent("block")
-            .position(-420, -75)
-            .size(170)
-            .style('position', 'relative')
+            .position(-10, -50, 'relative')
+            .size(150)
             
         viewSelector.option("cell values")
         viewSelector.option('differences')

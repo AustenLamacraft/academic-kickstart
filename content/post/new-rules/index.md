@@ -82,7 +82,7 @@ Since the domain of $f$ consists of the $2^3=8$ possible assignments of the thre
 
 <script src="assets/elementary-ca.js"></script>
 <figure align="center">
-<div id="elementary-ca"  style="display: inline-block"></div>
+<div id="elementary-ca" style="display: inline-block; position: relative"></div>
 <figcaption>Elementary cellular automata starting from either a single 1 or a random row. Try them out by changing the number on the right from 0 to 255. </figcaption>
 </figure>
 
@@ -111,7 +111,7 @@ Used as RNG in Wolfram: https://mathworld.wolfram.com/Rule30.html
 
 <script src="assets/ca-difference.js"></script>
 <figure align="center">
-<div id="difference" style="display: inline-block"></div>
+<div id="difference" style="display: inline-block; position: relative"></div>
 <figcaption>Evolving two copies starting from the same random initial conditions except for a single altered cell. The red and white colors indicate where the two copies differ.</figcaption>
 </figure>
 
@@ -125,7 +125,7 @@ One way forward that is often used in theoretical physics is to give up on the p
 
 <script src="assets/pca-chaos.js"></script>
 <figure align="center">
-<div id="pca-chaos" style="display: inline-block"></div>
+<div id="pca-chaos" style="display: inline-block; position: relative"></div>
 <figcaption>$x^t\oplus y^t$ for two PCAs starting from initial conditions that are random but only differ on one site ("site") or are random and independent ("row"). The number in the bottom right is the probability $p$ introduced in the text. Note that in this case the neighborhood includes next nearest neighbors.</figcaption>
 </figure>
 
@@ -141,9 +141,12 @@ Note that in a finite system the two copies will *always* merge after a sufficie
 
 The power of the probabilistic approach is that is possible to understand the above behavior in terms of a Markov chain on the difference $z^t\equiv x^t\oplus y^t$ *alone*, without reference to the individual configurations ([Derrida and Stauffer (1986)](https://iopscience.iop.org/article/10.1209/0295-5075/2/10/001/meta)). When $z^t=0$ on a neighborhood that provides an input to a rule, we have $z^{t+1}=0$ for the output. If the inputs differ on at least one site, however, $z^{t+1}=1$ at the output with probability $2p(1-p)$. 
 
-Let's modify the rules slightly for a moment, so that the rules $f$ that determine how a site is updated depend only on the two neighboring sites, and not the site itself. The graph of dependencies then takes the form of a square lattice
+Let's modify the rules slightly for a moment, so that the rules $f$ that determine how a site is updated depend only on the two neighboring sites, and not the site itself. The graph of dependencies then takes the form of a square lattice tilted at 45 degrees
 
-**TODO: figure**
+<figure align="center">
+<img src="assets/extended-lattice.png" width="60%"/>
+<figcaption>The graph of dependencies of a CA where cell $n$ depends only cells $n-1$ and $n+1$.</figcaption>
+</figure>
 
 A given site has $z^t_n=1$ with probability $2p(1-p)$ only if one of its two antecedents $z^t_{n\pm 1}$ did. It turns out this is a well known statistical mechanics model called (site) [directed percolation](https://en.wikipedia.org/wiki/Directed_percolation), in which one looks for a connected cluster of sites that are occupied with probability $x=2p(1-p)$. For nearest neigbor neighborhoods this probability $x\leq 1/2$ and is never high enough to reach the percolating phase where an infinite cluster is present, which occurs for $x_\text{crit}\sim 0.706$. Thus in the experiment of the previous section we had to use next nearest neighbors.
 
@@ -169,7 +172,7 @@ A useful way to picture what is going, at least in the case of one spatial dimen
 <figcaption>Spacetime representation of a block celluar automaton in one space and one time dimension (running vertically). The blue squares with two inputs and two outputs represent an invertible mapping on the possible states of two sites: 00, 01, 10, 11.</figcaption>
 </figure>
 
-A more creative way to picture the mechanics of block CAs is provided by this tweet from Matt Henderson.
+A more creative way to picture the mechanics of block CAs is provided by this tweet from Matt Henderson (note that Matt's blocks are not invertible).
 
 <div>
 <blockquote class="twitter-tweet" align="center"><p lang="en" dir="ltr">given these four jigsaw pieces, there is only one way to fill in the rest of the puzzle. The solution ends up drawing a Sierpinski triangle. Can you see why? <a href="https://t.co/OvxVz2oehy">pic.twitter.com/OvxVz2oehy</a></p>&mdash; Matt Henderson (@matthen2) <a href="https://twitter.com/matthen2/status/1529552315337818112?ref_src=twsrc%5Etfw">May 25, 2022</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -195,7 +198,7 @@ As before it's useful to plot the look at two trajectories that initially differ
 
 <script src="assets/block-ca.js"></script>
 <figure align="center">
-<div id="block"  style="display: inline-block"></div>
+<div id="block"  style="display: inline-block; position: relative"></div>
 <figcaption>All possible blocks (0-23) for a two-cell Margolus neighborhood. </figcaption>
 </figure>
 
@@ -229,7 +232,10 @@ As a simple example, suppose that $X=0,1$, $Y=0,1$, with 0 and 1 equally likely 
 
 To get a feel for the dynamics of mutual information in a CA, consider the following toy model. Start with an initial distribution over states which factorizes over pairs $(x_0, x_1)$, $(x_2, x_3)$, and so on, each with the above distribution. Then apply a block CA consisting only of SWAPs (block 2 in our numbering scheme). 
 
-**Picture**
+<figure align="center">
+<img src="assets/bell-swap.png" width="100%"/>
+<figcaption>Initially neighboring correlated pairs subject to a block CA consisting of SWAP operations. </figcaption>
+</figure>
 
 Under this dynamics, the leftmost member of each correlated pair flies to the left; the rightmost to the right. Let's now consider the mutual information $I(A;\bar A)$ between a finite region $A$ and its complement $\bar A$. This is equal to 1 bit for every one of the initial pairs where one member is in $A$ and the other is in $\bar A$. Assuming we started out with a whole number of pairs in $A$ then after $t$ time steps we have
 

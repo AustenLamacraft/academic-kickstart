@@ -17,18 +17,17 @@ const pca = function(p) {
     let view = 'cell values'
     
     p.setup = function() {
-        p.createCanvas(800, 500);
+        p.createCanvas(p.windowWidth / 1.5, p.windowHeight / 2);
         p.noStroke();
 
-        col = p.floor(p.windowWidth / cellSize);
-        rw = p.floor(p.windowHeight / cellSize);
+        col = p.floor(p.width / cellSize);
+        rw = p.floor(p.height / cellSize);
 
-        let inp = p.createInput(prob);
-        inp.style('font-size', '20px')
-        inp.parent("pca-chaos")
-        inp.position(370, -60);
-        inp.style('position', 'relative')
-        inp.size(50);
+        const inp = p.createInput(prob)
+            .style('font-size', '20px')
+            .parent("pca-chaos")
+            .position(-55, -22, 'relative')
+            .size(50);
 
         const setRule = function() {
             prob = Number(this.elt.value)
@@ -36,11 +35,10 @@ const pca = function(p) {
 
         inp.input(setRule);
 
-        sel = p.createSelect()
+        const sel = p.createSelect()
             .style('font-size', '20px')
             .parent("pca-chaos")
-            .position(-290, -80)
-            .style('position', 'relative')
+            .position(200, -50, 'relative')
             .size(80);
         
         sel.option('site')
@@ -53,11 +51,10 @@ const pca = function(p) {
 
         sel.changed(setInitialConditions);
 
-        viewSelector = p.createSelect()
+        const viewSelector = p.createSelect()
             .style('font-size', '20px')
             .parent("pca-chaos")
-            .position(-370, -50)
-            .style('position', 'relative')
+            .position(-50, -50, 'relative')
             .size(125)
             
         viewSelector.option("cell values")
