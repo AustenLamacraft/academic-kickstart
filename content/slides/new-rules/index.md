@@ -18,7 +18,7 @@ scripts: ['https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js']
 
 # New Rules:
 ## Quantum Circuits, Cellular Automata, Complexity and Chaos
-[austen.uk/slides/new-rules](austen.uk/slides/new-rules)
+[austen.uk/slides/new-rules](https://austen.uk/slides/new-rules)
 
 Austen Lamacraft, University of Cambridge 
 
@@ -127,6 +127,13 @@ $$
 <div id="elementary-ca" style="display: inline-block; position: relative"></div>
 
 - Rule 110 is capable of universal computation!
+
+---
+
+<figure align="center">
+<img src="assets/twenty-years-of-nks.png" width="400"/>
+<figcaption> That's Christmas sorted</figcaption>
+</figure>
 
 ---
 
@@ -627,7 +634,7 @@ $$
 
 - $\rho_A$ very useful for quantifying *entanglement*
 
-- If `$\ket{\Psi} = \ket{\psi}_A \otimes \ket{\phi}_{\bar A}$` then $\rho_A = \ket{\psi}_A\bra{\psi}_A$
+- If `$\ket{\Psi} = \ket{\psi}_A \otimes \ket{\phi}_{\bar A}$` then $\rho_A = \ket{\psi}_A\bra{\psi}_A$`
 
 - Any deviation from product state leads to *mixed* density matrix
 
@@ -832,23 +839,14 @@ $$`
 |**Ensemble** | Random maps   | Random unitaries |
   
 
-> Thanks to my collaborators Pieter Claeys, Jonah Herzog-Arbeitman, and Sarang Gopalakrishnan
+> Thanks to Pieter Claeys, Jonah Herzog-Arbeitman, and Sarang Gopalakrishnan for sharing their ideas
 
 ---
 
-### References
+### Further reading
 
-[Links at [austen.uk/slides/new-rules](austen.uk/slides/new-rules)]
-- Review on circuits [Andrew Potter, Romain Vasseur (2021)](https://arxiv.org/abs/2111.08018)
-- Operator spreading in circuits: [A Nahum, S Vijay, J Haah (2018)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014)
-- Dual unitary circuits were introduced in 
-  - [Gopalakrishnan and Lamacraft](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309) for kicked Ising
-  - [Bertini, Kos, and Prosen](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601) in general
-  - [Piroli _et al_](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304) discuss more general initial conditions
+[Links at [austen.uk/slides/new-rules](https://austen.uk/slides/new-rules)]
+- Review on random circuits [Andrew Potter, Romain Vasseur (2021)](https://arxiv.org/abs/2111.08018)
 
-MIPT
-
-
-Classical analogs of OTOCs and measurements
-
-http://www.scholarpedia.org/article/Synchronization_of_extended_chaotic_systems
+- Transition to chaos in CA closely linked to [synchronization of extended chaotic systems
+](http://www.scholarpedia.org/article/Synchronization_of_extended_chaotic_systems)
