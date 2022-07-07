@@ -8,5 +8,5 @@ categories: []
 all_day: false
 publishDate: 2022-06-07T00:00:00Z
 slides: new-rules
-draft: true
+draft: false
 ---

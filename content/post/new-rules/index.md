@@ -543,6 +543,6 @@ Resemblance to CA models with directed percolation
 
 ## Acknowledgements
 
-I'd like to express my thanks to my collaborators Sarang Gopalakrishnan, Jonah Herzog-Arbeitmann, and especially to Pieter Claeys for patiently explaining so many of his ideas.
+I'd like to express my thanks to my collaborators Pieter Claeys, Jonah Herzog-Arbeitman, and Sarang Gopalakrishnan for sharing their ideas on quantum circuits.
 
 ## References
