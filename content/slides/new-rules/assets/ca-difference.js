@@ -13,16 +13,16 @@ const difference = function(p) {
     let ruleNumber = 30
     
     p.setup = function() {
-        p.createCanvas(800, 500);
+        p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
         p.noStroke();
 
-        col = p.floor(p.windowWidth / cellSize);
-        rw = p.floor(p.windowHeight / cellSize);
+        col = p.floor(p.width / cellSize);
+        rw = p.floor(p.height / cellSize);
 
-        let inp = p.createInput(ruleNumber)
+        const inp = p.createInput(ruleNumber)
             .parent("difference")
             .style('font-size', '20px')
-            .position(320, -60)
+            .position(-100, -40)
             .size(50)
             .style('position', 'relative')
 

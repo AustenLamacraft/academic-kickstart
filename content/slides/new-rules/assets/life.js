@@ -10,7 +10,7 @@ const life = function(p) {
   let next;
 
   p.setup = function() {
-    p.createCanvas(720, 400);
+    p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
     w = 20;
     // Calculate columns and rows
     columns = p.floor(p.width / w);

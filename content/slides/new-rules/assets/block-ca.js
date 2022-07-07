@@ -9,7 +9,7 @@
 const block = function(p) {
 
     let col, rw, gen;
-    const cellSize = 4
+    const cellSize = 2
     let cells = []; // will contain two copies of the system
     
     let blockNumber = 2 // From 0 to 23. 2 is SWAP
@@ -39,19 +39,19 @@ const block = function(p) {
     const allBlocks = permutator(inputs)
     
     p.setup = function() {
-        p.createCanvas(800, 500);
+        p.createCanvas(p.windowWidth / 2, p.windowHeight / 2);
         p.noStroke();
 
-        col = p.floor(p.windowWidth / cellSize);
-        rw = p.floor(p.windowHeight / cellSize);
+        col = p.floor(p.width / cellSize);
+        rw = p.floor(p.height / cellSize);
 
-        let inp = p.createInput(blockNumber);
-        inp.style('font-size', '40px')
-        inp.parent("block")
-        inp.style('position', 'relative')
-        inp.position(710, 440);
+        const inp = p.createInput(blockNumber)
+            .style('font-size', '20px')
+            .parent("block")
+            .position(-95, -40)
+            .style('position', 'relative')
         
-        inp.size(70);
+        inp.size(50);
 
         const setRule = function() {
             blockNumber = Number(this.elt.value)
@@ -59,12 +59,12 @@ const block = function(p) {
 
         inp.input(setRule);
 
-        architectureSelector = p.createSelect()
+        const architectureSelector = p.createSelect()
             .style('font-size', '20px')
-            .style('position', 'relative')
             .parent("block")
-            .position(10, 440)
+            .position(10, -45)
             .size(170)
+            .style('position', 'relative')
             
         architectureSelector.option('single block')
         architectureSelector.option('random')
@@ -76,12 +76,12 @@ const block = function(p) {
 
         architectureSelector.changed(setArchitecture);
 
-        viewSelector = p.createSelect()
+        const viewSelector = p.createSelect()
             .style('font-size', '20px')
-            .style('position', 'relative')
             .parent("block")
-            .position(10, 470)
+            .position(-160, -75)
             .size(170)
+            .style('position', 'relative')
             
         viewSelector.option("cell values")
         viewSelector.option('differences')

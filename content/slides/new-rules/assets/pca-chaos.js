@@ -14,20 +14,21 @@ const pca = function(p) {
 
     let prob = 0.5
     let initialCondition = 'site'
+    let view = 'cell values'
     
     p.setup = function() {
-        p.createCanvas(800, 500);
+        p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
         p.noStroke();
 
-        col = p.floor(p.windowWidth / cellSize);
-        rw = p.floor(p.windowHeight / cellSize);
+        col = p.floor(p.width / cellSize);
+        rw = p.floor(p.height / cellSize);
 
-        let inp = p.createInput(prob);
-        inp.style('font-size', '40px')
+        const inp = p.createInput(prob);
+        inp.style('font-size', '20px')
         inp.parent("pca-chaos")
-        inp.position(-90, -15);
+        inp.position(-60, -20);
         inp.style('position', 'relative')
-        inp.size(80);
+        inp.size(50);
 
         const setRule = function() {
             prob = Number(this.elt.value)
@@ -35,25 +36,40 @@ const pca = function(p) {
 
         inp.input(setRule);
 
-        sel = p.createSelect()
-        sel.style('font-size', '20px');
-        sel.parent("pca-chaos")
-        sel.position(5, -65);
-        sel.style('position', 'relative')
-        sel.option('site');
-        sel.option('row');
-        sel.size(80);
-      
+        const sel = p.createSelect()
+            .style('font-size', '20px')
+            .parent("pca-chaos")
+            .position(-770, -60)
+            .size(80)
+            .style('position', 'relative')
+        
+        sel.option('site')
+        sel.option('row')
+            
         const setInitialConditions = function() {
             initialCondition = sel.value();
         }
 
         sel.changed(setInitialConditions);
 
-        reset();
-
+        const viewSelector = p.createSelect()
+            .style('font-size', '20px')
+            .parent("pca-chaos")
+            .position(5, -50)
+            .size(125)
+            .style('position', 'relative')
+            
+        viewSelector.option('cell values')
+        viewSelector.option('differences')
         
+        const setView = function() {
+            view = viewSelector.value();
+        }
 
+        viewSelector.changed(setView);
+
+
+        reset();
     }
 
     function reset() {
@@ -72,7 +88,13 @@ const pca = function(p) {
     p.draw = function() {
         for (let i = 0; i < col; i++) {
             const [cell1, cell2] = cells[i];
-            (cell1 == cell2) ? p.fill(255, 0, 255) : p.fill(0, 255, 255);
+            if (view == 'cell values') {
+                (cell1 == cell2) ? p.fill(cell1 * 255, cell1 * 150, 255) : p.fill(255, cell1 * 255, cell1 * 255);
+            }
+            else {
+                (cell1 == cell2) ? p.fill(255, 0, 255) : p.fill(0, 255, 255);
+            }
+            // (cell1 == cell2) ? p.fill(255, 0, 255) : p.fill(0, 255, 255);
             p.rect(i * cellSize, gen * cellSize, cellSize, cellSize );
         }
         gen++;

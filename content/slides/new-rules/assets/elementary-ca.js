@@ -9,26 +9,43 @@ const elementary = function(p) {
     let cells = [];
     
     let ruleNumber = 110
+    let initial = "single 1"
     
     p.setup = function() {
-        p.createCanvas(800, 500);
+        p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
         p.noStroke();
 
-        col = p.floor(p.windowWidth / cellSize);
-        rw = p.floor(p.windowHeight / cellSize);
+        col = p.floor(p.width / cellSize);
+        rw = p.floor(p.height / cellSize);
 
-        let inp = p.createInput(ruleNumber);
-        inp.style('font-size', '40px')
-        inp.parent("elementary-ca")
-        inp.style('position', 'relative')
-        inp.position(-80, -15);
-        inp.size(70);
+        const inp = p.createInput(ruleNumber)
+            .parent("elementary-ca")
+            .style('font-size', '20px')
+            .position(-100, -30)
+            .size(50)
+            .style('position', 'relative')
 
         const setRule = function() {
             ruleNumber = Number(this.elt.value)
         }
 
         inp.input(setRule);
+
+        const initialCondition = p.createSelect()
+            .style('font-size', '20px')
+            .parent("elementary-ca")
+            .position(-750, -30)
+            .style('position', 'relative')
+            .size(100)
+            
+        initialCondition.option('single 1')
+        initialCondition.option('random')
+        
+        const setInitial = function() {
+            initial = initialCondition.value();
+        }
+
+        initialCondition.changed(setInitial);
         reset();
 
         
@@ -38,7 +55,9 @@ const elementary = function(p) {
     function reset() {
         // set cell to random val
         for (let i = 0; i < col; i++) {
-            cells[i] = p.floor(p.random(2));
+            (initial == "single 1")
+                ? cells[i] = (i != p.floor(col / 2)) ? "0" : "1"
+                : cells[i] = p.floor(p.random(2));
         }
 
         gen = 0;
