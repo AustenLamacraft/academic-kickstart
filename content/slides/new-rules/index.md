@@ -39,9 +39,9 @@ Austen Lamacraft, University of Cambridge
 
 - Fate of cell determined by eight neighbors
 
-  1. Any live cell with two or three live neighbours survives.
-  2. Any dead cell with three live neighbours becomes a live cell.
-  3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+  1. Any live cell with two or three live neighbours survives
+  2. Any dead cell with three live neighbours becomes a live cell
+  3. All other live cells die in the next generation
 
 - Complex behavior!
 
@@ -76,7 +76,9 @@ Austen Lamacraft, University of Cambridge
  
 - When is quantum dynamics harder?
  
-- **Little quantum computation *per se*, though it informs the field**
+ <p align="center" class="fragment">
+<strong>Little quantum computation <i>per se</i>, though it saturates the field</strong>
+</p>
 
 ---
 
@@ -122,7 +124,7 @@ $$
 - Many behaviors, from ordered (Rule 18) to chaotic (Rule 30)
 
 <script src="assets/elementary-ca.js"></script>
-<div id="elementary-ca" style="display: inline-block"></div>
+<div id="elementary-ca" style="display: inline-block; position: relative"></div>
 
 - Rule 110 is capable of universal computation!
 
@@ -132,11 +134,6 @@ $$
 <img src="assets/cambridge-north.png" width="500" style="display: inline-block"/>
 </p>
 
----
-
-### Multidomain automata
-
-https://slackermanz.com/
 
 ---
 
@@ -149,7 +146,7 @@ https://slackermanz.com/
 
 - Notion of a causal "light cone" (45 degree lines)
 
-- Variety of possible behaviours: chaos, periodicity, ...
+- Variety of possible behaviors: chaos, periodicity, ...
 
 ---
 
@@ -158,7 +155,7 @@ https://slackermanz.com/
 - Rapid growth of small differences between two trajectories
 
 <script src="assets/ca-difference.js"></script>
-<div id="difference" style="display: inline-block"></div>
+<div id="difference" style="display: inline-block; position: relative"></div>
 
 - Smallest change: flip one site and monitor $z^t\equiv x^t\oplus y^t$
 
@@ -190,7 +187,9 @@ https://slackermanz.com/
 - Choose rules iid for each site and instant
 
 <script src="assets/pca-chaos.js"></script>
-<div id="pca-chaos" style="display: inline-block"></div>
+<div id="pca-chaos" style="display: inline-block; position: relative"></div>
+
+- Cell values are now white noise
 
 ---
 
@@ -290,7 +289,7 @@ https://slackermanz.com/
 ---
 
 <script src="assets/block-ca.js"></script>
-<div id="block"  style="display: inline-block"></div>
+<div id="block"  style="display: inline-block; position: relative"></div>
 
 ---
 
@@ -318,7 +317,7 @@ https://slackermanz.com/
 
 - Disjoint regions $A$ and $\bar A$: how much does one tell about the other?
 
-- Use [mutual information](https://en.wikipedia.org/wiki/Mutual_information): a measure of the non-independence of random variables 
+- Use [mutual information](https://en.wikipedia.org/wiki/Mutual_information): measure of dependence of random variables 
   
 - Suggested in this context by [Pizzi *et al.* (2022)](https://arxiv.org/abs/2204.03016)
   
@@ -330,8 +329,10 @@ I(X;Y) \equiv S(X) + S(Y) - S(X,Y)
 $$
   - $S(X)$ is entropy of $p_X(x)$; marginal distribution of $X$
   - $S(Y)$ is entropy of $p_Y(y)$; marginal distribution of $Y$
-  - $S(X,Y)$ is entropy of joint distribution $p(X,Y)$
+  - $S(X,Y)$ is entropy of joint distribution $p_{(X,Y)}(x,y)$
 
+- Vanishes if $p_{(X,Y)}(x,y)=p_X(x)p_Y(y)$
+ 
 ---
 
 ### Simple example

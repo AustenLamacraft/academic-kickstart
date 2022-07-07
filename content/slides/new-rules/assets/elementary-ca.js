@@ -21,9 +21,8 @@ const elementary = function(p) {
         const inp = p.createInput(ruleNumber)
             .parent("elementary-ca")
             .style('font-size', '20px')
-            .position(-100, -30)
+            .position(-100, -30, 'relative')
             .size(50)
-            .style('position', 'relative')
 
         const setRule = function() {
             ruleNumber = Number(this.elt.value)
@@ -34,8 +33,7 @@ const elementary = function(p) {
         const initialCondition = p.createSelect()
             .style('font-size', '20px')
             .parent("elementary-ca")
-            .position(-750, -30)
-            .style('position', 'relative')
+            .position(-750, -30, 'relative')
             .size(100)
             
         initialCondition.option('single 1')
