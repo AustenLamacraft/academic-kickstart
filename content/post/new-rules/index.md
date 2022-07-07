@@ -355,11 +355,11 @@ Aside from the intrinsic interest of exploring the analogy to CAs, there is a ve
 <figcaption> (top) a schematic view of the Google Sycamore processor and (bottom) the real thing.</figcaption>
 </figure>
 
-The propagation of causal influences characeristic of local quantum circuits is therefore very much a feature of real quantum computing platforms, as we'll see in more detail later.
+The propagation of causal influences characteristic of local quantum circuits is therefore very much a feature of real quantum computing platforms, as we'll see in more detail later.
 
 ### Computational complexity
 
-One big difference between a quantum circuit and a CA is the difficulty of simulating each on a (classical) computer. The state of a CA consists of a single bitstring giving the value of each cell, and the state at the next instant is obtained by applying a series of deterministic maps, which could easily be parallelised if necessary. On the other hand, the state of the qubits at an instant is a vector in $2^N$ dimensional space, which will become difficult to store when $N$ is not too large. Updating the state involves acting on this vector with a unitary matrix. Naive matrix-vector multiplication takes a number of operations $O(\operatorname{dim}^2)=2^{2N}$. Since our gates amount to *sparse* matrices, it is possible to instead accomplish this in $O(\operatorname{dim})=2^{N}$, but this is _still exponentially hard in the number of qubits_. The difficulty of performing such calculations on a classical computer is the basis of ["quantum supremacy"](https://en.wikipedia.org/wiki/Quantum_supremacy) demonstrations based on sampling the output of quantum circuits. Roughly, the idea is to measure (approximately) the distribution of bitstrings outputted by a quantum circuit from a fixed initial state, in a regime where a classical simulation of the same circuit is intractable.
+One big difference between a quantum circuit and a CA is the difficulty of simulating each on a (classical) computer. The state of a CA consists of a single bitstring giving the value of each cell, and the state at the next instant is obtained by applying a series of deterministic maps, which could easily be parallelised if necessary. On the other hand, the state of the qubits at an instant is a vector in $2^N$ dimensional space, which will become difficult to store when $N$ is not too large. Updating the state involves acting on this vector with a unitary matrix. Naive matrix-vector multiplication takes a number of operations $O(\operatorname{dim}^2)=2^{2N}$. Since our gates amount to *sparse* matrices, it is possible to instead accomplish this in $O(\operatorname{dim})=2^{N}$, but this is _still exponentially hard in the number of qubits_. The difficulty of performing such calculations on a classical computer is the basis of ["quantum supremacy"](https://en.wikipedia.org/wiki/Quantum_supremacy) demonstrations based on sampling the output of quantum circuits. Roughly, the idea is to measure (approximately) the distribution of bitstrings output by a quantum circuit from a fixed initial state, in a regime where a classical simulation of the same circuit is intractable.
 
 The total number of (time) steps $T$ taken is often referred to as the *depth* of the circuit. For low depth $T<N$ it pays to move  _horizontally_ instead (i.e. in the spatial direction). Note that the problem of finding the best way to contract a general tensor network is NP-hard.
 
@@ -416,7 +416,7 @@ $\rho_A$ has the diagrammatic representation
 The reduced density matrix $\rho_A$ is also very useful for quantifying the degree of entanglement between subsystem $A$ and its complement. If the state $\ket{\Psi}$ has the form of a product state
 
 $$
-\ket{\Psi} = \ket{\psi}\_A \otimes \ket{\bar\psi}\_{\bar A}
+\ket{\Psi} = \ket{\psi}\_A \otimes \ket{\phi}\_{\bar A}
 $$
 
 then it's not hard to see that $\rho_A = \ket{\psi}_A\bra{\psi}_A$: a pure state. Any deviation from a product state will lead to a mixed reduced density matrix. The degree of entanglement can then be quantified by the von Neumann entropy of $\rho_A$ – called the **entanglement entropy** – defined by
@@ -442,7 +442,15 @@ $$
 \operatorname{tr}\_{2}\left[\ket{\Phi^+}\_{12}\bra{\Phi^+}\_{12}\right] = \frac{1}{2}\mathbb{1}_1
 $$
 
-with an entanglement entropy of one bit. In our toy model the reduced density matrix $\rho_A$ has a factor $\mathbb{1}_n$ for each site $n\in A$ whose "partner" qubit is in $\bar A$. If both qubits of a Bell pair are at sites  $n,m\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$, which is a pure state. The entanglement entropy has contributions from the former case only, and we get
+with an entanglement entropy of one bit. 
+
+Now consider a Bell pair in our toy model where the two consituent qubits end up at sites $m$ and $n$:
+
+- If $n\in A$, $m\in\bar A$, $\rho_A$ has factor $\mathbb{1}_n$. 
+
+- If both qubits $m$, $n$, of pair are $m, n\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$ (pure)
+
+In our toy model the reduced density matrix $\rho_A$ has a factor $\mathbb{1}_n$ for each site $n\in A$ whose "partner" qubit is in $\bar A$. If both qubits of a Bell pair are at sites  $n,m\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$, which is a pure state. The entanglement entropy has contributions from the former case only, and we get
 
 $$
  S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits},
@@ -478,7 +486,7 @@ As time progresses two things (tend to) increase:
   1.  The number of non-identity sites (known as __operator spreading__)
   2.  The number of different contributions  (or __operator entanglement__)
 
-Operator spreading is closely analogous to the spreading of chaotic fronts that we saw in CAs. The resemblance clearer if we introduce an ensemble of unitary circuits, where the gate parameters are chosen iid from a certain distribution (a popular choice is the uniform distribution over the unitary matrices). The coefficients $\mathcal{C}\_{\mu_{1:N}}$ that appear in the expansion of $Z_n(t)$ then inherit this randomness. In particular, their signs can fluctuate, meaning that a correlation function such as $\langle Z_n(t)Z_m(0) \rangle$ will tend to average to zero. This is akin to the way that averaging over different rules led to a completely random state of a CA. 
+Operator spreading is closely analogous to the spreading of chaotic fronts that we saw in CAs. The resemblance becomes clearer if we introduce an ensemble of unitary circuits, where the gate parameters are chosen iid from a certain distribution (a popular choice is the uniform distribution over the unitary matrices). The coefficients $\mathcal{C}\_{\mu_{1:N}}$ that appear in the expansion of $Z_n(t)$ then inherit this randomness. In particular, their signs can fluctuate, meaning that a correlation function such as $\langle Z_n(t)Z_m(0) \rangle$ will tend to average to zero. This is akin to the way that averaging over different rules led to a completely random state of a CA. 
 
 One can still see some interesting dynamics, however, if one considers a quantity that is insensitive to these sign fluctuations.
 
@@ -515,14 +523,14 @@ The averaged OTOC can be expressed in terms of a Markov process, similarly to ou
 
 ### Quantum advantage?
 
-This all seems very classical. Aren't quantum computers supposed to do things that classical computers find hard? The key to efficient classical algorithms is the strategy we've been using throughout to arrive at a simple theoretical picture of these system, whether quantum or classical: *averaging*. If one asks about the OTOC in a *given* circuit, there is no simple probabilistic interpretation. As shown in the Appendix of the Googl paper, formulating the dynamics of the average OTOC fluctuations leads to model with negative matrix elements, so that Monte Carlo simulations would be afflicted with the [sign problem](https://en.wikipedia.org/wiki/Numerical_sign_problem). In fact, the same issue arises for the average OTOCC in models with number conservation ([Rowlands and Lamacraft (2018)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.98.195125)).
+This all seems very classical. Aren't quantum computers supposed to do things that classical computers find hard? The key to efficient classical algorithms is the strategy we've been using throughout to arrive at a simple theoretical picture of these system, whether quantum or classical: *averaging*. If one asks about the OTOC in a *given* circuit, there is no simple probabilistic interpretation. As shown in the Appendix of the Google paper, formulating the dynamics of the average OTOC fluctuations leads to model with negative matrix elements, so that Monte Carlo simulations would be afflicted with the [sign problem](https://en.wikipedia.org/wiki/Numerical_sign_problem). In fact, the same issue arises for the average OTOCC in models with number conservation ([Rowlands and Lamacraft (2018)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.98.195125)).
 
 
 ## Frontier: measurements
 
-Up to now we've been exclusively concerned with quantum circuits made up of unitary gates. We all know that unitary evolution is not all there is to quantum mechanics, however: there's also the issue of *measurement*. How are the phenomena we've discussed so far – growth of entanglement, operator spreading, and so on – affected by measuring the system? For an extensive system probed over a long period of time, it's natural to imagine local measurements happening with a certain rate and a certain density in space. This problem has become incredibly popular with theorists since 2018, when two groups of authors suggested that a circuit could undergo a phase transition in terms of the behavior of the above quantities as a function of measurement rate.
+Up to now we've been exclusively concerned with quantum circuits made up of unitary gates. We all know that unitary evolution is not all there is to quantum mechanics, however: there's also the issue of *measurement*. How are the phenomena we've discussed so far – growth of entanglement, operator spreading, and so on – affected by measuring the system? For an extensive system probed over a long period of time, it's natural to imagine local measurements happening with a certain rate and a certain density in space. This problem has become incredibly popular with theorists since 2018, when two groups of authors ([Y Li, X Chen, MPA Fisher (2019)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.134306), [B Skinner, J Ruhman, A Nahum (2019)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.031009)) suggested that a circuit could undergo a phase transition in terms of the behavior of the above quantities as a function of measurement rate.
 
-
+While it's natural that measuring a system will reduce its quantum entanglement, perhaps the more surprising prediction was that extensive entanglement survives at a finite measurement rate, instead of being degraded to zero by repeated measurements
 
 Resemblance to CA models with directed percolation
 
