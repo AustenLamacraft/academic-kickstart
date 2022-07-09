@@ -26,7 +26,7 @@ const pca = function(p) {
         const inp = p.createInput(prob)
             .style('font-size', '20px')
             .parent("pca-chaos")
-            .position(-55, -22, 'relative')
+            .position(5, 5, 'absolute')
             .size(50);
 
         const setRule = function() {
@@ -38,7 +38,7 @@ const pca = function(p) {
         const sel = p.createSelect()
             .style('font-size', '20px')
             .parent("pca-chaos")
-            .position(200, -50, 'relative')
+            .position(5, 55, 'absolute')
             .size(80);
         
         sel.option('site')
@@ -54,7 +54,7 @@ const pca = function(p) {
         const viewSelector = p.createSelect()
             .style('font-size', '20px')
             .parent("pca-chaos")
-            .position(-50, -50, 'relative')
+            .position(5, 90, 'absolute')
             .size(125)
             
         viewSelector.option("cell values")

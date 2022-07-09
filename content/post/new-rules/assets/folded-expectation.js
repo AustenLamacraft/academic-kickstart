@@ -28,57 +28,82 @@ SVG.on(document, 'DOMContentLoaded', function() {
 
     gate.size(gateWidth)
 
+    let unitarityApplied = false
+
     // Build the circuit
     let gates = []
 
-    for (let y = 0; y < circuitDepth; y++) {
-        let gateRow = []
-        for (let x = 0; x < circuitWidth; x++) {
-            if ((x + y) % 2 === 0) {
-                const newGate = {
-                    gate: gate.clone().dmove(gateWidth * x, gateHeight * y).addTo(circuit),
-                    topLeft: topLeft.clone().dmove(gateWidth * x, gateHeight * y).addTo(circuit).hide(),
-                    topRight: topRight.clone().dmove(gateWidth * x, gateHeight * y).addTo(circuit).hide(),
-                    bottomLeft: bottomLeft.clone().dmove(gateWidth * x, gateHeight * y).addTo(circuit).hide(),
-                    bottomRight: bottomRight.clone().dmove(gateWidth * x, gateHeight * y).addTo(circuit).hide(),
-                    // semicirles had been flipped, which is the reason for inverted y
-                    semiTopRight: semiTopRight.clone().dmove(gateWidth * x, -gateHeight * y).addTo(circuit).hide(),
-                    semiTopLeft: semiTopLeft.clone().dmove(gateWidth * x, -gateHeight * y).addTo(circuit).hide()
+    const buildCircuit = function() {
+        for (let y = 0; y < circuitDepth; y++) {
+            let gateRow = []
+            for (let x = 0; x < circuitWidth; x++) {
+                if ((x + y) % 2 === 0) {
+                    const newGate = {
+                        gate: gate.clone().dmove(gateWidth * x, gateHeight * y).addTo(circuit),
+                        topLeft: topLeft.clone().dmove(gateWidth * x, gateHeight * y).addTo(circuit).hide(),
+                        topRight: topRight.clone().dmove(gateWidth * x, gateHeight * y).addTo(circuit).hide(),
+                        bottomLeft: bottomLeft.clone().dmove(gateWidth * x, gateHeight * y).addTo(circuit).hide(),
+                        bottomRight: bottomRight.clone().dmove(gateWidth * x, gateHeight * y).addTo(circuit).hide(),
+                        // semicirles had been flipped, which is the reason for inverted y
+                        semiTopRight: semiTopRight.clone().dmove(gateWidth * x, -gateHeight * y).addTo(circuit).hide(),
+                        semiTopLeft: semiTopLeft.clone().dmove(gateWidth * x, -gateHeight * y).addTo(circuit).hide()
+                    }
+                    gateRow[x] = newGate
                 }
-                gateRow[x] = newGate
             }
+            gates.push(gateRow)
         }
-        gates.push(gateRow)
+
+            // Fix the top contractions (gates on even indices)
+        gates[0].forEach((gate, idx) => {
+            if (idx % 2 === 0) {
+                topContractions[idx] && gate.semiTopLeft.show();
+                topContractions[idx + 1] && gate.semiTopRight.show()
+                
+            }
+        })
     }
 
-    // Fix the top contractions (gates on even indices)
-    gates[0].forEach((gate, idx) => {
-        if (idx % 2 === 0) {
-            topContractions[idx] && gate.semiTopLeft.show();
-            topContractions[idx + 1] && gate.semiTopRight.show()
-            
-        }
-    })
+    buildCircuit()
     
     // Propagate contractions downwards
 
     circuit.click(function() {
-        gates.forEach((row, y) => {
-            row.forEach((gate, x) => {
-                if ((x + y) % 2 === 0) {
-                    if ((x === 0 || gate.semiTopLeft.visible()) && ((x === circuitWidth - 1) || gate.semiTopRight.visible())) {
-                        gate.semiTopLeft.hide()
-                        gate.semiTopRight.hide()
-                        gate.gate.hide()
-                        if (y < circuitDepth - 1)  {
-                            x < circuitWidth - 1 && gates[y + 1][x + 1].semiTopLeft.show()
-                            x > 0 && gates[y + 1][x - 1].semiTopRight.show()
+        if (!unitarityApplied) {
+            gates.forEach((row, y) => {
+                row.forEach((gate, x) => {
+                    if ((x + y) % 2 === 0) {
+                        if ((x === 0 || gate.semiTopLeft.visible()) && ((x === circuitWidth - 1) || gate.semiTopRight.visible())) {
+                            gate.semiTopLeft.hide()
+                            gate.semiTopRight.hide()
+                            gate.gate.hide()
+                            if (y < circuitDepth - 1)  {
+                                x < circuitWidth - 1 && gates[y + 1][x + 1].semiTopLeft.show()
+                                x > 0 && gates[y + 1][x - 1].semiTopRight.show()
+                            }
                         }
                     }
-                }
+                })
             })
-        })
+            unitarityApplied = true
+        } else {
+            removeCircuit()
+            buildCircuit()
+            unitarityApplied = false
+        }
+        
     })
+
+    const removeCircuit = function() {
+        for (let y = 0; y < circuitDepth; y++) {
+            for (let x = 0; x < circuitWidth; x++) {
+                if ((x + y) % 2 === 0) {
+                    Object.values(gates[y][x]).forEach(val => val.remove())
+                }
+            }
+        }
+        gates = []
+    }
 
 })
 

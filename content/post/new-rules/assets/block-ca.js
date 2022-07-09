@@ -48,7 +48,7 @@ const block = function(p) {
         const inp = p.createInput(blockNumber)
             .style('font-size', '20px')
             .parent("block")
-            .position(-55, -30, 'relative')
+            .position(5, 5, 'absolute')
             .size(50);
 
         const setRule = function() {
@@ -60,7 +60,7 @@ const block = function(p) {
         const architectureSelector = p.createSelect()
             .style('font-size', '20px')
             .parent("block")
-            .position(-20, -50, 'relative')
+            .position(5, 55, 'absolute')
             .size(170)
             
         architectureSelector.option('single block')
@@ -76,7 +76,7 @@ const block = function(p) {
         const viewSelector = p.createSelect()
             .style('font-size', '20px')
             .parent("block")
-            .position(-10, -50, 'relative')
+            .position(5, 90, 'absolute')
             .size(150)
             
         viewSelector.option("cell values")

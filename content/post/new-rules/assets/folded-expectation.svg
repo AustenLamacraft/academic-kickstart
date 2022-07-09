@@ -12,9 +12,9 @@
    inkscape:version="1.0 (4035a4f, 2020-05-01)"
    id="gate"
    version="1.1"
-   viewBox="50 80 310 100"
-   height="297mm"
-   width="310mm">
+   width="310mm"
+   height="100mm"
+   viewBox="60 0 310 100">
   <metadata
      id="metadata999">
     <rdf:RDF>

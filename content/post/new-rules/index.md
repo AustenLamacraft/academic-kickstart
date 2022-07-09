@@ -12,7 +12,7 @@ categories: []
 date: 2022-07-04T19:40:37-06:00
 lastmod: 2022-07-04T19:40:37-06:00
 featured: false
-draft: true
+draft: false
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -54,7 +54,7 @@ Conway's game takes place on a (potentially infinite) square lattice, where each
 
 From these three simple rules highly complicated behaviors can emerge. The Game of Life is an example of a [cellular automaton](https://en.wikipedia.org/wiki/Cellular_automaton) (CA), a dynamical system in which *space*, *time*, and the *degrees of freedom* are all discrete, while the extent of the system in space and time may be taken to infinity. Cellular automata are therefore interesting model systems from the perspective of statistical physics, since one can ask questions about the generic types of dynamics that may occur, and how these determine the behavior of the system in the thermodynamic limit.
 
-Though discrete, CAs are *classical* systems, since they have a definite state at any instant. Is there a natural notion of a *quantum cellular automaton*? Motivated by quantum computation, physicists have in recent years begun to study *quantum circuits*, and we'll see that in many ways these are quantum analogues of cellular automata. In this talk I'll discuss some of the similarities and differences between these two classes of systems, and what they can teach us about classical and quantum dynamics more generally. Although I won't have much to say about quantum computation *per se*, it's clear that this is one of the main drives of the field, and ideas from quantum information have constantly been injected into many body physics over the past decades.
+Though discrete, CAs are *classical* systems, since they have a definite state at any instant. Is there a natural notion of a *quantum cellular automaton*? Motivated by quantum computation, physicists have in recent years begun to study *quantum circuits*, and we'll see that in many ways these are quantum analogues of cellular automata. In this talk I'll discuss some of the similarities and differences between these two classes of systems, and what they can teach us about classical and quantum dynamics more generally. Although I won't have much to say about quantum computation *per se*, it's clear that this is one of the main drivers of the field, and ideas from quantum information have constantly been injected into many body physics over the past decades.
 
 {{% callout note %}}
 Note that there are several different constructions which go by the name *quantum cellular automaton*
@@ -74,7 +74,7 @@ $$
 x^{t+1}_{n} = f(x^{t}\_{n-1},x^{t}\_{n},x^{t}\_{n+1})
 $$
 
-Since the domain of $f$ consists of the $2^3=8$ possible assignments of the three cells there are $2^8=256$ possible choices for the function $f$. Interpreting the inputs as binary numbers it's conventional, following [Stephen Wolfram](https://en.wikipedia.org/wiki/Stephen_Wolfram), to arrange them in descending order: 111, 110, ... 000 and interpret the corresponding outputs as an eight bit binary number that is used to label the function, or "rule". Thus, Rule 110 corresponds to the function with table
+Since the domain of $f$ consists of the $2^3=8$ possible assignments of the three cells there are $2^8=256$ possible choices for the function $f$. Interpreting the inputs as binary numbers it's conventional, following [Stephen Wolfram](https://en.wikipedia.org/wiki/Stephen_Wolfram), to arrange them in descending order: 111, 110, ... 000 and interpret the corresponding outputs as an eight bit binary number that is used to label the function, or "rule". Thus, Rule 110 corresponds to the function with table:
 
 |111	| 110 |	101	| 100 |	011 |	010 |	001 |	000	|
 |---	| --- |	---	| --- |	--- |	--- |	--- |	---	|
@@ -83,7 +83,7 @@ Since the domain of $f$ consists of the $2^3=8$ possible assignments of the thre
 <script src="assets/elementary-ca.js"></script>
 <figure align="center">
 <div id="elementary-ca" style="display: inline-block; position: relative"></div>
-<figcaption>Elementary cellular automata starting from either a single 1 or a random row. Try them out by changing the number on the right from 0 to 255. </figcaption>
+<figcaption>Elementary cellular automata starting from either a single 1 or a random row. Try them out by changing the rule number in the top left from 0 to 255. </figcaption>
 </figure>
 
 By playing with the above simulation you'll quickly realise that this simple set of rules encompasses quite a variety of behavior, from ordered (the Sierpinski triangle produced by Rule 18) to chaotic (Rule 30). Surprisingly, Rule 110 is capable of universal computation. Many of the rules are not interesting at all.
@@ -92,18 +92,23 @@ The other important point I'd like to make is that the rules, being *local*, giv
 
 ### Adding complexity
 
-Cambridge station
+This is all great fun. 20 years ago Stephen Wolfram published a book called *A New Kind of Science* which tried to make the case that it's cellular automata all the way down. It's fair to say this wasn't well received by the scientific establishment, but that's just like them, isn't it? While preparing this talk I noticed there's a 20 year anniversary edition in the works for holiday season:
 
-Pokemon and multidomain
+<figure align="center">
+<img src="assets/twenty-years-of-nks.png" width="50%"/>
+<figcaption> That's Christmas sorted</figcaption>
+</figure>
 
-WANKS
+I'm not aware of too many practical applications of CAs, though Rule 30 is apparently used as a [random number generator in Mathematica](https://mathworld.wolfram.com/Rule30.html). CAs have made the leap to mainstream appeal in some way, as illustrated by this new station in Cambridge:
 
-Hashing, cryptography
+<figure align="center">
+<img src="assets/cambridge-north.png" width="70%" style="display: inline-block"/>
+<figcaption> Rule 30 in the wild.</figcaption>
+</figure>
 
-https://www.wolframscience.com/nks/p603--cryptography-and-cryptanalysis/
+Beyond 0s and 1s, even more complex behavior can emerge by allowing multiple "species" to occupy a site, as illustrated by Matt Henderson in this tweet:
 
-Used as RNG in Wolfram: https://mathworld.wolfram.com/Rule30.html
-
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">give each pixel a random Pokemon type, and then battle pixels against their neighbors, updating each pixel with the winning type (using the Pokemon type chart)<br><br>we quickly see areas of fire &gt; water &gt; grass &gt; fire, electric sweeping over, ground frontiers taking over etc etc <a href="https://t.co/BHgQuKRApR">pic.twitter.com/BHgQuKRApR</a></p>&mdash; Matt Henderson (@matthen2) <a href="https://twitter.com/matthen2/status/1543226572592783362?ref_src=twsrc%5Etfw">July 2, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Chaos 
 
@@ -126,7 +131,7 @@ One way forward that is often used in theoretical physics is to give up on the p
 <script src="assets/pca-chaos.js"></script>
 <figure align="center">
 <div id="pca-chaos" style="display: inline-block; position: relative"></div>
-<figcaption>$x^t\oplus y^t$ for two PCAs starting from initial conditions that are random but only differ on one site ("site") or are random and independent ("row"). The number in the bottom right is the probability $p$ introduced in the text. Note that in this case the neighborhood includes next nearest neighbors.</figcaption>
+<figcaption>$x^t\oplus y^t$ for two PCAs starting from initial conditions that are random but only differ on one site ("site") or are random and independent ("row"). The number in the top left is the probability $p$ introduced in the text. Note that in this case the neighborhood includes next nearest neighbors.</figcaption>
 </figure>
 
 If we look at the dynamics of one of the copies things look very boring: since the output of each rule is chosen at random we just get white noise. Because the two copies are evolved with the same – albeit random – rules, the dynamics of $x^t\oplus y^t$ is still nontrivial: we see a propagating front, just as for many of the individual rules. The fluctuations of the front are larger and the average speed is definitely less than the maximal value.
@@ -151,8 +156,6 @@ Let's modify the rules slightly for a moment, so that the rules $f$ that determi
 A given site has $z^t_n=1$ with probability $2p(1-p)$ only if one of its two antecedents $z^t_{n\pm 1}$ did. It turns out this is a well known statistical mechanics model called (site) [directed percolation](https://en.wikipedia.org/wiki/Directed_percolation), in which one looks for a connected cluster of sites that are occupied with probability $x=2p(1-p)$. For nearest neigbor neighborhoods this probability $x\leq 1/2$ and is never high enough to reach the percolating phase where an infinite cluster is present, which occurs for $x_\text{crit}\sim 0.706$. Thus in the experiment of the previous section we had to use next nearest neighbors.
 
 Parenthetically, directed percolation is one of the few phase transitions in which the critical exponents are unknown in the usually tractable case of two dimensions (i.e. one space and one time dimension). Part of the reason is the lack of symmetry between space and time, which means that conformal field theory is of no use, for instance.
-
-**TODO: point to http://www.scholarpedia.org/article/Synchronization_of_extended_chaotic_systems**
 
 ## Reversibility and block CAs
 
@@ -251,7 +254,7 @@ A few of notes about this calculation:
 
 2. Even though the entropy of the initial distribution was only *half* the maximal entropy of 1 bit per site for the whole system, and the entropy of the whole system is conserved, the entropy $S(A)$ saturates at the *maximal* value of $|A|$ bits. Stated differently, $p_A$ becomes uniform in a time $\sim |A|/2$ set by the subsystem size. Our toy model therefore captures the idea of *thermalization*, with the thermalization time determined by appearance of a causal connection between the sites in the middle of $A$ and $\bar A$.
 
-3. It turns out that this model is not so special: any of the dual reversible circuits described in the previous section will behave in the exact same way. 
+3. It turns out that this model is not so special: any of the dual reversible circuits described in the previous section will behave in *the exact same way!* 
 
 
 ## Quantum circuits
@@ -403,7 +406,7 @@ In the folded picture the expectation value $\bra{\Psi}\mathcal{O}\ket{\Psi}$ lo
 
 <object data="assets/folded-expectation.svg" type="image/svg+xml"></object>
 
-If you click on the picture to apply the unitarity condition you will see the emergence of a "light cone", reflecting the region of the circuit that affects the expectation value.
+If you click on the picture you can toggle the effect of applying the unitarity condition. After unitarity has been used to eliminate as many gates as possible, a "light cone" emerges, reflecting the region of the circuit that affects the expectation value.
 
 ### Reduced density matrix
 
@@ -413,9 +416,11 @@ $$
 \rho_A = \operatorname{tr}\_{\bar A}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{\bar A}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
 $$
 
-$\rho_A$ has the diagrammatic representation
+$\rho_A$ has the diagrammatic representation:
 
 <object data="assets/reduced-density-matrix.svg" type="image/svg+xml"></object>
+
+Again, you can toggle the effect of using unitarity to remove gates.
 
 ### Entanglement entropy
 
@@ -536,13 +541,35 @@ This all seems very classical. Aren't quantum computers supposed to do things th
 
 Up to now we've been exclusively concerned with quantum circuits made up of unitary gates. We all know that unitary evolution is not all there is to quantum mechanics, however: there's also the issue of *measurement*. How are the phenomena we've discussed so far – growth of entanglement, operator spreading, and so on – affected by measuring the system? For an extensive system probed over a long period of time, it's natural to imagine local measurements happening with a certain rate and a certain density in space. This problem has become incredibly popular with theorists since 2018, when two groups of authors ([Y Li, X Chen, MPA Fisher (2019)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.134306), [B Skinner, J Ruhman, A Nahum (2019)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.031009)) suggested that a circuit could undergo a phase transition in terms of the behavior of the above quantities as a function of measurement rate.
 
-While it's natural that measuring a system will reduce its quantum entanglement, perhaps the more surprising prediction was that extensive entanglement survives at a finite measurement rate, instead of being degraded to zero by repeated measurements
+<figure align="center">
+<img src="assets/measurement-circuit.png" width="70%"/>
+<figcaption>
+A unitary circuit interspersed with local projective measurements of the Pauli $Z$ operator (Source: Y Li, X Chen, MPA Fisher (2019))
+</figcaption>
+</figure>
 
-Resemblance to CA models with directed percolation
+While it's natural that measuring a system will reduce its quantum entanglement, perhaps the more surprising prediction was that extensive entanglement survives at a *finite* measurement rate, instead of being degraded to zero by repeated measurements. Roughly, this is because entanglement is continuously generated by the unitary dynamics of the circuit between measurements.
+
+An alternative viewpoint appeared in [MJ Gullans and DA Huse (2020)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041020). If the initial state of the system is mixed, it will be *purified* by (strong enough) measurements
+
+<figure align="center">
+<img src="assets/gullans-huse.png" width="70%"/>
+<figcaption>
+Phase diagram including the purification transition. Source: MJ Gullans and DA Huse (2020).
+</figcaption>
+</figure>
+
+Note that all states of finite systems purify, but below the transition (low enough measurement rate) this will be on a timescale that is exponentially long in the system size.
+
+Does that sound familiar? We encountered a very similar phenomenology in the dynamics of chaotic fronts in PCAs where there was some probability of non-injective rules. It seems to me that the merging of distinct trajectories in these classical systems is closely analogous to the purification transition in quantum systems. The same point of view was advanced recently in [Wilsher *et al.* (2022)](https://arxiv.org/abs/2203.11303). Whether there is more to this remains to be seen
 
 
 ## Acknowledgements
 
 I'd like to express my thanks to my collaborators Pieter Claeys, Jonah Herzog-Arbeitman, and Sarang Gopalakrishnan for sharing their ideas on quantum circuits.
 
-## References
+## Further reading
+
+For all things random circuit, the recent review by  [Andrew Potter and Romain Vasseur](https://arxiv.org/abs/2111.08018) is a good place to start. The transition to chaos in CAs is closely linked to the problem of 
+synchronization of extended chaotic systems, described in this [Scholarpedia article
+](http://www.scholarpedia.org/article/Synchronization_of_extended_chaotic_systems) 
