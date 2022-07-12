@@ -44,6 +44,7 @@ const block = function(p) {
 
         col = p.floor(p.width / cellSize);
         rw = p.floor(p.height / cellSize);
+        console.log(col, rw)
         
         const inp = p.createInput(blockNumber)
             .style('font-size', '20px')

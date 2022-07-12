@@ -124,9 +124,9 @@ The propagation of the "front" that marks the difference between two copies cann
 
 ## Randomness as a tool
 
-Although the behavior of even the elementary CAs is intriguing, it's not at all clear how we can go about analyzing them, or uncovering generic patterns of behavior. For this reason, may early studies of CAs were therefore rather qualitative.
+Although the behavior of even the elementary CAs is intriguing, it's not at all clear how we can go about analyzing them, or uncovering generic patterns of behavior. For this reason, many early studies of CAs were therefore rather qualitative.
 
-One way forward that is often used in theoretical physics is to give up on the prospect of solving any one system in particular, and instead try to make statements about *statistical ensembles* of systems. In the case of CAs there are two natural ways to introduce such ensembles: by taking a distribution of initial conditions and / or a distribution over rules that govern the dynamics. The latter strategy gives rise to a [probabilistic cellular automaton](https://en.wikipedia.org/wiki/Stochastic_cellular_automaton). An obvious ensemble corresponds to choosing the rules independently for each site and each instant, uniformly from all possible rules. Once the rules are fixed we can investigate chaos as before: by evolving two copies of the system with the *same* rules. 
+One way forward – often used in theoretical physics – is to give up on the prospect of solving any one system in particular, and instead try to make statements about *statistical ensembles* of systems. In the case of CAs there are two natural ways to introduce such ensembles: by taking a distribution of initial conditions and / or a distribution over rules that govern the dynamics. The latter strategy gives rise to a [probabilistic cellular automaton](https://en.wikipedia.org/wiki/Stochastic_cellular_automaton). An obvious ensemble corresponds to choosing the rules independently for each site and each instant, uniformly from all possible rules. Once the rules are fixed we can investigate chaos as before: by evolving two copies of the system with the *same* rules. 
 
 <script src="assets/pca-chaos.js"></script>
 <figure align="center">
@@ -416,7 +416,7 @@ $$
 \rho_A = \operatorname{tr}\_{\bar A}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{\bar A}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
 $$
 
-$\rho_A$ has the diagrammatic representation:
+$\rho_A$ has the diagrammatic representation (where $A$ consists of the four central sites):
 
 <object data="assets/reduced-density-matrix.svg" type="image/svg+xml"></object>
 
@@ -534,7 +534,7 @@ The averaged OTOC can be expressed in terms of a Markov process, similarly to ou
 
 ### Quantum advantage?
 
-This all seems very classical. Aren't quantum computers supposed to do things that classical computers find hard? The key to efficient classical algorithms is the strategy we've been using throughout to arrive at a simple theoretical picture of these system, whether quantum or classical: *averaging*. If one asks about the OTOC in a *given* circuit, there is no simple probabilistic interpretation. As shown in the Appendix of the Google paper, formulating the dynamics of the average OTOC fluctuations leads to model with negative matrix elements, so that Monte Carlo simulations would be afflicted with the [sign problem](https://en.wikipedia.org/wiki/Numerical_sign_problem). In fact, the same issue arises for the average OTOCC in models with number conservation ([Rowlands and Lamacraft (2018)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.98.195125)).
+This all seems very classical. Aren't quantum computers supposed to do things that classical computers find hard? The key to efficient classical algorithms is the strategy we've been using throughout to arrive at a simple theoretical picture of these system, whether quantum or classical: *averaging*. If one asks about the OTOC in a *given* circuit, there is no simple probabilistic interpretation. As shown in the Appendix of the Google paper, formulating the dynamics of the average OTOC fluctuations leads to model with negative matrix elements, so that Monte Carlo simulations would be afflicted with the [sign problem](https://en.wikipedia.org/wiki/Numerical_sign_problem). In fact, the same issue arises for the average OTOC in models with number conservation ([Rowlands and Lamacraft (2018)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.98.195125)).
 
 
 ## Frontier: measurements
@@ -561,7 +561,7 @@ Phase diagram including the purification transition. Source: MJ Gullans and DA H
 
 Note that all states of finite systems purify, but below the transition (low enough measurement rate) this will be on a timescale that is exponentially long in the system size.
 
-Does that sound familiar? We encountered a very similar phenomenology in the dynamics of chaotic fronts in PCAs where there was some probability of non-injective rules. It seems to me that the merging of distinct trajectories in these classical systems is closely analogous to the purification transition in quantum systems. The same point of view was advanced recently in [Wilsher *et al.* (2022)](https://arxiv.org/abs/2203.11303). Whether there is more to this remains to be seen
+Does that sound familiar? We encountered a very similar phenomenology in the dynamics of chaotic fronts in PCAs where there was some probability of non-injective rules. It seems to me that the merging of distinct trajectories in these classical systems is closely analogous to the purification transition in quantum systems. The same point of view was advanced recently in [Wilsher *et al.* (2022)](https://arxiv.org/abs/2203.11303). Whether there is more to this remains to be seen.
 
 
 ## Acknowledgements
