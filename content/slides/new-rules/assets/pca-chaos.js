@@ -17,7 +17,7 @@ const pca = function(p) {
     let view = 'cell values'
     
     p.setup = function() {
-        p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
+        p.createCanvas(p.windowWidth / 1.5, p.windowHeight / 2.5);
         p.noStroke();
 
         col = p.floor(p.width / cellSize);
@@ -26,8 +26,7 @@ const pca = function(p) {
         const inp = p.createInput(prob);
         inp.style('font-size', '20px')
         inp.parent("pca-chaos")
-        inp.position(-60, -20);
-        inp.style('position', 'relative')
+        inp.position(5, 5, 'absolute');
         inp.size(50);
 
         const setRule = function() {
@@ -39,9 +38,9 @@ const pca = function(p) {
         const sel = p.createSelect()
             .style('font-size', '20px')
             .parent("pca-chaos")
-            .position(-770, -60)
+            .position(5, 50, "absolute")
             .size(80)
-            .style('position', 'relative')
+            
         
         sel.option('site')
         sel.option('row')
@@ -55,9 +54,8 @@ const pca = function(p) {
         const viewSelector = p.createSelect()
             .style('font-size', '20px')
             .parent("pca-chaos")
-            .position(5, -50)
+            .position(5, 95, 'absolute')
             .size(125)
-            .style('position', 'relative')
             
         viewSelector.option('cell values')
         viewSelector.option('differences')

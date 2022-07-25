@@ -124,7 +124,9 @@ $$
 - Many behaviors, from ordered (Rule 18) to chaotic (Rule 30)
 
 <script src="assets/elementary-ca.js"></script>
+<figure align="center">
 <div id="elementary-ca" style="display: inline-block; position: relative"></div>
+</figure>
 
 - Rule 110 is capable of universal computation!
 
@@ -162,7 +164,9 @@ $$
 - Rapid growth of small differences between two trajectories
 
 <script src="assets/ca-difference.js"></script>
+<figure align="center">
 <div id="difference" style="display: inline-block; position: relative"></div>
+</figure>
 
 - Smallest change: flip one site and monitor $z^t\equiv x^t\oplus y^t$
 
@@ -194,7 +198,9 @@ $$
 - Choose rules iid for each site and instant
 
 <script src="assets/pca-chaos.js"></script>
+<figure align="center">
 <div id="pca-chaos" style="display: inline-block; position: relative"></div>
+</figure>
 
 - Cell values are now white noise
 
@@ -296,7 +302,9 @@ $$
 ---
 
 <script src="assets/block-ca.js"></script>
+<figure align="center">
 <div id="block"  style="display: inline-block; position: relative"></div>
+</figure>
 
 ---
 
@@ -780,7 +788,7 @@ $$`
 
 - $\overline{\operatorname{OTOC}}$ can be expressed as a Markov process
  
-- Efficiently calculation using Monte Carlo simulations
+- Efficiently calculate using Monte Carlo simulations
 
 <p align="center" class="fragment">
 <strong>Aren't quantum computers supposed to do things that classical computers find hard?</strong>

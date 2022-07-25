@@ -42,7 +42,7 @@ const block = function(p) {
         p.createCanvas(p.windowWidth / 1.5, p.windowHeight / 2);
         p.noStroke();
 
-        col = p.floor(p.width / cellSize);
+        col = 2 * p.floor(p.width / (2 * cellSize)); // Number of columns must be even
         rw = p.floor(p.height / cellSize);
         console.log(col, rw)
         

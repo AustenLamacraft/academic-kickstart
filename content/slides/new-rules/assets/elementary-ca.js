@@ -12,7 +12,7 @@ const elementary = function(p) {
     let initial = "single 1"
     
     p.setup = function() {
-        p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
+        p.createCanvas(p.windowWidth / 1.5 , p.windowHeight / 2);
         p.noStroke();
 
         col = p.floor(p.width / cellSize);
@@ -21,7 +21,7 @@ const elementary = function(p) {
         const inp = p.createInput(ruleNumber)
             .parent("elementary-ca")
             .style('font-size', '20px')
-            .position(-100, -30, 'relative')
+            .position(5, 5, 'absolute')
             .size(50)
 
         const setRule = function() {
@@ -31,9 +31,9 @@ const elementary = function(p) {
         inp.input(setRule);
 
         const initialCondition = p.createSelect()
-            .style('font-size', '20px')
             .parent("elementary-ca")
-            .position(-750, -30, 'relative')
+            .style('font-size', '20px')
+            .position(5, 50, 'absolute')
             .size(100)
             
         initialCondition.option('single 1')

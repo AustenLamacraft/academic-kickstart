@@ -13,7 +13,7 @@ const difference = function(p) {
     let ruleNumber = 30
     
     p.setup = function() {
-        p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
+        p.createCanvas(p.windowWidth / 1.5, p.windowHeight / 2.5);
         p.noStroke();
 
         col = p.floor(p.width / cellSize);
@@ -22,9 +22,9 @@ const difference = function(p) {
         const inp = p.createInput(ruleNumber)
             .parent("difference")
             .style('font-size', '20px')
-            .position(-100, -40)
+            .position(5, 5, 'absolute')
             .size(50)
-            .style('position', 'relative')
+            
 
         const setRule = function() {
             ruleNumber = Number(this.elt.value)

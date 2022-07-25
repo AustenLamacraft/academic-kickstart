@@ -39,7 +39,7 @@ const block = function(p) {
     const allBlocks = permutator(inputs)
     
     p.setup = function() {
-        p.createCanvas(p.windowWidth / 2, p.windowHeight / 2);
+        p.createCanvas(p.windowWidth / 1.5, p.windowHeight / 2.5);
         p.noStroke();
 
         col = p.floor(p.width / cellSize);
@@ -48,8 +48,7 @@ const block = function(p) {
         const inp = p.createInput(blockNumber)
             .style('font-size', '20px')
             .parent("block")
-            .position(-95, -40)
-            .style('position', 'relative')
+            .position(5, 5, 'absolute')
         
         inp.size(50);
 
@@ -62,9 +61,9 @@ const block = function(p) {
         const architectureSelector = p.createSelect()
             .style('font-size', '20px')
             .parent("block")
-            .position(10, -45)
+            .position(5, 50, "absolute")
             .size(170)
-            .style('position', 'relative')
+
             
         architectureSelector.option('single block')
         architectureSelector.option('random')
@@ -79,9 +78,8 @@ const block = function(p) {
         const viewSelector = p.createSelect()
             .style('font-size', '20px')
             .parent("block")
-            .position(-160, -75)
+            .position(5, 95, "absolute")
             .size(170)
-            .style('position', 'relative')
             
         viewSelector.option("cell values")
         viewSelector.option('differences')

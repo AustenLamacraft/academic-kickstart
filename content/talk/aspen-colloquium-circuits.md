@@ -6,7 +6,7 @@ authors: [Austen Lamacraft]
 tags: []
 categories: []
 all_day: false
-publishDate: 2022-06-07T00:00:00Z
+publishDate: 2022-07-06T00:00:00Z
 slides: new-rules
 draft: false
 ---
