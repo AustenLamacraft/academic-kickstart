@@ -6,13 +6,14 @@
 // We use PCA in 1d with K=4 in order to see transition following Derrida and Stauffer
 // Note Derrida and Stauffer don't include the center site
 
-const pca = function(p) {
+const pcaPerc = function(p) {
 
     let col, rw, gen;
     const cellSize = 2
     let cells = []; // will contain two copies of the system
 
-    let prob = 0.5 // prob of outpput
+    let prob = 0.5
+    let initialCondition = 'site'
     let view = 'cell values'
     
     p.setup = function() {
@@ -22,10 +23,38 @@ const pca = function(p) {
         col = p.floor(p.width / cellSize);
         rw = p.floor(p.height / cellSize);
 
+        const inp = p.createInput(prob);
+        inp.style('font-size', '20px')
+        inp.parent("pca-percolation")
+        inp.position(5, 5, 'absolute');
+        inp.size(50);
+
+        const setRule = function() {
+            prob = Number(this.elt.value)
+        }
+
+        inp.input(setRule);
+
+        const sel = p.createSelect()
+            .style('font-size', '20px')
+            .parent("pca-percolation")
+            .position(5, 50, "absolute")
+            .size(80)
+            
+        
+        sel.option('site')
+        sel.option('row')
+            
+        const setInitialConditions = function() {
+            initialCondition = sel.value();
+        }
+
+        sel.changed(setInitialConditions);
+
         const viewSelector = p.createSelect()
             .style('font-size', '20px')
-            .parent("pca-chaos")
-            .position(5, 5, 'absolute')
+            .parent("pca-percolation")
+            .position(5, 95, 'absolute')
             .size(125)
             
         viewSelector.option('cell values')
@@ -46,7 +75,9 @@ const pca = function(p) {
         for (let i = 0; i < col; i++) {
             cells[i] = []
             cells[i][0] = p.floor(p.random(2));
-            cells[i][1] = (i != p.floor(col / 2)) ? cells[i][0] : Number(!cells[i][0]) // Bit flip in the middle
+            (initialCondition == "row") 
+                ?  cells[i][1] = p.floor(p.random(2))
+                :  cells[i][1] = (i != p.floor(col / 2)) ? cells[i][0] : Number(!cells[i][0]) // Bit flip in the middle
         }
 
         gen = 0;
@@ -91,4 +122,4 @@ const pca = function(p) {
 
 }
 
-new p5(pca, "pca-chaos");
+new p5(pcaPerc, "pca-percolation");

@@ -20,7 +20,8 @@ scripts: ['https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js']
 ## Quantum Circuits, Cellular Automata, Complexity and Chaos
 [austen.uk/slides/new-rules-tum](https://austen.uk/slides/new-rules-tum)
 
-Austen Lamacraft, University of Cambridge 
+Austen Lamacraft and Pieter Claeys
+
 
 
 ---
@@ -75,13 +76,11 @@ Austen Lamacraft, University of Cambridge
 
 ### This talk
 
-- What are the similarities and differences?
- 
+- What are the similarities and differences? Can we try the same tricks?
+
 - When is quantum dynamics harder?
  
- <p align="center" class="fragment">
-<strong>Little quantum computation <i>per se</i>, though it saturates the field</strong>
-</p>
+- What about measurements?
 
 ---
 
@@ -205,57 +204,58 @@ $$
 <div id="pca-chaos" style="display: inline-block; position: relative"></div>
 </figure>
 
-- Cell values are now white noise
-
----
+- Cell values are now white noise, but  $z_t=x_t\oplus y_t$ revealing
 
 - Fluctuations of front are larger and average speed $<$ maximum
 
-- Interesting variation: choose output $1$ with probability $p$
-
-- $p\neq 1/2$ makes dynamics less *one-to-one*. What happens?
-
 ---
 
-### Phase transition 
 
-- For $0.25\lesssim p\lesssim 0.75$ front propagates to infinity
-
-- Outside this region, front dies out
-
-- In finite system two copies *always* merge after exponentially long time
-
----
-
-### Markov chain on $z^t\equiv x^t\oplus y^t$
-
-
-- If inputs differ, $z^{t+1}_n=1$ with probability $2p(1-p)$ ([Derrida and Stauffer (1986)](https://iopscience.iop.org/article/10.1209/0295-5075/2/10/001/meta))
-
-
-<figure align="center">
-<img src="assets/extended-lattice.png" width="50%"/>
-</figure>
-
-- $z^{t+1}\_{n}=1$ only if at least one of $z^t\_{n\pm 1}=1$
-
----
-
-- Seek connected cluster of sites occupied with probability $x=2p(1-p)$
-
-- This is (site) [directed percolation](https://en.wikipedia.org/wiki/Directed_percolation)
-
-- $x\leq 1/2< x_\text{crit}\sim 0.706$ on square lattice: require NN neighbors
-
---- 
 
 ### Reversibility 
 
-- No elementary CAs are reversible (bijective)!
+- No elementary CAs are reversible (bijective)! Requires size 4 neighborhood 
 
 - Reversibility is undecidable above one spatial dimension
 
 - $∃$ reversible constructions
+
+---
+
+### Second order cellular automata
+
+- Fredkin construction
+
+`$$
+x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1}) + x^{t-1}_{n},\, \mod 2
+$$`
+
+---
+
+### Example: Integrable Rule 54
+
+`$$
+x^{t+1}_{n} = x^{t}_{n-1} x^{t-1}_{n} + x^{t}_{n+1} + x^{t}_{n-1}x^{t}_{n+1}\, \mod 2
+$$`
+
+- Interpret as "tiling rules"
+
+<figure align="center">
+<img src="assets/rule-54-evolution.png" width="60%"/>
+<img src="assets/rule-54-tiles.png" width="60%"/>
+<figcaption>From <a href="https://iopscience.iop.org/article/10.1088/1742-5468/ac096b/meta">Buca, Klobas, and Prosen (2021)</a>
+</figcaption>
+</figure>
+
+- Random tilings consistent with constraint have entropy $\propto L$
+
+---
+
+### Maxim Gumin's [wavefunction collapse algorithm](https://github.com/mxgmn/WaveFunctionCollapse)
+
+<figure align="center">
+<img alt="main gif" src="assets/wfc.gif" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
+</figure align="center">
 
 ---
 
@@ -309,22 +309,7 @@ $$
 <div id="block"  style="display: inline-block; position: relative"></div>
 </figure>
 
----
-
-### Three component models
-
-<script src="assets/three-component-dual-reversible.js"></script>
-<figure align="center">
-<div id="three-component"  style="display: inline-block; position: relative"></div>
-</figure>
-
----
-
-### Ensemble of block CAs
-
-- Results qualitatively similar to chaotic phase of of PCA
-
-- No phase transition because all blocks are reversible
+- Ensemble of block CAs similar to PCA
 
 ---
 
@@ -337,6 +322,52 @@ $$
 - There are 12 such blocks (out of 24)
 
 - Ensemble is Markov in time *and space*: must have maximal velocity!
+
+---
+
+### Dynamics of difference?
+
+- For $N=2$ dynamics of $z_t=x_t\oplus y_t$ independent of $x_t$ (or $y_t$)
+
+- Recurrence time always $\propto L$ (instead of double exponential)
+
+- Edge corresponds to the stationary state of a Markov process (c.f. [Claeys and Lamacraft (2020)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032) for quantum case)
+
+
+---
+
+### Three component models
+
+- [Borsi and Pozsgay (2022)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.014302) find 227 inequivalent dual reversible models 
+
+<script src="assets/three-component-dual-reversible.js"></script>
+<figure align="center">
+<div id="three-component"  style="display: inline-block; position: relative"></div>
+</figure>
+
+---
+
+### The linear block
+
+$$
+(c,d) = f(a,b) = (a + b, a - b)\, \mod 3
+$$
+
+- Original dual unitary circuit from [Hosur *et al.*](https://link.springer.com/article/10.1007/JHEP02(2016)004)
+- Unusual behavior of recurrence time
+  - For $L = 2\times 3^m$ have $T_\text{recur}=2L$
+  - [Borsi and Pozsgay](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.014302) prove using Fourier analysis over finite fields
+
+--- 
+
+### Origin of "fractal" recurrence
+
+<figure align="center">
+<img src="assets/linear-model-recurrence.png" width="30%"/>
+<figcaption>
+$L=54=2\times 3^3$, $T_\text{recur}=2L=108$</a> 
+<figcaption>
+</figure>
 
 ---
 
@@ -360,6 +391,17 @@ $$
 
 - Vanishes if $p_{(X,Y)}(x,y)=p_X(x)p_Y(y)$
  
+---
+
+### MI for CAs: effect of reversibility
+
+<figure align="center">
+<img src="assets/pizzi-mi.png" width="100%"/>
+<figcaption>
+From <a href="https://arxiv.org/abs/2204.03016">Pizzi <i>et al.</i> (2022)</a> 
+<figcaption>
+</figure>
+
 ---
 
 ### Simple example
@@ -407,7 +449,62 @@ $$
 
 ---
 
-### MI for dual reversible models
+### Graphical identities
+
+For reversibility and dual reversibility
+
+<object data="assets/reversibility.svg" type="image/svg+xml"></object>
+
+---
+
+### Entropy from dual reversibility
+
+- 8 sites share 4 bits of entropy
+
+<object data="assets/A-entropy.svg" type="image/svg+xml"></object>
+
+- After four steps increases to (maximum) 8 bits!
+
+---
+
+### Shallower...
+
+- 8 sites share 4 bits of entropy
+
+<object data="assets/A-entropy-shallower.svg" type="image/svg+xml"></object>
+
+- After two steps increases to 6 bits!
+
+---
+
+- Entropies of $A$ and $\bar A$ subsystems behave just as in the toy model
+
+$$
+I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
+$$
+
+- ... for all dual reversible models!
+
+---
+
+### Classical dual reversible model
+
+`$$
+\begin{equation}
+\begin{aligned}
+\Phi_{\tau}\left(\mathbf{S}_{1}, \mathbf{S}_{2}\right) &=\frac{1}{\sigma^{2}+\tau^{2}}\left(\sigma^{2} \mathbf{S}_{1}+\tau^{2} \mathbf{S}_{2}+\tau \mathbf{S}_{1} \times \mathbf{S}_{2}, \sigma^{2} \mathbf{S}_{2}+\tau^{2} \mathbf{S}_{1}+\tau \mathbf{S}_{2} \times \mathbf{S}_{1}\right) \\
+\sigma^{2} &:=\frac{1}{2}\left(1+\mathbf{S}_{1} \cdot \mathbf{S}_{2}\right)
+\end{aligned}
+\end{equation}
+$$`
+<figure align="center">
+<img src="assets/krajnik-prosen-circuit.png" width="50%"/>
+<figcaption>
+From <a href="https://link.springer.com/article/10.1007/s10955-020-02523-1">Krajnik and Prosen (2020)</a> 
+<figcaption>
+</figure>
+
+- MI has exactly the same behavior!
 
 ---
 
@@ -715,9 +812,6 @@ $`
 
 - c.f. dual reversible CAs
 
-- Proof: apply unitary and dual unitary conditions 
-
-- Converse – maximal entanglement growth implies dual unitary gates – recently proved by [Zhou and Harrow (2022)](https://arxiv.org/abs/2204.10341)
 
 ---
 
@@ -730,6 +824,144 @@ $`
 - Includes *kicked Ising model* at particular values of couplings
   
 - Dual unitaries not "integrable" but have enough structure to allow many calculations
+
+---
+
+
+## $\rho_A$ via dual unitarity
+
+- 8 sites; 4 layers
+
+<object data="assets/A-entropy-quantum.svg" type="image/svg+xml"></object>
+
+- $\rho_A$ is unitary transformation of
+  
+$$
+  \mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}
+$$
+
+---
+
+## Shallower...
+
+<object data="assets/A-entropy-quantum-shallower.svg" type="image/svg+xml"></object>
+
+- $\rho_A$ is unitary transformation of 
+  
+$$
+\mathbb{1}\otimes\mathbb{1}\ket{\Phi^+}\bra{\Phi^+}\otimes\ket{\Phi^+}\bra{\Phi^+}\otimes\mathbb{1}\otimes\mathbb{1}
+$$
+
+---
+
+### General case
+
+- RDM is unitary transformation of 
+
+$$
+\rho_0=\overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1} \otimes\overbrace{\ket{\Phi^+}\bra{\Phi^+} \cdots }^{N_A/2-t+1 } \otimes \overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1}
+$$
+
+- RDM has $2^{\min(2t-2,N_A)}$ non-zero eigenvalues all equal to $\left(\frac{1}{2}\right)^{\min(2t-2,N_A)}$
+
+
+- Converse – maximal entanglement growth implies dual unitary gates – recently proved by [Zhou and Harrow (2022)](https://arxiv.org/abs/2204.10341)
+
+---
+
+## Thermalization
+
+- After $N_A/2 + 1$ steps, reduced density matrix is $\propto \mathbb{1}$
+
+- All expectations (with $A$) take on infinite temperature value
+
+---
+
+
+## Floquet theory: kicked Ising model
+
+- Time dependent Hamiltonian with kicks at $t=0,1,2,\ldots$.
+
+`$$
+\begin{aligned}
+H_{\text{KIM}}(t) = H_\text{I}[\mathbf{h}] + \sum_{m}\delta(t-n)H_\text{K}\\
+H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H_\text{K} &= b\sum_{j=1}^L X_j,
+\end{aligned}
+$$`
+
+- "Stroboscopic" form of $U(t)=\mathcal{T}\exp\left[-i\int^t H_{\text{KIM}}(t') dt'\right]$
+
+`$$
+\begin{aligned}
+  U(n_+) &= \left[U(1_+)\right]^n,\qquad U(1_-) = K I_\mathbf{h}\\
+  I_\mathbf{h} &= e^{-iH_\text{I}[\mathbf{h}]}, \qquad K = e^{-iH_\text{K}}
+\end{aligned}
+$$`
+
+---
+
+## KIM as a circuit
+
+<p align="center">
+<img src="assets/kim-circuit.png" width="200"/>
+</p>
+
+`$$
+\begin{aligned}
+  \mathcal{K} &= \exp\left[-i b X\right]\\
+  \mathcal{I} &= \exp\left[-iJ Z_1 Z_2 -i \left(h_1 Z_1 + h_2 Z_2\right)/2\right].
+\end{aligned}
+$$`
+
+---
+
+
+### Entanglement Growth for Self-Dual KIM
+
+- [Bertini, Kos, Prosen (2019)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033) found that when $|J|=|b|=\pi/4$
+
+$$
+\lim_{L\to\infty} S_A =\min(2t-2,N_A)\log 2,
+$$
+
+- __Any $h_j$__; initial $Z_j$ product state
+
+<p align="center">
+<img src="assets/bertini.png" width="500"/>
+</p>
+
+---
+
+## Dual unitarity
+
+- Recall KIM has circuit representation
+
+<p align="center">
+<img src="assets/kim-circuit.png" width="200"/>
+</p>
+
+`$$
+\begin{aligned}
+  \mathcal{K} &= \exp\left[-i b X\right]\\
+  \mathcal{I} &= \exp\left[-iJ Z_1 Z_2 -i \left(h_1 Z_1 + h_2 Z_2\right)/2\right].
+\end{aligned}
+$$`
+
+- At $|J|=|b|=\pi/4$ model is dual unitary
+
+---
+
+## 'KIM' property
+
+<p align="center">
+<img src="assets/fig_KIMidentity.png" width="600"/>
+</p>
+
+- ($q=2$ here) Not satisfied by e.g. $\operatorname{SWAP}$
+
+- Maps product states to maximally entangled (Bell) states
+
+- Product initial states also work for KIM!
 
 ---
 
@@ -845,11 +1077,75 @@ $$`
 
 ---
 
+### Classical analogy?
+
+
+- Interesting variation on PCA: choose output $1$ with probability $p$
+
+- $p\neq 1/2$ makes dynamics less *one-to-one*. What happens?
+
+<script src="assets/pca-percolation.js"></script>
+<figure align="center">
+<div id="pca-percolation" style="display: inline-block; position: relative"></div>
+</figure>
+
+---
+
+### Phase transition 
+
+- For $0.25\lesssim p\lesssim 0.75$ front propagates to infinity
+
+- Outside this region, front dies out
+
+- In finite system two copies *always* merge after exponentially long time ("bad luck")
+
+---
+
+### Markov chain on $z^t\equiv x^t\oplus y^t$
+
+
+- If inputs differ, $z^{t+1}_n=1$ with probability $2p(1-p)$ ([Derrida and Stauffer (1986)](https://iopscience.iop.org/article/10.1209/0295-5075/2/10/001/meta))
+
+
+<figure align="center">
+<img src="assets/extended-lattice.png" width="50%"/>
+</figure>
+
+- $z^{t+1}\_{n}=1$ only if at least one of $z^t\_{n\pm 1}=1$
+
+---
+
+- Seek connected cluster of sites occupied with probability $x=2p(1-p)$
+
+- This is (site) [directed percolation](https://en.wikipedia.org/wiki/Directed_percolation)
+
+- $x\leq 1/2< x_\text{crit}\sim 0.706$ on square lattice: require NN neighbors
+
+- Similar phenomenon in coupled map lattices: ["synchronization of extended chaotic systems"
+](http://www.scholarpedia.org/article/Synchronization_of_extended_chaotic_systems)
+
+---
+
+### Classical version of MIPT?
+
 - Measurements purify state; analogous to non-injective rules in CA
 
 - It was a surprise that a mixed state survives finite measurement rate
 
 - But... a chaotic front survives non-injective rules (up to a point)
+
+---
+
+### [Willsher *et al.* (2022)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.024305)
+
+
+<figure align="center">
+<img src="assets/willsher-pd.png" width="40%"/>
+</figure>
+
+- c.f. [Iaconia, Lucas, Chen (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.224311)
+
+- Analogous to  *forced* version of transition ([Nahum *et al.* (2021)](https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.2.010352))
 
 ---
 
@@ -862,9 +1158,6 @@ $$`
 |**Transition via** | Non-injectivity   | Measurements |
 |**Ensemble** | Random maps   | Random unitaries |
   
-
-> Thanks to Pieter Claeys, Jonah Herzog-Arbeitman, and Sarang Gopalakrishnan for sharing their ideas
-
 ---
 
 ### Further reading

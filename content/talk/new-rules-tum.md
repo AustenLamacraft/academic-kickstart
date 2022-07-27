@@ -8,5 +8,5 @@ categories: []
 all_day: false
 publishDate: 2022-07-25T00:00:00Z
 slides: new-rules-tum
-draft: true
+draft: false
 ---
