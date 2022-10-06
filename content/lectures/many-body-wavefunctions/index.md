@@ -9,7 +9,7 @@ scripts: []
 
 ---
 
-# Welcome back!
+# Welcome!
 
 ---
 ## About this course
@@ -96,13 +96,19 @@ $$
 
 ## Housekeeping
 
-- $\hbar=1$
 
-- Course website [austen.uk/courses/](https://austen.uk/courses/) (updated with slides)
 
-- Lecture capture (left and centre blackboards + centre screen)
+- Course website [austen.uk/courses/tqm-lectures](https://austen.uk/courses/tqm-lectures) (updated with slides)
+
+- Lecture capture (all three screens)
+
+- Lectures are 90 minutes with 5 minute break roughly halfway
 
 - Supervision details to follow
+
+---
+
+# $\hbar=1$ !
 
 ---
 
@@ -317,7 +323,7 @@ $$
 
 ## Ground State of Bosons
 
-- very particle in the state $\ket{\varphi_{0}}$ with zero energy: $N_{0}=N$
+- Every particle in the state $\ket{\varphi_{0}}$ with zero energy: $N_{0}=N$
 
 $$
 	\Psi^{S}(x_{1},x_{2},\ldots x_{N})=\frac{1}{L^{N/2}}
@@ -469,7 +475,7 @@ $$
 >`$$
 >\begin{align}
 >g(x,y) &= \frac{1}{L}\sum_{|k|<k_\text{F}} e^{ik(x-y)} \longrightarrow \int_{-k_\text{F}}^{k_\text{F}} \frac{dk}{2\pi} e^{ik(x-y)} \\
-&\longrightarrow n \frac{\sin [k_\text{F}(x-y)]}{k_\text{F}(x-y)}
+&\longrightarrow n \frac{\sin \left[k_\text{F}(x-y)\right]}{k_\text{F}(x-y)}
 >\end{align}
 >$$`
 >where $n \equiv \frac{k_\text{F}}{\pi}$ is the average density.
@@ -486,7 +492,7 @@ $$
 
 >Starting from the Slater determinant, show that
 >$$
->\rho_2(x_1,x_2) = n^2\left[1 - \left(\frac{\sin[k_\text{F}(x_1-x_2)]}{k_\text{F}(x_1-x_2)}\right)^2\right].
+>\rho_2(x_1,x_2) = n^2\left[1 - \left(\frac{\sin\left[k_\text{F}(x_1-x_2)\right]}{k_\text{F}(x_1-x_2)}\right)^2\right].
 >$$
 >This vanishes at $x_1=x_2$.
 
