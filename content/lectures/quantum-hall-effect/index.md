@@ -309,13 +309,51 @@ $$`
 
 - Hole with charge -10 for clarity
 
+<script>
+Reveal.on( 'slidechanged', event => {
+  if (!!event.currentSlide.querySelector("#hole-state")) {
+    const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'assets/laughlin-complex.js';
+      script.id = 'laughlin-sim'
+
+      document.head.appendChild(script);
+  }
+  else {
+    document.getElementById('laughlin-sim')?.remove()
+  }
+} );
+</script>
+
+<script>
+function toggleScript(src) {
+    console.log(!!document.getElementsByClassName("present")[0].querySelector("#hole-state"))
+    const existingScript = document.getElementById('laughlin-sim')
+    if (existingScript) {
+      console.log(existingScript)
+      existingScript.remove()
+      
+    }
+    else {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = src;
+      script.id = 'laughlin-sim'
+
+      document.head.appendChild(script);
+    }    
+}
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
 
-<script src="assets/laughlin-complex.js"></script>
+<button onclick="toggleScript('assets/laughlin-complex.js')">start / stop demo</button>
+
 <figure align="center">
 <div id="laughlin" style="display: inline-block" ></div>
 <figcaption>Laughlin state </figcaption>
 </figure>
+
 
 
 ---
