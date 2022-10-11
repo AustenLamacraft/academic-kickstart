@@ -5,8 +5,6 @@ slides:
   # Choose a code highlighting style (if highlighting enabled in `params.toml`)
   #   Light style: github. Dark style: dracula (default).
   highlight_style: github
-scripts: ["https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js", "assets/laughlin.js"]
-
 ---
 
 # Quantum Hall Effect
@@ -311,8 +309,13 @@ $$`
 
 - Hole with charge -10 for clarity
 
-<div id="p5div" >
-</div>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
+
+<script src="assets/laughlin-complex.js"></script>
+<figure align="center">
+<div id="laughlin" style="display: inline-block" ></div>
+<figcaption>Laughlin state </figcaption>
+</figure>
 
 
 ---
@@ -354,3 +357,4 @@ $$
 - For $m>1$ wavefunction is _multi-valued_, and changes by a phase $\pi/m$ when $Z_1$ and $Z_2$ are exchanged
 
 - The quasiholes are __anyons__, particles with fractional statistics
+

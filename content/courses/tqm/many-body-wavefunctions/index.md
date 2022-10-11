@@ -3,7 +3,7 @@ title: Many Body Wavefunctions
 summary: Product States. Fermi gas. Density, density matrix, and pair distribution.
 author: Austen Lamacraft
 draft: false  # Is this a draft? true/false
-toc: true  # Show table of contents? true/false
+toc: false  # Show table of contents? true/false
 type: book  # Do not modify.
 markup: pandoc
 weight: 10
@@ -167,7 +167,7 @@ $$
 
 Here's the definition of the various quantities in $\eqref{quantum_statistics_SymAntisym}$:
 
-- The sums are over all $N!$ permutations $\pi$ of $N$ objects. One way to think of a permutation $\pi$ Is as a one-to-one correspondence between the set $\{1,2,\ldots N\}$ and itself, so that 1 is mapped to $\pi(1)$, etc.. 
+- The sums are over all $N!$ permutations $\pi$ of $N$ objects. One way to think of a permutation $\pi$ is as a one-to-one correspondence (or [bijection](https://en.wikipedia.org/wiki/Bijection)) between the set $\{1,2,\ldots N\}$ and itself, so that 1 is mapped to $\pi(1)$, etc.. 
 - $P_\pi$ denotes the corresponding permutation operator
 $$
 P_\pi \Psi(\br_1,\br_2,\ldots \br_N) = \Psi(\br_{\pi(1)}, \br_{\pi(2)},\ldots \br_{\pi(N)})
@@ -334,25 +334,12 @@ $$
 $$
 so that $\rho_1(x) = \braket{\Psi}{\rho(x)}{\Psi}$.
 
-We can also consider the __density matrix__ of a single particle. Recall that the density matrix $\varrho$ describes a __mixed state__ of a quantum system, and is the appropriate description when the quantum state is not known. $\varrho$ is a positive definite hermitian operator satisfying $\tr \varrho =1$. Its spectral resolution
+The __single particle density matrix__ is a generalization of the expectation of the density, and is defined as (we'll see shortly why this is a useful quantity)
 $$
-\varrho = \sum_\alpha p_\alpha \ket{\varphi_\alpha}\bra{\varphi_\alpha},
-$$
-can be thought of as a statistical mixture of different quantum states $\ket{\varphi_\alpha}$ with probabilities $p_\alpha$.
-
-One natural way in which density matrices arise from pure states is as follows. The Hilbert space of a composite system consists of a tensor product of two or more components $\mathcal{H}_{AB} = \mathcal{H}_A \otimes \mathcal{H}_B$. Starting from the density matrix corresponding to a pure state, we can obtain a density matrix for the component $A$ alone by 'tracing out' the $B$ subsystem.
-$$
-\varrho_A = \tr_B \ket{\Psi}\bra{\Psi},\quad \ket{\Psi}\in \mathcal{H}_{AB}.
-$$
-The probability for system $A$ to be in state $\ket{\psi}\in \mathcal{H}_A$ is
-$$
-P_\psi = \bra{\psi}\varrho\ket{\psi}.
-$$
-Applied to our many body states, the same logic leads us to define the __single particle density matrix__ as
-$$
+\label{eq:spdm}
 g(x,y) \equiv N\int dx_2\ldots dx_N \,\Psi^{}(x,x_2,\ldots,x_N)\Psi^{*}(y,x_2,\ldots,x_N).
 $$
-Note that $g(x,x) = \rho_1(x)$.
+Note that $g(x,x) = \rho_1(x)$. 
 
 >Show that the average number of particles in a single particle state $\ket{\psi}$ is
 >$$
@@ -376,6 +363,22 @@ Note that $g(x,x) = \rho_1(x)$.
 >$$
 >Note that in a translationally invariant system $g(x,y)=g(x-y)$, and is the Fourier transform of $\bar N_k$.
 
+> To understand the origin of the name *single particle density matrix*, recall that the density matrix $\varrho$ describes a __mixed state__ of a quantum system, and is the appropriate description when the quantum state is not known. $\varrho$ is a positive definite hermitian operator satisfying $\tr \varrho =1$. Its spectral resolution
+$$
+\varrho = \sum_\alpha p_\alpha \ket{\varphi_\alpha}\bra{\varphi_\alpha},
+$$
+can be thought of as a statistical mixture of different quantum states $\ket{\varphi_\alpha}$ with probabilities $p_\alpha$.
+
+> One natural way in which density matrices arise from pure states is as follows. The Hilbert space of a composite system consists of a tensor product of two or more components $\mathcal{H}_{AB} = \mathcal{H}_A \otimes \mathcal{H}_B$. Starting from the density matrix corresponding to a pure state, we can obtain a density matrix for the component $A$ alone by 'tracing out' the $B$ subsystem.
+$$
+\varrho_A = \tr_B \ket{\Psi}\bra{\Psi},\quad \ket{\Psi}\in \mathcal{H}_{AB}.
+$$
+The probability for system $A$ to be in state $\ket{\psi}\in \mathcal{H}_A$ is
+$$
+P_\psi = \bra{\psi}\varrho\ket{\psi}.
+$$
+Thus you can think of the single particle density matrix \eqref{eq:spdm} as arising from tracing out $N-1$ particles from an $N$-particle system.
+
 We can also consider marginal probability distribution of a pair of particles, and define the __pair distribution function__
 $$
 \rho_2(x_1,x_2) = N(N-1) \int dx_3\ldots dx_N \,\left|\Psi(x_1,x_2,\ldots,x_N)\right|^2.
@@ -384,7 +387,7 @@ The prefactor is to account for all pairs of particles.
 
 >Starting from the Slater determinant $\eqref{quantum_statistics_1ddet}$, show that
 >$$
->\rho_2(x_1,x_2) = n^2\left[1 - \left(\frac{\sin[k_\text{F}(x_1-x_2)]}{k_\text{F}(x_1-x_2)}\right)^2\right].
+>\rho_2(x_1,x_2) = n^2\left[1 - \left(\frac{\sin\left[k_\text{F}(x_1-x_2)\right]}{k_\text{F}(x_1-x_2)}\right)^2\right].
 >$$
 >This vanishes at $x_1=x_2$, consistent with the Pauli principle.
 

@@ -253,6 +253,7 @@ This is interpreted as the introduction of a charge $q/m$ at point $\mathbf{R} =
 $$
 \int \prod_{j=1}^N d^2z_j\,\left|\Psi_\text{hole}(z_1,\ldots, z_N|Z)\right|^2 \sim\exp\left(\frac{1}{2m}\left|Z\right|^2\right),
 $$
+
 ### Fractional Statistics
 
 Consider the two quasihole wavefunction
@@ -273,7 +274,49 @@ $$
 
 For $m=1$ this is an antisymmetric wavefunction, and may be interpreted as a pair of fermionic holes. For $m>1$ the wavefunction is _multi-valued_, and changes by a phase $\pi/m$ when $Z_1$ and $Z_2$ are exchanged. The quasiholes are __anyons__, particles with fractional statistics intermediate between bosons and fermions.
 
-References
-----------
+Appendix
+--------
 
-{% bibliography --cited %}
+### Sampling from a complex wavefunction
+
+Suppose we have a complex wavefunction $\psi(\br,t)$ that solves the Schrödinger equation
+
+$$
+i\frac{\partial\psi}{\partial t} = -\frac{1}{2m}\left(\nabla -iq\mathbf{A}\right)^2 + V(\br)\psi(\br,t).
+$$
+
+We can write $\psi(\br, t) = \exp(R(\br, t) + iS(\br, t))$, where $S(\br,t)$ is the phase of the wavefunction and the probability density is $\rho=|\psi|^2 = e^{2R}$. With some massaging, we can arrive at the following equation
+
+$$
+\frac{\partial \rho}{\partial t} = \frac{1}{2m}\nabla^2\rho - \nabla\cdot\left(\bv \rho\right)
+$$
+
+with $\bv = \nabla R + \nabla S - q\mathbf{A}$. This is a [Fokker–Planck equation](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation) describing the evolution of a probability distribution $\rho$ due to diffusion (with diffusion constant $D=\frac{1}{2m}$) together with a *drift velocity* $\bv$, which depends on the amplitude, phase, and the vector potential. Although the potential $V(\br)$ does not appear in this equation, it determines the functions $R$ and $S$. 
+
+We can sample from the probability distribution $\rho$ by simulating the stochastic differential equation for the particle's position
+
+$$
+d\br_t = \sqrt{\frac{1}{m}}d\mathbf{B}_t + \mathbf{v}dt,
+$$
+
+where $\mathbf{B}_t$ is a Brownian motion. In practical terms, this means that for a small time step $\Delta t$ we update the position as
+
+$$
+\Delta \br_t = \sqrt{\frac{\Delta t}{m}}(X_i, Y_i)  + \mathbf{v}\Delta t,
+$$
+
+where $X_t$ and $Y_t$ are sampled from a standard normal distribution of unit variance: $X_t, Y_t \sim \mathcal{N}(0,1)$
+
+Extended to the many body case and applied to the Laughlin wavefunction \eqref{many_nu} we arrive at the drift, written in terms of the positions $\mathbf{r}_i = (x_i, y_i)$
+
+$$
+\mathbf{v}_i = -\frac{1}{2}\mathbf{r}_i + \frac{1}{2} \mathbf{r}_i \times \hat{\mathbf{z}} + m \sum_{j\neq 1} \left(\frac{\mathbf{r}_i - \mathbf{r}_j - (\mathbf{r}_i - \mathbf{r}_j)\times \hat{\mathbf{z}}}{|\mathbf{r}_i-\mathbf{r}_j|^2}\right)
+$$
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js" type="module"></script>
+
+<script src="laughlin.js" type="module"></script>
+<figure align="center">
+<div id="laughlin" style="display: inline-block" ></div>
+<figcaption>Laughlin state </figcaption>
+</figure>
