@@ -1,6 +1,9 @@
 // Simulation of Laughlin state with a non-potential drift contribution
 // All sketches in instance mode, to keep variables out of global scope
 // https://p5js.org/examples/instance-mode-instantiation.html
+
+const width = document.getElementById("laughlin").offsetWidth;
+
 export default function laughlin(p) {
 
     const numParticles = 512;
@@ -10,7 +13,6 @@ export default function laughlin(p) {
 
     const holeCharge = 20
 
-
     const particles = new Array(numParticles).fill([0, 0])
 
     let inverseFilling = 3 
@@ -19,7 +21,7 @@ export default function laughlin(p) {
 
     p.setup = function() {
         
-        p.createCanvas(800, 400);
+        p.createCanvas(width, 400);
         
         p.noStroke();
 

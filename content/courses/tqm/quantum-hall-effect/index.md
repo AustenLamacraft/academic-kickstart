@@ -265,8 +265,9 @@ const observer = new IntersectionObserver(function(entries) {
 observer.observe(document.querySelector("#laughlin"));
 </script>
 
+<figure align="center" id="laughlin">
+</figure>
 <figure align="center">
-<div id="laughlin" style="display: inline-block" ></div>
 <figcaption>A Monte Carlo simulation of a Laughlin state. You can change the inverse filling fraction $m$. The red dot is a quasihole: in fact for clarity it's 20 quasiholes with an overall charge of $-20/m$.</figcaption>
 </figure>
 
