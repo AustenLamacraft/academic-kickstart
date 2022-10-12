@@ -307,51 +307,24 @@ $$`
 
 ## Hole state
 
-- Hole with charge -10 for clarity
+- 20 holes with charge $-20/m$ for clarity
 
-<script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
+<script type="module">
+import laughlin from "./assets/laughlin-complex.js"
+const laughlinSketch = new p5(laughlin, "laughlin")
 Reveal.on( 'slidechanged', event => {
   if (!!event.currentSlide.querySelector("#hole-state")) {
-    const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'assets/laughlin-complex.js';
-      script.id = 'laughlin-sim'
-
-      document.head.appendChild(script);
+    laughlinSketch.loop()
   }
   else {
-    document.getElementById('laughlin-sim')?.remove()
+    laughlinSketch.noLoop()
   }
 } );
 </script>
 
-<script>
-function toggleScript(src) {
-    console.log(!!document.getElementsByClassName("present")[0].querySelector("#hole-state"))
-    const existingScript = document.getElementById('laughlin-sim')
-    if (existingScript) {
-      console.log(existingScript)
-      existingScript.remove()
-      
-    }
-    else {
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = src;
-      script.id = 'laughlin-sim'
-
-      document.head.appendChild(script);
-    }    
-}
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
-
-<button onclick="toggleScript('assets/laughlin-complex.js')">start / stop demo</button>
-
 <figure align="center">
 <div id="laughlin" style="display: inline-block" ></div>
-<figcaption>Laughlin state </figcaption>
 </figure>
 
 
@@ -360,7 +333,7 @@ function toggleScript(src) {
 
 - Normalization integral is approximated by Boltzmann weight of interaction of fractional charge with background charge density
 $$
-\int \prod_{j=1}^N d^2z_j\,\left|\Psi_\text{hole}(z_1,\ldots, z_N|Z)\right|^2 \sim\exp\left(\frac{1}{2m}\left|Z\right|^2\right)
+\int \prod_{j=1}^N d^2z_j\left|\Psi_\text{hole}(z_1,\ldots, z_N|Z)\right|^2 \sim\exp\left(\frac{1}{2m}\left|Z\right|^2\right)
 $$
 
 ---
