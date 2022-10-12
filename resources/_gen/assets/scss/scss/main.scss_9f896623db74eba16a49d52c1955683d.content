@@ -9557,3 +9557,12 @@ div.chart {
   margin-right: auto;
   margin-bottom: 1rem;
   overflow-x: auto; }
+
+/*************************************************
+ *  Documentation layout
+ **************************************************/
+.docs-article-container {
+  max-width: 900px; }
+
+.math-display {
+  overflow: scroll; }

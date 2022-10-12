@@ -3,7 +3,7 @@ title: Quantum Hall Effect
 summary: Landau levels. Laughlin wavefunction. Fractional charge, Fractional statistics.
 author: Austen Lamacraft
 draft: false  # Is this a draft? true/false
-toc: true  # Show table of contents? true/false
+toc: false  # Show table of contents? true/false
 type: book  # Do not modify.
 markup: pandoc
 weight: 20

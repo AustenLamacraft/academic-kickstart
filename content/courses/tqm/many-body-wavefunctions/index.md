@@ -285,8 +285,10 @@ $$
 >which can be proved in a variety of ways. Proving directly that $\eqref{quantum_statistics_1dFermiGS}$ is an eigenstate of the Hamiltonian is not easy, but can be accomplished using the identity
 >
 >$$
->\label{2nd_quant_cotident}
->	\cot(x-y)\cot(y-z)+\cot(y-z)\cot(z-x)+\cot(z-x)\cot(x-y)=1.	\nonumber
+\begin{equation}
+\label{2nd_quant_cotident}
+\cot(x-y)\cot(y-z)+\cot(y-z)\cot(z-x)+\cot(z-x)\cot(x-y)=1.	\nonumber
+\end{equation}
 >$$
 >
 >Check carefully that $\eqref{quantum_statistics_1dFermiGS}$ is periodic and totally antisymmetric.
@@ -349,7 +351,7 @@ Note that $g(x,x) = \rho_1(x)$.
 
 >Starting from the Slater determinant $\eqref{quantum_statistics_1ddet}$ (i.e. _not_ from the explicit form $\eqref{quantum_statistics_1dFermiGS}$), show that $g(x,y)$ for the ground state of the Fermi gas is
 >$$
->g(x,y) = \frac{1}{L}\sum_{|k|<k_\text{F}} e^{ik(x-y)} = \int_{k_\text{F}}^{k_\text{F}} \frac{dk}{2\pi} e^{ik(x-y)} = n \frac{\sin [k_\text{F}(x-y)]}{k_\text{F}(x-y)}
+>g(x,y) = \frac{1}{L}\sum_{|k|<k_\text{F}} e^{ik(x-y)} = \int_{k_\text{F}}^{k_\text{F}} \frac{dk}{2\pi} e^{ik(x-y)} = n \frac{\sin \left[k_\text{F}(x-y)\right]}{k_\text{F}(x-y)}
 >$$
 >where $n \equiv \frac{k_\text{F}}{\pi}$ is the average density.
 
