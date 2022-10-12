@@ -249,7 +249,28 @@ V(\brN)=&-\frac{q^2}{2\pi m}\sum_j \log\left|\br_j-\mathbf{R}\right|-\frac{q^2}{
  &+ \frac{\rho q_0}{4}\sum_j \left|\br_j\right|^2.
 \end{align}
 $$
-This is interpreted as the introduction of a charge $q/m$ at point $\mathbf{R} = (X, Y)$, where $Z=X+iY$. The charges of the plasma will screen this charge, leaving a 'hole' in the density distribution amounting to charge $-q/m$, corresponding to $-1/m$ real particles. The quasiholes have fractional charge! This means that the normalization integral is approximated by the Boltzmann weight corresponding to the interaction of this fractional charge with the background charge density
+This is interpreted as the introduction of a charge $q/m$ at point $\mathbf{R} = (X, Y)$, where $Z=X+iY$. The charges of the plasma will screen this charge, leaving a 'hole' in the density distribution amounting to charge $-q/m$, corresponding to $-1/m$ real particles. The quasiholes have fractional charge! 
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
+<script type="module">
+import laughlin from "./laughlin-complex.js"
+const laughlinSketch = new p5(laughlin, "laughlin");
+const observer = new IntersectionObserver(function(entries) {
+	if(entries[0].isIntersecting === true)
+		laughlinSketch.loop()
+    else {
+        laughlinSketch.noLoop()
+    }
+}, { threshold: [0.5] });
+observer.observe(document.querySelector("#laughlin"));
+</script>
+
+<figure align="center">
+<div id="laughlin" style="display: inline-block" ></div>
+<figcaption>A Monte Carlo simulation of a Laughlin state. You can change the inverse filling fraction $m$. The red dot is a quasihole: in fact for clarity it's 20 quasiholes with an overall charge of $-20/m$.</figcaption>
+</figure>
+
+This means that the normalization integral is approximated by the Boltzmann weight corresponding to the interaction of this fractional charge with the background charge density
 $$
 \int \prod_{j=1}^N d^2z_j\,\left|\Psi_\text{hole}(z_1,\ldots, z_N|Z)\right|^2 \sim\exp\left(\frac{1}{2m}\left|Z\right|^2\right),
 $$
@@ -307,16 +328,10 @@ $$
 
 where $X_t$ and $Y_t$ are sampled from a standard normal distribution of unit variance: $X_t, Y_t \sim \mathcal{N}(0,1)$
 
-Extended to the many body case and applied to the Laughlin wavefunction \eqref{many_nu} we arrive at the drift, written in terms of the positions $\mathbf{r}_i = (x_i, y_i)$
+Extended to the many body case and applied to the Laughlin wavefunction \eqref{many_nu} we arrive at the drift $\mathbf{v}_i$ of particle $i$, written in terms of the positions $\mathbf{r}_i = (x_i, y_i)$
 
 $$
-\mathbf{v}_i = -\frac{1}{2}\mathbf{r}_i + \frac{1}{2} \mathbf{r}_i \times \hat{\mathbf{z}} + m \sum_{j\neq 1} \left(\frac{\mathbf{r}_i - \mathbf{r}_j - (\mathbf{r}_i - \mathbf{r}_j)\times \hat{\mathbf{z}}}{|\mathbf{r}_i-\mathbf{r}_j|^2}\right)
+\mathbf{v}_i = -\frac{1}{2}\mathbf{r}_i + \frac{1}{2} \mathbf{r}_i \times \hat{\mathbf{z}} + m \sum_{j\neq 1} \left(\frac{\mathbf{r}_i - \mathbf{r}_j - (\mathbf{r}_i - \mathbf{r}_j)\times \hat{\mathbf{z}}}{|\mathbf{r}_i-\mathbf{r}_j|^2}\right).
 $$
 
-<script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js" type="module"></script>
-
-<script src="laughlin.js" type="module"></script>
-<figure align="center">
-<div id="laughlin" style="display: inline-block" ></div>
-<figcaption>Laughlin state </figcaption>
-</figure>
+This is what I used for the Monte Carlo simulation of the Laughlin state.
