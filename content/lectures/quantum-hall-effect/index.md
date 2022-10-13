@@ -327,15 +327,6 @@ Reveal.on( 'slidechanged', event => {
 <div id="laughlin" style="display: inline-block" ></div>
 </figure>
 
-
-
----
-
-- Normalization integral is approximated by Boltzmann weight of interaction of fractional charge with background charge density
-$$
-\int \prod_{j=1}^N d^2z_j\left|\Psi_\text{hole}(z_1,\ldots, z_N|Z)\right|^2 \sim\exp\left(\frac{1}{2m}\left|Z\right|^2\right)
-$$
-
 ---
 
 ## Fractional Statistics
@@ -350,22 +341,5 @@ $$
 
 -  Each surrounded by depleted density of $-1/m$ of a particle
 
----
-
-- Normalization then Boltzmann weight of interaction of two regions
-`$$
-\begin{align}
-\int \prod_{j=1}^N &d^2z_j\,\lvert\Psi_\text{2 hole}(z_1,\ldots, z_N\vert Z_1,Z_2)\rvert^2\\ &\sim\exp\left(\frac{2}{m}\log\left|Z_1-Z_2\right|+\frac{1}{2m}\left[\left|Z_1\right|^2+\left|Z_2\right|^2\right]\right).
-\end{align}
-$$`
-
-- Interpreted as probability density of two particle wavefunction
-
-$$
-\Psi_\text{2 hole}(Z_1,Z_2) \sim \left(Z_1-Z_2\right)^{1/m} \exp\left(\frac{1}{4m}\left[\left|Z_1\right|^2+\left|Z_2\right|^2\right]\right)
-$$
-
-- For $m>1$ wavefunction is _multi-valued_, and changes by a phase $\pi/m$ when $Z_1$ and $Z_2$ are exchanged
-
-- The quasiholes are __anyons__, particles with fractional statistics
+- (See notes) Quasiholes are __anyons__, particles with fractional statistics!
 

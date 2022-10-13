@@ -207,19 +207,19 @@ $$
 
 $$
 \begin{equation}
-a = \sqrt{\frac{m\omega}{2}}\left(x + \frac{i}{m\omega} p \right).
+a = \sqrt{\frac{m\omega}{2}}\left(x + \frac{i}{m\omega} p \right)
 \label{a_def}
 \end{equation}
 $$
-- $a$ and its conjugate satisfy $\\{a^{},a^*\\}=-i$
 $$
-H = \omega \left|a\right|^2.
+H = \omega \left|a\right|^2
 $$
 - Hamilton's equations are
+  
 `$$
 \begin{align}
-\dot a &= \{a, H \} = -i \frac{\partial H}{\partial a^*}= -i\omega a\\
-\dot a^* &= \{a^*, H \} = i\omega a^*.
+\dot a &= -i \frac{\partial H}{\partial a^*}= -i\omega a\\
+\dot a^*  &= i \frac{\partial H}{\partial a} = i\omega a^*
 \end{align}
 $$`
 
@@ -232,16 +232,15 @@ $$`
 `$$
 \begin{align}
 a_n &= \sqrt{\frac{m\omega(\eta_n)}{2}}\left(q_n + \frac{i}{m\omega(\eta_n)}\pi_{-n}\right)\nonumber\\
-a^*_n &= \sqrt{\frac{m\omega(\eta_n)}{2}}\left(q_{-n} - \frac{i}{m\omega(\eta_n)}\pi_{n}\right),\qquad n\neq 0.
+a^*_n &= \sqrt{\frac{m\omega(\eta_n)}{2}}\left(q_{-n} - \frac{i}{m\omega(\eta_n)}\pi_{n}\right),\qquad n\neq 0
 \label{coll_adef}
 \end{align}
 $$`
-- `$\{a_m,a^{*}_n\}=-i\delta_{mn}$`
 
 `$$
 \begin{align}
 q_n &= \sqrt{\frac{1}{2m\omega(\eta_n)}}\left(a_n + a_{-n}^*\right)\nonumber\\
-\pi_n &= -i\sqrt{\frac{m\omega(\eta_n)}{2}}\left(a_{-n} - a_{n}^*\right),
+\pi_n &= -i\sqrt{\frac{m\omega(\eta_n)}{2}}\left(a_{-n} - a_{n}^*\right)
 \end{align}
 $$`
 

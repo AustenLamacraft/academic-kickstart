@@ -144,7 +144,7 @@ $$
 p_j(t) = \frac{1}{\sqrt{N}}\sum_{|n| \leq (N-1)/2} \pi_n(t) e^{-i\eta_n j},
 \label{coll_Pexp}
 $$
-If $u_j$, $p_j$ are canonical variables with Poisson Bracket $\\{u_j, p_k\\}=\delta_{jk}$, then it follows that $\\{q_m,\pi_n\\}=\delta_{mn}$.
+If $u_j$, $p_j$ are canonical variables with Poisson Bracket $\{u_j, p_k\}=\delta_{jk}$, then it follows that $\{q_m,\pi_n\}=\delta_{mn}$.
 
 >Show that in terms of the Fourier modes the Hamiltonian $\eqref{coll_Hchain}$ is
 >$$
@@ -180,7 +180,7 @@ a = \sqrt{\frac{m\omega}{2}}\left(x + \frac{i}{m\omega} p \right).
 \label{a_def}
 \end{equation}
 $$
-$a$ and its conjugate satisfy $\\{a^{},a^*\\}=-i$. This definition is chosen so that the Hamiltonian takes the simple form
+$a$ and its conjugate satisfy $\{a^{},a^*\}=-i$. This definition is chosen so that the Hamiltonian takes the simple form
 $$
 H = \omega \left|a\right|^2.
 $$
