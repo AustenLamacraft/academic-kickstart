@@ -273,7 +273,7 @@ $$
 
 A key moment in the birth of Quantum Field Theory was the realization that _oscillator quanta are bosons_, meaning that they can be identified with quantum particles having symmetric wavefunctions. We'll see this in much more detail in later lectures. For the moment, let's just note that both have a basis of states described in terms of the occupation numbers, which are non-negative integers. In the case of $M$ bosons, those states were written in terms of the single particle wavefunctions $\varphi_\alpha(\br)$ of the bosons as
 $$
-\Psi^{\text{S}}_{\alpha_{1}\alpha_{2}\cdots\alpha_{M}}(\br_1,\ldots,\br_M)=\sqrt{\frac{M!}{\prod_{\alpha}N_{\alpha}!}}\mathcal{S}\,\varphi_{\alpha_{1}}(\mathbf{r}_{1})\varphi_{\alpha_{2}}(\mathbf{r}_{2})\cdots\varphi_{\alpha_{M}}(\mathbf{r}_{M}),
+\Psi^{\text{S}}_{\alpha_{1}\alpha_{2}\cdots\alpha_{M}}(\br_1,\ldots,\br_M)=\sqrt{M!\prod_{\alpha}N_{\alpha}!}\mathcal{S}\,\varphi_{\alpha_{1}}(\mathbf{r}_{1})\varphi_{\alpha_{2}}(\mathbf{r}_{2})\cdots\varphi_{\alpha_{M}}(\mathbf{r}_{M}),
 $$
 where $\mathcal{S}=\frac{1}{M!}\sum_{P} P$ is the operation of _symmetrization_, and $N_\alpha$ denotes the number of occurrences of $\varphi_\alpha(\br)$ in the product, so that $M=\sum_\alpha N_\alpha$. It turns out that the Hilbert space spanned by these states is the same as that spanned by the states $\ket{\mathbf{N}}$, if the labels $\alpha$ are identified with the momentum labels $n$.
 
