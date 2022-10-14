@@ -2,9 +2,9 @@
 # Display name
 title: Austen Lamacraft
 
-# Username (this should match the folder name)
-authors:
-- admin
+# Full name (for SEO)
+first_name: Austen
+last_name: Lamacraft
 
 # Is this the primary user of the site?
 superuser: true
