@@ -45,6 +45,12 @@
     {{ $style := slice $css_custom | resources.Concat "css/reveal_custom.css" | resources.Minify }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ end }}
+
+   <!-- Load js for slides -->
+   {{ range $.Param "scripts" }}
+   <script src={{- . -}}></script>
+   {{ end }}
+ 
 </head>
 <body>
 
