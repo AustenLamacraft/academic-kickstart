@@ -108,7 +108,7 @@ therefore have energy $\omega_c/2$ and belong to the __lowest Landau level__ (LL
 >\psi(z,\bar z) = f(z) \exp\left(-\frac{qB}{4}\left|z\right|^2\right),
 >$$
 >
->where $f(z)$ is an arbitrary analytic function.
+>where $f(z)$ is an arbitrary analytic function. _Note that we are assuming that $qB>0$. For $qB<0$ $z$ and $\bar z$ are exchanged and the LLL states are antianaltyic._
 
 You may recall that the Landau levels are highly degenerate. In symmetric gauge this degeneracy may be seen to result from our freedom to choose the coefficients of this power series, and yet the states are a very special subclass of the possible 2D wavefunctions $\psi(z,\bar z)$.
 
