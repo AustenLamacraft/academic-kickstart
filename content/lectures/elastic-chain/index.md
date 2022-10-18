@@ -192,7 +192,7 @@ q_n &= \frac{1}{\sqrt{2}}\left(q_n' + i q_n''\right),\quad q_{-n} = \frac{1}{\sq
 \label{coll_RandI}
 \end{align}
 $$`
-The Hamiltonian then `$H=H' + H''$` with
+The Hamiltonian is then `$H=H' + H''$` with
 $$
  H' = \sum_{0 < n \leq (N-1)/2} \left[\frac{1}{2m}\pi'_n \pi'_{n} + k  (1-\cos \eta_n) q'_n q'_{n}\right].
 $$

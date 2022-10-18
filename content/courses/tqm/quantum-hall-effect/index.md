@@ -108,20 +108,23 @@ therefore have energy $\omega_c/2$ and belong to the __lowest Landau level__ (LL
 >\psi(z,\bar z) = f(z) \exp\left(-\frac{qB}{4}\left|z\right|^2\right),
 >$$
 >
->where $f(z)$ is an arbitrary analytic function.
+>where $f(z)$ is an arbitrary analytic function. _Note that we are assuming that $qB>0$. For $qB<0$ $z$ and $\bar z$ are exchanged and the LLL states are antianaltyic._
 
 You may recall that the Landau levels are highly degenerate. In symmetric gauge this degeneracy may be seen to result from our freedom to choose the coefficients of this power series, and yet the states are a very special subclass of the possible 2D wavefunctions $\psi(z,\bar z)$.
 
 It's often convenient to work with the analytic part $f(z)$ of the wavefunction, with the understanding that the inner product $\bra{f_1}f_2\rangle$ is
 $$
+\label{eq:fb}
 \bra{f_1}f_2\rangle = \int \frac{d^2z}{2\pi} \overline{f_1(z)}f_2(z) \exp\left(-\left|z\right|^2/2\right),
 $$
-where we have chosen units in which the __magnetic length__ $\ell \equiv (qB)^{-1/2}$ is one. The physical meaning of this length scale is that an area $2\pi \ell^2$ contains one flux quantum $\Phi_0 = h/q=2\pi/q$.
+(Note that $d^2z=dx dy$: our wavefunctions live in 2D) where we have chosen units in which the __magnetic length__ $\ell \equiv (qB)^{-1/2}$ is one. The physical meaning of this length scale is that an area $2\pi \ell^2$ contains one flux quantum $\Phi_0 = h/q=2\pi/q$.   
 
 A possible orthonormal basis is
 $$
 f_n(z) = \frac{z^n}{\sqrt{2^n n!}}.
 $$
+
+The Hilbert space of analytic functions is known as [Segal–Bargmann–Fock space](https://en.wikipedia.org/wiki/Segal%E2%80%93Bargmann_space).
 
 ### Filled LLL of Fermions
 

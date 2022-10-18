@@ -59,7 +59,7 @@ When we discussed the elastic chain in [Lecture 3]({{< ref "elastic-chain" >}}),
 Remember that in [Lecture 1]({{< ref "many-body-wavefunctions" >}}) we saw that a normalized product state of $N$ bosons occupying orthonormal states $\varphi_{\alpha_n}(\br)$ $n=1,\ldots, N$ is
 
 $$
-\Psi^{\text{S}}_{\alpha_{1}\alpha_{2}\cdots\alpha_{N}}(\br_1,\ldots,\br_N)=\sqrt{\frac{1}{\prod_{\alpha}N_{\alpha}!}}\frac{1}{\sqrt{N!}}\sum_P\varphi_{\alpha_{1}}(\mathbf{r}_{P_1})\varphi_{\alpha_{2}}(\mathbf{r}_{P_2})\cdots\varphi_{\alpha_{N}}(\mathbf{r}_{P_N}),
+\Psi^{\text{S}}_{\alpha_{1}\alpha_{2}\cdots\alpha_{N}}(\br_1,\ldots,\br_N)=\sqrt{\frac{\prod_{\alpha}N_{\alpha}!}{N!}}\sum_P\varphi_{\alpha_{1}}(\mathbf{r}_{P_1})\varphi_{\alpha_{2}}(\mathbf{r}_{P_2})\cdots\varphi_{\alpha_{N}}(\mathbf{r}_{P_N}),
 \label{A_OrthoProd}
 $$
 

@@ -56,7 +56,7 @@ $$
 \rho = \frac{1}{\mathcal{Z}}\sum_{\{N_\alpha\}} \exp\left(-\frac{1}{k_\text{B}T}\sum_\alpha N_\alpha [E_\alpha -\mu]\right)\ket{\Psi^{S/A}_{\alpha_{1}\alpha_{2}\cdots\alpha_{N}}}\bra{\Psi^{S/A}_{\alpha_{1}\alpha_{2}\cdots\alpha_{N}}}
 $$
 
-where the sum is over the occupation number of each state, and $\mathcal{Z}$ is a normalization factor (the grand canonical partition function). Find the single particle density matrix $g(x,y)$ for bosons and fermions.
+where the sum is over the occupation number of each state, and $\mathcal{Z}$ is a normalization factor (the grand canonical partition function). Find the single particle density matrix $g(x,y)$ for bosons and fermions. _Hint: express $g(x,y)$ in terms of occupation numbers and then average_.
 
 ## Sutherland Model
 
@@ -125,7 +125,7 @@ $$
 
 1. Impose periodic boundary conditions and find normal modes for the oscillation about the equilibrium state -- a regular arrangement of masses.
 
-2. Expand $H$ to quadratic order in the deviations from equilibrium and express the Hamiltonian in terms of oscillator variables.
+2. Expand $H$ to quadratic order in the deviations from equilibrium and express the Hamiltonian in terms of oscillator variables $\aop_n$, $\adop_n$.
 
 3. Expand to _cubic_ order and express the cubic parts in terms of oscillator variables. If we considered this part of the Hamiltonian as a perturbation in time dependent perturbation theory, what transitions could occur?
 
