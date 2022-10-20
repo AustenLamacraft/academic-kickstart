@@ -144,16 +144,10 @@ s^+ = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-Now note that
+Now note that 
 
 $$
-P_{j,j+1}\equiv s^+_j s^-_{j+1} +s^-_js^+_{j+1}
-$$
-
-has the effect of _exchanging_ the labels on neigbouring spins, for examples
-
-$$
-P_{j,j+1}\ket{+}_j\ket{-}_{j+1} = \ket{-}_j\ket{+}_{j+1}.
+\left(s^+_j s^-_{j+1} +s^-_js^+_{j+1}\right)\ket{+}_j\ket{-}_{j+1} = \ket{-}_j\ket{+}_{j+1}.
 $$
 
 It then follows that the action of $H$ on the state $\ket{j}$ is
