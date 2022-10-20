@@ -162,9 +162,9 @@ $$
 
 - Begin with the 1D case
 
-$$
+`$$
 H = J \sum_{j=1}^N \mathbf{s}_j \cdot \mathbf{s}_{j+1},
-$$
+$$`
 
 - As usual $\mathbf{s}\_j=\mathbf{s}_{j+N}$ (periodic boundary conditions). 
 
@@ -294,16 +294,6 @@ $$
 
 ---
 
-## Ground state for $J>0$?
-
-- Ground state has $S=0$, so $S^z=0$, or $n=N/2$ magnons
-
-- Complicated _dense_ gas of interacting magnons!
-
-- Let's consider a simpler model
-
----
-
 ## Antiferromagnets Are Different!
 
 - Let's try and _guess_ the ground state for $J>0$
@@ -352,9 +342,9 @@ spin flip terms cause spins to move about. Ground state is more complicated!
 
 `$$
 \begin{align}
-S^+ &=\sqrt{2s}\sqrt{1-\frac{\adop\aop}{2s}}\aop \\
-S^- &= \sqrt{2s}\adop\sqrt{1-\frac{\adop\aop}{2s}} \\
-S^z &= \left(s - \adop \aop\right).
+s^+ &=\sqrt{2s}\sqrt{1-\frac{\adop\aop}{2s}}\aop \\
+s^- &= \sqrt{2s}\adop\sqrt{1-\frac{\adop\aop}{2s}} \\
+s^z &= \left(s - \adop \aop\right).
 \end{align}
 $$`
 
@@ -364,20 +354,20 @@ $$`
 
 ## One way to think of it...
 
-- $S^{\pm}$ and $\aop$, $\adop$ both shift us up and down a ladder of states.
+- $s^{\pm}$ and $\aop$, $\adop$ both shift us up and down a ladder of states.
 $$
-S^\pm\ket{s,m} = \sqrt{s(s+1)-m(m\pm 1)}\ket{s,m\pm 1}
+s^\pm\ket{s,m} = \sqrt{s(s+1)-m(m\pm 1)}\ket{s,m\pm 1}
 $$
-Relation between $S^z$ and number of quanta is simple. 
+Relation between $s^z$ and number of quanta is simple. 
 
 - Oscillator ground state corresponds to $\ket{s,s}$.
 
 - Difference: $2s+1$ spin states, but infinite oscillator states
 
-- $S^+\propto \aop$, $S^-\propto \adop$ doesn't work. Something needed to stop us lowering beyond $S^z=-s$
+- $s^+\propto \aop$, $s^-\propto \adop$ doesn't work. Something needed to stop us lowering beyond $S^z=-s$
 
 $$
-S^- = \sqrt{2s}\adop\sqrt{1-\frac{\adop\aop}{2s}}
+s^- = \sqrt{2s}\adop\sqrt{1-\frac{\adop\aop}{2s}}
 $$
 
 
@@ -393,9 +383,9 @@ $$
 
 - Large $s$: approximate locally by plane
 
-- Near north pole $[S^x,S^y]=iS^z\sim is$ resembles $[x,p]=i$
+- Near north pole $[s^x,s^y]=is^z\sim is$ resembles $[x,p]=i$
 
-- Therefore $S^\pm$ resemble $\aop$, $\adop$
+- Therefore $s^\pm$ resemble $\aop$, $\adop$
 
 ---
 
@@ -404,7 +394,7 @@ $$
 - Large $s$ approximation
 `$$
 \begin{align}
-S^+ &\sim \sqrt{2s}\aop \qquad S^- \sim  \sqrt{2s}\adop \qquad S_z = \left(s - \adop \aop\right).
+s^+ &\sim \sqrt{2s}\aop \qquad s^- \sim  \sqrt{2s}\adop \qquad s_z = \left(s - \adop \aop\right).
 \label{spin_HPapprox}
 \end{align}
 $$`
@@ -413,9 +403,9 @@ neglecting terms of order $s^{-1/2}$.
 - Heisenberg Hamiltonian becomes quadratic oscillator Hamiltonian
 `$$
 \begin{align}
-S^x &\sim \sqrt{s}x \nonumber\\
-S^y &\sim  \sqrt{s}p\nonumber\\
-S_z &= \left(s - \frac{1}{2}[x^2 + p^2 - 1] \right),
+s^x &\sim \sqrt{s}x \nonumber\\
+s^y &\sim  \sqrt{s}p\nonumber\\
+s_z &= \left(s - \frac{1}{2}[x^2 + p^2 - 1] \right),
 \end{align}
 $$`
 where $x = \frac{1}{\sqrt{2}}(\aop+\adop)$ and $p = \frac{i}{\sqrt{2}}(\adop-\aop)$
@@ -424,13 +414,15 @@ where $x = \frac{1}{\sqrt{2}}(\aop+\adop)$ and $p = \frac{i}{\sqrt{2}}(\adop-\ao
 
 `$$
 \begin{align}
-S^x &\sim \sqrt{s}x \nonumber\\
-S^y &\sim  \sqrt{s}p\nonumber\\
-S_z &= \left(s - \frac{1}{2}[x^2 + p^2 - 1] \right),
+s^x &\sim \sqrt{s}x \nonumber\\
+s^y &\sim  \sqrt{s}p\nonumber\\
+s_z &= \left(s - \frac{1}{2}[x^2 + p^2 - 1] \right),
 \end{align}
 $$`
 
-$$H = J \sum_{j=1}^N \mathbf{s}_j \cdot \mathbf{s}_{j+1}$$
+`$$
+H = J \sum_{j=1}^N \mathbf{s}_j \cdot \mathbf{s}_{j+1}
+$$`
 
 $$
 H\sim NJ s^2 + sNJ+ \overbrace{sJ \sum_{j=1}^N \left[x_j x_{j+1} + p_j p_{j+1}-x_j^2 - p_j^2\right]}^{\equiv H^{(2)}} + \ldots,

@@ -86,7 +86,9 @@ and as usual we take $\mathbf{s}_j=\mathbf{s}_{j+N}$ (periodic boundary conditio
 Since $\eqref{spin_Hberg}$ is supposed to be a model for a magnet, we might try the state with all spins aligned
 
 $$
+\begin{equation}
 \ket{\text{FM}} \equiv \prod_{j=1}^N \ket{+}_j,
+\end{equation}
 $$
 
 where for brevity we write $\ket{+}_j = \ket{s^z=+1/2}_j$. It's not hard to check that this is an eigenstate with energy $E_0\equiv JN/4$. Furthermore it's an eigenstate of $S^z$ and $\mathbf{S}^2$, where $\mathbf{S}$ is the total spin
@@ -215,15 +217,15 @@ The representation is
 
 $$
 \begin{align}
-S^+ &=\sqrt{2s}\sqrt{1-\frac{\adop\aop}{2s}}\aop \\
-S^- &= \sqrt{2s}\adop\sqrt{1-\frac{\adop\aop}{2s}} \\
-S^z &= \left(s - \adop \aop\right).
+s^+ &=\sqrt{2s}\sqrt{1-\frac{\adop\aop}{2s}}\aop \\
+s^- &= \sqrt{2s}\adop\sqrt{1-\frac{\adop\aop}{2s}} \\
+s^z &= \left(s - \adop \aop\right).
 \end{align}
 $$
 
-I'm going to leave it up to you to confirm that $[\aop,\adop]=1$ reproduces the spin commutation relations, and [Problem Set 1]({{< ref "problem-set-1#from-schwinger-bosons-to-holsteinprimakoff" >}}) should demystify why this works to some extent. A rough understanding is as follows. $S^{\pm}$ and $\aop$, $\adop$ evidently have something in common in that they shift us up and down a ladder of states. That's why the relation between $S^z$ and the number of quanta in the oscillator is so simple. The oscillator ground state corresponds to $\ket{s,s}$.
+I'm going to leave it up to you to confirm that $[\aop,\adop]=1$ reproduces the spin commutation relations, and [Problem Set 1]({{< ref "problem-set-1#from-schwinger-bosons-to-holsteinprimakoff" >}}) should demystify why this works to some extent. A rough understanding is as follows. $s^{\pm}$ and $\aop$, $\adop$ evidently have something in common in that they shift us up and down a ladder of states. That's why the relation between $s^z$ and the number of quanta in the oscillator is so simple. The oscillator ground state corresponds to $\ket{s,s}$.
 
-The difference is that in the spin case the ladder is finite, while in the oscillator it is (semi-)infinte. Thus we can't just have $S^+\propto \aop$. We must have something that stops us lowering beyond $S^z=-s$. That's the function of the factor in the square root in $S^-$.
+The difference is that in the spin case the ladder is finite, while in the oscillator it is (semi-)infinite. Thus we can't just have $s^+\propto \aop$. We must have something that stops us lowering beyond $s^z=-s$, corresponding to $2s$ oscillator quanta. That's the function of the factor in the square root in $s^-$.
 
 ### Harmonic Spin Waves
 
@@ -231,20 +233,35 @@ A large $s$ approximation already presents itself
 
 $$
 \begin{align}
-S^+ &\sim \sqrt{2s}\aop \nonumber\\
-S^- &\sim  \sqrt{2s}\adop\nonumber\\
-S_z &= \left(s - \adop \aop\right).
+s^+ &\sim \sqrt{2s}\aop \nonumber\\
+s^- &\sim  \sqrt{2s}\adop\nonumber\\
+s_z &= \left(s - \adop \aop\right).
 \label{spin_HPapprox}
 \end{align}
 $$
 
-We are neglecting terms of order $s^{-1/2}$. The point about this approximation is that it is just what is needed to turn our Heisenberg Hamiltonian into a quadratic oscillator Hamiltonian. Before doing this, it's convenient to write $\eqref{spin_HPapprox}$ as
+We are neglecting terms of order $s^{-1/2}$. The point about this approximation is that it is just what is needed to turn our Heisenberg Hamiltonian into a quadratic oscillator Hamiltonian. We get 
+$$
+H = J\sum_j \left[(s-\adop_j\aop_j)(s-\adop_j\aop_j) + s\adop_j\aop_{j+1}+s \adop_{j+1}\aop_j\right].
+$$
+This isn't quadratic, but note that the quartic terms have a lower power of $s$, so in the same approximation we should drop them to give
+$$
+\begin{equation}
+H = NJs^2 + sJ\sum_j \left[\adop_j\aop_{j+1}+\adop_{j+1}\aop_j - 2\adop_j\aop_j\right].
+\label{H2aop}
+\end{equation}
+$$
+We can already see that the state with no quanta ($\aop_j\ket{0}=0$) is an eigenstate. In fact this is just the spin-$s$ generalization of the state $\ket{\text{FM}}$
+$$
+\ket{\text{FM}}_s \equiv \prod_{j=1}^N \ket{s,s}_j,
+$$
+and is the ground state for $J<0$. We could continue to analyze $\eqref{H2aop}$ in terms of the operators $\adop_j$ and $\aop_j$ (see [Problem Set 1]({{< ref "problem-set-1#spin-waves-from-bogoliubov-transformation" >}})), but instead we're going to write $\eqref{spin_HPapprox}$ as
 
 $$
 \begin{align}
-S^x &\sim \sqrt{s}x \nonumber\\
-S^y &\sim  \sqrt{s}p\nonumber\\
-S_z &= \left(s - \frac{1}{2}[x^2 + p^2 - 1] \right),
+s^x &\sim \sqrt{s}x \nonumber\\
+s^y &\sim  \sqrt{s}p\nonumber\\
+s_z &= \left(s - \frac{1}{2}[x^2 + p^2 - 1] \right),
 \end{align}
 $$
 
@@ -285,7 +302,16 @@ $$
 \sum_{|n| \leq (N-1)/2} \sin^2(\eta_n/2)\bra{0}\left[q_n q_{-n} + \pi_n\pi_{-n}\right]\ket{0}=\frac{N}{2}.
 \label{eq:H2gs}
 $$
-The harmonic approximation applies close to the ferromagnetic state, where there are few oscillator quanta and the effect of the anharmonic terms in the Hamiltonian is small. What about the case of antiferromagnetic coupling? There is a handy trick for modifying the above calculation to apply to this case. We rotate every other spin through $\pi$ about the $y$ axis, so that
+
+The harmonic approximation applies close to the ferromagnetic state, where there are few oscillator quanta. If the typical values of $\adop_j\aop_j$ are small — we've seen $\adop_j\aop_j=0$ in the ground state — the approximation $\sqrt{1-\frac{\adop_j\aop_j}{2s}}\sim 1$ that gave rise to $\eqref{spin_HPapprox}$ is justified, and neglecting anharmonic terms is reasonable. 
+
+What about the case of antiferromagnetic coupling ($J>0$)? Even though the generalization of \eqref{spin_AFM} 
+
+$$
+\ket{\text{AFM}}_s \equiv \ket{s,s}_1\ket{s,-s}_{2}\cdots \ket{s,s}_{N-1}\ket{s,-s}_{N},
+$$
+
+is not a ground state, it might be close. We can't apply the approximation $\eqref{spin_HPapprox}$ directly, however, because this state has zero quanta on the odd sites, but $2s$ quanta on the odd sites. To apply our approximation to states close to $\ket{\text{AFM}}_s$ we rotate every other spin through $\pi$ about the $y$ axis, so that
 
 $$
 (s^x_j,s^y_j,s^z_j)\longrightarrow (-s^x_j,s^y_j,-s^z_j),\quad j\text{ odd}.
@@ -297,7 +323,7 @@ $$
 H = -J \sum_{j=1}^N \left[s^x_j s^x_{j+1} - s^y_j s^y_{j+1} + s^z_j s^z_{j+1}\right].
 $$
 
-Now we proceed exactly as before. In approximating this Hamiltonian by a harmonic description close to the ferromagnetic state $\ket{\text{FM}}$, we are in fact working close to the _antiferromagnetic_ state $\ket{\text{AFM}}$ in the original variables. The oscillator Hamiltonian is now
+Now we proceed exactly as before. In approximating this Hamiltonian by a harmonic description close to the ferromagnetic state $\ket{\text{FM}}_s$, we are in fact working close to the _antiferromagnetic_ state $\ket{\text{AFM}}_s$ in the original variables. The oscillator Hamiltonian is now
 
 $$
 H^{(2)} = 2sJ \sum_{|n| \leq (N-1)/2} \left[\sin^2(\eta/2)q_n q_{-n} + \cos^2(\eta/2)\pi_n\pi_{-n}\right],
