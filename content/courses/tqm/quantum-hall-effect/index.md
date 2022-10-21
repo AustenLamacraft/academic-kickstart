@@ -184,7 +184,7 @@ Laughlin argued that for electrons with Coulomb interaction $\Psi_{m}(z_1,\ldots
 
 To get more precise information about the behaviour of wavefunctions, Laughlin introduced a powerful analogy between the probability distribution $\lvert\Psi_m(z_1,\ldots, z_N)\rvert^2$ of the particles, and the Boltzmann distribution of particles in a classical 2D plasma. Before doing that, it's useful to actually 'look' at a typical configuration of particles.
 
-{{< figure src="LaughlinMonteCarlo.png" title="Comparison of Monte Carlo samples from an uncorrelated (Poisson) distrubution of points (left) vs. the Laughlin probability distribution $\lvert\Psi_3(z_1,\ldots z_N)\rvert^2$ (right)." numbered="true" lightbox="true" >}}
+{{< figure src="LaughlinMonteCarlo.png" title="Comparison of Monte Carlo samples from an uncorrelated (uniform) distrubution of points (left) vs. the Laughlin probability distribution $\lvert\Psi_3(z_1,\ldots z_N)\rvert^2$ (right)." numbered="true" lightbox="true" >}}
 
 The striking feature of the right hand picture is the _uniformity_ of the particle distribution, in contrast with the sample of uncorrelated particles on the left. The plasma analogy helps us to understand this, and a lot more.
 

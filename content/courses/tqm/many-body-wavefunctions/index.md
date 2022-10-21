@@ -304,7 +304,7 @@ $\vert\Psi(x_1,\ldots,x_N)\rvert^2$ is the probability distribution of the posit
 
 {{< figure src="1d_fermions.png" title="A sample from the probability distribution $\lvert\Psi(z_1,\ldots,z_N)\rvert^2$ for 50 particles."  numbered="true" lightbox="true" >}}
 
-{{< figure src="poisson_phases.png" title="The same for  a Poisson (uncorrelated) sample."  numbered="true" lightbox="true" >}}
+{{< figure src="poisson_phases.png" title="Uniformly distributed points."  numbered="true" lightbox="true" >}}
 
 Since $\lvert\Psi(x_1,\ldots,x_N)\rvert^2$ is the probability distribution of the positions of the particles, we can use it to find the marginal probability distributions for any subset of the particles. Of course, since the particles are identical, it doesn't matter which ones we choose, just the number.
 

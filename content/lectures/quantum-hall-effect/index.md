@@ -215,7 +215,7 @@ $m=2$ state has zero interaction energy
 <img src="assets/LaughlinMonteCarlo.png" alt="drawing" width="600" class="center"/>
 </p>
 
-- Monte Carlo samples from uncorrelated (Poisson) distrubution vs. the Laughlin probability distribution $\lvert\Psi_3(z_1,\ldots z_N)\rvert^2$.
+- Monte Carlo samples from uncorrelated (uniform) distrubution vs. the Laughlin probability distribution $\lvert\Psi_3(z_1,\ldots z_N)\rvert^2$.
 
 - Note _uniformity_ of particle distribution, in contrast with the sample of uncorrelated particles on the left
 
