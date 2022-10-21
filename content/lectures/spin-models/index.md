@@ -355,14 +355,11 @@ $$`
 $$
 s^\pm\ket{s,m} = \sqrt{s(s+1)-m(m\pm 1)}\ket{s,m\pm 1}
 $$
-Relation between $s^z$ and number of quanta is simple. 
-
-- Oscillator ground state corresponds to $\ket{s,s}$.
+Relation between $s^z$ and number of quanta $n$ is simple: $s^z = s - n$
 
 - Difference: $2s+1$ spin states, but infinite oscillator states
 
-- $s^+\propto \aop$, $s^-\propto \adop$ doesn't work. Something needed to stop us lowering beyond $S^z=-s$
-
+- $s^+\propto \aop$, $s^-\propto \adop$ doesn't work. Something needed to stop us lowering beyond $s^z=-s$
 $$
 s^- = \sqrt{2s}\adop\sqrt{1-\frac{\adop\aop}{2s}}
 $$
@@ -373,7 +370,7 @@ $$
 ## Another way...
 
 <p align="center">
-<img src="assets/tangent-plane.png" alt="drawing" width="400" class="center"/>
+<img src="assets/tangent-plane.png" alt="drawing" width="300" class="center"/>
 </p>
 
 - Classical spin described by point on sphere of radius $\sim s$
