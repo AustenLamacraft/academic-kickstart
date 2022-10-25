@@ -205,7 +205,7 @@ $$`
 
 $$
 \label{2nd_quant_NOp}
-	\Nop_{\alpha}\ket{\mathbf{N}}=N_{\alpha}\ket{\mathbf{N}}.
+	\Nop_{\alpha}\ket{\mathbf{N}}=N_{\alpha}\ket{\mathbf{N}}
 $$
 
 - Commutation relations tell us
@@ -213,7 +213,7 @@ $$
 $$
 \begin{align}
 	\left[\aop_{\alpha},\Nop_{\alpha}\right]=\aop_{\alpha}\qquad
-	\left[\adop_{\alpha},\Nop_{\alpha}\right]=-\adop_{\alpha}.
+	\left[\adop_{\alpha},\Nop_{\alpha}\right]=-\adop_{\alpha}
   \label{2nd_quant_NaComm}
 \end{align}
 $$
@@ -230,15 +230,14 @@ $$
 
 `$$
 	\label{2nd_quant_BasisChange}
-	\ket{\tilde{\varphi}_{\alpha}}=\sum_{\beta} \inner{\varphi_{\beta}}{\tilde{\varphi}_{\alpha}}\ket{\varphi_{\beta}}.
+	\ket{\tilde{\varphi}_{\alpha}}=\sum_{\beta} \inner{\varphi_{\beta}}{\tilde{\varphi}_{\alpha}}\ket{\varphi_{\beta}}
 $$`
 
 - One particle states with wavefunctions $\varphi_{\alpha}(\br)$ are $\adop_{\alpha}\ket{\text{VAC}}$. So,
 
-$$
-	\label{2nd_quant_BasisChangeCreation}
-	\tilde{\adop_{\alpha}}\equiv\sum_{\beta} \inner{\varphi_{\beta}}{\tilde{\varphi}_{\alpha}}\adop_{\beta}.
-$$
+`$$
+\tilde{\aop}_{\alpha}^\dagger\equiv\sum_{\beta} \inner{\varphi_{\beta}}{\tilde{\varphi}_{\alpha}}\adop_{\beta}
+$$`
 
 ---
 
@@ -246,10 +245,9 @@ $$
 
 - Denoting corresponding creation operator as $\pdop(\br)$
 
-$$
-	\label{2nd_quant_PsiDDef}
-	\pdop(\br)\equiv\sum_{\beta}  \varphi^{*}_{\beta}(\br)\adop_{\beta}.
-$$
+`$$
+\pdop(\br)\equiv\sum_{\beta}  \varphi^{*}_{\beta}(\br)\adop_{\beta}
+$$`
 
 - Conjugate is
 
@@ -435,12 +433,12 @@ $$`
 
 - Find matrix element $\braket{\mathbf{N}}{\hat A}{\mathbf{N'}}$ between product states made of orthonormal single particle states
 
-- Vanishes unless $N_\beta = N'_\beta-1$ and $N_\alpha = N'_\alpha+1$ we have
+- Vanishes unless `$N_\beta = N'_\beta-1$ and $N_\alpha = N'_\alpha+1$` we have
 
-$$
+`$$
 \braket{\mathbf{N}}{\hat A}{\mathbf{N'}} = A_{\alpha\beta} \sqrt{N_\alpha N'_\beta}.
 \label{A_Aab}
-$$
+$$`
 
 > This formula is not so easy to work out in the first quantized representation. Try it!
 
@@ -574,7 +572,7 @@ $$
 	\hat{\mathbf{j}}_{\bq}\equiv\int d\br\, \hat{\mathbf{j}}(\br)e^{-i\bq \cdot \br}=\sum_{\bk} \frac{\bk}{m}\adop_{\bk-\bq/2}\aop_{\bk+\bq/2}.
 \end{align}
 $$`
-$\bq=0$ modes are total particle number and $\frac{1}{m}\times$ total momentum, resp.
+- $\bq=0$ modes are total particle number and $\frac{1}{m}\times$ total momentum, respectively
 
 ---
 
@@ -637,7 +635,7 @@ $$
 $$`
 ($B_{jk}=B_{kj}$ for indistinguishable particles.) 
 
-- Action of $\hat B$ on a two particle product state $\ket{\varphi_{\alpha}}_1\ket{\varphi_{\beta}}_2$ can be expressed in terms of matrix elements
+- Action of $\hat B$ on a two particle product state `$\ket{\varphi_{\alpha}}_1\ket{\varphi_{\beta}}_2$` can be expressed in terms of matrix elements
 `$$
 \begin{align}
 B_{\alpha\beta,\gamma\delta} &= \bra{\varphi_\alpha}_1\bra{\varphi_\beta}_2 B_{12} \ket{\varphi_\gamma}_1\ket{\varphi_\delta}_2\\
@@ -645,6 +643,15 @@ B_{\alpha\beta,\gamma\delta} &= \bra{\varphi_\alpha}_1\bra{\varphi_\beta}_2 B_{1
 \end{align}
 $$`
 (Note order, which is important for fermions!). 
+
+---
+
+`$$
+\begin{align}
+B_{\alpha\beta,\gamma\delta} &= \bra{\varphi_\alpha}_1\bra{\varphi_\beta}_2 B_{12} \ket{\varphi_\gamma}_1\ket{\varphi_\delta}_2\\
+\hat B &= \frac{1}{2}\sum_{\alpha\beta\gamma\delta} B_{\alpha\beta,\gamma\delta}\adop_\alpha\adop_\beta\aop_\delta\aop_\gamma.
+\end{align}
+$$`
 
 > Check this on product states ($N=2$ first)
 
@@ -661,7 +668,7 @@ $$
 \braket{\mathbf{N}}{\hat B}{\mathbf{N'}} =  \left[B_{\alpha\beta,\gamma\delta}\pm B_{\alpha\beta,\delta\gamma}\right] \sqrt{N_\alpha N_\beta N'_\gamma N'_\delta}.
 \label{A_Babcd}
 $$`
-with $N_{\gamma,\delta} = N'_{\gamma,\delta}-1$ and $N_{\alpha,\beta} = N'_{\alpha,\beta}+1$
+with `$N_{\gamma,\delta} = N'_{\gamma,\delta}-1$` and `$N_{\alpha,\beta} = N'_{\alpha,\beta}+1$`
 
 - For fermions the overall sign depends on convention: best to write states explicitly rather than matrix elements
 
@@ -720,4 +727,4 @@ H = \int dx \left[\frac{1}{2}\partial_x\pdop(x)\partial_x\pop(x) + \frac{c}{2}\p
 $$`
 $\pop(x)$, $\pdop(x)$ satisfy the canonical bosonic commutation relations
 
-> __QFT is a language__. Just because we've written the same thing in a new way doesn't (necessarily) make it easier to solve!
+> __QFT is a language__, but writing something in a new way doesn't (necessarily) make it easier to solve!
