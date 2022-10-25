@@ -247,7 +247,7 @@ $$
 This isn't quadratic, but note that the quartic terms have a lower power of $s$, so in the same approximation we should drop them to give
 $$
 \begin{equation}
-H = NJs^2 + sJ\sum_j \left[\adop_j\aop_{j+1}+\adop_{j+1}\aop_j - 2\adop_j\aop_j\right].
+H \sim NJs^2 + sJ\sum_j \left[\adop_j\aop_{j+1}+\adop_{j+1}\aop_j - 2\adop_j\aop_j\right].
 \label{H2aop}
 \end{equation}
 $$

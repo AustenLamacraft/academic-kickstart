@@ -595,7 +595,8 @@ $$`
 
 `$$
 \begin{align}
-\frac{1}{N}\sum_{j=1}^N \adop_j \aop_j = \frac{1}{2N} \sum_{j=1}^N \left(x_j^2 + p_j^2 - 1\right) = -\frac{1}{2} + \frac{1}{2N}\sum_n \left(q_n q_{-n} + \pi_n\pi_{-n}\right)
+\frac{1}{N}\sum_{j=1}^N \adop_j \aop_j &= \frac{1}{2N} \sum_{j=1}^N \left(x_j^2 + p_j^2 - 1\right) \\ 
+&= -\frac{1}{2} + \frac{1}{2N}\sum_n \left(q_n q_{-n} + \pi_n\pi_{-n}\right)
 \end{align}
 $$
 $$
