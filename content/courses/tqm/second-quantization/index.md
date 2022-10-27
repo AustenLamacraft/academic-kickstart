@@ -361,7 +361,7 @@ Operators of this type are known as __single particle operators__. We want to us
 
 First, the action of the operator $A$ on one of the basis states $\ket{\varphi_\beta}$ can be written in terms of the matrix elements $A_{\alpha\beta}=\braket{\varphi_\alpha}{A}{\varphi_\beta}$ by inserting a resolution of the identity $\sum_\alpha \ket{\alpha}\bra{\alpha}=1$ on the right
 $$
-A\ket{\varphi_\beta} = \sum_{\alpha} \ket{\varphi_\alpha}\braket{\varphi_\alpha}{A}{\varphi_\beta} = \sum_\beta A_{\alpha\beta}\ket{\varphi_\alpha}.
+A\ket{\varphi_\beta} = \sum_{\alpha} \ket{\varphi_\alpha}\braket{\varphi_\alpha}{A}{\varphi_\beta} = \sum_\alpha A_{\alpha\beta}\ket{\varphi_\alpha}.
 $$
 
 The same thing may be expressed slightly differently by inserting resolutions of the identity on the left _and_ right

@@ -38,12 +38,12 @@ If you ever want access to the $\LaTeX$ for the mathematical expressions, right 
 
 ## Past exam papers (with solutions)
 
-- {{% staticref "uploads/2017-tqm-solutions.pdf" "newtab" %}}2017{{% /staticref %}}
-- {{% staticref "uploads/2018-tqm-solutions.pdf" "newtab" %}}2018{{% /staticref %}}
-- {{% staticref "uploads/2019-tqm-solutions.pdf" "newtab" %}}2019{{% /staticref %}}
-- {{% staticref "uploads/2020-tqm-solutions.pdf" "newtab" %}}2020{{% /staticref %}}
-- {{% staticref "uploads/2021-tqm-solutions.pdf" "newtab" %}}2021{{% /staticref %}}
-- {{% staticref "uploads/2022-tqm-solutions.pdf" "newtab" %}}2022{{% /staticref %}}
+{{% staticref "uploads/2017-tqm-solutions.pdf" "newtab" %}}2017{{% /staticref %}} 
+{{% staticref "uploads/2018-tqm-solutions.pdf" "newtab" %}}2018{{% /staticref %}}
+{{% staticref "uploads/2019-tqm-solutions.pdf" "newtab" %}}2019{{% /staticref %}}
+{{% staticref "uploads/2020-tqm-solutions.pdf" "newtab" %}}2020{{% /staticref %}}
+{{% staticref "uploads/2021-tqm-solutions.pdf" "newtab" %}}2021{{% /staticref %}}
+{{% staticref "uploads/2022-tqm-solutions.pdf" "newtab" %}}2022{{% /staticref %}}
 
 ## Discuss
 
