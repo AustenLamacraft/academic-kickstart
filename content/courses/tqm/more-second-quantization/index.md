@@ -422,9 +422,9 @@ Polarizing the spins in a Fermi gas is not without cost (otherwise everything wo
 
 $$
 \begin{align}
-N = \sum_{|\bk|<k_\text{F}}&\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} = \frac{k_\text{F}^3}{6\pi^2} \\
+N = \sum_{|\bk|<k_\text{F}} 1 &\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} = \frac{k_\text{F}^3 L^3}{6\pi^2} \\
 E_\text{kin} = \sum_{|\bk|<k_\text{F}} \frac{\bk^2}{2m} &\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} \frac{\bk^2}{2m}\\
- &= \frac{k_\text{F}^5}{20\pi^2 m} = L^3 \frac{3}{10m}(6\pi^2)^{2/3} n^{5/3},
+ &= \frac{k_\text{F}^5 L^3}{20\pi^2 m} = L^3 \frac{3}{10m}(6\pi^2)^{2/3} n^{5/3},
 \end{align}
 $$
 

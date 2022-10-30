@@ -2,6 +2,7 @@
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   theme: white
+  math_renderer: mathjax3
   reveal_options:
     hash: true
 scripts: []
@@ -118,12 +119,12 @@ to perform optimization.
 
 --- 
 
-- Similarly for decoder $p_\theta(\cdot|\bz)=\mathcal{N}(\bmu'_\theta(\bz),\bSigma'_\theta(\bz))$
+- Similarly for decoder `$p_\theta(\cdot|\bz)=\mathcal{N}(\bmu'_\theta(\bz),\bSigma'_\theta(\bz))$`
 
 - Second term of loss involves
-$$
+`$$
 -\log p_\theta(\bx|\bz) = \frac{1}{2}(\bx-\bmu'_\theta(\bz))^T\bSigma'^{-1}_\theta(\bz)(\bx-\bmu'_\theta(\bz))+\frac{1}{2}\log\det\bSigma_\theta'(\bz)+\text{const.},
-$$
+$$`
 encourages mean output $\bmu'\_\theta(\bz)$ to be close to $\bx$
 
 - Required expectation over $\bz$ requires Monte Carlo
@@ -336,19 +337,19 @@ $$
 ---
 
 - What is KL? 
-$$
+`$$
 q_\phi(\cdot|\bx) = \frac{1}{\sqrt{(2\pi)^{D} \det\bSigma_\phi(\bx)}} \exp\left[-\frac{1}{2}(\bz-\bmu_\phi(\bx))^T\bSigma^{-1}_\phi(\bx)(\bz-\bmu_\phi(\bx))\right],
-$$
+$$`
 
 - KL involves the ratio
-$$
+`$$
 \frac{q_\phi(\bz|\bx)}{p_\theta(\bx|\bz)}
-$$
+$$`
 
 - When $\bz$ and $\bx$ are inverses
-$$
+`$$
 \frac{q_\phi(\bz|\bx)}{p_\theta(\bx|\bz)}\longrightarrow \sqrt{\frac{\det\bSigma'_\theta(\bz)}{\det\bSigma_\phi(\bx)}}=\det \left(\frac{\partial\bx}{\partial\bz}\right).
-$$
+$$`
 
 ---
 

@@ -2,8 +2,25 @@
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   theme: white
+  math_renderer: katex
+  reveal_options: {
+	hash: true,
+	katex: {
+		macros: {
+			"\\pop" : "\\psi^{\\vphantom{\\dagger}}",
+			"\\pdop" : "\\psi^\\dagger",
+			"\\aop" : "a^{\\vphantom{\\dagger}}",
+			"\\adop" : "a^\\dagger",
+			"\\abs" : "\\left|#1\\right|",
+			"\\tr" : "\\operatorname{tr}",
+			"\\br" : "\\mathbf{r}",
+			"\\bk" : "\\mathbf{k}",
+			"\\bq" : "\\mathbf{q}",
+		},
+		throwOnError: false,
+	}
+  }
 scripts: []
-
 ---
 
 # More Second Quantization
@@ -11,49 +28,12 @@ scripts: []
 - [Lecture 1]({{< ref "many-body-wavefunctions" >}}): density correlations in ground state of 1D Fermi gas
 
 $$
-\rho_2(x,y) = n^2\left[1 - \left(\frac{\sin[k_\text{F}(x-y)]}{k_\text{F}(x-y)}\right)^2\right].
-\label{more_rho2evalFermi}
+\rho_2(x,y) = n^2\left[1 - \left(\frac{\sin\left[k_\text{F}(x-y)\right]}{k_\text{F}(x-y)}\right)^2\right]
 $$
 
 - How to find this using second quantization?
 
 - What can these correlations tell us about interactions?
-
-$$
-\nonumber
-\newcommand{\cN}{\mathcal{N}}
-\newcommand{\br}{\mathbf{r}}
-\newcommand{\bp}{\mathbf{p}}
-\newcommand{\bk}{\mathbf{k}}
-\newcommand{\bq}{\mathbf{q}}
-\newcommand{\bv}{\mathbf{v}}
-\newcommand{\pop}{\psi^{\vphantom{\dagger}}}
-\newcommand{\pdop}{\psi^\dagger}
-\newcommand{\Pop}{\Psi^{\vphantom{\dagger}}}
-\newcommand{\Pdop}{\Psi^\dagger}
-\newcommand{\Phop}{\Phi^{\vphantom{\dagger}}}
-\newcommand{\Phdop}{\Phi^\dagger}
-\newcommand{\phop}{\phi^{\vphantom{\dagger}}}
-\newcommand{\phdop}{\phi^\dagger}
-\newcommand{\aop}{a^{\vphantom{\dagger}}}
-\newcommand{\adop}{a^\dagger}
-\newcommand{\bop}{b^{\vphantom{\dagger}}}
-\newcommand{\bdop}{b^\dagger}
-\newcommand{\cop}{c^{\vphantom{\dagger}}}
-\newcommand{\cdop}{c^\dagger}
-\newcommand{\Nop}{\mathsf{N}^{\vphantom{\dagger}}}
-\newcommand{\bra}[1]{\langle{#1}\rvert}
-\newcommand{\ket}[1]{\lvert{#1}\rangle}
-\newcommand{\inner}[2]{\langle{#1}\rvert #2 \rangle}
-\newcommand{\braket}[3]{\langle{#1}\rvert #2 \lvert #3 \rangle}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\tr}{tr}
-\newcommand{\abs}[1]{\lvert{#1}\rvert}
-\newcommand{\brN}{\br_1, \ldots, \br_N}
-\newcommand{\xN}{x_1, \ldots, x_N}
-\newcommand{\zN}{z_1, \ldots, z_N}
-$$
-
 
 ---
 
@@ -62,46 +42,41 @@ $$
 - From [Lecture 1]({{< ref "many-body-wavefunctions" >}}): __pair distribution function__
 $$
 \rho_2(x_1,x_2) = N(N-1) \int dx_3\ldots dx_N \left|\Psi(x_1,x_2,\ldots,x_N)\right|^2
-\label{more_pdf}
 $$
 measures likelihood of finding particles at $x_1$ and $x_2$
 
-- For 1D Fermi gas ground state we found
+- For 1D Fermi gas ground state we found (Slater determinant, etc.)
 `$$
-\rho_2(x,y) = n^2\left[1 - \left(\frac{\sin[k_\text{F}(x-y)]}{k_\text{F}(x-y)}\right)^2\right]
+\rho_2(x,y) = n^2\left[1 - \left(\frac{\sin\left[k_\text{F}(x-y)\right]}{k_\text{F}(x-y)}\right)^2\right]
 $$`
-recall: Slater determinant, $P$ and $P'$ differ by transposition, etc.
 
 - Let's calculate using second quantization!
 
 ---
 
-`$$
-\begin{align}
-\rho_2(x,y) &= N(N-1) \int dx_3\ldots dx_N \,\left|\Psi(x,y,\ldots,x_N)\right|^2,\\
-\end{align}
-$$`
+$$
+\rho_2(x,y) = N(N-1) \int dx_3\ldots dx_N \left|\Psi(x,y,\ldots,x_N)\right|^2
+$$
 
 - Recall from [Lecture 5]({{< ref "second-quantization" >}})
 
 `$$
-\begin{align}
+\begin{align*}
 \ket{\Psi}&\longleftrightarrow \Psi(x_1,\ldots, x_N)\nonumber\\
 \psi(X)\ket{\Psi}&\longleftrightarrow \sqrt{N}\Psi(X,x_1,\ldots, x_{N-1})\\
-\end{align}
+\end{align*}
 $$`
 
 - Second quantized form
 
 $$
-\rho_2(x,y) =\braket{\Psi}{\pdop(x)\pdop(y)\pop(y)\pop(x)}{\Psi}.
-\label{more_rho22ndquant}
+\rho_2(x,y) =\braket{\Psi|\pdop(x)\pdop(y)\pop(y)\pop(x)|\Psi}
 $$
 
 ---
 
 $$
-\rho_2(x,y) =\braket{\Psi}{\pdop(x)\pdop(y)\pop(y)\pop(x)}{\Psi}.
+\rho_2(x,y) =\braket{\Psi|\pdop(x)\pdop(y)\pop(y)\pop(x)|\Psi}
 $$
 
 - Operators in which all annihilation operators stand to the right of all creation operators are said to be __normal ordered__
@@ -111,44 +86,43 @@ $$
 ---
 
 $$
-\rho_2(x,y) =\braket{\Psi}{\pdop(x)\pdop(y)\pop(y)\pop(x)}{\Psi}.
+\rho_2(x,y) =\braket{\Psi|\pdop(x)\pdop(y)\pop(y)\pop(x)|\Psi}
 $$
 
 - Insert expansion
 
 `$$
-\begin{align}
+\begin{align*}
 	\pop(x)=\sum_{\beta}  \varphi^{}_{\beta}(x)\aop_{\beta},\\
   \pdop(x)=\sum_{\beta}  \varphi^*_{\beta}(x)\adop_{\beta}.
-\end{align}
+\end{align*}
 $$`
 
 - This gives
 
-$$
-	\label{2nd_quant_CEval}
-	\rho_2(x,y)=\sum_{\alpha, \beta, \gamma, \delta}\varphi^{*}_{\alpha}(x)\varphi^{*}_{\beta}(y)\varphi^{}_{\gamma}(y)\varphi^{}_{\delta}(x)\braket{\Psi}{\adop_{\alpha}\adop_{\beta}\aop_{\gamma}\aop_{\delta}}{\Psi}.
-$$
+`$$
+	\rho_2(x,y)=\sum_{\alpha, \beta, \gamma, \delta}\varphi^{*}_{\alpha}(x)\varphi^{*}_{\beta}(y)\varphi^{}_{\gamma}(y)\varphi^{}_{\delta}(x)\braket{\Psi|\adop_{\alpha}\adop_{\beta}\aop_{\gamma}\aop_{\delta}|\Psi}.
+$$`
 
 ---
 
 $$
-\braket{\Psi}{\adop_{\alpha}\adop_{\beta}\aop_{\gamma}\aop_{\delta}}{\Psi}
+\braket{\Psi|\adop_{\alpha}\adop_{\beta}\aop_{\gamma}\aop_{\delta}|\Psi}
 $$
 
 - When $\ket{\Psi}=\ket{\mathbf{N}}$ (product state using $\adop_\alpha$) have two possibilities
 `$$
-\begin{align}
+\begin{align*}
 	&\alpha =\delta,\, \beta=\gamma, \text{ or }\\
   &\alpha=\gamma,\, \beta=\delta,
-\end{align}
+\end{align*}
 $$`
 which give rise to two groups of terms
 `$$
-\begin{align}
-\braket{\mathbf{N}}{\adop_{\alpha}\adop_{\gamma}\aop_{\gamma}\aop_{\alpha}}{\mathbf{N}}&=N_{\alpha}N_{\gamma}\nonumber\\
-	\braket{\mathbf{N}}{\adop_{\alpha}\adop_{\gamma}\aop_{\alpha}\aop_{\gamma}}{\mathbf{N}}&=\pm N_{\alpha}N_{\gamma}\qquad\text{if }\alpha\neq\gamma,
-\end{align}
+\begin{align*}
+\braket{\mathbf{N}|\adop_{\alpha}\adop_{\gamma}\aop_{\gamma}\aop_{\alpha}|\mathbf{N}}&=N_{\alpha}N_{\gamma}\nonumber\\
+	\braket{\mathbf{N}|\adop_{\alpha}\adop_{\gamma}\aop_{\alpha}\aop_{\gamma}|\mathbf{N}}&=\pm N_{\alpha}N_{\gamma}\qquad\text{if }\alpha\neq\gamma,
+\end{align*}
 $$`  
 $\pm$ corresponding to bosons and fermions
 
@@ -156,10 +130,10 @@ $\pm$ corresponding to bosons and fermions
 ---
 
 `$$
-\begin{align}
-\rho_2(x,y)&=\sum_{\alpha, \beta, \gamma, \delta}\varphi^{*}_{\alpha}(x)\varphi^{*}_{\beta}(y)\varphi^{}_{\gamma}(y)\varphi^{}_{\delta}(x)\braket{\Psi}{\adop_{\alpha}\adop_{\beta}\aop_{\gamma}\aop_{\delta}}{\Psi}\\
+\begin{align*}
+\rho_2(x,y)&=\sum_{\alpha, \beta, \gamma, \delta}\varphi^{*}_{\alpha}(x)\varphi^{*}_{\beta}(y)\varphi^{}_{\gamma}(y)\varphi^{}_{\delta}(x)\braket{\Psi|\adop_{\alpha}\adop_{\beta}\aop_{\gamma}\aop_{\delta}|\Psi}\\
 &=\sum_{\alpha, \beta}N_\alpha N_\beta\left[\abs{\varphi_{\alpha}(x)}^2\abs{\varphi_{\beta}(y)}^2 \pm \varphi^*_\alpha(x)\varphi^{}_\alpha(y)\varphi^*_\beta(y)\varphi^{}_\beta(x) \right].
-\end{align}
+\end{align*}
 $$`
 
 - Notice $\alpha=\beta=\gamma=\delta$ has a factor $2N_\alpha^2$
@@ -183,20 +157,19 @@ assuming integrand smooth
 ---
 
 `$$
-\begin{align}
-\rho_2(x,y)&=\sum_{\alpha, \beta, \gamma, \delta}\varphi^{*}_{\alpha}(x)\varphi^{*}_{\beta}(y)\varphi^{}_{\gamma}(y)\varphi^{}_{\delta}(x)\braket{\Psi}{\adop_{\alpha}\adop_{\beta}\aop_{\gamma}\aop_{\delta}}{\Psi}\\
+\begin{align*}
+\rho_2(x,y)&=\sum_{\alpha, \beta, \gamma, \delta}\varphi^{*}_{\alpha}(x)\varphi^{*}_{\beta}(y)\varphi^{}_{\gamma}(y)\varphi^{}_{\delta}(x)\braket{\Psi|\adop_{\alpha}\adop_{\beta}\aop_{\gamma}\aop_{\delta}|\Psi}\\
 &=\sum_{\alpha, \beta}N_\alpha N_\beta\left[\abs{\varphi_{\alpha}(x)}^2\abs{\varphi_{\beta}(y)}^2 \pm \varphi^*_\alpha(x)\varphi^{}_\alpha(y)\varphi^*_\beta(y)\varphi^{}_\beta(x) \right].
-\end{align}
+\end{align*}
 $$`
 
 - Can express using density $\rho_1(x)$ and density matrix as $g(x,y)$
 `$$
-\rho_2(x,y) = \rho_1(x)\rho_1(y) \pm g(x,y)g(y,x),
-\label{more_rho2compact}
+\rho_2(x,y) = \rho_1(x)\rho_1(y) \pm g(x,y)g(y,x)
 $$`
 for ground state of the Fermi gas, reproduces
 `$$
-\rho_2(x,y) = n^2\left[1 - \left(\frac{\sin[k_\text{F}(x-y)]}{k_\text{F}(x-y)}\right)^2\right].
+\rho_2(x,y) = n^2\left[1 - \left(\frac{\sin\left[k_\text{F}(x-y)\right]}{k_\text{F}(x-y)}\right)^2\right]
 $$`
 
 ---
@@ -244,8 +217,7 @@ $$`
 
 - $N$-body wavefunction is
 `$$
-	\Psi(\br_1,\br_2,\ldots,\br_N)=\prod_i^N \varphi_0(\br_i),
-  \label{2nd_quant_BoseGroundState}
+	\Psi(\br_1,\br_2,\ldots,\br_N)=\prod_i^N \varphi_0(\br_i)
 $$`
 `$$
 	\ket{\Psi}=\frac{1}{\sqrt{N!}}\left(\adop_0\right)^N\ket{\text{VAC}},
@@ -269,12 +241,11 @@ where $\adop_0$ creates particle in state $\varphi_0(\br)$
 - One BEC, each atom in superposition of $\varphi_L(\br)$ and $\varphi_R(\br)$
 `$$
 	\ket{\bar N_L,\bar N_R}_\theta\equiv\frac{1}{\sqrt{N!}}\left[\sqrt{\frac{\bar N_L}{N}}e^{-i\theta/2}
-	\adop_L+\sqrt{\frac{\bar N_R}{N}}e^{i\theta/2}\adop_R\right]^N\ket{\text{VAC}},
-  \label{more_two}
+	\adop_L+\sqrt{\frac{\bar N_R}{N}}e^{i\theta/2}\adop_R\right]^N\ket{\text{VAC}}
 $$`
 $\bar N_{L,R}$ are average particle number ($N=\bar N_L+\bar N_R$)
 
-- System evolves for time $t$. Field operator obeys 
+- System evolves for time $t$. Recall that field operator obeys 
 `$$
 i\frac{\partial \pop(\br,t)}{\partial t} = -\frac{1}{2m}\nabla^2\pop(\br,t)
 $$`
@@ -289,12 +260,11 @@ $$`
 where wavefunctions $\varphi_{L/R}(\br,t)$ obey free particle Schrödinger
 
 `$$
-	\begin{align}
+	\begin{align*}
 	\rho_1(\br,t)=\bar N_L|\varphi_L(\br,t)|^2+\bar N_R|\varphi_R(\br,t)|^2+\overbrace{2\sqrt{\bar N_L \bar
 	N_R}\mathrm{Re}\,e^{i\theta}\,\varphi^*_L(\br,t)\varphi_R(\br,t)}^{\equiv\rho_{\mathrm{int}(
-	\br,t)}}.
-  \label{dens_int}
-	\end{align}
+	\br,t)}}
+	\end{align*}
 $$`
 
 - If clouds begin overlap, last term can give interference fringes
@@ -306,15 +276,10 @@ $$`
 > Consider a Gaussian wavefunction of width $R_0$ at time $t=0$. Show (by substitution into the Schrödinger equation is fine) that this function evolves as
 >
 >$$
->	\varphi(\br,t)=\frac{1}{\left(\pi R_t^{2}\right)^{3/4}}\exp\left[-\frac{\br^2\left(1+i t/m R_0^2)\right)}{2R_t^2}\right],
->  \label{Gaussian}
+>	\varphi(\br,t)=\frac{1}{\left(\pi R_t^{2}\right)^{3/4}}\exp\left[-\frac{\br^2\left(1+i t/m R_0^2)\right)}{2R_t^2}\right]
 >$$
 >
->where
->
->$$
-> R_t^2=R_0^2+\left(\frac{ t}{mR_0}\right)^2.
->$$
+>where $R_t^2=R_0^2+\left(\frac{ t}{mR_0}\right)^2$.
 
 ---
 
@@ -329,8 +294,7 @@ $$`
 
 - Compute density as before
 `$$
-	\rho_1(\br,t)=N_L|\varphi_L(\br,t)|^2+N_R|\varphi_R(\br,t)|^2,
-\label{dens_fock}  
+	\rho_1(\br,t)=N_L|\varphi_L(\br,t)|^2+N_R|\varphi_R(\br,t)|^2
 $$`
 which differs from the previous result by the absence of the interference term.
 
@@ -343,13 +307,12 @@ which differs from the previous result by the absence of the interference term.
 - Our result for $\rho_2$ gives
 
 `$$
-\begin{align}
+\begin{align*}
 	\rho_2(\br,\br')&=\rho_1(\br)\rho_1(\br')
 	+N_LN_{R}\varphi_L^*(\br)\varphi_R^*(\br')\varphi_L(\br')\varphi_R(\br)	\nonumber\\
 	&\qquad+N_{L}N_R\varphi_R^*(\br)\varphi_L^*(\br')
-	\varphi_R(\br')\varphi_L(\br).
-  \label{dens_corr}
-\end{align}
+	\varphi_R(\br')\varphi_L(\br)
+\end{align*}
 $$`
 
 - Second line contains interference fringes!
@@ -397,11 +360,10 @@ $$`
 - Find expectation value of interaction energy in a product state
 
 `$$
-\begin{align}
-	\label{2nd_quant_HartreeFock}
+\begin{align*}
 	\langle \hat V\rangle &= \overbrace{\frac{1}{2}\int d\br\, d\br'\, \rho_1(\br) U(\br-\br')\rho_1(\br')}^{\equiv E_\text{Hartree}} \\
-	&\qquad\overbrace{\pm \frac{1}{2}\int d\br\, d\br'\,  U(\br-\br')g(\br,\br')g(\br',\br)}^{\equiv E_\text{Fock}}.
-\end{align}
+	&\qquad\overbrace{\pm \frac{1}{2}\int d\br\, d\br'\,  U(\br-\br')g(\br,\br')g(\br',\br)}^{\equiv E_\text{Fock}}
+\end{align*}
 $$`
 
 - The two terms are __Hartree__ and __Fock__ (or __exchange__) contributions
@@ -417,11 +379,10 @@ $$`
 - Use field operators $\pop_\sigma(\br)$, $\pdop_\sigma(\br')$ satisfying 
 
 `$$
-\begin{gather}
+\begin{gather*}
 	\left\{\pop_{\sigma_1}(\br_1),\pdop_{\sigma_2}(\br_2)\right\}=\delta_{\sigma_1\sigma_2}\delta(\br_1-\br_2)\nonumber\\
-	\left\{\pop_{\sigma_1}(\br_1),\pop_{\sigma_2}(\br_2)\right\}=\left\{\pdop_{\sigma_1}(\br_1),\pdop_{\sigma_2}(\br_2)\right\}=0.
-	\label{2nd_quant_PositionRelationsAnti}
-\end{gather}
+	\left\{\pop_{\sigma_1}(\br_1),\pop_{\sigma_2}(\br_2)\right\}=\left\{\pdop_{\sigma_1}(\br_1),\pdop_{\sigma_2}(\br_2)\right\}=0
+\end{gather*}
 $$`
 
 ---
@@ -429,13 +390,13 @@ $$`
 - Density matrix is a matrix in spin space as well as real space
 
 $$
-g_{\sigma_1\sigma_2}(\br_1,\br_2) = \braket{\Psi}{\pdop_{\sigma_1}(\br_1)\pop_{\sigma_2}(\br_2)}{\Psi}.
+g_{\sigma_1\sigma_2}(\br_1,\br_2) = \braket{\Psi|\pdop_{\sigma_1}(\br_1)\pop_{\sigma_2}(\br_2)|\Psi}.
 $$
 
 - From `$g_{\sigma_1\sigma_2}(\br_1,\br_2)$` we get density _and_ spin density
 
 $$
-\mathbf{\rho}(\br) = \tr\left[g(\br,\br)\right],\quad \mathbf{s}(\br) = \frac{1}{2}\tr\left[\boldsymbol{\sigma}g(\br,\br)\right].
+\mathbf{\rho}(\br) = \tr\left[g(\br,\br)\right],\quad \mathbf{s}(\br) = \frac{1}{2}\tr\left[\boldsymbol{\sigma}g(\br,\br)\right]
 $$
 
 ---
@@ -443,17 +404,16 @@ $$
 - Spin-independent interaction
 
 $$
-\hat H_\text{int.} = \frac{1}{2}\sum_{\sigma_1,\sigma_2}\int d\br_1 d\br_2\, U(\br_1-\br_2)\pdop_{\sigma_1}(\br_1)\pdop_{\sigma_2}(\br_2)\pop_{\sigma_2}(\br_2)\pop_{\sigma_1}(\br_1).
+\hat H_\text{int.} = \frac{1}{2}\sum_{\sigma_1,\sigma_2}\int d\br_1 d\br_2\, U(\br_1-\br_2)\pdop_{\sigma_1}(\br_1)\pdop_{\sigma_2}(\br_2)\pop_{\sigma_2}(\br_2)\pop_{\sigma_1}(\br_1)
 $$
 
 - Hartree--Fock energy then
 
 `$$
-\begin{align}
+\begin{align*}
 	\langle \hat H_\text{int.}\rangle &=\frac{1}{2}\int d\br\, d\br'\, \rho(\br) U(\br-\br')\rho(\br')\\
-	&- \frac{1}{2}\int d\br\, d\br'\,  U(\br-\br')\tr\left[g(\br,\br')g(\br',\br)\right].
-  \label{2nd_quant_HFSpin}
-\end{align}
+	&- \frac{1}{2}\int d\br\, d\br'\,  U(\br-\br')\tr\left[g(\br,\br')g(\br',\br)\right]
+\end{align*}
 $$`
 
 ---
@@ -464,32 +424,30 @@ $$`
 $$`
 which gives
 `$$
-\begin{align}
-E_{\text{Fock}} &=-\frac{1}{4} \int d\br\, d\br'\,  U(\br-\br')\tr\left[g(\br,\br')\right]\tr\left[g(\br',\br)\right]\\&-\frac{1}{4}\int d\br\, d\br'\,  U(\br-\br')\tr\left[\boldsymbol{\sigma}g(\br,\br')\right]\cdot\tr\left[\boldsymbol{\sigma}g(\br',\br)\right].
-\end{align}
+\begin{align*}
+E_{\text{Fock}} &=-\frac{1}{4} \int d\br\, d\br'\,  U(\br-\br')\tr\left[g(\br,\br')\right]\tr\left[g(\br',\br)\right]\\&-\frac{1}{4}\int d\br\, d\br'\,  U(\br-\br')\tr\left[\boldsymbol{\sigma}g(\br,\br')\right]\cdot\tr\left[\boldsymbol{\sigma}g(\br',\br)\right]
+\end{align*}
 $$`
 
 ---
 
-Suppose $U(\br)=V_0 \delta(\br)$
+- Suppose $U(\br)=V_0 \delta(\br)$
 
 `$$
-\begin{align}
 E_{\text{Fock}} =-\frac{V_0}{4} \int d\br\, \rho(\br)^2-V_0\int d\br\, \mathbf{s}(\br)\cdot\mathbf{s}(\br)
-\end{align}
 $$`
 
-- Second term favours ferromagnetism for repulsive interactions (c.f. Hund's rules)
+- Second term favours ferromagnetism for $V_0>0$ (c.f. Hund's rules)
 
 ---
 
 
 
 > This is most succintly put by the formula
->
 >$$
 > \rho_2(\br,\br) = \frac{1}{2}\rho(\br)^2 - 2\mathbf{s}(\br)\cdot\mathbf{s}(\br)
 >$$
+> So $\abs{\mathbf{s}(\br)}=\rho(\br)/2\longrightarrow\rho_2(\br,\br)=0$
 
 ---
 
@@ -497,12 +455,11 @@ $$`
 
 - For a Hamiltonian with translational invariance
 `$$
-H = \int d\br \frac{1}{2m}\nabla\pdop\cdot\nabla\pop + \frac{1}{2}\int d\br d\br' U(\br-\br')\pdop(\br)\pdop(\br')\pop(\br')\pop(\br),
-\label{more_H2nd}
+H = \int d\br \frac{1}{2m}\nabla\pdop\cdot\nabla\pop + \frac{1}{2}\int d\br d\br' U(\br-\br')\pdop(\br)\pdop(\br')\pop(\br')\pop(\br)
 $$`
-guaranteed to involve with plane wave single particle states. Only variational parameters are occupancies of these states
+guaranteed to involve with plane wave single particle states. Only variational parameters are _occupancies_ of states
 
-- If translational symmetry is broken, have to allow the states, as well as the occupancies, to vary.
+- If translational symmetry is broken, have to allow the states — as well as the occupancies — to vary.
 
 ---
 
@@ -517,20 +474,16 @@ guaranteed to involve with plane wave single particle states. Only variational p
 - Ground state kinetic energy of $N$ (spinless) fermions in three dimensions, obtained from
 
 `$$
-\begin{align}
-N = \sum_{|\bk|<k_\text{F}}&\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} = \frac{k_\text{F}^3}{6\pi^2} \\
-E_\text{kin} = \sum_{|\bk|<k_\text{F}} \frac{\bk^2}{2m} &\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} \frac{\bk^2}{2m}\\
- &= \frac{k_\text{F}^5}{20\pi^2 m} = L^3 \frac{3}{10m}(6\pi^2)^{2/3} n^{5/3},
-\end{align}
+\begin{align*}
+N &= \sum_{|\bk|<k_\text{F}}1\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} = \frac{k_\text{F}^3L^3}{6\pi^2} \\
+E_\text{kin} &= \sum_{|\bk|<k_\text{F}} \frac{\bk^2}{2m} \longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} \frac{\bk^2}{2m}\\
+ &= \frac{k_\text{F}^5L^3}{20\pi^2 m} = L^3 \frac{3}{10m}(6\pi^2)^{2/3} n^{5/3}
+\end{align*}
 $$`
 
-- Total energy is
-`$$
-\begin{equation}
-E_\text{kin}(n_\uparrow,n_\downarrow) = \frac{cL^3}{m}\left(n_\uparrow^{5/3}+n_\downarrow^{5/3}\right),
-\end{equation}
-$$`
-$c=\frac{3}{10}(6\pi^2)^{2/3}$
+- Total energy is $
+E_\text{kin}(n_\uparrow,n_\downarrow) = (\text{const.})\frac{L^3}{m}\left(n_\uparrow^{5/3}+n_\downarrow^{5/3}\right)
+$
 
 ---
 
@@ -575,29 +528,30 @@ $$
 ### Excited State Energies
 
 
-$$
-\begin{align}
-	\pop(\br)\equiv\frac{1}{L^{3/2}}\sum_{\bk} \exp(i\bk\cdot\br)\aop_{\bk},\\
-  \pdop(\br)\equiv\frac{1}{L^{3/2}}\sum_{\bk} \exp(-i\bk\cdot\br)\adop_{\bk},
-\end{align}
-$$
+`$$
+\begin{align*}
+	\pop(\br)\equiv\frac{1}{L^{3/2}}\sum_{\bk} \exp(i\bk\cdot\br)\aop_{\bk} \\
+  \pdop(\br)\equiv\frac{1}{L^{3/2}}\sum_{\bk} \exp(-i\bk\cdot\br)\adop_{\bk}
+\end{align*}
+$$`
 
-- Interaction potential in terms of its Fourier components
+- Express interaction Hamiltonian in Fourier components
 
 $$
 U(\br-\br') = \frac{1}{L^3}\sum_\bq \tilde U(\bq) \exp(i\bq\cdot[\br-\br']).
 $$
 
-- Interaction Hamiltonian for spinless particles can then be written
-
 $$
-\hat H_\text{int.}  = \frac{1}{2L^3} \sum_{\bk_1+\bk_2=\bk_3+\bk_4} \tilde U(\bk_1-\bk_4) \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}.
-\label{more_vertex}
+\hat H_\text{int.}  = \frac{1}{2L^3} \sum_{\bk_1+\bk_2=\bk_3+\bk_4} \tilde U(\bk_1-\bk_4) \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}
 $$
 
 ---
 
 - Graphical representation 
+
+$$
+\hat H_\text{int.}  = \frac{1}{2L^3} \sum_{\bk_1+\bk_2=\bk_3+\bk_4} \tilde U(\bk_1-\bk_4) \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}
+$$
 
 <p align="center">
 <img src="assets/Vertex.png" alt="drawing" width="600" class="center"/>
@@ -605,7 +559,9 @@ $$
 
 ---
 
-- Expectation value in a product state of momentum eigenstates gives two terms
+$$
+\braket{\mathbf{N}|\hat H_\text{int.}|\mathbf{N}} = \frac{1}{2V}\tilde U(0) \sum_{\bk_1,\bk_2} N_{\bk_1}N_{\bk_2} - \frac{1}{2V} \sum_{\bk_1,\bk_2} \tilde U(\bk_1-\bk_2) N_{\bk_1}N_{\bk_2}
+$$
 
 <p align="center">
 <img src="assets/HFDiag.png" alt="drawing" width="600" class="center"/>
@@ -613,10 +569,8 @@ $$
 
 ---
 
-- Evaluating the two contributions
-
 $$
-\braket{\mathbf{N}}{\hat H_\text{int.}}{\mathbf{N}} = \frac{1}{2V}\tilde U(0) \sum_{\bk_1,\bk_2} N_{\bk_1}N_{\bk_2} - \frac{1}{2V} \sum_{\bk_1,\bk_2} \tilde U(\bk_1-\bk_2) N_{\bk_1}N_{\bk_2}
+\braket{\mathbf{N}|\hat H_\text{int.}|\mathbf{N}} = \frac{1}{2V}\tilde U(0) \sum_{\bk_1,\bk_2} N_{\bk_1}N_{\bk_2} - \frac{1}{2V} \sum_{\bk_1,\bk_2} \tilde U(\bk_1-\bk_2) N_{\bk_1}N_{\bk_2}
 $$
 
 - Hartree term just depends on total number 

@@ -1,6 +1,9 @@
 ---
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
+  math_renderer: mathjax3
+  reveal_options:
+    hash: true
   theme: white
 scripts: []
 
