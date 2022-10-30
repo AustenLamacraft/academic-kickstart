@@ -220,7 +220,7 @@ $$`
 	\Psi(\br_1,\br_2,\ldots,\br_N)=\prod_i^N \varphi_0(\br_i)
 $$`
 `$$
-	\ket{\Psi}=\frac{1}{\sqrt{N!}}\left(\adop_0\right)^N\ket{\text{VAC}},
+	\ket{\Psi}=\frac{1}{\sqrt{N!}}\left(\adop_0\right)^N\ket{\text{VAC}}
 $$`
 where $\adop_0$ creates particle in state $\varphi_0(\br)$
 
