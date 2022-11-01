@@ -632,11 +632,10 @@ $$
 
 ## Two Particle Operators
 
-- Acts _pairwise_ on the particles
+- Acts _pairwise_ on the particles ($B_{jk}=B_{kj}$ for indistinguishable particles.) 
 `$$
 \hat B = \sum_{j<k} B_{jk}.
 $$`
-($B_{jk}=B_{kj}$ for indistinguishable particles.) 
 
 - Action of $\hat B$ on a two particle product state `$\ket{\varphi_{\alpha}}_1\ket{\varphi_{\beta}}_2$` can be expressed in terms of matrix elements
 `$$
