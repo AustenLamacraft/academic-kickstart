@@ -573,7 +573,7 @@ $$
 Similar to the single particle case, the action of $\hat B$ on a two particle product state $\ket{\varphi_{\alpha}}_1\ket{\varphi_{\beta}}_2$ can be expressed in terms of the matrix elements
 $$
 \begin{align}
-B_{\alpha\beta,\gamma\delta} &= \bra{\varphi_\alpha}\bra{\varphi_\beta} B_{12} \ket{\varphi_\gamma}\ket{\varphi_\delta}\\
+B_{\alpha\beta,\gamma\delta} &= \bra{\varphi_\alpha}\bra{\varphi_\beta} B_{12} \ket{\varphi_\gamma}\ket{\varphi_\delta}\nonumber\\
 &=\int d\br d\br' \varphi_\alpha^*(\br)\varphi_\beta^*(\br')B_{12}\varphi_\gamma(\br)\varphi_\delta(\br')
 \end{align}
 $$

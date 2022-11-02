@@ -637,11 +637,11 @@ $$
 \hat B = \sum_{j<k} B_{jk}.
 $$`
 
-- Action of $\hat B$ on a two particle product state `$\ket{\varphi_{\alpha}}_1\ket{\varphi_{\beta}}_2$` can be expressed in terms of matrix elements
+- Action of $\hat B$ on product state `$\ket{\varphi_{\alpha}}_1\ket{\varphi_{\beta}}_2$` in terms of matrix elements
 `$$
 \begin{align}
 B_{\alpha\beta,\gamma\delta} &= \bra{\varphi_\alpha}_1\bra{\varphi_\beta}_2 B_{12} \ket{\varphi_\gamma}_1\ket{\varphi_\delta}_2\\
-\hat B &= \frac{1}{2}\sum_{\alpha\beta\gamma\delta} B_{\alpha\beta,\gamma\delta}\adop_\alpha\adop_\beta\aop_\delta\aop_\gamma.
+\hat B &= \frac{1}{2}\sum_{\alpha\beta\gamma\delta} B_{\alpha\beta,\gamma\delta}\adop_\alpha\adop_\beta\aop_\delta\aop_\gamma,\qquad B_{\alpha\beta,\gamma\delta} = B_{\beta\alpha,\delta\gamma}
 \end{align}
 $$`
 (Note order, which is important for fermions!). 
@@ -655,7 +655,7 @@ B_{\alpha\beta,\gamma\delta} &= \bra{\varphi_\alpha}_1\bra{\varphi_\beta}_2 B_{1
 \end{align}
 $$`
 
-> Check this on product states ($N=2$ first)
+> Check this works on product states ($N=2$ first)
 
 ---
 
