@@ -100,7 +100,7 @@ Let's evaluate $\eqref{more_rho22ndquant}$ for the ground state of the Fermi gas
 
 $$
 \begin{align}
-	\pop(x)=\sum_{\beta}  \varphi^{}_{\beta}(x)\aop_{\beta},\\
+	\pop(x)=\sum_{\beta}  \varphi^{}_{\beta}(x)\aop_{\beta},\nonumber\\
   \pdop(x)=\sum_{\beta}  \varphi^*_{\beta}(x)\adop_{\beta}.
 \end{align}
 $$
@@ -116,7 +116,7 @@ If we are considering the expectation in a state of the form $\ket{\mathbf{N}}$,
 
 $$
 \begin{align}
-	&\alpha =\delta,\, \beta=\gamma, \text{ or }\\
+	&\alpha =\delta,\, \beta=\gamma, \text{ or }\nonumber\\
   &\alpha=\gamma,\, \beta=\delta,
 \end{align}
 $$
@@ -327,7 +327,7 @@ we can immediately write down the expectation value of the interaction energy in
 $$
 \begin{align}
 	\label{2nd_quant_HartreeFock}
-	\langle \hat V\rangle &= \overbrace{\frac{1}{2}\int d\br\, d\br'\, \rho_1(\br) U(\br-\br')\rho_1(\br')}^{\equiv E_\text{Hartree}} \\
+	\langle \hat V\rangle &= \overbrace{\frac{1}{2}\int d\br\, d\br'\, \rho_1(\br) U(\br-\br')\rho_1(\br')}^{\equiv E_\text{Hartree}} \nonumber\\
 	&\qquad\overbrace{\pm \frac{1}{2}\int d\br\, d\br'\,  U(\br-\br')g(\br,\br')g(\br',\br)}^{\equiv E_\text{Fock}}.
 \end{align}
 $$
@@ -368,7 +368,7 @@ The Hartree--Fock energy is then
 
 $$
 \begin{align}
-	\langle \hat H_\text{int.}\rangle &=\frac{1}{2}\int d\br\, d\br'\, \rho(\br) U(\br-\br')\rho(\br')\\
+	\langle \hat H_\text{int.}\rangle &=\frac{1}{2}\int d\br\, d\br'\, \rho(\br) U(\br-\br')\rho(\br')\nonumber\\
 	&- \frac{1}{2}\int d\br\, d\br'\,  U(\br-\br')\tr\left[g(\br,\br')g(\br',\br)\right].
   \label{2nd_quant_HFSpin}
 \end{align}
@@ -377,14 +377,26 @@ $$
 The Fock term can be rewritten in a more useful way using the identity
 
 $$
-\delta_{ab}\delta_{cd} = \frac{1}{2}\left[\boldsymbol{\sigma}_{a c}\cdot \boldsymbol{\sigma}_{d b} + \delta_{ac}\delta_{db}\right],
+\delta_{ab}\delta_{cd} = \frac{1}{2}\left[\boldsymbol{\sigma}_{a c}\cdot \boldsymbol{\sigma}_{d b} + \delta_{ac}\delta_{db}\right].
+\label{pauli_ident}
 $$
+
+> One way to understand $\eqref{pauli_ident}$ is to to think of the two Pauli matrices as acting on two spin 1/2s (as we did in [Lecture 4]({{< ref "spin-models" >}})), in which case we can work in the basis $\ket{s_1}\ket{s_2}$ and we have
+> $$
+\boldsymbol{\sigma}_1\cdot \boldsymbol{\sigma}_2+ \mathbb{1}_1\mathbb{1}_2 = 2\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 
+\end{pmatrix}.
+$$
+> The matrix elements of the right hand side are then $2\delta_{s_1,s_2'}\delta_{s_2,s_1'}$.
 
 which gives
 
 $$
 \begin{align}
-E_{\text{Fock}} &=-\frac{1}{4} \int d\br\, d\br'\,  U(\br-\br')\tr\left[g(\br,\br')\right]\tr\left[g(\br',\br)\right]\\&-\frac{1}{4}\int d\br\, d\br'\,  U(\br-\br')\tr\left[\boldsymbol{\sigma}g(\br,\br')\right]\cdot\tr\left[\boldsymbol{\sigma}g(\br',\br)\right].
+E_{\text{Fock}} &=-\frac{1}{4} \int d\br\, d\br'\,  U(\br-\br')\tr\left[g(\br,\br')\right]\tr\left[g(\br',\br)\right]\nonumber\\&-\frac{1}{4}\int d\br\, d\br'\,  U(\br-\br')\tr\left[\boldsymbol{\sigma}g(\br,\br')\right]\cdot\tr\left[\boldsymbol{\sigma}g(\br',\br)\right].
 \end{align}
 $$
 
@@ -422,9 +434,9 @@ Polarizing the spins in a Fermi gas is not without cost (otherwise everything wo
 
 $$
 \begin{align}
-N = \sum_{|\bk|<k_\text{F}} 1 &\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} = \frac{k_\text{F}^3 L^3}{6\pi^2} \\
+N = \sum_{|\bk|<k_\text{F}} 1 &\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} = \frac{k_\text{F}^3 L^3}{6\pi^2} \nonumber\\
 E_\text{kin} = \sum_{|\bk|<k_\text{F}} \frac{\bk^2}{2m} &\longrightarrow L^3 \int_{|\bk|<k_\text{F}} \frac{d\bk}{(2\pi)^3} \frac{\bk^2}{2m}\\
- &= \frac{k_\text{F}^5 L^3}{20\pi^2 m} = L^3 \frac{3}{10m}(6\pi^2)^{2/3} n^{5/3},
+ &= \frac{k_\text{F}^5 L^3}{20\pi^2 m} = L^3 \frac{3}{10m}(6\pi^2)^{2/3} n^{5/3},\nonumber
 \end{align}
 $$
 
@@ -476,7 +488,7 @@ If we work in a translationally invariant system, the appropriate single particl
 
 $$
 \begin{align}
-	\pop(\br)\equiv\frac{1}{L^{3/2}}\sum_{\bk} \exp(i\bk\cdot\br)\aop_{\bk},\\
+	\pop(\br)\equiv\frac{1}{L^{3/2}}\sum_{\bk} \exp(i\bk\cdot\br)\aop_{\bk},\nonumber\\
   \pdop(\br)\equiv\frac{1}{L^{3/2}}\sum_{\bk} \exp(-i\bk\cdot\br)\adop_{\bk},
 \end{align}
 $$

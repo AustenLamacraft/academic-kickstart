@@ -31,7 +31,9 @@ module:
 ## ADVANCED
 ############################
 
-enableGitInfo: false
+enableGitInfo: true
+frontmatter:
+  lastmod: ["lastmod", ":git", "date", "publishDate"]
 summaryLength: 30
 paginate: 10
 enableEmoji: true
