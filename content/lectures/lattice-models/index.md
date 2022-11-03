@@ -2,6 +2,25 @@
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   theme: white
+  reveal_options: {
+    hash: true,
+    katex: {
+      macros: {
+        "\\pop" : "\\psi^{\\vphantom{\\dagger}}",
+        "\\pdop" : "\\psi^\\dagger",
+        "\\aop" : "a^{\\vphantom{\\dagger}}",
+        "\\adop" : "a^\\dagger",
+        "\\abs" : "\\left|#1\\right|",
+        "\\tr" : "\\operatorname{tr}",
+        "\\br" : "\\mathbf{r}",
+        "\\bk" : "\\mathbf{k}",
+        "\\bq" : "\\mathbf{q}",
+        "\\ch" : "\\mathcal{H}",
+        "\\ce" : "\\mathcal{E}"
+      },
+      throwOnError: false,
+    }
+  }
 scripts: []
 
 ---
@@ -56,16 +75,14 @@ $$
 ## Tight Binding Models
 
 - Noninteracting Hamiltonian with periodic potential $V(x+a)=V(x)$
+
 `$$
 H = \sum_{j=1}^N \left[-\frac{1}{2m}\partial_i^2 +V(x_i)\right] = \int \left[\frac{1}{2m}\partial_x\pdop\partial_x\pop + V(x)\pdop\pop\right] dx,
 $$`
 
-
-
 - [Bloch's theorem](https://en.wikipedia.org/wiki/Bloch_wave): eigenstates labelled by continuous index $k$ (__crystal momentum__) and discrete index $n$ (__band index__)
 `$$
 \psi_{k,n}(x) = e^{ikx} \varphi_{k,n}(x),
-\label{latt_bloch}
 $$`
 `$\varphi_{k,n}$` is periodic; $k$ lies in __Brillouin zone__ $(-\pi/a,\pi/a]$
 
@@ -81,8 +98,7 @@ $$`
  __tight binding Hamiltonian__
 
 $$
-H_t = -t \sum_{j} \left[\adop_j\aop_{j+1}+\adop_{j+1}\aop_j\right],
-\label{latt_tb}
+H_t = -t \sum_{j} \left[\adop_j\aop_{j+1}+\adop_{j+1}\aop_j\right]
 $$
 
 - Plays role of kinetic energy in our models (c.f. magnon in spin chain in [Lecture 4]({{< ref "spin-models" >}})
@@ -93,11 +109,11 @@ $$
 
 - Simplest interacting lattice model
 `$$
-H = H_t + H_U = -t \sum_{\langle j\,k\rangle}  \left[\adop_j\aop_{k}+\adop_{k}\aop_j\right] + \frac{U}{2}\sum_j \Nop_j(\Nop_j-1),
+H = H_t + H_U = -t \sum_{\langle j\,k\rangle}  \left[\adop_j\aop_{k}+\adop_{k}\aop_j\right] + \frac{U}{2}\sum_j N_j(N_j-1),
 $$`
-$\Nop_j=\adop_j\aop_j$, sum over all nearest neighbours
+$N_j=\adop_j\aop_j$, sum over all nearest neighbours
 
-- On-site interaction $\Nop_j(\Nop_j-1)=\adop_j\adop_j\aop_j\aop_j$
+- On-site interaction $N_j(N_j-1)=\adop_j\adop_j\aop_j\aop_j$
 
 - First introduced to describe electrons in solids; boson version widely used in ultracold atomic physics
 
@@ -177,20 +193,19 @@ $$
 - Ground state multiplet
 
 $$
-\ket{i,+}\equiv \frac{\adop_i}{\sqrt{N+1}}\bigotimes_{j} \ket{N}_j.
+\ket{i,+}\equiv \frac{\adop_i}{\sqrt{N+1}}\bigotimes_{j} \ket{N}_j
 $$
 
 - Only states $\ket{i\pm 1,+}$ are coupled by $H_t$, with matrix elements
 
 $$
-\braket{j}{H_t}{k} = -t(N+1).
+\braket{j}{H_t}{k} = -t(N+1)
 $$
 
 - Within degnerate multiplet, $H_t$ corresponds to tight binding model
 
 $$
-H_t\rvert_{+} = -t(N+1) \sum_{\langle j\,k\rangle} \left[\ket{j,+}\bra{k,+}+\text{h.c.}\right].
-\label{latt_tbp}
+H_t\rvert_{+} = -t(N+1) \sum_{\langle j\,k\rangle} \left[\ket{j,+}\bra{k,+}+\text{h.c.}\right]
 $$
 
 ---
@@ -205,7 +220,6 @@ $$
 
 $$
 \omega_+(\boldsymbol{\eta}) = -2t(N+1)\sum_{n=1}^d\cos\eta_n
-\label{latt_pband}
 $$
 
 --- 
@@ -219,8 +233,7 @@ $$
 - Within these states, $H_t$ takes form
 
 $$
-H_t\rvert_{-}=-tN \sum_{\langle j\,k\rangle} \left[\ket{j,-}\bra{k,-}+\text{h.c.}\right],
-\label{latt_tbh}
+H_t\rvert_{-}=-tN \sum_{\langle j\,k\rangle} \left[\ket{j,-}\bra{k,-}+\text{h.c.}\right]
 $$
 
 $$
@@ -231,17 +244,17 @@ $$
 
 ### Changes to phase diagram
 
-- Introduce the grand canonical Hamiltonian
+- Introduce the grand canonical Hamiltonian 
 
 $$
-\cH_\mu = H - \mu N_\text{particles},
+\ch_\mu = H - \mu N_\text{particles},
 $$
 
 - At $t=0$ the energies of Mott states with filling $\nu=N$ are
 `$$
-\frac{\cE^{(N)}_\mu}{N_\text{sites}} = \frac{U}{2}N(N-1)-\mu N.
+\frac{\ce^{(N)}_\mu}{N_\text{sites}} = \frac{U}{2}N(N-1)-\mu N.
 $$`
-`$\cE^{(N)}_\mu$` and `$\cE^{(N+1)}_\mu$` degenerate when $\mu=UN$ for $t=0$
+`$\ce^{(N)}_\mu$` and `$\ce^{(N+1)}_\mu$` degenerate when $\mu=UN$ for $t=0$
 
 ---
 
@@ -252,7 +265,7 @@ $$`
 - Together with extra energy of interaction we have overall
 
 $$
-\cE^{(N)}_\mu + UN - \mu -2dt(N+1).
+\ce^{(N)}_\mu + UN - \mu -2dt(N+1).
 $$
 
 - For $t>\frac{UN-\mu}{2d(N+1)}$ state with an extra particle actually has a _lower_ energy: Mott state not the ground state
@@ -262,7 +275,7 @@ $$
 - Energy of ground state with one 'hole' in $N+1$ Mott state is
 
 $$
-\cE^{(N+1)}_\mu - UN + \mu -2dt(N+1).
+\ce^{(N+1)}_\mu - UN + \mu -2dt(N+1).
 $$
 
 - Introducing a hole is thus favoured for $t>\frac{\mu-UN}{2d(N+1)}$.
@@ -340,10 +353,10 @@ $$
 - 6 states altogether in the Hilbert space
 
 `$$
-\begin{align}
+\begin{align*}
 \adop_{1,\uparrow}\adop_{1,\downarrow} \ket{\text{VAC}},\quad\adop_{2,\uparrow}\adop_{2,\downarrow} \ket{\text{VAC}}\\
 \adop_{1,s}\adop_{2,s'} \ket{\text{VAC}},\quad s,s'=\uparrow,\downarrow.
-\end{align}
+\end{align*}
 $$`
 
 - Top two states have energy $U$ when $t=0$; rest have energy 0.
@@ -373,10 +386,10 @@ $$`
 
 - __Notation__: $P_\text{Mott}$ is projection operator on to the $2^{N_\text{sites}}$ Mott states 
 `$$
-\begin{align}
+\begin{align*}
 H_\text{Mott}= P_\text{Mott} H P_\text{Mott},\quad H_\text{Not}= P_\text{Not}H P_\text{Not}\\
 V^{} = P_\text{Mott} H P_\text{Not},\qquad V^\dagger = P_\text{Not} H P_\text{Mott}.
-\end{align}
+\end{align*}
 $$`
 $P_\text{Not}\equiv 1-P_\text{Mott}$
 
@@ -462,9 +475,9 @@ $$
 
 - Then use identity
 
-$$
-\delta_{ab}\delta_{cd} = \frac{1}{2}\left[\boldsymbol{\sigma}_{a d}\cdot \boldsymbol{\sigma}_{c b} + \delta_{ad}\delta_{cb}\right].
-$$
+`$$
+\delta_{ab}\delta_{cd} = \frac{1}{2}\left[\boldsymbol{\sigma}_{a d}\cdot \boldsymbol{\sigma}_{c b} + \delta_{ad}\delta_{cb}\right]
+$$`
 
 ---
 
