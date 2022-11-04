@@ -296,9 +296,9 @@ We could of course add spin to the Bose Hubbard model, but it's still interestin
 
 Relatively little is known _for sure_ about the Hubbard model, except in 1D, where it can be solved exactly using the Bethe ansatz. You may be wondering why it's so much harder than the Bose case. Let's find out...
 
-### Discussion: Two Sites, Large $U/t$
+### Two Sites, Two Fermions
 
-As in the Bose case, we start by thinking about $U/t\to\infty$. In the limit we get Mott states: only three this time, corresponding to 0, 1, or 2 particles per site. When we have two particles on a site, they must be in a spin singlet. But when we have only 1 per site (We call this __half filling__), we can have either spin. Thus the $\nu=1$ Mott state is _massively_ degenerate, with a ground state multiplet consisting of $2^{N_\text{sites}}$ possible spin configurations. $U/t\to\infty$ is therefore a rather singular limit, and to understand the true ground state at large $U$ we'll need to work bit harder.
+As in the Bose case, we start by thinking about $U/t\to\infty$. In the limit we get Mott states: only three this time, corresponding to 0, 1, or 2 particles per site. Two particles on a site are described by $\adop_{j,s}\adop_{j,s'}\ket{\text{VAC}}$, which is antisymmetric in the spin indices due to anticommutation of the creation operators, and therefore describes a spin singlet $\frac{1}{\sqrt{2}}\left[\ket{\uparrow}\ket{\downarrow}-\ket{\downarrow}\ket{\uparrow}\right]$. When we have only 1 per site (We call this __half filling__), we can have either spin. Thus the $\nu=1$ Mott state is _massively_ degenerate, with a ground state multiplet consisting of $2^{N_\text{sites}}$ possible spin configurations. $U/t\to\infty$ is therefore a rather singular limit, and to understand the true ground state at large $U$ we'll need to work bit harder.
 
 Start by thinking about two sites and two particles. There are 6 states altogether in the Hilbert space.
 
@@ -411,7 +411,7 @@ The effective Hamiltonian is nothing but the spin-1/2 antiferromagnetic Heisenbe
 
 Antiferromagnetism and the Mott phenomenon are seen to go hand in hand in fermion systems. This explains the common ocurrence of antiferromagnetism in transition metal compounds, especially oxides. The cuprate superconductors mentioned earlier are a famous example.
 
-{{< figure src="Cuphase.png" title="Schematic temperature vs. doping diagram for the cuprate materials [[Source]](https://en.wikipedia.org/wiki/High-temperature_superconductivity#Cuprates)." numbered="true" lightbox="true" >}}
+{{< figure src="Cuphasediag.png" title="Schematic temperature vs. doping diagram for the cuprate materials [[Source]](https://en.wikipedia.org/wiki/High-temperature_superconductivity#Cuprates)." numbered="true" lightbox="true" >}}
 
 At half filling, the cuprates are antiferromangetic Mott insulators. Superconductivity emerges when the materials are doped by changing their stoichiometry. This introduces electrons or holes into the CuO$_2$ planes that are modeled by the Hubbard Hamiltonian. Antiferromagnetic order is believed to be destroyed by freely moving holes -- think how the Néel ordering is disrupted -- and indeed superconductivity appears where antiferromagnetism dies. The precise relationship between the two phenomena is -- like much of the physics of the cuprates -- not clear.
 

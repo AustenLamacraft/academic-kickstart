@@ -310,7 +310,7 @@ $$
 
 ---
 
-### Two Sites, Large $U/t$
+### Two Sites, Two Fermions
 
 - 6 states altogether in the Hilbert space
 
@@ -461,7 +461,7 @@ $$`
 
 
 <p align="center">
-<img src="assets/Cuphasediag.png" alt="drawing" width="500" class="center"/>
+<img src="assets/Cuphasediag.png" alt="drawing" width="400" class="center"/>
 </p>
 
 - At half filling, cuprates are antiferromangetic Mott insulators
@@ -470,3 +470,8 @@ $$`
 
 -  Superconductivity appears where antiferromagnetism dies. Why?
 
+---
+
+<p align="center">
+<a href="https://www.quantamagazine.org/high-temperature-superconductivity-understood-at-last-20220921/"><img src="assets/quanta-high-tc.png" alt="drawing" width="700" class="center"/></a>
+</p>
