@@ -409,7 +409,6 @@ The dispersion relation $\eqref{coll_Dispersion}$ makes this integral a little d
 >$$
 >\omega(\eta) \sim \sqrt{\frac{k}{m}}|\eta|.
 >$$
-
 >Show that we then have
 >
 >$$
@@ -417,7 +416,7 @@ The dispersion relation $\eqref{coll_Dispersion}$ makes this integral a little d
 >\label{coll_LogFluct}
 >$$
 >
->where we have introduced $\ell_\text{osc}=\left(km\right)^{-1/4}$, the natural length scale of an oscillator.
+>where we have introduced $\ell_\text{osc}=\left(km\right)^{-1/4}$, the natural length scale of an oscillator. If you find this derivation a bit vague, an evaluation of the integral $\eqref{coll_uvar}$ is given in the [Appendix]({{< ref "courses/tqm/elastic-chain#evaluating-eqrefcoll_uvar" >}}).
 
 The result $\eqref{coll_LogFluct}$ shows that the uncertainty in the separation of two masses in the chain increases with their separation. This implies that the ground state of the chain is _not_ a crystal, but more closely resembles a fluid. It turns out that this conclusion depends strongly on the dimensionality of the system. In higher dimensions, crystalline ground states _do_ exist (thankfully).
 
@@ -505,12 +504,14 @@ $$
 Thus quantum fluctuations replace the Bragg peaks, an indicator of crystalline order, with power law divergences. These remnants of order diminish as $\ell_\text{osc}/a$ increases, indicating larger quantum fluctuations. Again, things are different in higher dimensions: the Bragg peaks survive, albeit reduced in strength, at least for small fluctuations. It is possible, however, for quantum fluctuations to prevent crystallization in the ground state (i.e. at zero temperature). Such systems are called _quantum liquids_. Helium is the prototypical example: the low atomic mass and relatively weak interactions between atoms mean that quantum fluctuations are large.
 
 
+Appendix
+--------
 
-## Fourier review
+### Fourier review
 
 This is a good place to collect some facts about Fourier transforms. We start from the [discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform) (DFT), which is a change of basis in a finite dimensional space. This is what we used in discussing the chain. There are then two ways to pass to the infinite continuous case described by the Fourier transform.
 
-### Discrete Fourier Transform
+#### Discrete Fourier Transform
 
 For a vector $x_j = 1,\ldots N$ ($N$ taken to be odd), we define the DFT by
 $$
@@ -539,7 +540,7 @@ f_j = \frac{1}{N}\sum_{n=-(N-1)/2}^{(N-1)/2}  F_n e^{i\eta_n j}.
 $$
 A more democratic definition would have $1/\sqrt{N}$ in both definitions $\eqref{coll_DFT}$ and $\eqref{coll_IDFT}$. This would allow us to regard the DFT as a basis change to an orthonormal basis of vectors $e^{(n)}_j = \frac{e^{i\eta_n j}}{\sqrt{N}}$, and both the DFT and its inverse would be unitary transformations.
 
-### $N\to\infty$ limit
+#### $N\to\infty$ limit
 
 In this limit the $\eta_n$ values become dense in the range $(-\pi,\pi]$, with separation $\Delta \eta = 2\pi/N$, and we replace the sum in the inverse DFT $\eqref{coll_IDFT}$ by an integral according to the prescription
 $$
@@ -549,7 +550,8 @@ giving
 $$
 f_j = \int_{-\pi}^\pi \frac{d\eta}{2\pi}\,F(\eta) e^{i\eta j}.
 $$
-### $N\to\infty$, with $f_j = f(jL/N)$,
+
+#### $N\to\infty$, with $f_j = f(jL/N)$,
 
 Alternatively, regard the $N\to\infty$ limit as sampling a function $f(x)$ ever more finely in the range (0,L]. Now it's the DFT, rather than the inverse, that becomes an integral
 $$
@@ -573,7 +575,7 @@ $$
 $$
 where $\delta_L(x)$ is an $L$-periodic version of the $\delta$-function.
 
-### $L\to\infty$
+#### $L\to\infty$
 
 Finally we arrive at the Fourier transform, where we take $L\to\infty$, so that the inverse transform in $\eqref{coll_FTSeries}$ becomes an integral too
 $$
@@ -591,7 +593,7 @@ My preference is for taking this limit at the last possible moment, that is, sti
 
 3. There are times where taking the limit leads to a divergent integral, while the sums remain finite. This almost always tells us that there is something interesting going on when we are trying to pass to an infinite system.
 
-### Properties of the Fourier Transform
+#### Properties of the Fourier Transform
 
 Here are some properties that hold for all of the above.
 
@@ -601,7 +603,7 @@ Here are some properties that hold for all of the above.
 
 3. (Ergo) if $f(x)$ is real and even, so is $f_k$.
 
-### Fourier Transforms of Products
+#### Fourier Transforms of Products
 
 Frequently we have to transform products, so we use the [convolution theorem](https://en.wikipedia.org/wiki/Convolution_theorem)
 $$
@@ -643,7 +645,7 @@ $$
 $$
 With practice, you will find you are able to write down the right hand sides of expressions like $\eqref{coll_FTExamples}$ without too much difficulty.
 
-### Higher dimensions
+#### Higher dimensions
 
 This all generalizes to higher dimensions straightforwardly. For example
 $$
@@ -651,6 +653,27 @@ $$
 $$
 
 >Practice writing out $\eqref{coll_FTExamples}$ in $d$ dimensions.
+
+### Evaluating $\eqref{coll_uvar}$
+
+We want to evaluate
+$$
+I(j)\equiv\int_{-\pi}^\pi \frac{1-\cos\left(\eta j\right)}{\sin(\eta/2)}d\eta
+$$
+for integer $j$. We can write this as
+$$
+I(j)=\int_{0}^{2\pi} \frac{1-e^{i\eta j}}{\sin(\eta/2)}d\eta= -2i\int_{0}^{2\pi} e^{i\eta/2}\frac{1-e^{i\eta j}}{1-e^{i\eta}}d\eta
+$$
+because the imaginary part of the integrand vanishes on integration. Now notice that the integrand involves the geometric series
+$$
+\frac{1-e^{i\eta j}}{1-e^{i\eta}} = 1 + e^{i\eta} + \cdots e^{i\eta(j-1)},
+$$
+so we can do the integrals term by term to give
+$$
+I(j) = 4\sum_{n=0}^j \frac{1}{n+1/2}\sim 4\log j.
+$$
+When all factors are replaced, this yields $\eqref{coll_LogFluct}$.
+
 
 References
 ----------
