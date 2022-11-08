@@ -10,11 +10,14 @@ slides:
         "\\pdop" : "\\psi^\\dagger",
         "\\aop" : "a^{\\vphantom{\\dagger}}",
         "\\adop" : "a^\\dagger",
+        "\\bop" : "b^{\\vphantom{\\dagger}}",
+        "\\bdop" : "b^\\dagger",
         "\\abs" : "\\left|#1\\right|",
         "\\tr" : "\\operatorname{tr}",
         "\\br" : "\\mathbf{r}",
         "\\bk" : "\\mathbf{k}",
         "\\bq" : "\\mathbf{q}",
+        "\\bp" : "\\mathbf{p}",
         "\\ch" : "\\mathcal{H}",
         "\\ce" : "\\mathcal{E}"
       },
@@ -31,42 +34,6 @@ scripts: []
 - What do interactions do? 
 - BEC closely related to __superfluidity__
 
-$$
-\nonumber
-\newcommand{\cE}{\mathcal{E}}
-\newcommand{\cH}{\mathcal{H}}
-\newcommand{\cN}{\mathcal{N}}
-\newcommand{\br}{\mathbf{r}}
-\newcommand{\bp}{\mathbf{p}}
-\newcommand{\bk}{\mathbf{k}}
-\newcommand{\bq}{\mathbf{q}}
-\newcommand{\bv}{\mathbf{v}}
-\newcommand{\pop}{\psi^{\vphantom{\dagger}}}
-\newcommand{\pdop}{\psi^\dagger}
-\newcommand{\Pop}{\Psi^{\vphantom{\dagger}}}
-\newcommand{\Pdop}{\Psi^\dagger}
-\newcommand{\Phop}{\Phi^{\vphantom{\dagger}}}
-\newcommand{\Phdop}{\Phi^\dagger}
-\newcommand{\phop}{\phi^{\vphantom{\dagger}}}
-\newcommand{\phdop}{\phi^\dagger}
-\newcommand{\aop}{a^{\vphantom{\dagger}}}
-\newcommand{\adop}{a^\dagger}
-\newcommand{\bop}{b^{\vphantom{\dagger}}}
-\newcommand{\bdop}{b^\dagger}
-\newcommand{\cop}{c^{\vphantom{\dagger}}}
-\newcommand{\cdop}{c^\dagger}
-\newcommand{\Nop}{\mathsf{N}^{\vphantom{\dagger}}}
-\newcommand{\bra}[1]{\langle{#1}\rvert}
-\newcommand{\ket}[1]{\lvert{#1}\rangle}
-\newcommand{\inner}[2]{\langle{#1}\rvert #2 \rangle}
-\newcommand{\braket}[3]{\langle{#1}\rvert #2 \lvert #3 \rangle}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\tr}{tr}
-\newcommand{\abs}[1]{\lvert{#1}\rvert}
-\newcommand{\brN}{\br_1, \ldots, \br_N}
-\newcommand{\xN}{x_1, \ldots, x_N}
-\newcommand{\zN}{z_1, \ldots, z_N}
-$$
 
 
 ---
@@ -153,7 +120,7 @@ $$`
 - Extremize the functional
 
 $$
-\braket{\Psi}{H}{\Psi} - \mu N \int d\br |\varphi_{0}(\br)|^{2}.
+\braket{\Psi|H|\Psi} - \mu N \int d\br |\varphi_{0}(\br)|^{2}.
 $$
 
 - Calculus of variations yields
@@ -174,9 +141,9 @@ $$
 
 - Fix Lagrange multiplier $\mu$ by $\int d\br\abs{\varphi(\br)}^{2}=N$
 
-- $\braket{\Psi|H|\Psi}- \mu \int d\br \abs{\varphi(\br)}^{2}=\braket{\Psi}{H-\mu \mathsf{N}}{\Psi}$ was extremized under general variations, including change in $N$
+- $\braket{\Psi|H|\Psi}- \mu \int d\br \abs{\varphi(\br)}^{2}=\braket{\Psi|H-\mu \mathsf{N}|\Psi}$ was extremized under general variations, including change in $N$
 `$$
-	\mu=\frac{\partial\braket{\Psi}{H}{\Psi}}{\partial N},
+	\mu=\frac{\partial\braket{\Psi|H|\Psi}}{\partial N},
 $$`
 $\mu$ is identified with the chemical potential.
 
@@ -199,9 +166,9 @@ $$
 
 - If we set $\xi\equiv \frac{1}{\sqrt{2m \mu}}=\frac{1}{\sqrt{2m n U_0}}$ then
 
-$$
+`$$
 \left[-\phi''+|\phi|^2-1\right]\phi(x)=0.
-$$
+$$`
 
 ---
 
@@ -402,7 +369,6 @@ $$
 
 $$
 \aop\ket{N} = \sqrt{N}\ket{N-1},\quad \adop\ket{N} = \sqrt{N+1}\ket{N+1},
-\label{bose_aN}
 $$
 
 - A term in $H_\text{int}$ with $\aop_0$ or $\adop_0$ is more important than one without. Arrange Hamiltonian by occurrences of $\aop_0$, $\adop_0$
@@ -410,10 +376,10 @@ $$
 ---
 
 `$$
-\begin{align}
+\begin{align*}
 H_\text{int} = \frac{U_0}{2V}\adop_0\adop_0\aop_0\aop_0 + \frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+4\adop_\bk\adop_0\aop_0\aop_\bk\right]\\\nonumber
-+\frac{U_0}{V}\sum_{\substack{\bk_1=\bk_2+\bk_3\\ \bk_{1,2,3}\neq 0}}\left[\adop_{\bk_3}\adop_{\bk_2}\aop_{\bk_1}\aop_0 +\adop_0\adop_{\bk_1}\aop_{\bk_2}\aop_{\bk_3}\right]+\frac{U_0}{2V}\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk_4\\ \bk_{1,2,3,4}\neq 0}} \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}.
-\end{align}
++\frac{U_0}{V}\sum_{\substack{\bk_1=\bk_2+\bk_3\\ \bk_{1,2,3}\neq 0}}\left[\adop_{\bk_3}\adop_{\bk_2}\aop_{\bk_1}\aop_0 +\adop_0\adop_{\bk_1}\aop_{\bk_2}\aop_{\bk_3}\right]+\frac{U_0}{2V}\sum_{\substack{\bk_1+\bk_2=\bk_3+\bk_4\\ \bk_{1,2,3,4}\neq 0}} \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}
+\end{align*}
 $$`
 
 - Gross--Pitaevskii approximation corresponds to the first term
@@ -421,42 +387,39 @@ $$`
 - We now keep second term, and neglect third and fourth
 
 `$$
-\begin{align}
-H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}\adop_0\adop_0\aop_0\aop_0 \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+4\adop_\bk\adop_0\aop_0\aop_\bk\right].
-\label{bose_Hpair}
-\end{align}
+\begin{align*}
+H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}\adop_0\adop_0\aop_0\aop_0 \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+4\adop_\bk\adop_0\aop_0\aop_\bk\right]
+\end{align*}
 $$`
 
 ---
 
 `$$
-\begin{align}
-H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}\adop_0\adop_0\aop_0\aop_0 \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+4\adop_\bk\adop_0\aop_0\aop_\bk\right].
-\end{align}
+\begin{align*}
+H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}\adop_0\adop_0\aop_0\aop_0 \nonumber\\ &\quad+\frac{U_0}{2V}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+4\adop_\bk\adop_0\aop_0\aop_\bk\right]
+\end{align*}
 $$`
 
-- Rewrite second term using
-`$$
-\adop_0\aop_0 = N - N',\quad N'\equiv \sum_{\bk\neq 0} N_\bk
-$$`
-so that $\adop_0\adop_0\aop_0\aop_0 =  N(N-1) - 2N'N_0+O(N_0^0	)$
+- Rewrite second term using `$\adop_0\aop_0 = N - N'$`, with `$N'\equiv \sum_{\bk\neq 0} N_\bk
+$` 
+- Then `$\adop_0\adop_0\aop_0\aop_0 =  N(N-1) - 2N'N_0+O(N_0^0	)$`
 
 `$$
-\begin{align}
+\begin{align*}
 H_\text{pair} = &N\epsilon(0)+\frac{U_0}{2V}N(N-1) 
 +\sum_{\bk\neq 0}\left[\epsilon(\bk)-\epsilon(0)\right]\adop_\bk\aop_\bk\\
-&+\frac{U_0}{2V}\sum_{\bk\neq 0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right].
-\end{align}
+&+\frac{U_0}{2V}\sum_{\bk\neq 0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right]
+\end{align*}
 $$`
 
 ---
 
 `$$
-\begin{align}
+\begin{align*}
 H_\text{pair} = &N\epsilon(0)+\frac{U_0}{2V}N(N-1) 
 +\sum_{\bk\neq 0}\left[\epsilon(\bk)-\epsilon(0)\right]\adop_\bk\aop_\bk\\
-&+\frac{U_0}{2V}\sum_{\bk\neq 0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right].
-\end{align}
+&+\frac{U_0}{2V}\sum_{\bk\neq 0}\left[\adop_{\bk}\adop_{-\bk}\aop_{0}\aop_{0} + \adop_{0}\adop_{0}\aop_{\bk}\aop_{-\bk}+2\adop_\bk\adop_0\aop_0\aop_\bk\right]
+\end{align*}
 $$`
 
 > Weird trick alert!
@@ -468,14 +431,14 @@ $$`
 
  - Let's see why this is a good approximation.
 
-- Consider action of Hamiltonian on product state of form $\ket{\Psi'}\otimes\ket{N_0}_0$
+- Consider action of Hamiltonian on state of form `$\ket{\Psi'}\otimes\ket{N_0}_0$`
 
 `$$
-\adop_\bk\aop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \aop_0\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0}\ket{N_0-1}_0.
+\adop_\bk\aop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \aop_0\ket{N_0}_0 = \left(\adop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0}\ket{N_0-1}_0
 $$`
-$$
-\aop_\bk\adop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \adop_0\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0+1}\ket{N_0+1}_0.
-$$
+`$$
+\aop_\bk\adop_0\ket{\Psi'}\otimes\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \adop_0\ket{N_0}_0 = \left(\aop_\bk \ket{\Psi'}\right)\otimes \sqrt{N_0+1}\ket{N_0+1}_0
+$$`
 
 - Ignore the difference between $N_0$ and $N_0+1$
 
@@ -485,10 +448,9 @@ $$
 
 - Result is __Bogoliubov Hamiltonian__
 `$$
-\begin{align}
-H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0n_0}{2}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk} + \aop_{\bk}\aop_{-\bk}+2\adop_\bk\aop_\bk\right].
-\label{bose_Hpair3}
-\end{align}
+\begin{align*}
+H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0n_0}{2}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk} + \aop_{\bk}\aop_{-\bk}+2\adop_\bk\aop_\bk\right]
+\end{align*}
 $$`
 $n_0 = N_0/V$ is density of particles in zero momentum state
 
@@ -501,7 +463,7 @@ $n_0 = N_0/V$ is density of particles in zero momentum state
 - Suppose we have an operator
 
 $$
-h = \epsilon\left[\adop_1\aop_1+\adop_2\aop_2\right] + \delta\left[\adop_1\adop_2+\aop_1\aop_2\right].
+h = \epsilon\left[\adop_1\aop_1+\adop_2\aop_2\right] + \delta\left[\adop_1\adop_2+\aop_1\aop_2\right]
 $$
 
 -  Want to express $h$ in terms of some new bosons $\bop_{1,2}$ as
@@ -600,14 +562,16 @@ $$
 - Apply to Bogoliubov Hamiltonian 
 
 `$$
-\begin{align}
-H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0n_0}{2}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk} + \aop_{\bk}\aop_{-\bk}+2\adop_\bk\aop_\bk\right].
-\end{align}
+\begin{align*}
+H_\text{pair} &= \sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk  +\frac{U_0}{2V}N(N-1) \nonumber\\ &\quad+\frac{U_0n_0}{2}\sum_{\bk\neq0}\left[\adop_{\bk}\adop_{-\bk} + \aop_{\bk}\aop_{-\bk}+2\adop_\bk\aop_\bk\right]
+\end{align*}
 $$`
 
 `$$
+\begin{align*}
 \bop_\bp=\aop_\bp\cosh\kappa_\bp+\adop_{-\bp}\sinh\kappa_\bp\nonumber\\
-\tanh2\kappa_\bp=\frac{n_0 U_0}{\epsilon(\bp)+n_0 U_0}.
+\tanh2\kappa_\bp=\frac{n_0 U_0}{\epsilon(\bp)+n_0 U_0}
+\end{align*}
 $$`
 
 
@@ -621,19 +585,19 @@ $$
 - $\omega(\bp)$ is the Bogoliubov dispersion relation
 
 $$
-\omega(\bp) = \sqrt{\epsilon(\bp)\left(\epsilon(\bp)+2U_0n_0\right)},
+\omega(\bp) = \sqrt{\epsilon(\bp)\left(\epsilon(\bp)+2U_0n_0\right)}
 $$
 
 - Ground state energy is
 
 $$
-E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0\right].
+E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0\right]
 $$
 
 ---
 
 $$
-E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0\right].
+E_0=\frac{1}{2}nU_0  N+\sum_{\bp\neq 0}\frac{1}{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0\right]
 $$
 
 - Annoyingly, this integral is divergent at high momenta because
@@ -647,11 +611,11 @@ $$
 - We can cure the problem by writing
 
 `$$
-\begin{align}
+\begin{align*}
 E_0&=\overbrace{\frac{1}{2}nU_0  N\left[1-\frac{1}{V}\sum_\bp \frac{U_0}{2\epsilon(\bp)}\right]}^{\text{1st and 2nd order PT}}\\
 &+\overbrace{\sum_{\bp\neq 0}\frac{1}
-{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0+ \frac{(n_0U_0)^2}{2\epsilon(\bp)}\right]}^{\text{finite}}.
-\end{align}
+{2}\left[\omega(\bp)-\epsilon(\bp)-n_0U_0+ \frac{(n_0U_0)^2}{2\epsilon(\bp)}\right]}^{\text{finite}}
+\end{align*}
 $$`
 
 - Term added and subtracted is contribution to the ground state energy in second order perturbation theory
@@ -672,7 +636,6 @@ $$
 
 $$
 \ket{0}=\prod_{\bk\neq 0} \exp\left(-\frac{1}{2}\tanh\kappa_\bk\adop_{\bk}\adop_{-\bk}\right)\ket{\Psi_\text{GP}}
-\label{bose_BogWave}
 $$
 
 > Show this. If you've seen coherent states before, remember that the state $e^{\alpha \adop}\ket{\text{VAC}}$ is an eigenstate of $\aop$ with eigenvalue $\alpha$.
@@ -682,17 +645,17 @@ $$
 - Recall that Fourier components of density operator are
 
 $$
-\rho_\bq = \sum_\bk \adop_{\bk-\bq}\aop_\bk.
+\rho_\bq = \sum_\bk \adop_{\bk-\bq}\aop_\bk
 $$
 
 - Most important terms: $\adop_{\bk-\bq}$ or $\aop_\bk$ acts on the condensate
 
 $$
-\rho_\bq \sim \sqrt{N}\left(\adop_{-\bq} + \aop_{\bq}\right) = \sqrt{N}e^{-\kappa_\bq} \left(\bdop_{-\bq} + \bop_{\bq}\right),
+\rho_\bq \sim \sqrt{N}\left(\adop_{-\bq} + \aop_{\bq}\right) = \sqrt{N}e^{-\kappa_\bq} \left(\bdop_{-\bq} + \bop_{\bq}\right)
 $$
 
 $$
-e^{-\kappa_\bq} = \sqrt{\frac{\epsilon(\bq)}{\omega(\bq)}}.
+e^{-\kappa_\bq} = \sqrt{\frac{\epsilon(\bq)}{\omega(\bq)}}
 $$
 
 ---
@@ -709,7 +672,7 @@ where $c = \sqrt{\frac{n_0U_0}{m}}$ is the speed of sound)
 
 - c.f Gross--Pitaevskii ground state (Poissonian fluctuations)
 $$
-\braket{0}{\rho_{-\bq}\rho_{\bq}}{0} = N.
+\braket{0|\rho_{-\bq}\rho_{\bq}|0} = N
 $$
 
 
@@ -722,13 +685,13 @@ $$
 - $N_\bp=\adop_{\bp}\aop_{\bp}$ in terms of Bogoliubov quasiparticles
 
 $$
-	\adop_{\bp}\aop_{\bp}=(\bdop_\bp\cosh\kappa_{\bp}-\bop_{-\bp}\sinh\kappa_{\bp})(\bop_\bp\cosh\kappa_{\bp}-\bdop_{-\bp}\sinh\kappa_{\bp}),
+	\adop_{\bp}\aop_{\bp}=(\bdop_\bp\cosh\kappa_{\bp}-\bop_{-\bp}\sinh\kappa_{\bp})(\bop_\bp\cosh\kappa_{\bp}-\bdop_{-\bp}\sinh\kappa_{\bp})
 $$
 
 - Then evaluate expectation
 
 $$
-\langle N_\bp\rangle=\langle \adop_{\bp}\aop_{\bp}\rangle = \sinh^2\kappa_{p}\xrightarrow{ \abs{\bp}\ll \xi^{-1}}\frac{mc_s}{2\abs{\bp}}.
+\langle N_\bp\rangle=\langle \adop_{\bp}\aop_{\bp}\rangle = \sinh^2\kappa_{p}\xrightarrow{ \abs{\bp}\ll \xi^{-1}}\frac{mc_s}{2\abs{\bp}}
 $$
 
 - Radial density distribution $4\pi p^2 N_\bp$ peaked around $\xi^{-1}$

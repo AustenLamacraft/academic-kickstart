@@ -361,10 +361,10 @@ $P_\text{Not}\equiv 1-P_\text{Mott}$
 
 - For Hubbard model
 `$$
-\begin{align}
+\begin{align*}
 H_\text{Mott}= P_\text{Mott} H_U P_\text{Mott},\quad H_\text{Not}= P_\text{Not}H_U P_\text{Not}\\
 V^{} = P_\text{Mott} H_t P_\text{Not},\qquad V^\dagger = P_\text{Not} H_t P_\text{Mott}.
-\end{align}
+\end{align*}
 $$`
 $H_{\text{Mott}}=0$ ($\nu=1$ states have no interaction energy)
 
