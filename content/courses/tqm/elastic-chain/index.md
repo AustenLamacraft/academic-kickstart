@@ -494,7 +494,9 @@ The second exponent modifies the classical prediction of Bragg peaks. We have en
 $$
 \exp(i\Delta q a[j-k])\, \left|j-k\right|^{-2\pi\ell_\text{osc}^2/a^2},
 $$
-where $\Delta q$ denotes the deviation of $q$ from $2\pi/a$. This leads to the conclusion
+where $\Delta q$ denotes the deviation of $q$ from $2\pi/a$. To find the dependence on $\Delta q$
+
+This leads to the conclusion
 $$
 \bra{0} \rho_q \rho_{-q} \ket{0} \sim \left(\Delta q\right)^{-1+2\pi\ell_\text{osc}^2/a^2}.
 $$
@@ -589,7 +591,7 @@ My preference is for taking this limit at the last possible moment, that is, sti
 
 1. Writing $\sum_k$ is easier than $L\int \frac{dk}{2\pi}$, because the $k_n = 2\pi n/L$ can be left implicit.
 
-2. Leaving $k$ as a subsript means we don't need the tilde to distinguish $f(x)$ and $f_k$.
+2. Leaving $k$ as a subscript means we don't need the tilde to distinguish $f(x)$ and $f_k$.
 
 3. There are times where taking the limit leads to a divergent integral, while the sums remain finite. This almost always tells us that there is something interesting going on when we are trying to pass to an infinite system.
 
@@ -670,7 +672,7 @@ $$
 $$
 so we can do the integrals term by term to give
 $$
-I(j) = 4\sum_{n=0}^j \frac{1}{n+1/2}\sim 4\log j.
+I(j) = 4\sum_{n=1}^j \frac{1}{n+1/2}\sim 4\log j.
 $$
 When all factors are replaced, this yields $\eqref{coll_LogFluct}$.
 

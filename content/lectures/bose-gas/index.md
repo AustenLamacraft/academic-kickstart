@@ -2,6 +2,25 @@
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   theme: white
+  reveal_options: {
+    hash: true,
+    katex: {
+      macros: {
+        "\\pop" : "\\psi^{\\vphantom{\\dagger}}",
+        "\\pdop" : "\\psi^\\dagger",
+        "\\aop" : "a^{\\vphantom{\\dagger}}",
+        "\\adop" : "a^\\dagger",
+        "\\abs" : "\\left|#1\\right|",
+        "\\tr" : "\\operatorname{tr}",
+        "\\br" : "\\mathbf{r}",
+        "\\bk" : "\\mathbf{k}",
+        "\\bq" : "\\mathbf{q}",
+        "\\ch" : "\\mathcal{H}",
+        "\\ce" : "\\mathcal{E}"
+      },
+      throwOnError: false,
+    }
+  }
 scripts: []
 
 ---
@@ -60,7 +79,6 @@ $$
 
 $$
 \Psi(\br_1,\ldots \br_N) = \prod_{j=1}^N \varphi_0(\br_i)= \frac{1}{\sqrt{N!}}\left(\adop(\varphi_0)\right)^N\ket{\text{VAC}}.
-\label{bose_GPW}
 $$
 
 - State with macroscopic number of particles in a single particle state is a __Bose condensate__
@@ -85,10 +103,10 @@ with $\varphi_0(\br)$ the ground state of single particle Hamiltonian
 - Add interaction
 
 `$$
-\begin{align}
+\begin{align*}
 H_\text{int.} &= \sum_{j<k} U(\br_j-\br_k) \\
-&= \frac{1}{2}\int d\br_1 d\br_2\, U(\br_1-\br_2)\pdop(\br_1)\pdop(\br_2)\pop(\br_2)\pop(\br_1).
-\end{align}
+&= \frac{1}{2}\int d\br_1 d\br_2\, U(\br_1-\br_2)\pdop(\br_1)\pdop(\br_2)\pop(\br_2)\pop(\br_1)
+\end{align*}
 $$`
 
 - Ground state is more complicated, but can use BEC form with $\varphi_0(\br)$ as a variational function
@@ -108,29 +126,28 @@ $$
 - For variational calculation we need
 
 $$
-\langle E \rangle = \frac{\braket{\Psi}{H}{\Psi}}{\inner{\Psi}{\Psi}}
+\langle E \rangle = \frac{\braket{\Psi|H|\Psi}}{\braket{\Psi|\Psi}}
 $$
 
-- Minimize $\braket{\Psi}{H}{\Psi}$ and fix norm. using Lagrange multiplier
+- Minimize $\braket{\Psi|H|\Psi}$ and fix norm. using Lagrange multiplier
 
 `$$
-\begin{align}
-\braket{\Psi}{H}{\Psi}=N \int d\br \left[\frac{1}{2m}|\nabla\varphi_0|^2+V(\br)|\varphi_0(\br)|^2
+\begin{align*}
+\braket{\Psi|H|\Psi}=N \int d\br \left[\frac{1}{2m}|\nabla\varphi_0|^2+V(\br)|\varphi_0(\br)|^2
 \right]\\
-+\frac{1}{2}N(N-1)U_0\int d\br |\varphi_0(\br)|^4.
-\label{bose_energy}
-\end{align}
++\frac{1}{2}N(N-1)U_0\int d\br |\varphi_0(\br)|^4
+\end{align*}
 $$`
 
 ---
 
 - Neglect difference between $N$ and $N+1$
 `$$
-\begin{align}
-\braket{\Psi}{H}{\Psi}=N \int d\br \left[\frac{1}{2m}|\nabla\varphi_0|^2+V(\br)|\varphi_0(\br)|^2
+\begin{align*}
+\braket{\Psi|H|\Psi}=N \int d\br \left[\frac{1}{2m}|\nabla\varphi_0|^2+V(\br)|\varphi_0(\br)|^2
 \right]\\
 +\frac{1}{2}N^2 U_0\int d\br |\varphi_0(\br)|^4
-\end{align}
+\end{align*}
 $$`
 
 - Extremize the functional
@@ -142,8 +159,7 @@ $$
 - Calculus of variations yields
 
 $$
-	\left[-\frac{1}{2m}\nabla^2-\mu+V(\br)+NU_0|\varphi_0(\br)|^2\right]\varphi_0(\br)=0.
-  \label{bose_static_PreGPEqn}
+	\left[-\frac{1}{2m}\nabla^2-\mu+V(\br)+NU_0|\varphi_0(\br)|^2\right]\varphi_0(\br)=0
 $$
 
 ---
@@ -156,11 +172,10 @@ $$
 \left[-\frac{1}{2m}\nabla^2-\mu+V(\br)+U_0|\varphi(\br)|^2\right]\varphi(\br)=0.
 $$
 
-- Fix Lagrange multiplier $\mu$ by $\int d\br\,\abs{\varphi(\br)}^{2}=N$
+- Fix Lagrange multiplier $\mu$ by $\int d\br\abs{\varphi(\br)}^{2}=N$
 
-- $\braket{\Psi}{H}{\Psi}- \mu \int d\br \abs{\varphi(\br)}^{2}=\braket{\Psi}{H-\mu \mathsf{N}}{\Psi}$ was extremized under general variations, including change in $N$
+- $\braket{\Psi|H|\Psi}- \mu \int d\br \abs{\varphi(\br)}^{2}=\braket{\Psi}{H-\mu \mathsf{N}}{\Psi}$ was extremized under general variations, including change in $N$
 `$$
-	\label{bose_static_GPmu}
 	\mu=\frac{\partial\braket{\Psi}{H}{\Psi}}{\partial N},
 $$`
 $\mu$ is identified with the chemical potential.
@@ -215,10 +230,10 @@ $$
 - Density and current density
 
 `$$
-\begin{align}
+\begin{align*}
 \rho(\br)&=|\varphi(\br)|^2,\\
 \mathbf{j}(\br)&=-\frac{i}{2m}\left[\varphi^{*}(\br)\left(\nabla\varphi(\br)\right)-\left(\nabla\varphi^{*}(\br)\right)\varphi(\br)\right]
-\end{align}
+\end{align*}
 $$`
 
 - Useful decomposition into magnitude and phase
@@ -231,7 +246,6 @@ $$
 
 $$
 	\mathbf{v}_{s}\equiv\frac{1}{m}\nabla\chi.
-  \label{bose_vs}
 $$
 
 ---
@@ -249,7 +263,7 @@ $$`
 \oint \mathbf{v}_s\cdot d\mathbf{l}=0
 $$`
 
-- But phase of wavefunction can _increase_ by a multiple of $2\pi$ around a closed loop, so in general
+- Phase can _increase_ by a multiple of $2\pi$ around a closed loop, so
 `$$
 \oint \mathbf{v}_s\cdot d\mathbf{l}=\frac{2\pi \ell}{m},\quad \ell\in\mathbb{Z},
 $$`
@@ -272,8 +286,7 @@ shows that this is a truly _quantum_ phenomenon.
 - Look for 2D solutions where phase winds $\ell$ times around origin
 
 $$
-\varphi(r,\theta)\xrightarrow{r\to\infty} \sqrt{n} e^{i\ell\theta}.
-\label{bose_vortex}
+\varphi(r,\theta)\xrightarrow{r\to\infty} \sqrt{n} e^{i\ell\theta}
 $$
 
 - Paremeterize $\varphi(r,\theta) = \sqrt{n} f(r/\xi)e^{i\ell\theta}$ to give an equation in $s\equiv r/\xi$ (set $\mu=U_0 n$ as before).
@@ -293,10 +306,10 @@ $$
 - Find energy of vortex by substituting solution back into energy
 
 `$$
-\begin{align}
-\braket{\Psi}{H}{\Psi}=\int d\br \left[\frac{1}{2m}|\nabla\varphi|^2+V(\br)|\varphi(\br)|^2
+\begin{align*}
+\braket{\Psi|H|\Psi}=\int d\br \left[\frac{1}{2m}|\nabla\varphi|^2+V(\br)|\varphi(\br)|^2
 \right]+\frac{1}{2}U_0\int d\br |\varphi(\br)|^4.
-\end{align}
+\end{align*}
 $$`
 
 - Excess energy (relative to uniform state of density $n$)

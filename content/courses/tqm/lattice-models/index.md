@@ -376,7 +376,7 @@ $$
 What form does $H_\text{eff}$ take? $H_{\text{Mott}}=0$, and $V^\dagger$ creates states with an adjacent hole and __doublon__ (doubly occupied site). $H_\text{Not}$ acting on these states is just $U$, and $V$ has to remove the hole and doublon. Thus,
 
 $$
-H_\text{eff} = -\frac{V^{}V^\dagger}{U} = -\frac{t^2}{U} \sum_{\substack{\langle j\,k\rangle\\s,s'}} \adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'}.
+H_\text{eff} = -\frac{V^{}V^\dagger}{U} = -\frac{t^2}{U} \sum_{\substack{\langle j\,k\rangle\\s,s'}} \left[\adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'}+j\leftrightarrow k\right].
 $$
 
 We can write this in a more familiar way by first reordering the operators (not forgetting the anticommutation relations!)
@@ -394,10 +394,11 @@ $$
 Finally, in $d$ dimensions ($d=1$, chain; $d=2$ square lattice; $d=3$ cubic lattice) we get
 
 $$
-H_\text{eff} = -\frac{dN_\text{sites}t^2}{2U}+J\sum_{\langle j\,k\rangle} \mathbf{s}_j\cdot \mathbf{s}_k
+H_\text{eff} = -\frac{dN_\text{sites}t^2}{U}+J\sum_{\langle j\,k\rangle} \mathbf{s}_j\cdot \mathbf{s}_k
+\label{FilledHeff}
 $$
 
-with $J=\frac{2t^2}{U}$ and
+with $J=\frac{4t^2}{U}$ and
 
 $$
 \mathbf{s}_j=\frac{1}{2}\sum_{s,s'}\adop_{j,s}\boldsymbol{\sigma}_{s^{}s'}\aop_{j,s'}.
@@ -415,6 +416,14 @@ Antiferromagnetism and the Mott phenomenon are seen to go hand in hand in fermio
 
 At half filling, the cuprates are antiferromangetic Mott insulators. Superconductivity emerges when the materials are doped by changing their stoichiometry. This introduces electrons or holes into the CuO$_2$ planes that are modeled by the Hubbard Hamiltonian. Antiferromagnetic order is believed to be destroyed by freely moving holes -- think how the Néel ordering is disrupted -- and indeed superconductivity appears where antiferromagnetism dies. The precise relationship between the two phenomena is -- like much of the physics of the cuprates -- not clear.
 
+An effective Hamiltonian that describes the doped Mott insulator is the [t-J model](https://en.wikipedia.org/wiki/T-J_model)
+
+$$
+H_\text{eff} = -t \sum_{\substack{\langle j\,k\rangle\\ s=\uparrow,\downarrow}}  \left[\adop_{j,s}\aop_{k,s}+\adop_{k,s}\aop_{j,s}\right] + J\sum_{<j\,k>}\left[\mathbf{s}_j\cdot \mathbf{s}_k - \frac{N_j N_k}{4}\right].
+\label{FermiHeff}
+$$
+
+The term involving $N_j N_k$ keeps track of the need for both sites to be occupied in the derivation of the effective coupling (c.f. it's just the "constant" term in $\eqref{FilledHeff}$). The hopping term means that holes or doubly occupied sites can move through the lattice, with the Heisenberg exchange term only acting between sites with one particle, since the operators $\mathbf{s}_j$ vanish when they act on an empty or doubly occupied site.
 
 References
 ----------

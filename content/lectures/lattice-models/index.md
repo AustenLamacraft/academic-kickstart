@@ -161,7 +161,7 @@ $$
 - Only states $\ket{i\pm 1,+}$ are coupled by $H_t$, with matrix elements
 
 $$
-\braket{j}{H_t}{k} = -t(N+1)
+\braket{j|H_t|k} = -t(N+1)
 $$
 
 - Within degnerate multiplet, $H_t$ corresponds to tight binding model
@@ -420,19 +420,19 @@ $$
 3. $V$ has to remove the hole and doublon
 
 $$
-H_\text{eff} = -\frac{V^{}V^\dagger}{U} = -\frac{t^2}{U} \sum_{\langle j\,k\rangle s,s'} \adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'}.
+H_\text{eff} = -\frac{V^{}V^\dagger}{U} = -\frac{t^2}{U} \sum_{\langle j\,k\rangle s,s'} \left[\adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'}+j\leftrightarrow k\right]
 $$
 
 ---
 
 $$
-H_\text{eff} = -\frac{V^{}V^\dagger}{U} = -\frac{t^2}{U} \sum_{\langle j\,k\rangle s,s'} \adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'}.
+H_\text{eff} = -\frac{V^{}V^\dagger}{U} = -\frac{t^2}{U} \sum_{\langle j\,k\rangle s,s'} \left[\adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'}+j\leftrightarrow k\right]
 $$
 
 - Re-write by first reordering the operators (anticommutation!)
 
 $$
- \adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'} = -\adop_{j,s}\aop_{j,s'}\adop_{k,s'}\aop_{k,s} + \delta_{s^{}s'}\adop_{j,s}\aop_{j,s'},
+ \adop_{j,s}\aop_{k,s} \adop_{k,s'}\aop_{j,s'} = -\adop_{j,s}\aop_{j,s'}\adop_{k,s'}\aop_{k,s} + \delta_{s^{}s'}\adop_{j,s}\aop_{j,s'}
 $$
 
 - Then use identity
@@ -469,6 +469,20 @@ $$`
 - Superconductivity emerges when materials __doped__, introducing electrons or holes into CuO$_2$ planes
 
 -  Superconductivity appears where antiferromagnetism dies. Why?
+
+---
+
+### t-J model
+
+- Effective Hamiltonian that describes doped Mott insulator
+
+$$
+H_\text{eff} = -t \sum_{\substack{\langle j\,k\rangle\\ s=\uparrow,\downarrow}}  \left[\adop_{j,s}\aop_{k,s}+\adop_{k,s}\aop_{j,s}\right] + J\sum_{<j\,k>}\left[\mathbf{s}_j\cdot \mathbf{s}_k - \frac{N_j N_k}{4}\right]
+$$
+
+- Hopping term allows holes or doubly occupied sites to move
+
+- Heisenberg exchange term only acts between sites with one particle. $\mathbf{s}_j$ vanish on empty or doubly occupied sites
 
 ---
 

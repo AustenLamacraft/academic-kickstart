@@ -571,7 +571,9 @@ $$
 S_{AB}(t) \equiv \langle\langle A_I(t)B_I(0)\rangle\rangle.
 $$
 
-Recalling that $$\langle\langle\cdots \rangle\rangle = \frac{1}{Z}\tr\left[e^{-\beta H}\cdots\right]$$, you should be able to show that
+Recalling that 
+$$\langle\langle\cdots \rangle\rangle = \frac{1}{Z}\tr\left[e^{-\beta H}\cdots\right],$$ 
+you should be able to show that
 
 $$
 S_{AB}(t) = S_{BA}(-t-i\beta).
