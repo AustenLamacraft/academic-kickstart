@@ -9,3 +9,5 @@ lecture_slides: bose-gas
 math: true
 weight: 80
 ---
+
+Here's a [blog post](https://nhigham.com/2021/04/28/what-is-a-pseudo-orthogonal-matrix/) on pseudo-orthogonal matrices, of which the Bogoliubov transformation – discussed in this lecture – is an example.
