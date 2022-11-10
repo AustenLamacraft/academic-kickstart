@@ -445,7 +445,17 @@ Notice the differences from a rotation matrix:
 >\end{align}
 >$$
 >
-> The form of $\Omega$ is most easily understood by noting that the transformation preserves the determinant ($\det\Lambda=1$). What happens if $\delta>\epsilon$?
+> The form of $\Omega$ is most easily understood by noting that the transformation preserves the determinant ($\det\Lambda=1$). 
+> 
+> - What happens if $\delta>\epsilon$?
+> 
+> - What changes if $\begin{pmatrix}
+\epsilon & \delta \\
+\delta & \epsilon
+\end{pmatrix}\longrightarrow \begin{pmatrix}
+\epsilon_1 & \delta \\
+\delta & \epsilon_2
+\end{pmatrix}$?
 
 Applying the same logic to our Hamiltonian $\eqref{bose_Hpair3}$ gives
 

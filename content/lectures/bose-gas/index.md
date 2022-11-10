@@ -159,15 +159,15 @@ $$
 
 - Dimensionless form $\varphi(\br)=\sqrt{n}\phi(\br/\xi)$ for $\mu=U_0n$
 
-$$
-\left[-\frac{1}{2m \xi^2}\phi''+\mu (|\phi|^2-1)\right]\phi(x)=0.
-$$
+`$$
+-\frac{1}{2m \xi^2}\phi''+\mu (|\phi|^2-1)\phi(x)=0.
+$$`
 
 
 - If we set $\xi\equiv \frac{1}{\sqrt{2m \mu}}=\frac{1}{\sqrt{2m n U_0}}$ then
 
 `$$
-\left[-\phi''+|\phi|^2-1\right]\phi(x)=0.
+-\phi''+(|\phi|^2-1)\phi(x)=0.
 $$`
 
 ---
@@ -258,9 +258,9 @@ $$
 
 - Paremeterize $\varphi(r,\theta) = \sqrt{n} f(r/\xi)e^{i\ell\theta}$ to give an equation in $s\equiv r/\xi$ (set $\mu=U_0 n$ as before).
 
-$$
+`$$
 -f'' -\frac{f'}{s} + \frac{\ell^2 f}{s^2} - f +f^3 =0.
-$$
+$$`
 
 > Without finding the solution explicitly, show that $f(s)\sim s^\ell$ for small $s$, and $f(s\to\infty) \to 1$.
 
@@ -281,15 +281,15 @@ $$`
 
 - Excess energy (relative to uniform state of density $n$)
 
-$$
-\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\\, f^2(\nabla\chi)^2
-$$
+`$$
+\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\chi)^2
+$$`
 
 ---
 
-$$
-\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\\, f^2(\nabla\chi)^2
-$$
+`$$
+\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\chi)^2
+$$`
 
 - First integral is finite: due to density $\neq$ bulk value
 
@@ -549,12 +549,20 @@ $$
 $$
 
 >`$$
->\begin{align}
+>\begin{align*}
 > \tanh 2\kappa = \frac{\delta}{\epsilon},\qquad \Omega = \sqrt{\epsilon^2-\delta^2\nonumber}\\
 > h = \Omega\left[\bdop_1\bop_1+\bdop_2\bop_2\right] + \Omega - \epsilon.
->\end{align}
+>\end{align*}
 >$$`
 > What happens if $\delta>\epsilon$?
+> 
+> What changes if $\begin{pmatrix}
+\epsilon & \delta \\\\
+\delta & \epsilon
+\end{pmatrix}\longrightarrow \begin{pmatrix}
+\epsilon_1 & \delta \\\\
+\delta & \epsilon_2
+\end{pmatrix}$?
 
 ---
 
