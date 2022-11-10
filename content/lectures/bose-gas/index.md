@@ -341,11 +341,10 @@ Kinetic Energy | Magnetostatic Energy
   
 ---
 
-- As usual work in a plane wave basis, where Hamiltonian is
 `$$
 H =\sum_\bk \epsilon(\bk)\adop_\bk\aop_\bk + \overbrace{\frac{U_0}{2V}\sum_{\bk_1+\bk_2=\bk_3+\bk_4} \adop_{\bk_1}\adop_{\bk_2}\aop_{\bk_3}\aop_{\bk_4}}^{\equiv H_\text{int}},
 $$`
-with $\epsilon(\bk)=\bk^2/2m$, and $V$ the volume
+- $\epsilon(\bk)=\bk^2/2m$, and $V$ the volume
 
 - GP approximation to ground state is $\ket{\Psi_\text{GP}} = \frac{1}{\sqrt{N!}}\left(\adop_0\right)^N\ket{\text{VAC}}$
 
@@ -483,7 +482,7 @@ h = \begin{pmatrix}
 \delta & \epsilon
 \end{pmatrix}
 \begin{pmatrix}
-\aop_1 \\ \adop_2
+\aop_1 \\\\ \adop_2
 \end{pmatrix}-\epsilon
 $$
 
@@ -513,7 +512,7 @@ $$
 \begin{pmatrix}
 \cosh\kappa & \sinh\kappa \\\\
 \sinh\kappa & \cosh\kappa
-\end{pmatrix}.
+\end{pmatrix}
 $$
 
 - Notice differences from rotation matrix:
@@ -532,7 +531,7 @@ h = \begin{pmatrix}
 \delta & \epsilon
 \end{pmatrix}
 \begin{pmatrix}
-\aop_1 \\ \adop_2
+\aop_1 \\\\ \adop_2
 \end{pmatrix}-\epsilon
 $$
 
