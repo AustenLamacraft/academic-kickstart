@@ -322,7 +322,7 @@ Treating the last three terms as $n_s(\bk)$, our excitation energy changes to fi
 $$
 \begin{align}
 \Delta E &= \sum_{\bk,s} n_{s}(\bk)\delta\bk\cdot\nabla_\bk\varepsilon_s(\bk) \nonumber\\
-&+\frac{1}{V}\sum_{\bk, s,\bk', s'} f_{s^{}s'}(\bk,\bk')n_{s}(\bk)\left[\delta(k_F-\abs{\bk'})\hat\bk'\cdot\delta\bk - \nabla_{\bk'}n_{s'}(\bk')\right]\cdot\delta\bk.
+&+\frac{1}{V}\sum_{\bk, s,\bk', s'} f_{s^{}s'}(\bk,\bk')n_{s}(\bk)\left[\delta(k_F-\abs{\bk'})\hat\bk'\cdot\delta\bk - \nabla_{\bk'}n_{s'}(\bk')\cdot\delta\bk\right].
 \end{align}
 $$
 
