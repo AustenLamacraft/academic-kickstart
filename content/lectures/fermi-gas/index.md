@@ -65,10 +65,10 @@ with $\epsilon(\bk)=\bk^2/2m$, and $V$ the volume.
 
 ---
 
-- Without interactions energy of a state $\ket{\mathbf{N}}$ is
+- Without interaction energy of a state $\ket{\mathbf{N}}$ is
 
 $$
-E^{(0)}(\mathbf{N}) = \sum_{\bk,s} \epsilon(\bk)N_{s}(\bk).
+E^{(0)}(\mathbf{N}) = \sum_{\bk,s} \epsilon(\bk)N_{s}(\bk)
 $$
 
 - For $U_0\neq 0$ energy $E(\mathbf{N})$ is function of labels, but no longer linear
@@ -89,14 +89,14 @@ E^{(2)}(\mathbf{N}) &= \sum_{\mathbf{N}'\neq \mathbf N}\frac{\abs{\braket{\mathb
 $$`
 
 - First order correction is easy
-$$
+`$$
 E^{(1)}(\mathbf{N}) = \frac{U_0}{V} \sum_{\bk,\bk'} N_{\uparrow}(\bk)N_{\downarrow}(\bk') = \frac{U_0}{V}N_\uparrow N_\downarrow.
-$$
+$$`
 (energy used in Stoner criterion in [Lecture 6]({{< ref "more-second-quantization" >}}))
 
 ---
 
-- For second order we need $\braket{\mathbf{N}'|H_\text{int}|\mathbf{N}}$, nonzero if
+- For second order we need `$\braket{\mathbf{N}'|H_\text{int}|\mathbf{N}}$`, nonzero if
 `$$
 \begin{align*}
 N'_{\bk_1,\uparrow} = N_{\uparrow}(\bk_1) + 1, \quad N'_{\downarrow}(\bk_2) = N_{\downarrow}(\bk_2) + 1\\
@@ -104,9 +104,9 @@ N'_{\downarrow}(\bk_3) = N_{\downarrow}(\bk_3) - 1, \quad N'_{\uparrow}(\bk_4) =
 \end{align*}
 $$`
 for $\bk_i$ satisfying $\bk_1+\bk_2=\bk_3+\bk_4$
-$$
+`$$
 \braket{\mathbf{N}'|H_\text{int}|\mathbf{N}} = \frac{U_0}{V} \left(1-N_{\uparrow}(\bk_1)\right)\left(1-N_{\downarrow}(\bk_2)\right)N_{\downarrow}(\bk_3)N_{\uparrow}(\bk_4)
-$$
+$$`
 (ignoring any coinciding momenta; occupancies 0 or 1) 
 
 $$
@@ -189,7 +189,7 @@ $$`
 
 ---
 
-> It's a bit fiddly to get at, but let's work it out for the simpler case of $f_{\uparrow\uparrow}(\bk,\bk')$!
+- It's a bit fiddly to get at, but let's work it out for the simpler case of $f_{\uparrow\uparrow}(\bk,\bk')$!
 (only have one independent momentum 😀)
 
 
@@ -351,7 +351,7 @@ $$`
 `$$
 \begin{align*}
 \Delta E(\text{after})-\Delta E(\text{before}) = \sum_{\bk,s} n_{s}(\bk)\delta\bk\cdot\nabla_\bk\varepsilon_s(\bk) \nonumber\\
-+\frac{1}{V}\sum_{\bk, s,\bk', s'} f_{s^{}s'}(\bk,\bk')n_{s}(\bk)\left[\delta(k_F-\abs{\bk'})\hat\bk'\cdot\delta\bk - \nabla_{\bk'}n_{s'}(\bk')\right]\cdot\delta\bk.
++\frac{1}{V}\sum_{\bk, s,\bk', s'} f_{s^{}s'}(\bk,\bk')n_{s}(\bk)\left[\delta(k_F-\abs{\bk'})\hat\bk'\cdot\delta\bk - \nabla_{\bk'}n_{s'}(\bk')\cdot\delta\bk\right].
 \end{align*}
 $$`
 (to first order in $\delta\bk$. Integrate by parts in first term)
