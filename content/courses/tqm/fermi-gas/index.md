@@ -119,10 +119,10 @@ $$
 
 ### Landau $f$ function
 
-Evaluating $\eqref{fermi_E2}$, even for the ground state, is a bit arduous on account of the three independent momentum sums. Fortunately, we are more interested in how the _excitation energies_ are affected by interactions. To the end, we expand the occupancies
+Evaluating $\eqref{fermi_E2}$, even for the ground state, is a bit arduous on account of the three independent momentum sums. Fortunately, we are more interested in how the _excitation energies_ are affected by interactions. This means we focus on the _change_ in the occupation relative to the ground state, denoted by $n_s(\bk)$ and defined through
 
 $$
-N_{s}(\bk) = \theta(k_F-\abs{\bk}) + n_{s}(\bk)+\cdots.
+N_{s}(\bk) = \theta(k_F-\abs{\bk}) + n_{s}(\bk)
 $$
 
 This might seem a bit odd given that $N_{s}(\bk)=\pm 1$. You should think of this expansion in terms of the continuum limit, where the $

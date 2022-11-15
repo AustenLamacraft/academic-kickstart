@@ -160,7 +160,7 @@ where $\Nop_j = \Nop_{j,\uparrow}+\Nop_{j,\downarrow}$. If we have a $\nu=1$ Mot
 	\Psi(x_1,\ldots,x_N) = \prod_{j<k}\exp\left(-\frac{\abs{c}}{2}\abs{x_j-x_k}\right),\quad x_1<x_2<\cdots <x_N.
 	$$
 
-	Find the probability distribution of the separations $x_{j+1}-x_j$ in this state. Replacing each separation by its mean value, show that the resulting density profile coincides with that of the bright soliton.
+	Find the probability distribution of the separations $x_{j+1}-x_j$ in this state. By equating the average density to the inverse of the mean separation, show that the resulting density profile coincides with that of the bright soliton.
 
 ## Persistent Currents Without Rotational Symmetry
 
@@ -173,7 +173,7 @@ $$
 is the single particle Hamiltonian, involving some potential $V(\theta)$, and
 
 $$
-H_2=\frac{U_0}{2}\int_0^{2\pi} \pdop\pdop\pop\pop\, d\theta
+H_2=\frac{U_0}{2R}\int_0^{2\pi} \pdop\pdop\pop\pop\, d\theta
 $$
 
 describes interactions between the particles. $\pdop(\theta)$ and $\pop(\theta)$ satisfy
@@ -203,7 +203,7 @@ where $a_l$ annihilates a particle in state $l$. By considering _only_ states $l
 $$
 \begin{align}
 H_{\text{rot}}=\text{const.}+\omega_c\left[\adop_1\aop_1-\adop_0\aop_0\right]+V_0\left[\adop_0\aop_1+\mathrm{h.c.}\right]\nonumber\\
-+\frac{U_0}{4\pi}\left[\adop_0\adop_0\aop_0\aop_0+\adop_1\adop_1\aop_1\aop_1+4\adop_1
++\frac{U_0}{4\pi R}\left[\adop_0\adop_0\aop_0\aop_0+\adop_1\adop_1\aop_1\aop_1+4\adop_1
 \adop_0\aop_0\aop_1\right]
 \end{align}
 $$
@@ -219,22 +219,22 @@ $$
 and show that:
 
 1. The order parameter has a node for $\chi=\pi/2$. If $V_0$ is due to a localized potential, this node
-		will coincide with the position of that potential.
+		will coincide with the position of that potential (by choosing $\varphi$ appropriately).
 
 2. The GP variational energy is (up to a constant, and ignoring terms lower order in $N$)
 
 	$$
-	E(\chi)/N=-\omega_c\cos\chi+V_0\sin\chi+\frac{nU_0}{2}\sin^2\chi,
+	E(\chi)/N=-\omega_c\cos\chi+V_0\cos\varphi\sin\chi+\frac{nU_0}{4}\sin^2\chi,
 	$$
 
-	while the angular momentum is
+	where $n=N/(2\pi R)$ is the density, while the angular momentum is
 
 	$$
 	L(\chi)/N=\frac{1}{2}\left(1-\cos\chi\right).
 	$$
 
 
-3. A metastable minimum exists for $2U_0>V_0$ (assuming $U_0$ and $V _0$ are both much less
+3. A metastable minimum exists for $nU_0>V_0/2$ (assuming $U_0$ and $V _0$ are both much less
 		than $\omega_c$). That is, for small enough deviations from perfect symmetry, metastable
 		configurations are possible, and have their origin in the repulsive interactions. The point $\chi=\pi/2$ that
 		corresponds to an order parameter with a node is then a maximum of the energy.

@@ -562,7 +562,7 @@ $$
 
 where we used the Born approximation for the scattering length $a=\frac{mU_0}{4\pi}$. Excluding the value $\bp=0$ has no effect, because of the vanishing phase space at small momentum in three dimensions.
 
-Under typical experimental conditions in experiments on ultracold atoms the depletion does not much exceed $0.01$, which justifies the use of the GP approximation. Liquid He$^{4}$, the first superfluid to be discovered, can be described as an interacting Bose condensate, but the depletion is much larger. The Bogoliubov approximation does not provide a quantiatively accurate description in this case.
+Under typical experimental conditions in experiments on ultracold atoms the depletion does not much exceed $0.01$, which justifies the use of the GP approximation. Liquid He$^{4}$, the first superfluid to be discovered, can be described as an interacting Bose condensate, but the depletion is much larger (the _condensate fraction_ – the fraction of atoms in the condensate – is around 10%). The Bogoliubov approximation does not provide a quantiatively accurate description in this case.
 
 In the previous lecture we met another situation where the depletion can be increased. Applying a lattice effectively reduces the kinetic energy relative to the interaction, and leads eventually to a __quantum phase transition__ out of the superfluid state.
 

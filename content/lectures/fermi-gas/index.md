@@ -119,10 +119,10 @@ $$
 
 - $E^{(2)}(\mathbf{N})$ has three independent momentum sums! 🙀
 
-- We are after _excitation energies_, so expand
+- We are after _excitation energies_, so expand in _change_ in occupation
 
 $$
-N_{s}(\bk) = \theta(k_F-\abs{\bk}) + n_{s}(\bk)+\cdots.
+N_{s}(\bk) = \theta(k_F-\abs{\bk}) + n_{s}(\bk)
 $$
 
 - `$n_\bk$` is _mean_ deviation from Fermi sphere in continuum limit: 
@@ -158,7 +158,7 @@ E^{(2)}(\mathbf{N}) = \left(\frac{U_0}{V}\right)^2 \sum_{\bk_1+\bk_2=\bk_3+\bk_4
 $$
 
 $$
-N_{s}(\bk) = \theta(k_F-\abs{\bk}) + n_{s}(\bk)+\cdots.
+N_{s}(\bk) = \theta(k_F-\abs{\bk}) + n_{s}(\bk)
 $$
 
 `$$

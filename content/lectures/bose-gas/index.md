@@ -669,9 +669,9 @@ $$
 
 - Density fluctuations in ground state
 $$
-\braket{0}{\rho_{-\bq}\rho_{\bq}}{0} = N\frac{\epsilon(\bq)}{\omega(\bq)}\xrightarrow{\bq\to 0} \frac{N\abs{\bq}}{2mc}.
+\braket{0|\rho_{-\bq}\rho_{\bq}|0} = N\frac{\epsilon(\bq)}{\omega(\bq)}\xrightarrow{\bq\to 0} \frac{N\abs{\bq}}{2mc}.
 $$
-(Used low momentum form of Bogoliubov dispersion
+(Used low momentum form of Bogoliubov dispersion)
 $$
 \omega(\bq)\xrightarrow{\bq\to 0} c\abs{\bq}
 $$
@@ -713,6 +713,6 @@ Born approximation for scattering length $a=\frac{mU_0}{4\pi}$
 
 - Typical experimental conditions in experiments on ultracold atoms: depletion does not much exceed $0.01$, which justifies GP approximation
 
-- Liquid He$^{4}$ can be described as an interacting Bose condensate, but the depletion is much larger. Bogoliubov not accurate here
+- Liquid He$^{4}$ is an interacting Bose condensate, but depletion is much larger (_condensate fraction_ `$\sim 10\%$`). Bogoliubov not accurate here
 
 - Applying a lattice can lead to total depletion and a __quantum phase transition__ out of superfluid state 
