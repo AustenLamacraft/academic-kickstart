@@ -2,6 +2,31 @@
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   theme: white
+  reveal_options: {
+    hash: true,
+    katex: {
+      macros: {
+        "\\pop" : "\\psi^{\\vphantom{\\dagger}}",
+        "\\pdop" : "\\psi^\\dagger",
+        "\\aop" : "a^{\\vphantom{\\dagger}}",
+        "\\adop" : "a^\\dagger",
+        "\\alop" : "\\alpha^{\\vphantom{\\dagger}}",
+        "\\aldop" : "\\alpha^\\dagger",
+        "\\bop" : "b^{\\vphantom{\\dagger}}",
+        "\\bdop" : "b^\\dagger",
+        "\\abs" : "\\left|#1\\right|",
+        "\\tr" : "\\operatorname{tr}",
+        "\\br" : "\\mathbf{r}",
+        "\\bk" : "\\mathbf{k}",
+        "\\bq" : "\\mathbf{q}",
+        "\\bp" : "\\mathbf{p}",
+        "\\ch" : "\\mathcal{H}",
+        "\\ce" : "\\mathcal{E}",
+        "\\co" : "\\mathcal{O}"
+      },
+      throwOnError: false,
+    }
+  }  
 scripts: []
 
 ---
@@ -56,14 +81,13 @@ $$
 - Same Hamiltonian as before
 
 $$
-H = \int d\br\left[ \sum_{s=\uparrow,\downarrow}\frac{1}{2m}\nabla\pdop_s\cdot\nabla\pop_s + U_0 \pdop_\uparrow\pdop_\downarrow\pop_\downarrow\pop_\uparrow\right].
-\label{super_model}
+H = \int d\br\left[ \sum_{s=\uparrow,\downarrow}\frac{1}{2m}\nabla\pdop_s\cdot\nabla\pop_s + U_0 \pdop_\uparrow\pdop_\downarrow\pop_\downarrow\pop_\uparrow\right]
 $$
 
 - For a pair of particles of opposite spin, this is equivalent to
 
 $$
-H = -\frac{1}{2m}\left[\nabla_1^2+\nabla_2^2\right] + U_0\delta(\br_1-\br_2).
+H = -\frac{1}{2m}\left[\nabla_1^2+\nabla_2^2\right] + U_0\delta(\br_1-\br_2)
 $$
 
 - For $U_0<0$ and sufficiently large, expect a bound state to form with a symmetric spatial wavefunction and a spin singlet
@@ -79,7 +103,7 @@ $$
 In momentum space our Hamiltonian is
 
 $$
-H =\sum_{\bk,s} \epsilon(\bk)\adop_{\bk,s}\aop_{\bk,s} + \overbrace{\frac{U_0}{V}\sum_{\bk_1+\bk_2=\bk_3+\bk_4} \adop_{\bk_1,\uparrow}\adop_{\bk_2,\downarrow}\aop_{\bk_3,\downarrow}\aop_{\bk_4,\uparrow}}^{\equiv H_\text{int}},
+H =\sum_{\bk,s} \epsilon(\bk)\adop_{\bk,s}\aop_{\bk,s} + \overbrace{\frac{U_0}{V}\sum_{\bk_1+\bk_2=\bk_3+\bk_4} \adop_{\bk_1,\uparrow}\adop_{\bk_2,\downarrow}\aop_{\bk_3,\downarrow}\aop_{\bk_4,\uparrow}}^{\equiv H_\text{int}}
 $$
 
 - Take interaction between the two species to be attractive $U_0<0$
@@ -94,9 +118,9 @@ $$
 
 Application of interaction Hamiltonian $H_\text{int}$ generates terms of form
 `$$
-\adop_{\bp+\bq\uparrow}\adop_{-\bp\downarrow}\aop_{-\bp'\downarrow}\aop_{\bp'+\bq\uparrow}\ket{\text{FS}}.
+\adop_{\bp+\bq\uparrow}\adop_{-\bp\downarrow}\aop_{-\bp'\downarrow}\aop_{\bp'+\bq\uparrow}\ket{\text{FS}}
 $$`
-$|\bp|,|\bp+\bq|>k_\text{F}$  $|\bp'|,|\bp'+\bq|<k_\text{F}$
+with `$|\bp|,|\bp+\bq|>k_\text{F},|\bp'|,|\bp'+\bq|<k_\text{F}$`
 
 - Note difference from Bose case: don't just
 create pair excitations with zero centre of mass momentum $\bq=0$
@@ -108,22 +132,20 @@ makes assumption that ground state involves a superposition of zero momentum pai
 
 $$
 \ket{\text{pair}}\equiv\sum_{\sum_\bp n^P_\bp=N/2} c_{\{n^P_{\bp}\}} \prod_{\bp}\left[\adop_{\bp\uparrow}\adop_{-\bp\downarrow}\right]^
-{n_{\bp}}\ket{\text{VAC}},
-\label{pair_fermi}
+{n_{\bp}}\ket{\text{VAC}}
 $$
 
 ---
 
 - Restricting ourselves to states of this form means that
 $$
-\braket{\text{pair}}{H_\text{int}}{\text{pair}} = \frac{U_0}{V}N_\uparrow N_\downarrow+\braket{\text{pair}}{\tilde H_{\text{int}}}{\text{pair}},
+\braket{\text{pair}|H_\text{int}|\text{pair}} = \frac{U_0}{V}N_\uparrow N_\downarrow+\braket{\text{pair}|\tilde H_{\text{int}}|\text{pair}},
 $$
 where the first term is the Hartree--Fock energy and
 
 $$
 \tilde H_{\text{int}}=\frac{U_0}{V}\sum_{\bp, \bp'}\adop_
 {\bp\uparrow}\adop_{-\bp\downarrow}\aop_{-\bp'\downarrow}\aop_{\bp'\uparrow}.
-\label{super_bcsH}
 $$
 
 > Why? There is some double counting of terms that is irrelevant as $V\to\infty$
@@ -132,7 +154,7 @@ $$
 
 - Introduce the pair operators $\bdop_\bp=\adop_{\bp\uparrow}\adop_{-\bp}$, $\bop_\bp=\aop_{-\bp,\downarrow}\aop_{\bp\uparrow}$
 
-- For $\braket{\text{pair}}{\cdots}{\text{pair}}$ we can replace $H\to H_\text{pair}$
+- For $\braket{\text{pair}|\cdots|\text{pair}}$ we can replace $H\to H_\text{pair}$
 `$$
 H_{\text{pair}}=2\sum_{\bp}\epsilon_{\bp}\bdop_\bp\bop_\bp+\frac{U_0}{V}\sum'_{\bp,\bp'} \bdop_\bp
 \bop_{\bp'}
@@ -161,7 +183,6 @@ $$`
 
 $$
 \ket{N \text{ pair}}\equiv\left[\sum_\bp c_\bp \bdop_\bp\right]^{N/2}\ket{\text{VAC}}
-\label{bcs_cons}
 $$
 
 - Energy expectation still tricky. For instance, what is the
@@ -170,7 +191,6 @@ expectation value of the kinetic energy?
 $$
 \mathrm{K.E}=2\sum_\bp\epsilon_{\bp}\langle\bdop_\bp\bop_\bp\rangle\equiv 2\sum_\bp\epsilon_{\bp} \langle n^P_
 \bp\rangle,
-\label{ke}
 $$
 
 - Finding average number of pairs $\langle n^P_\bp\rangle$ not
@@ -183,7 +203,6 @@ obvious
 $$
 \ket{\text{BCS}} =\prod_\bp \left[v_\bp\bdop_\bp+u_\bp\right]\ket{\text{VAC}}\qquad |u_\bp|^2+|v_\bp|
 ^2=1.
-\label{bcs}
 $$
 
 - Superposition of states with different total number of particles
@@ -199,11 +218,10 @@ $$
 - $\langle n^P_\bp\rangle= v_\bp^2$ and total variational
 energy of this state is
 
-$$
-\braket{\text{BCS}}{H}{\text{BCS}}=2\sum_\bp \epsilon_{\bp}|v_\bp|^2+\frac{U_0}{V}\sum_{\bp,\bp'}u^*_\bp v_
+`$$
+\braket{\text{BCS}|H|\text{BCS}}=2\sum_\bp \epsilon_{\bp}|v_\bp|^2+\frac{U_0}{V}\sum_{\bp,\bp'}u^*_\bp v_
 \bp u_{\bp'}v^*_{\bp'}.
-\label{bcs_en}
-$$
+$$`
 
 > Show this
 
@@ -212,9 +230,9 @@ $$
 ### How about that non-conserving wavefunction?
 
  - Expectation of any particle number conserving operator is
-$$
-\braket{\text{BCS}}{\cO}{\text{BCS}}=\sum_N P_N \braket{N \text{ pair}}{\cO}{N\text{ pair}},
-$$
+`$$
+\braket{\text{BCS}|\co|\text{BCS}}=\sum_N P_N \braket{N \text{ pair}|\co|N\text{ pair}},
+$$`
 
 - The probabilities $P_N$ are
 $$
@@ -224,7 +242,7 @@ $$
 ---
 
 $$
-P_N=\sum_{\sum n^P_\bp=N/2}\prod_\bp \left[n^P_\bp |v_\bp|^2+\left(1-n^P_\bp\right)|u_\bp|^2 \right],
+P_N=\sum_{\sum n^P_\bp=N/2}\prod_\bp \left[n^P_\bp |v_\bp|^2+\left(1-n^P_\bp\right)|u_\bp|^2 \right]
 $$
 
 - Distribution strongly peaked around 
@@ -235,7 +253,7 @@ $$`
 with a variance that is $O(N)$. Thus at large $N$
 
 $$
-\braket{\text{BCS}}{\cO}{\text{BCS}}\to \braket{\langle N\rangle \text{ pair}}{\cO}{\langle N\rangle\text{ pair}}.
+\braket{\text{BCS}|\co|\text{BCS}}\to \braket{\langle N\rangle \text{ pair}|\co|\langle N\rangle\text{ pair}}
 $$
 
 
@@ -265,11 +283,11 @@ where we included chemical potential by defining $\xi_\bp\equiv\epsilon(\bp)-\mu
 
  - Parameterize 
  `$$
- \left(u_\bp,v_\bp\right)=(\cos(\theta/2)e^{-i\varphi/2},\sin(\theta/2)e^{i\varphi/2})
+ \left(u_\bp,v_\bp\right)=(\cos(\theta_\bp/2)e^{-i\varphi_\bp/2},\sin(\theta_\bp/2)e^{i\varphi_\bp/2})
  $$`
 then the variational energy is (except for a constant)
 `$$
-\braket{\text{BCS}}{H}{\text{BCS}}=-\sum_\bp \xi_\bp\cos\theta_\bp+\frac{U_0}{4V}\sum_{\bp,\bp'}\sin
+\braket{\text{BCS}|H|\text{BCS}}=-\sum_\bp \xi_\bp\cos\theta_\bp+\frac{U_0}{4V}\sum_{\bp,\bp'}\sin
 \theta_\bp\sin\theta_{\bp'}\cos\left(\varphi_\bp-\varphi_{\bp'}\right)
 $$`
 
@@ -311,7 +329,7 @@ so this corresponds to sharp Fermi step.
 ---
 
 `$$
-\braket{\text{BCS}}{H}{\text{BCS}}=-\sum_\bp \xi_\bp\cos\theta_\bp+\frac{U_0}{4V}\sum_{\bp,\bp'}\sin
+\braket{\text{BCS}|H|\text{BCS}}=-\sum_\bp \xi_\bp\cos\theta_\bp+\frac{U_0}{4V}\sum_{\bp,\bp'}\sin
 \theta_\bp\sin\theta_{\bp'}
 $$`
 - Taking  the extremum of energy with respect to angles `$\theta_{\bp}$` gives
@@ -322,10 +340,10 @@ where the __gap parameter__ is
 $$
 \Delta=-\frac{U_0}{2V}\sum_\bp e^{i\varphi}\sin\theta_\bp=-\frac{U_0}{V}\sum_\bp u_\bp v^*_\bp.
 $$
-$$
+`$$
 \cos\theta_\bp=\frac{\xi_{\bp}}{E_\bp},\qquad \sin\theta_\bp=\frac{|\Delta|}{E_\bp}, \qquad E_\bp=\sqrt{\xi
-(\bp)^2+|\Delta|^2}.
-$$
+(\bp)^2+|\Delta|^2}
+$$`
 
 --- 
 
@@ -333,18 +351,15 @@ $$
 
 $$
 \left(\mathrm{Re}\,\Delta.\mathrm{Im}\,\Delta,\xi_\bp\right)
-\label{heff}
 $$
 
 - To be self-consistent, must satisfy the __gap equation__
 $$
-\Delta=-\frac{U_0}{2V}\sum_\bp \frac{\Delta}{E_\bp}.
-\label{gap_eq}
+\Delta=-\frac{U_0}{2V}\sum_\bp \frac{\Delta}{E_\bp}
 $$
 with continuum limit
 $$
 \Delta=-\frac{U_0}{2}\int \frac{d\bp}{\left(2\pi\right)^3} \frac{\Delta}{E_\bp}
-\label{cont_sc}
 $$
 
 
@@ -375,19 +390,19 @@ $\Lambda$ is high energy cut-off and $\nu(\mu)$ is density of states per spin
 - Can solve BCS hamiltonian by Bogoliubov (we didn't) but can introduce Bogoliubov-type excitations after the fact
 
 $$
-\ket{\text{BCS}} =\prod_\bp \left[v_\bp\adop_{\bp\uparrow}\adop_{-\bp\downarrow}+u_\bp\right]\ket{\text{VAC}},
+\ket{\text{BCS}} =\prod_\bp \left[v_\bp\adop_{\bp\uparrow}\adop_{-\bp\downarrow}+u_\bp\right]\ket{\text{VAC}}
 $$
-
-- Can show that 
+ 
+- Can show that
 `$$
-\begin{eqnarray}
-\alop_{\bp\uparrow}&=&u_\bp\aop_{\bp\uparrow}-v_\bp\adop_{-\bp\downarrow}\nonumber\\
-\alop_{\bp\downarrow}&=&u_{-\bp}\aop_{\bp\downarrow}+v_{-\bp}\adop_{-\bp\uparrow},
-\end{eqnarray}
+\begin{align*}
+\alop_{\bp\uparrow}&=u_{\bp}\aop_{\bp\uparrow}-v_{\bp}\adop_{-\bp\downarrow}\\
+\alop_{\bp\downarrow}&=u_{-\bp}\aop_{\bp\downarrow}+v_{-\bp}\adop_{-\bp\uparrow},
+\end{align*}
 $$`
 satisfy fermion anticommutation relations and annihilate BCS state
 $$
-\alop_{\bp,s}\ket{\text{BCS}}\rangle=0.
+\alop_{\bp,s}\ket{\text{BCS}}=0.
 $$
 
 ---
