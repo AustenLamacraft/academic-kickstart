@@ -16,6 +16,10 @@ These are the slides from Michaelmas 2022. If you want a nice printable version 
 If you ever want access to the $\LaTeX$ for the mathematical expressions, right click and select `Show Math As > TeX Commands`
 
 {{% callout note %}}
+Fill in the [feedback form](https://cambridge.eu.qualtrics.com/jfe/form/SV_9oQJeIPrtO12qKG) (before Sunday 27th November)
+{{% /callout %}}
+
+{{% callout note %}}
 Interested in theoretical condensed matter research? 
 
 {{% staticref "uploads/SummerInternship_MPIPKS_2023.pdf" "newtab" %}}Summer internships{{% /staticref %}} are available at the Max Planck Institute for the Physics of Complex Systems in Dresden
