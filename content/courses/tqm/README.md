@@ -21,6 +21,7 @@ These are the materials for the Part III course Theories of Quantum Matter at th
 ## TODOs
 
 - [ ] Internal references among lectures
+- [ ] Remove Hugo `figure` and `ref` tags and replace with html `<figure>` and markdown links respectively to increase portability. 
 
 - [ ] LaTeX in figure captions for Hugo
 

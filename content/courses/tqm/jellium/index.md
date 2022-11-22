@@ -77,7 +77,7 @@ We have already encountered the following states in Fermi gases, roughly in orde
 
 2. [Ferromagnetism]({{< ref "more-second-quantization/#stoner-criterion-for-ferromagnetism" >}}), when the Stoner criterion is reached. Although we discussed a microscopic calculation, the same criterion can easily be phrased in terms of the Landau function $G(\phi)$.
 
-3. [Mott states]({{< ref "lattice-models/#fermi-hubbard-model" >}}) that can occur in a lattice potential, giving insulating behaviour in systems band theory predicts to be metallic.
+3. [Mott states](../lattice-models/#fermi-hubbard-model) that can occur in a lattice potential, giving insulating behaviour in systems band theory predicts to be metallic.
 
 For very strong interactions, corresponding $r_s$ values greater than 100, the system can form a [Wigner crystal](https://en.wikipedia.org/wiki/Wigner_crystal), breaking the continuous symmetry of spatial translations.
 

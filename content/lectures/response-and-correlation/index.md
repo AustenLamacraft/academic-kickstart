@@ -2,6 +2,33 @@
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   theme: white
+  reveal_options: {
+    hash: true,
+    katex: {
+      macros: {
+        "\\pop" : "\\psi^{\\vphantom{\\dagger}}",
+        "\\pdop" : "\\psi^\\dagger",
+        "\\aop" : "a^{\\vphantom{\\dagger}}",
+        "\\adop" : "a^\\dagger",
+        "\\alop" : "\\alpha^{\\vphantom{\\dagger}}",
+        "\\aldop" : "\\alpha^\\dagger",
+        "\\bop" : "b^{\\vphantom{\\dagger}}",
+        "\\bdop" : "b^\\dagger",
+        "\\abs" : "\\left|#1\\right|",
+        "\\tr" : "\\operatorname{tr}",
+        "\\sgn" : "\\operatorname{sgn}",
+        "\\br" : "\\mathbf{r}",
+        "\\bk" : "\\mathbf{k}",
+        "\\bq" : "\\mathbf{q}",
+        "\\bp" : "\\mathbf{p}",
+        "\\ch" : "\\mathcal{H}",
+        "\\ce" : "\\mathcal{E}",
+        "\\co" : "\\mathcal{O}",
+        "\\cp" : "\\mathcal{P}"
+      },
+      throwOnError: false,
+    }
+  }  
 scripts: []
 
 ---
@@ -14,46 +41,6 @@ scripts: []
 
 - Time evolution of _spontaneous fluctuations_ (thermal or quantum) obeys similar dynamics $\longrightarrow$ __fluctuation–dissipation relation__
 
-
-
-
-$$
-\nonumber
-\newcommand{\cN}{\mathcal{N}}
-\newcommand{\cO}{\mathcal{O}}
-\newcommand{\cP}{\mathcal{P}}
-\newcommand{\br}{\mathbf{r}}
-\newcommand{\bp}{\mathbf{p}}
-\newcommand{\bk}{\mathbf{k}}
-\newcommand{\bq}{\mathbf{q}}
-\newcommand{\bv}{\mathbf{v}}
-\newcommand{\pop}{\psi^{\vphantom{\dagger}}}
-\newcommand{\pdop}{\psi^\dagger}
-\newcommand{\Pop}{\Psi^{\vphantom{\dagger}}}
-\newcommand{\Pdop}{\Psi^\dagger}
-\newcommand{\Phop}{\Phi^{\vphantom{\dagger}}}
-\newcommand{\Phdop}{\Phi^\dagger}
-\newcommand{\phop}{\phi^{\vphantom{\dagger}}}
-\newcommand{\phdop}{\phi^\dagger}
-\newcommand{\aop}{a^{\vphantom{\dagger}}}
-\newcommand{\adop}{a^\dagger}
-\newcommand{\bop}{b^{\vphantom{\dagger}}}
-\newcommand{\bdop}{b^\dagger}
-\newcommand{\cop}{c^{\vphantom{\dagger}}}
-\newcommand{\cdop}{c^\dagger}
-\newcommand{\alop}{\alpha^{\vphantom{\dagger}}}
-\newcommand{\aldop}{\alpha^\dagger}
-\newcommand{\bra}[1]{\langle{#1}\rvert}
-\newcommand{\ket}[1]{\lvert{#1}\rangle}
-\newcommand{\inner}[2]{\langle{#1}\rvert #2 \rangle}
-\newcommand{\braket}[3]{\langle{#1}\rvert #2 \lvert #3 \rangle}
-\newcommand{\sgn}{\mathrm{sgn}}
-\newcommand{\brN}{\br_1, \ldots, \br_N}
-\newcommand{\xN}{x_1, \ldots, x_N}
-\newcommand{\zN}{z_1, \ldots, z_N}
-\DeclareMathOperator*{\E}{\mathbb{E}}
-\DeclareMathOperator*{\tr}{tr}
-$$
 
 ---
 
@@ -70,9 +57,9 @@ $$
 ---
 
 - At finite temperature
-$$
-\langle\langle y^2\rangle\rangle=\tr\left[\rho\\, y^2\right] = \frac{\coth(\beta\omega_0/2)}{2m\omega_0}.
-$$
+`$$
+\langle\langle y^2\rangle\rangle=\tr\left[\rho\\, y^2\right] = \frac{\coth(\beta\omega_0/2)}{2m\omega_0}
+$$`
 $\rho = e^{-\beta H}/Z$ is equilibrium density matrix, and $Z=\tr[e^{-\beta H}]$ is partition function
 
 - The double angular brackets $\langle\langle (\cdots)\rangle\rangle$ denote that we are taking quantum _and thermal_ expectations.
@@ -89,7 +76,6 @@ $y(t) = e^{iHt} y e^{-iHt}$ (Heisenberg picture)
 
 $$
 S(\omega) = \int_{-\infty}^\infty \langle\langle y(t)y(0)\rangle\rangle e^{i\omega t}\,dt.
-\label{res_QNoise}
 $$
 
 - __BUT__: since $y(0)$ and $y(t)$ do not commute with each other $\langle\langle y(t)y(0)\rangle\rangle\neq \langle\langle y(0)y(t)\rangle\rangle=\langle\langle y(-t)y(0)\rangle\rangle$, so
@@ -105,8 +91,7 @@ $$
 -  Insert complete set of energy eigenstates between $y(0)$ and $y(t)$
 
 $$
-S(\omega) = 2\pi\sum_{m,n} \frac{e^{-\beta E_n}}{Z} |\bra{n}y\ket{m}|^2 \delta(\omega-E_m+E_n).
-\label{res_SSpectral}
+S(\omega) = 2\pi\sum_{m,n} \frac{e^{-\beta E_n}}{Z} |\bra{n}y\ket{m}|^2 \delta(\omega-E_m+E_n)
 $$
 
 - Reason for asymmetry in $S(\omega)$ is that term with $\delta(\omega-E_m+E_n)$ is weighted by $e^{-\beta E_n}$, while term with $\delta(\omega-E_n+E_m)$ has $e^{-\beta E_m}$
@@ -114,7 +99,6 @@ $$
 
 $$
 S(\omega) = S(-\omega) e^{\beta\omega}.
-\label{res_NoiseAsym}
 $$
 
 
@@ -130,14 +114,13 @@ $$
 \end{cases}
 $$`
 `$$
-\begin{align}
+\begin{align*}
 S(\omega)&=\frac{\pi}{m\omega_0} \sum_n \frac{e^{-\beta E_n}}{Z} \left[n\delta(\omega+\omega_0)+(n+1)\delta(\omega-\omega_0)\right]\nonumber\\
 & = \frac{\pi}{m\omega_0}\left[n_\text{B}(\omega_0)\delta(\omega+\omega_0)+(n_\text{B}(\omega_0)+1)\delta(\omega-\omega_0)\right]
-\label{res_QSHONoise}
-\end{align}
+\end{align*}
 $$`
 $$
-n_\text{B}(\omega)\equiv \frac{1}{\exp\left(\beta\omega\right)-1},
+n_\text{B}(\omega)\equiv \frac{1}{\exp\left(\beta\omega\right)-1}
 $$
 is Bose distribution function
 
@@ -161,10 +144,10 @@ as we found before.
 ### Classical limit $\beta\omega\to 0$
 
 `$$
-\begin{align}
+\begin{align*}
 S(\omega)&= \frac{\pi}{m\omega_0}\left[n_\text{B}(\omega_0)\delta(\omega+\omega_0)+(n_\text{B}(\omega_0)+1)\delta(\omega-\omega_0)\right]\\\\
 &\to \frac{k_\text{B}T}{2m\omega_0^2} \times 2\pi\left[\delta(\omega+\omega_0)+\delta(\omega-\omega_0)\right]
-\end{align}
+\end{align*}
 $$`
 
 - Consistent with equipartition: $\frac{1}{2}m\omega_0^2 \langle y^2\rangle=\frac{1}{2}k_\text{B}T$
@@ -176,7 +159,6 @@ $$`
 - We can express  $y(t)$ in terms of normal modes as
 $$
 y(t) = \sum_k \left[c^{}_k \adop_k(t) + c_k^* \aop_k(t)\right],
-\label{res_ymode}
 $$
 where time evolution of mode operators is
 
@@ -187,10 +169,9 @@ $$
 - Repeating calculation of $S(\omega)$ gives
 
 $$
-\begin{align}
-S(\omega)= 2\pi\sum_k |c_k|^2\left[n_\text{B}(\omega_k)\delta(\omega+\omega_k)+(n_\text{B}(\omega_k)+1)\delta(\omega-\omega_k)\right].
-\label{res_QSHONoiseGen}
-\end{align}
+\begin{align*}
+S(\omega)= 2\pi\sum_k |c_k|^2\left[n_\text{B}(\omega_k)\delta(\omega+\omega_k)+(n_\text{B}(\omega_k)+1)\delta(\omega-\omega_k)\right]
+\end{align*}
 $$
 
 - In continuum limit sum of $\delta(\omega\pm\omega_k)\longrightarrow$ smooth $S(\omega)$
@@ -225,7 +206,6 @@ $$
 - This defines the __response function__ $\chi(\omega)$
 $$
 \chi(\omega)\equiv \frac{y(\omega)}{f(\omega)} = \sum_k |c_k|^2\left[\frac{1}{\omega_k-\omega-i0}+\frac{1}{\omega_k+\omega+i0}\right].
-\label{res_chi_modes}
 $$
 
 - Then use... 
@@ -238,14 +218,12 @@ $$
 
 `$$
 \operatorname{Im}\chi(\omega) =\sgn(\omega)\pi\sum_k |c_k|^2\delta(\omega_k-\omega) 
-\label{res_Imchi_modes}
 $$`
 
 - $S(\omega)$ and $\operatorname{Im}\chi(\omega)$ are then related by
 
 $$
 S(\omega) = 2\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right].
-\label{res_FDTAsym}
 $$
 
 - This is a __quantum fluctuation dissipation relation__
@@ -306,21 +284,20 @@ $$
 - The rate of energy absorption is
 
 $$
-\omega\Gamma(\omega) = \omega S(\omega)\left(\frac{f_0}{2}\right)^2 = \frac{1}{2}\omega\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right]f_0^2.
-\label{res_absorb}
+\omega\Gamma(\omega) = \omega S(\omega)\left(\frac{f_0}{2}\right)^2 = \frac{1}{2}\omega\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right]f_0^2
 $$
 
 ---
 
 $$
-\omega\Gamma(\omega) = \omega S(\omega)\left(\frac{f_0}{2}\right)^2 = \frac{1}{2}\omega\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right]f_0^2.
+\omega\Gamma(\omega) = \omega S(\omega)\left(\frac{f_0}{2}\right)^2 = \frac{1}{2}\omega\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right]f_0^2
 $$
 
 >Compare with 
 $$
-\begin{align}
-W_\text{diss} = \langle f(t) \dot y(t)\rangle = \frac{1}{2}\omega\operatorname{Im}\chi(\omega)f_0^2.
-\end{align}
+\begin{align*}
+W_\text{diss} = \langle f(t) \dot y(t)\rangle = \frac{1}{2}\omega\operatorname{Im}\chi(\omega)f_0^2
+\end{align*}
 $$
 They agree when $n_\text{B}(\omega)\to 0$: energy of transition being much larger than thermal energy $\hbar\omega\gg k_B T$.
 
@@ -358,10 +335,10 @@ where $B_I(t) = e^{iH_0 t}B e^{-iH_0 t}$
 \ket{\Psi^{(1)}_I(t)} = i\int_0^t dt' \lambda_{t'} B_I(t') \ket{\Psi(0)}.
 $$`
 `$$
-\begin{align}
-\bra{\Psi(t)}A\ket{\Psi(t)} &= \bra{\Psi_I(t)}A_I(t) \ket{\Psi_I(t)} \nonumber\\
-&=\bra{\Psi(0)}A_I(t)\ket{\Psi(0)} +i \int_0^t dt' \lambda_{t'}\bra{\Psi(0)} \left[A_I(t),B_I(t')\right] \ket{\Psi(0)}.
-\end{align}
+\begin{align*}
+\braket{\Psi(t)|A|\Psi(t)} &= \braket{\Psi_I(t)|A_I(t) |\Psi_I(t)} \nonumber\\
+&=\braket{\Psi(0)|A_I(t)|\Psi(0)} +i \int_0^t dt' \lambda_{t'}\braket{\Psi(0)| \left[A_I(t),B_I(t')\right] |\Psi(0)}.
+\end{align*}
 $$`
 
 ---
@@ -371,7 +348,6 @@ $$`
 - $\chi_{AB}(t)$ of $A$ due to perturbation that couples to $B$
 $$
 \chi_{AB}(t) = i\langle\langle\left[A_I(t),B_I(0)\right]\rangle\rangle,\quad t>0.
-\label{res_kubo}
 $$
 (Normally write $A(t)$ rather than $A_I(t)$: Heisenberg picture for the unperturbed problem) 
 
@@ -413,13 +389,13 @@ $$
 - $\chi_{AB}(t)$ (a commutator) can be written in terms of $S_{AB}(\omega)$
 
 `$$
-\begin{align}
+\begin{align*}
 \chi_{AB}(t) &= \begin{cases}
 i\left[S_{AB}(t)-S_{BA}(-t)\right] & t>0\\
 0 & t<0.
 \end{cases}\\
 &= i\theta(t)\left[S_{AB}(t)-S_{BA}(-t)\right]
-\end{align}
+\end{align*}
 $$`
 
 ---
@@ -434,23 +410,21 @@ $$
 \tilde\theta(\omega) = \frac{i}{\omega+i0},
 $$
 `$$
-\begin{align}
+\begin{align*}
 \chi_{AB}(\omega)&= -\int \frac{d\omega'}{2\pi}\frac{S_{AB}(\omega')-S_{BA}(-\omega')}{\omega-\omega'+i0}\\
-&=-\int \frac{d\omega'}{2\pi}\frac{S_{AB}(\omega')\left[1-e^{-\beta\omega'}\right]}{\omega-\omega'+i0}.
-\label{res_Conv}
-\end{align}
+&=-\int \frac{d\omega'}{2\pi}\frac{S_{AB}(\omega')\left[1-e^{-\beta\omega'}\right]}{\omega-\omega'+i0}
+\end{align*}
 $$`
 
 ---
 
 - To make sense of this formula, use the Kramers--Kronig relation
 `$$
-\begin{align}
+\begin{align*}
 \chi_{AB}(\omega) &=\operatorname{Re}\chi_{AB}(\omega) + i\operatorname{Im}\chi_{AB}(\omega)\\
-&= \cP \int_{-\infty}^\infty \frac{d\omega'}{\pi}\frac{\operatorname{Im}\chi_{AB}(\omega')}{\omega'-\omega} + i\operatorname{Im}\chi_{AB}(\omega)\\
+&= \cp \int_{-\infty}^\infty \frac{d\omega'}{\pi}\frac{\operatorname{Im}\chi_{AB}(\omega')}{\omega'-\omega} + i\operatorname{Im}\chi_{AB}(\omega)\\
 &= \int_{-\infty}^\infty \frac{d\omega'}{\pi}\frac{\operatorname{Im}\chi_{AB}(\omega')}{\omega'-\omega-i0},
-\label{res_KKchi}
-\end{align}
+\end{align*}
 $$`
 where we used
 $$
@@ -459,7 +433,6 @@ $$
 - Finally!
 $$
 S_{AB}(\omega) = 2\operatorname{Im}\chi_{AB}(\omega)\left[n_\text{B}(\omega)+1\right].
-\label{res_FDTGen}
 $$
 
 ---
@@ -470,7 +443,6 @@ The quantites $\chi_{AB}(\omega)$ and $S_{AB}(\omega)$ have spectral representat
 
 $$
 S_{AB}(\omega)  = 2\pi\sum_{m,n} \frac{e^{-\beta E_m}}{Z} \bra{m}A\ket{n}\bra{n}B\ket{m} \delta(\omega-E_n+E_m).
-\label{res_SABSpectral}
 $$
 
 
@@ -495,21 +467,19 @@ H_\text{pert} = \sum_{j=1}^N V(\br_i,t) = \int  V(\br,t)\rho(\br)\, d\br = \frac
 $$
 
 - Perturbation couples to the density: how is density affected? In a translationally invariant system
-$$
+`$$
 \langle\langle \rho_\bq(t)\rangle\rangle = -\frac{1}{L^3} \int_{-\infty}^t  \chi^{\rho}_\bq(t-t') V_\bq(t)\,dt',
-$$
+$$`
 where the density response function $\chi^\rho_\bq(t)$ is
 $$
 \chi_\rho(\bq,t) = i\langle\langle\left[\rho_\bq(t),\rho_{-\bq}(0)\right]\rangle\rangle.
-\label{res_kubo_density}
 $$
 
 ---
 
 - General theory applies with `$A=\rho_\bq$` and `$B=\rho_{-\bq}$`. At $T=0$
 $$
-S_\rho(\bq,\omega) = 2\pi\sum_{n}  |\bra{0}\rho_\bq\ket{n}|^2 \delta(\omega-E_n+E_0),
-\label{res_Sdef}
+S_\rho(\bq,\omega) = 2\pi\sum_{n}  |\bra{0}\rho_\bq\ket{n}|^2 \delta(\omega-E_n+E_0)
 $$
 
 - This is the __dynamical structure factor__, on account of its importance in scattering experiments.
@@ -543,10 +513,10 @@ $$
 - Evaluate by introducing resolution of the identity $\sum_n \ket{n}\bra{n}=1$
 
 `$$
-\begin{align}
+\begin{align*}
 \braket{0}{[[H,\rho_\bq],\rho_{-\bq}]}{0}&=\braket{0}{H\rho_\bq \rho_{-\bq}- \rho_\bq H\rho_{-\bq}-\rho_{-\bq} H\rho_\bq+\rho_{-\bq}\rho_\bq H}{0}\\
 &=2\sum_n|\bra{0}\rho_\bq\ket{n}|^2\left(E_0-E_n\right)
-\end{align}
+\end{align*}
 $$`
 
 - We can relate this to `$S(\bq,\omega)$` using spectral representation
@@ -638,7 +608,6 @@ $$
 - Some systems (e.g Bose gases), are well described by
 $$
 S_\rho(\bq,\omega) \sim 2\pi S_\rho(\bq) \delta(\omega - \omega(\bq)),
-\label{res_SMA}
 $$
 for low $\bq$, where $\omega(\bq)$ is dispersion relation of collective excitations (e.g. Bogoliubov modes)
 
