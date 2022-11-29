@@ -514,7 +514,7 @@ $$
 
 `$$
 \begin{align*}
-\braket{0}{[[H,\rho_\bq],\rho_{-\bq}]}{0}&=\braket{0}{H\rho_\bq \rho_{-\bq}- \rho_\bq H\rho_{-\bq}-\rho_{-\bq} H\rho_\bq+\rho_{-\bq}\rho_\bq H}{0}\\
+\braket{0|[[H,\rho_\bq],\rho_{-\bq}]|0}&=\braket{0|H\rho_\bq \rho_{-\bq}- \rho_\bq H\rho_{-\bq}-\rho_{-\bq} H\rho_\bq+\rho_{-\bq}\rho_\bq H|0}\\
 &=2\sum_n|\bra{0}\rho_\bq\ket{n}|^2\left(E_0-E_n\right)
 \end{align*}
 $$`
@@ -542,9 +542,9 @@ $$
 
 - $p = -\frac{\partial E_0}{\partial V}$ at $T=0$. If $E_0 = V \epsilon(\rho)$, then
 
-$$
+`$$
 \beta^{-1} = \rho^2 \epsilon''(\rho).
-$$
+$$`
 
 ---
 

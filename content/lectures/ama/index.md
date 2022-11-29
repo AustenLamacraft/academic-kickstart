@@ -125,7 +125,7 @@ $$
 $$
 
 $$
-\rho_2(x,y) =\braket{\Psi}{\pdop(x)\pdop(y)\pop(y)\pop(x)}{\Psi}
+\rho_2(x,y) =\braket{\Psi|\pdop(x)\pdop(y)\pop(y)\pop(x)|\Psi}
 $$
 
 ---
@@ -220,7 +220,7 @@ $$`
 
 ---
 
-### What is a quasiparticle
+### What is a quasiparticle?
 
 - Why does the excited state have two contributions? 
 
