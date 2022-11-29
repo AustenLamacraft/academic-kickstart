@@ -48,10 +48,10 @@ scripts: []
 
 - For a single (undamped) oscillator we have ground state fluctuations
 $$
-H = \frac{p^2}{2m} + \frac{1}{2}m\omega_0^2 y^2,
+H = \frac{p^2}{2m} + \frac{1}{2}m\omega_0^2 y^2
 $$
 $$
-\bra{0} y^2 \ket{0} = \frac{1}{2m \omega_0},
+\bra{0} y^2 \ket{0} = \frac{1}{2m \omega_0}
 $$
 
 ---
@@ -74,14 +74,14 @@ $y(t) = e^{iHt} y e^{-iHt}$ (Heisenberg picture)
 
 - This gives the _quantum_ noise spectrum
 
-$$
+`$$
 S(\omega) = \int_{-\infty}^\infty \langle\langle y(t)y(0)\rangle\rangle e^{i\omega t}\,dt.
-$$
+$$`
 
 - __BUT__: since $y(0)$ and $y(t)$ do not commute with each other $\langle\langle y(t)y(0)\rangle\rangle\neq \langle\langle y(0)y(t)\rangle\rangle=\langle\langle y(-t)y(0)\rangle\rangle$, so
 
 $$
-S(\omega)\neq S(-\omega).
+S(\omega)\neq S(-\omega)
 $$
 
 ---
@@ -127,15 +127,15 @@ is Bose distribution function
 ---
 
 `$$
-\begin{align}
+\begin{align*}
 S(\omega)&=\frac{\pi}{m\omega_0} \sum_n \frac{e^{-\beta E_n}}{Z} \left[n\delta(\omega+\omega_0)+(n+1)\delta(\omega-\omega_0)\right]\nonumber\\
 & = \frac{\pi}{m\omega_0}\left[n_\text{B}(\omega_0)\delta(\omega+\omega_0)+(n_\text{B}(\omega_0)+1)\delta(\omega-\omega_0)\right]
-\end{align}
+\end{align*}
 $$`
 
 - Shows the predicted asymmetry between positive and negative frequencies. We can check that
 $$
-\int S(\omega)\frac{d\omega}{2\pi} = \langle\langle y^2\rangle\rangle= \frac{\coth(\beta\omega_0/2)}{2m\omega_0},
+\int S(\omega)\frac{d\omega}{2\pi} = \langle\langle y^2\rangle\rangle= \frac{\coth(\beta\omega_0/2)}{2m\omega_0}
 $$
 as we found before.
 
@@ -158,13 +158,13 @@ $$`
 
 - We can express  $y(t)$ in terms of normal modes as
 $$
-y(t) = \sum_k \left[c^{}_k \adop_k(t) + c_k^* \aop_k(t)\right],
+y(t) = \sum_k \left[c^{}_k \adop_k(t) + c_k^* \aop_k(t)\right]
 $$
-where time evolution of mode operators is
+- Time evolution of mode operators is
 
-$$
-\adop_k(t) = e^{i\omega_k t}\adop_k,\quad \aop_k(t) = e^{-i\omega_k t}\aop_k.
-$$
+`$$
+\adop_k(t) = e^{i\omega_k t}\adop_k,\quad \aop_k(t) = e^{-i\omega_k t}\aop_k
+$$`
 
 - Repeating calculation of $S(\omega)$ gives
 
@@ -205,7 +205,7 @@ $$
 
 - This defines the __response function__ $\chi(\omega)$
 $$
-\chi(\omega)\equiv \frac{y(\omega)}{f(\omega)} = \sum_k |c_k|^2\left[\frac{1}{\omega_k-\omega-i0}+\frac{1}{\omega_k+\omega+i0}\right].
+\chi(\omega)\equiv \frac{y(\omega)}{f(\omega)} = \sum_k |c_k|^2\left[\frac{1}{\omega_k-\omega-i0}+\frac{1}{\omega_k+\omega+i0}\right]
 $$
 
 - Then use... 
@@ -223,7 +223,7 @@ $$`
 - $S(\omega)$ and $\operatorname{Im}\chi(\omega)$ are then related by
 
 $$
-S(\omega) = 2\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right].
+S(\omega) = 2\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right]
 $$
 
 - This is a __quantum fluctuation dissipation relation__
@@ -232,11 +232,11 @@ $$
 
 > Check that in the classical limit ($k_\text{B}T\gg \hbar \omega$)
 $$
-S(\omega) = 2\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right].
+S(\omega) = 2\operatorname{Im}\chi(\omega)\left[n_\text{B}(\omega)+1\right]
 $$
 reduces to 
 $$
-S(\omega)=\frac{2k_\text{B}T}{\omega} \operatorname{Im}\chi(\omega).
+S(\omega)=\frac{2k_\text{B}T}{\omega} \operatorname{Im}\chi(\omega)
 $$
 Consistent with classical equipartition
 
@@ -250,7 +250,7 @@ Consistent with classical equipartition
 
 - Regard driving force as perturbation that causes transitions between energy eigenstates
 $$
-H_\text{pert} = - f(t)y,
+H_\text{pert} = - f(t)y
 $$
 with $f(t)=f_0\cos\omega t$
 
@@ -268,11 +268,11 @@ $$
 - c.f. spectral representation of $S(\omega)$
 
 $$
-S(\omega) = 2\pi\sum_{m,n} \frac{e^{-\beta E_n}}{Z} |\bra{n}y\ket{m}|^2 \delta(\omega-E_m+E_n).
+S(\omega) = 2\pi\sum_{m,n} \frac{e^{-\beta E_n}}{Z} |\bra{n}y\ket{m}|^2 \delta(\omega-E_m+E_n)
 $$
 
 $$
-\Gamma(\omega) = S(\omega)\left(\frac{f_0}{2}\right)^2.
+\Gamma(\omega) = S(\omega)\left(\frac{f_0}{2}\right)^2
 $$
 
 ---
@@ -332,7 +332,7 @@ where $B_I(t) = e^{iH_0 t}B e^{-iH_0 t}$
 - Result of first order time dependent perturbation theory is $\ket{\Psi_I(t)}=\ket{\Psi(0)}+\ket{\Psi^{(1)}_I(t)}+\cdots$, with
 
 `$$
-\ket{\Psi^{(1)}_I(t)} = i\int_0^t dt' \lambda_{t'} B_I(t') \ket{\Psi(0)}.
+\ket{\Psi^{(1)}_I(t)} = i\int_0^t dt' \lambda_{t'} B_I(t') \ket{\Psi(0)}
 $$`
 `$$
 \begin{align*}
@@ -360,7 +360,7 @@ $$
 - Start from the correlation function
 
 $$
-S_{AB}(t) \equiv \langle\langle A_I(t)B_I(0)\rangle\rangle.
+S_{AB}(t) \equiv \langle\langle A_I(t)B_I(0)\rangle\rangle
 $$
 
 - Recalling that 
@@ -432,7 +432,7 @@ $$
 $$
 - Finally!
 $$
-S_{AB}(\omega) = 2\operatorname{Im}\chi_{AB}(\omega)\left[n_\text{B}(\omega)+1\right].
+S_{AB}(\omega) = 2\operatorname{Im}\chi_{AB}(\omega)\left[n_\text{B}(\omega)+1\right]
 $$
 
 ---
@@ -463,7 +463,7 @@ $$
 - Suppose system is subject to time dependent potential corresponding to a term in Hamiltonian
 
 $$
-H_\text{pert} = \sum_{j=1}^N V(\br_i,t) = \int  V(\br,t)\rho(\br)\, d\br = \frac{1}{L^3}\sum_\bq V_\bq(t) \rho_{-\bq}.
+H_\text{pert} = \sum_{j=1}^N V(\br_i,t) = \int  V(\br,t)\rho(\br)\, d\br = \frac{1}{L^3}\sum_\bq V_\bq(t) \rho_{-\bq}
 $$
 
 - Perturbation couples to the density: how is density affected? In a translationally invariant system
@@ -472,7 +472,7 @@ $$
 $$`
 where the density response function $\chi^\rho_\bq(t)$ is
 $$
-\chi_\rho(\bq,t) = i\langle\langle\left[\rho_\bq(t),\rho_{-\bq}(0)\right]\rangle\rangle.
+\chi_\rho(\bq,t) = i\langle\langle\left[\rho_\bq(t),\rho_{-\bq}(0)\right]\rangle\rangle
 $$
 
 ---
@@ -499,13 +499,13 @@ $$
 - If interaction depends only on density, it commutes with $\rho_\bq$, so the commutator is determined by kinetic energy
 
 $$
-T = -\frac{1}{2m}\sum_{j=1}^N \nabla_i^2.
+T = -\frac{1}{2m}\sum_{j=1}^N \nabla_i^2
 $$
 
 - Taking `$\rho_\bq =\sum_{j=1}^N e^{-i\bq\cdot\br_j}$`, we find
 
 $$
-[[H,\rho_\bq],\rho_{-\bq}] = -\frac{N\bq^2}{m}.
+[[H,\rho_\bq],\rho_{-\bq}] = -\frac{N\bq^2}{m}
 $$
 
 ---
@@ -526,7 +526,7 @@ $$`
 to give the __f-sum rule__
 
 $$
-\int_{-\infty}^\infty \omega S(\bq,\omega) \frac{d\omega}{2\pi}= \frac{N\bq^2}{2m}.
+\int_{-\infty}^\infty \omega S(\bq,\omega) \frac{d\omega}{2\pi}= \frac{N\bq^2}{2m}
 $$
 
 
@@ -548,9 +548,9 @@ $$`
 
 ---
 
-$$
+`$$
 \beta^{-1} = \rho^2 \epsilon''(\rho).
-$$
+$$`
 
 - In the presence of a potential $V(\br)$, energy density is 
 
@@ -576,7 +576,7 @@ $$
 
 - Second order perturbation theory for ground state
 $$
-E^{(2)} =\frac{V_0^2}{4} \sum_{n\neq 0} \frac{|\braket{0}{\rho_\bq}{n}|^2}{E_0-E_n} =-\frac{V_0^2}{4}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi}
+E^{(2)} =\frac{V_0^2}{4} \sum_{n\neq 0} \frac{|\braket{0|\rho_\bq|n}|^2}{E_0-E_n} =-\frac{V_0^2}{4}\int_0^\infty \frac{S(\bq,\omega)}{\omega}\frac{d\omega}{2\pi}
 $$
 (first order vanishes)
 
