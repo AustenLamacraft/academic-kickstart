@@ -282,13 +282,13 @@ $$`
 - Excess energy (relative to uniform state of density $n$)
 
 `$$
-\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\chi)^2
+\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n^2}{2m}\int d\br\, f^2(\nabla\chi)^2
 $$`
 
 ---
 
 `$$
-\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n}{2m}\int d\br\, f^2(\nabla\chi)^2
+\Delta E = \int d\br \left[\frac{n^2}{2m\xi^2}(f')^2+\frac{U}{2}n^2 \left(f^2-1\right)^2\right] + \frac{n^2}{2m}\int d\br\, f^2(\nabla\chi)^2
 $$`
 
 - First integral is finite: due to density $\neq$ bulk value
