@@ -1,6 +1,6 @@
 ---
 title: "New Rules: Quantum Circuits, Cellular Automata, Complexity and Chaos"
-event: TCM graduate lectures
+event: Aspen Colloquium
 summary: Aspen Colloquium on Quantum Circuits
 authors: [Austen Lamacraft]
 tags: []
