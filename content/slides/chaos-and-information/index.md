@@ -82,7 +82,43 @@ Reveal.on( 'slidechanged', event => {
 
 ## Spatiotemporal cat
 
+<script type="module">
+import stCat from "./assets/st-cat.js"
+const stCatSketch = new p5(stCat, "st cat")
+Reveal.on( 'slidechanged', event => {
+  if (!!event.currentSlide.querySelector("#spatiotemporal-cat")) {
+    stCatSketch.loop()
+  }
+  else {
+    stCatSketch.noLoop()
+  }
+} );
+</script>
 
+<figure align="center">
+<div id="st cat" style="display: inline-block"></div>
+</figure>
+
+Need to attribute cherries from Wikipedia
 
 ---
 
+## Symplectic conservation law
+
+---
+
+## Correlations for STC
+
+Average over one step to see correlations disappear
+
+---
+
+In self dual case tori fly unimpeded to left and right
+
+Think of tori "scattering" off each other.
+
+---
+
+## Clifford automata
+
+Need some illustrations here
