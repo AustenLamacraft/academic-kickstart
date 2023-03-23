@@ -82,17 +82,7 @@ Reveal.on( 'slidechanged', event => {
 
 ## Spatiotemporal cat
 
-<script type="module">
-import stCat from "./assets/st-cat.js"
-const stCatSketch = new p5(stCat, "st cat")
-Reveal.on( 'slidechanged', event => {
-  if (!!event.currentSlide.querySelector("#spatiotemporal-cat")) {
-    stCatSketch.loop()
-  }
-  else {
-    stCatSketch.noLoop()
-  }
-} );
+<script type="module" src="./assets/st-cat.js">
 </script>
 
 <figure align="center">
@@ -122,3 +112,5 @@ Think of tori "scattering" off each other.
 ## Clifford automata
 
 Need some illustrations here
+
+Sommers et al automaton

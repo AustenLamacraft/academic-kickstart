@@ -7,7 +7,12 @@
 const WIDTH = 74;           
 const CIRCUIT_WIDTH = 6;
 const INITIAL_SITE = 2    
-const J = 1;
+const SITE_SPACING = 150
+const SITE_SIZE = 75
+const BOTTOM_OFFSET = 500
+const LEFT_OFFSET = 50
+const GATE_SIZE = 40
+let J = 2;
 
 function modulus(x, y) {
     // Note that the % operator won't do was we don't want negative numbers
@@ -68,11 +73,8 @@ export default function stCat(p) {
         return imgs
     }
 
-    p.preload = function() {
-        catImg = p.loadImage('assets/cherries.jpg');
-    }
-
-    p.setup = function() {
+    function makeTorus() {
+        torus = []
         for (let y = 0; y < WIDTH; y++) {
             for (let x = 0; x < WIDTH; x++) {
                 const color = catImg.get(x, y)
@@ -89,35 +91,79 @@ export default function stCat(p) {
                 torus.push({color, coords})
             }
         }
+    }
 
-        p.createCanvas(1000, 500);
-        makeImages().forEach((img, idx) => p.image(img, idx * 125, 400, 75, 75, 0, 0, WIDTH, WIDTH));
+    p.preload = function() {
+        catImg = p.loadImage('assets/cherries.jpg');
+    }
 
-        update(torus, 0, 1, J)
-        update(torus, 2, 3, J)
-        update(torus, 4, 5, J)
-        makeImages().forEach((img, idx) => p.image(img, idx * 125, 275, 75, 75, 0, 0, WIDTH, WIDTH));
+    p.setup = function() {
 
-        update(torus, 1, 2, J)
-        update(torus, 3, 4, J)
-        makeImages().forEach((img, idx) => p.image(img, idx * 125, 150, 75, 75, 0, 0, WIDTH, WIDTH));
+        p.textAlign(p.CENTER);
+        p.background(200);
+        const sel = p.createSelect();
+        sel.position(10, 100);
+        sel.option('1');
+        sel.option('2');
+        sel.selected('2');
+        sel.changed(() => {
+            J = Number(sel.value())
+            makeTorus()
+            p.loop()
+        })
 
-        update(torus, 0, 1, J)
-        update(torus, 2, 3, J)
-        update(torus, 4, 5, J)
-        makeImages().forEach((img, idx) => p.image(img, idx * 125, 25, 75, 75, 0, 0, WIDTH, WIDTH));
+        p.createCanvas(1000, 600);
+        p.rectMode(p.CENTER)
+        for (let g = 0; g<3; g++) {
+            p.rect(LEFT_OFFSET + SITE_SPACING * (2 * g + 0.5), BOTTOM_OFFSET - SITE_SPACING / 2 , GATE_SIZE, GATE_SIZE, 10);
+            p.rect(LEFT_OFFSET + SITE_SPACING * (2 * g + 0.5), BOTTOM_OFFSET - 5 * SITE_SPACING / 2 ,GATE_SIZE, GATE_SIZE, 10);
+        }
+        
+        for (let g = 0; g<2; g++) {
+            p.rect(LEFT_OFFSET + SITE_SPACING * (2 * g + 1.5), BOTTOM_OFFSET - 3 *SITE_SPACING / 2 , GATE_SIZE, GATE_SIZE, 10);
+        }
+
+        makeTorus()
         
     }
 
-    p.mouseClicked = function() {
-        if (p.isLooping()) {
-            p.noLoop()
-        }
-        else {
-            p.loop()
-        }
-        noLoop()
+    p.draw = function() {
+        p.imageMode(p.CENTER)
+        makeImages().forEach((img, idx) => {
+            p.rect(LEFT_OFFSET + idx * SITE_SPACING, BOTTOM_OFFSET, SITE_SIZE + 1, SITE_SIZE + 1);
+            p.image(img, LEFT_OFFSET + idx * SITE_SPACING, BOTTOM_OFFSET, SITE_SIZE, SITE_SIZE, 0, 0, WIDTH, WIDTH);
+            
+        })
+
+        update(torus, 0, 1, J)
+        update(torus, 2, 3, J)
+        update(torus, 4, 5, J)
+        makeImages().forEach((img, idx) => {
+            p.rect(LEFT_OFFSET + idx * SITE_SPACING, BOTTOM_OFFSET - SITE_SPACING, SITE_SIZE + 1, SITE_SIZE + 1);
+            p.image(img, LEFT_OFFSET + idx * SITE_SPACING, BOTTOM_OFFSET - SITE_SPACING, SITE_SIZE, SITE_SIZE, 0, 0, WIDTH, WIDTH);
+        })
+
+        update(torus, 1, 2, J)
+        update(torus, 3, 4, J)
+        makeImages().forEach((img, idx) =>{
+            p.rect(LEFT_OFFSET + idx * SITE_SPACING, BOTTOM_OFFSET - 2 * SITE_SPACING, SITE_SIZE + 1, SITE_SIZE + 1);
+            p.image(img, LEFT_OFFSET + idx * SITE_SPACING, BOTTOM_OFFSET - 2 * SITE_SPACING, SITE_SIZE, SITE_SIZE, 0, 0, WIDTH, WIDTH);
+        })
+
+        update(torus, 0, 1, J)
+        update(torus, 2, 3, J)
+        update(torus, 4, 5, J)
+        makeImages().forEach((img, idx) => {
+            p.rect(LEFT_OFFSET + idx * SITE_SPACING, BOTTOM_OFFSET - 3 * SITE_SPACING, SITE_SIZE + 1, SITE_SIZE + 1);
+            p.image(img, LEFT_OFFSET + idx * SITE_SPACING, BOTTOM_OFFSET - 3 * SITE_SPACING, SITE_SIZE, SITE_SIZE, 0, 0, WIDTH, WIDTH);
+        })
+        p.noLoop()
     }
 
 
 }
+
+new p5(stCat, "st cat")
+
+
+
