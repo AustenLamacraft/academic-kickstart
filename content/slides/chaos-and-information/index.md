@@ -15,47 +15,41 @@ slides:
       throwOnError: false,
     }
   }
-scripts: ['https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js']
+scripts: ['https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js', 'https://cdn.jsdelivr.net/npm/mathjs@11.7.0/lib/browser/math.min.js']
 ---
 
 ## Chaos and Information in 
 ## space-time dual quantum circuits
 
-Add KaTeX render
-
-goes here
 
 in window preview (like quarto)
-
-measurements and forced ensemble
-
 ---
 
 ## Outline
 
 - Reminder of dual unitary phenomenology
   - Summary of results
+    - Asymptotic growth of entanglement
 - Into to CA
   - Elementary CA and reversibility
 - Block CA
-  - Classification and simple examples
+  - Classification and simple examples. Linear circuit was first
   - Vanishing of correlations off light cone
 - Models with continuous state space
   - Puzzle of Krajnik Prosen model. Why don't correlations vanish inside light cone?
   - Statiotemporal cat. work on visualization
   - Dynamics of OTOC
 - Quantum clifford CAs
-  - Are any Clifor CAs related to the discrete spatiotemproral ct
+  - Are any Clifford CAs related to the discrete spatiotemproral cat
 - Mutual information
-- Measurements and loss of bijectivity
+- Measurements and loss of bijec
+  - Directed percolation 
   - Forced ensemble 
 
 ---
   
+## Dual unitaries and their phenom
 
-## To do
-
-- Cat maps
 
 ---
 
@@ -111,6 +105,50 @@ Think of tori "scattering" off each other.
 
 ## Clifford automata
 
-Need some illustrations here
+<script type="module">
+import sommers from "./assets/sommers-automaton.js"
+const sommersSketch = new p5(sommers, "sommers")
+Reveal.on( 'slidechanged', event => {
+  if (!!event.currentSlide.querySelector("#clifford-automata")) {
+    sommersSketch.loop()
+  }
+  else {
+    sommersSketch.noLoop()
+  }
+} );
+</script>
 
-Sommers et al automaton
+<figure align="center">
+<div id="sommers" style="display: inline-block; ; position: relative"></div>
+</figure>
+
+---
+
+### Three component models
+
+- [Borsi and Pozsgay (2022)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.014302) find 227 inequivalent dual reversible models 
+
+<script type="module">
+import threeComponent from "./assets/three-component-dual-reversible.js"
+const threeComponentSketch = new p5(threeComponent, "three-component")
+Reveal.on( 'slidechanged', event => {
+  if (!!event.currentSlide.querySelector("#three-component-models")) {
+    threeComponentSketch.loop()
+  }
+  else {
+    threeComponentSketch.noLoop()
+  }
+} );
+</script>
+
+<figure align="center">
+<div id="three-component" style="display: inline-block; position: relative "></div>
+</figure>
+
+
+---
+
+## Kicked Ising automaton
+
+Use for universal measurement based quantum computing
+
