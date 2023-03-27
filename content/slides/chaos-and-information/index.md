@@ -18,7 +18,7 @@ slides:
 scripts: ['https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js', 'https://cdn.jsdelivr.net/npm/mathjs@11.7.0/lib/browser/math.min.js']
 ---
 
-## Chaos and Information in 
+## Chaos and information in 
 ## space-time dual quantum circuits
 
 Austen Lamacraft and Pieter Claeys
@@ -27,51 +27,8 @@ Austen Lamacraft and Pieter Claeys
 
 
 ---
-
-## Outline
-
-- Reminder of dual unitary phenomenology
-  - Definition
-  - Perfect tensors
-  - Folded picture
-  - Summary of results
-    - Asymptotic growth of entanglement (Bell pairs vs product state)
-    - Correlations on light cone
-- This talk: (mostly) classical models
-- A puzzle: Krajnik Prosen model
-  - Definition
-  - Correlation function nonzero. Why? 
-- Into to CA
-  - Elementary CA and reversibility
-- Block CA
-  - Classification and simple examples. Linear circuit was first dual unitary
-  - Vanishing of correlations off light cone
-- Models with continuous state space
-  - Puzzle of Krajnik Prosen model. Why don't correlations vanish inside light cone?
-  - Statiotemporal cat. work on visualization
-  - Dynamics of OTOC
-- Quantum clifford CAs
-  - Are any Clifford CAs related to the discrete spatiotemporal cat?
-  - Applications in codes and MBQC
-- Mutual information
-- Measurements and loss of bijectivity
-  - Directed percolation 
-  - Forced ensemble 
-  - 
-
----
-
-TODO
-
-- Add references
-- Directed percolation derivation
-- Go over proof of bijectivity
-- Venn diagram of models
-- Add references to more complicated initial states
-
----
   
-### Dual unitaries and their phenomenology 
+## Dual unitaries and their phenomenology 
 
 <figure align="center">
 <img src="assets/circuit.png" width="70%"/>
@@ -146,8 +103,8 @@ $$
   - If $m, n\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$ (pure)
 
 - Only first case contributes to `$
- S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
-$`
+ S_A = \min(4\lfloor t/2\rfloor, |A|) 
+$` bits
 
 ---
   
@@ -164,7 +121,7 @@ $`
 
 ---
 
-## $\rho_A$ via dual unitarity
+### $\rho_A$ via dual unitarity
 
 - 8 sites; 4 layers
 
@@ -178,7 +135,7 @@ $$
 
 ---
 
-## Shallower...
+### Shallower...
 
 <object data="../new-rules-tum/assets/A-entropy-quantum-shallower.svg" type="image/svg+xml"></object>
 
@@ -205,7 +162,7 @@ $$
 
 ---
 
-## Thermalization
+### Thermalization
 
 - After $N_A/2 + 1$ steps, reduced density matrix is $\propto \mathbb{1}$
 
@@ -225,7 +182,7 @@ $$
 
 ---
 
-## Floquet theory: kicked Ising model
+### Floquet theory: kicked Ising model
 
 - Time dependent Hamiltonian with kicks at $t=0,1,2,\ldots$.
 
@@ -247,7 +204,7 @@ $$`
 
 ---
 
-## KIM as a circuit
+### KIM as a circuit
 
 <p align="center">
 <img src="../new-rules-tum/assets/kim-circuit.png" width="200"/>
@@ -279,7 +236,7 @@ $$
 
 ---
 
-## Dual unitarity
+### Dual unitarity
 
 - Recall KIM has circuit representation
 
@@ -298,7 +255,7 @@ $$`
 
 ---
 
-## 'KIM' property
+### 'KIM' property
 
 <p align="center">
 <img src="../new-rules-tum/assets/fig_KIMidentity.png" width="600"/>
@@ -790,6 +747,7 @@ $$
 
 ---
 
+
 - Relaxing 0-1 constraint gives _bistochastic_ matrices
 
 - Every bistochastic matrix is a (nonunique) convex combination of permutations (Birkhoff—von Neumann)
@@ -798,9 +756,8 @@ $$
 
 ---
 
-### Dual reversibility
+### Dual reversibility
 
-- What is analog of dual unitarity?
 
 - If $(c,d)=f(a,b)$ require bijection $\tilde f$ satisfying $(d,b)=\tilde f(c,a)$
 
@@ -841,10 +798,6 @@ $$
 
 ---
 
-- First: $f_d(\cdot,b)$ is injective because $\tilde f$ is injective and if $b$ – one of the outputs of $\tilde f$ – is held fixed, the other output $d$ must change when the input $a$ changes. Second: $f_d(\cdot,b)$ is surjective because $\tilde f^{-1}$ exists. The bijectivity of $f_c(a,\cdot)$ follows from the same argument with the roles of $\tilde f$ and $\tilde f^{-1}$ reversed.
-
----
-
 ### Three state models 
 
 - Of the 24 reversible blocks for two states, 12 are dual reversible
@@ -870,17 +823,6 @@ Reveal.on( 'slidechanged', event => {
 
 ---
 
-### Dynamics of difference?
-
-- For $N=2$ dynamics of $z_t=x_t\oplus y_t$ independent of $x_t$ (or $y_t$)
-
-- Recurrence time always $\propto L$ (instead of double exponential)
-
-- Edge corresponds to the stationary state of a Markov process (c.f. [Claeys and Lamacraft (2020)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032) for quantum case)
-
-
----
-
 ### The linear block
 
 $$
@@ -902,18 +844,6 @@ $$
 $L=54=2\times 3^3$, $T_\text{recur}=2L=108$</a> 
 <figcaption>
 </figure>
-
----
-
-
-Recurrence time and self similarity
-
-Hosur earlier version
-
-See also G¨utschow, Johannes and Nesme, Vincent and Werner,
-Reinhard F., “Self-similarity of cellular automata on
-Abelian groups,” Journal of Cellular Automata, vol 7,
-2012, pp 83–113
 
 ---
 
@@ -1005,13 +935,7 @@ $$
 
 ---
 
-### Correlations
-
-Something something
-
----
-
-## Models with continuous state space
+### Models with continuous state space
 
  $$
  f:\Sigma\times\Sigma \longrightarrow\Sigma\times\Sigma
@@ -1057,8 +981,6 @@ $$`
 - Continuous case: additional condition: bijections have unit determinant
 
 ---
-
-### Proof
 
 - Recall 
 $$
@@ -1384,13 +1306,7 @@ Reveal.on( 'slidechanged', event => {
 
 ---
 
-### Kicked Ising automaton
-
-Use for universal measurement based quantum computing
-
-Figure from Stephen paper
-
-[Stephen _et al_ (2022)](https://arxiv.org/abs/2209.06191)
+### MBQC with dual unitary Cliffords
 
 <figure align="center">
 <img src="assets/stephen-measurement.png" width="60%">
@@ -1398,3 +1314,17 @@ Figure from Stephen paper
 From <a href="https://arxiv.org/abs/2209.06191">Stephen <it> et al.</it> (2022)</a> 
 <figcaption>
 </figure>
+
+---
+
+### Summary
+
+- There is a "useful" notion of space-time duality for classical models
+
+- Existing examples: spatiotemporal cat, dual unitary Cliffords
+
+- Applications in codes, MBQC?
+
+<p align="center" class="fragment">
+<strong>Thank you!</strong>
+</p>
