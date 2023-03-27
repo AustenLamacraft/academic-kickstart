@@ -101,13 +101,17 @@ export default function stCat(p) {
 
         p.textAlign(p.CENTER);
         p.background(200);
-        const sel = p.createSelect();
-        sel.position(10, 100);
-        sel.option('1');
-        sel.option('2');
-        sel.selected('2');
+        const sel = p.createSelect()
+            .style('font-size', '20px')
+            .parent("st cat")
+            .position(50, 650, "absolute")
+            .size(100);
+        
+        sel.option('J=1');
+        sel.option('J=2');
+        sel.selected('J=2');
         sel.changed(() => {
-            J = Number(sel.value())
+            J = Number(sel.value().slice(-1))
             makeTorus()
             p.loop()
         })

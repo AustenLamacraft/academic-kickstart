@@ -7,6 +7,8 @@ const discreteCatMap = function(x, y, N) {
 }
 
 const width = 354
+const period = 348
+let iterCount = 0
 
 export default function catMap(p) {
 
@@ -15,21 +17,15 @@ export default function catMap(p) {
         img = p.loadImage('assets/cat.jpg');
     }
     p.setup = function() {
-        p.createCanvas(400, 400);
-        p.image(img, 0, 0, 400, 400, 0, 0, width, width);
+        p.createCanvas(width, width);
+        p.image(img, 0, 0, width, width);
         img.loadPixels()
         p.noLoop()
         
     }
 
     p.mouseClicked = function() {
-        if (p.isLooping()) {
-            p.noLoop()
-        }
-        else {
-            p.loop()
-        }
-        noLoop()
+        p.loop()
     }
 
     p.draw = function() {
@@ -45,9 +41,9 @@ export default function catMap(p) {
                 }
             }
             img.updatePixels();
-            p.image(img, 0, 0, 400, 400, 0, 0, width, width);
+            p.image(img, 0, 0, width, width);
+            p.noLoop()
         }
-
     }
 
 }
