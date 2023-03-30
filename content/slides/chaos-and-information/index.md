@@ -19,9 +19,9 @@ scripts: ['https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js', 'https://cdn.jsdeli
 ---
 
 ## Chaos and information in 
-## space-time dual quantum circuits
+## space-time dual classical circuits
 
-Austen Lamacraft and Pieter Claeys
+Austen Lamacraft (Cambridge) and Pieter Claeys (Dresden)
 
 [austen.uk/#talks](https://austen.uk/#talks) for slides
 
@@ -117,7 +117,7 @@ $` bits
 <img src="../new-rules-tum/assets/folded-dual-unitarity.png" width="60%">
 </figure>
 
-- [Gopalakrishnan and Lamacraft (2012)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309), [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601)
+- [Gopalakrishnan and Lamacraft (2019)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309), [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601)
 
 ---
 
@@ -770,7 +770,7 @@ $$
 - In terms of $F_{ab,cd}$
 
 $$
-\sum_{a,c} F_{cd,ab} = \sum_{b,d} F_{cd,ab} = 1,
+\sum_{a,c} F_{cd,ab} = \sum_{b,d} F_{cd,ab} = 1
 $$
 
 <figure align="center">
