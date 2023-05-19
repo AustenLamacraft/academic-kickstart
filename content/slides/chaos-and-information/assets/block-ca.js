@@ -42,7 +42,7 @@ export default function block(p) {
         p.createCanvas(p.windowWidth / 1.5, p.windowHeight / 2.5);
         p.noStroke();
 
-        col = p.floor(p.width / cellSize);
+        col = p.floor(p.width / cellSize) - 1;
         rw = p.floor(p.height / cellSize);
 
         const inp = p.createInput(String(blockNumber))
@@ -110,6 +110,8 @@ export default function block(p) {
     p.draw = function() {
         for (let i = 0; i < col; i++) {
             const [cell1, cell2] = cells[i];
+            // const cell1 = cells[i][0]
+            // const cell2 = cells[i][1]
             if (view == 'cell values') {
                 (cell1 == cell2) ? p.fill(cell1 * 255, cell1 * 150, 255) : p.fill(255, cell1 * 255, cell1 * 255);
             }
@@ -146,7 +148,6 @@ export default function block(p) {
                     newcells[(i < col - 1) ? i + 1 : 0][j] = output[1]
                 }    
             }
-            
             cells = newcells;
         } else {
             reset();
