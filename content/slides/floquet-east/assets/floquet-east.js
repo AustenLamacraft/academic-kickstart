@@ -7,7 +7,7 @@
 export default function fe(p) {
 
     let col, rw, gen;
-    const cellSize = 2
+    const cellSize = 1
     let cells = []; 
     let prob = 0.1
     

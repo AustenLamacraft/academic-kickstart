@@ -3,7 +3,7 @@
   "baseUrl": ".",
   "paths": {
    "*": [
-    "../../../../../var/folders/xs/y8sn45v943s2_62flnxw0p940000gn/T/hugo_cache/modules/filecache/modules/pkg/mod/github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy/v5@v5.7.1-0.20221004182530-3349024c90f8/assets/*"
+    "../../../../../var/folders/xs/y8sn45v943s2_62flnxw0p940000gn/T/hugo_cache/modules/filecache/modules/pkg/mod/github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy/v5@v5.7.1-0.20230520134102-1b9f1397c1f9/assets/*"
    ]
   }
  }
