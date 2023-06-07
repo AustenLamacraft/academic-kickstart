@@ -1,6 +1,6 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
-title: "Quantum Circuits II"
+title: "Quantum Circuits II: Some Special Circuits"
 subtitle: "ICTS lectures on Quantum Circuits"
 summary: ""
 authors: []
@@ -67,16 +67,13 @@ Lots of other perspectives on circuits e.g. as quantum algorithms incl. variatio
    4. Codes. Code length (Sommers)
 
 
-
-# Some particular classes of circuits
-
 ## Random circuits
 
 Map some things to Markov process
 
 Why does Markov work? Include Kasia observation.
 
-Connection to FA model
+Connection to FA model. Add material from graduate lectures here
 
 ## Clifford circuits
 
@@ -85,7 +82,6 @@ Connection to FA model
 Discussion of some classes. General parameterization
 Dual unitaries that are also Cliffords
 
-### Entanglement dynamics
 
 The toy model is illustrative but of course rather special. It turns out that we find **exactly the same behavior of the reduced density matrix** (starting from certain special initial states) for a much larger class of unitary circuits built out of **dual unitary** gates. These obey an additional condition, corresponding to unitarity in the spatial direction 
 
@@ -98,11 +94,17 @@ The proof is actually a relatively simple matter of writing down the circuit and
 
 TODO Add details of proof 
 
+### Entanglement membrane
+
+Min cut
+
+Easiest to do it here after we have seen it emerge in dual unitaries?
+
 ### Maximal entanglement velocity implies dual unitarity
 
 
 The property of dual unitarity is equivalent
-to maximal operator entanglement
+to maximal operator entanglement (entanglement hierarchy paper)
 
 Recently proved by [Zhou and Harrow (2022)](https://arxiv.org/abs/2204.10341).
 

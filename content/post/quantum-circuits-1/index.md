@@ -97,13 +97,7 @@ In general, a quantum circuit is a map on the quantum state of a system composed
 <figcaption>Schematic of a quantum circuit. Reading from left to right, $f$ acts on top five qubits, then $g$ acts on lower seven.</figcaption>
 </figure>
 
-The bijections that apply to each block in a block CA are replaced with unitary operators (other kinds of operations – measurements, for example – are possible). Quantum circuits are an important model of universal quantum computation, but we will mostly be interested in exploring them as systems with discrete time, many body quantum dynamics. We'll frequently borrow terminology from quantum computing, however: the unitary operators appearing in our circuits are called **gates**. The most concrete way to think about a $n$-qubit unitary is in terms of its matrix elements $U_{x_1\ldots x_n,x'_1,\ldots, x'_n}$ in the computational basis. The condition of unitarity then has the form
-
-$$
-\sum\_{x_1'\ldots x_N'}U_{x_1\ldots x_n,x'_1,\ldots, x'_n} U^\dagger\_{x'_1\ldots x'_n,x''_1,\ldots, x''_n}=\delta\_{x_1,x_1''}\ldots \delta\_{x_N,x_N''},
-$$
-
-but we'll shortly introduce a graphical notation to avoid such awful looking expressions.
+The bijections that apply to each block in a block CA are replaced with unitary operators (other kinds of operations – measurements, for example – are possible). Quantum circuits are an important model of universal quantum computation, but we will mostly be interested in exploring them as systems with discrete time, many body quantum dynamics. We'll frequently borrow terminology from quantum computing, however: the unitary operators appearing in our circuits are called **gates**. The most concrete way to think about a $n$-qubit unitary is in terms of its matrix elements $U_{x_1\ldots x_n,x'_1,\ldots, x'_n}$ in the computational basis. 
 
 ### Everything is a tensor
 
@@ -126,10 +120,11 @@ To avoid writing multi-index expressions we'll often use [Penrose graphical nota
 <figcaption>See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang's tutorial</a> </figcaption>
 </figure>
 
+TODO Use Figures from Glen Evenbly's site
 
 ### Some gates
 
-### Unitary gates: one qubit
+#### Unitary gates: one qubit
 
 - Multiplication by a Pauli matrix: $X$, $Y$, or $Z$.
 
@@ -144,71 +139,7 @@ H = \frac{1}{\sqrt{2}}\begin{pmatrix}
 \end{pmatrix}
 $$
 
-### Two qubits
-
-- Usually write in basis $\ket{00}$, $\ket{01}$, $\ket{10}$, $\ket{11}$
-
-- Simplest example: [SWAP gate](https://en.wikipedia.org/wiki/Quantum_logic_gate#Swap_gate)
-
-$$
-\operatorname{SWAP}=\left[\begin{array}{llll}
-1 & 0 & 0 & 0 \\\\
-0 & 0 & 1 & 0 \\\\
-0 & 1 & 0 & 0 \\\\
-0 & 0 & 0 & 1
-\end{array}\right]
-$$
-
-- Takes product state to product state in computational basis 
-
-$$
-\operatorname{SWAP}\ket{10} = \ket{01}
-$$
-
-### Square root of SWAP
-
-$$
-\sqrt{\operatorname{SWAP}}=\left[\begin{array}{cccc}
-1 & 0 & 0 & 0 \\
-0 & \frac{1}{2}(1+i) & \frac{1}{2}(1-i) & 0 \\
-0 & \frac{1}{2}(1-i) & \frac{1}{2}(1+i) & 0 \\
-0 & 0 & 0 & 1
-\end{array}\right]
-$$
-
-- Generates _entanglement_
-
-$$
-\sqrt{\operatorname{SWAP}}\ket{10} = \frac{1}{2}\left[(1+i)\ket{10}+(1-i)\ket{01}\right]
-$$
-
-- Conserves number of 1s and 0s (in fact fully rotationally invariant)
-
-- $\sqrt{\operatorname{SWAP}}$ and single qubit unitaries are __universal gate set__
-
-### General two qubit unitary
-
-- Any two-qubit unitary $U\in \mathcal{U(4)}$ can be written
-
-\begin{equation}
-U = e^{i \phi} (u_+ \otimes u_-) V[J_x, J_y, J_z] (v_- \otimes v_+),
-\end{equation} 
-
-- $u_{\pm}, v_{\pm} \in SU(2)$
-
-\begin{align}
- V[J_x, J_y, J_z] &= \exp \left[-i\left(J_x \sigma^x \otimes \sigma^x + J_y \sigma^y \otimes \sigma^y+ J_z \sigma^z \otimes \sigma^z\right)\right]\\
- &= \begin{bmatrix}
-e^{-i J_z} \cos(J_-) & 0 & 0 & -i e^{-i J_z \sin(J_-)} \\\\
-0 & e^{iJ_z} \cos(J_+) & -ie^{i J_z} \sin(J_+) & 0 \\\\
-0 & -ie^{i J_z} \sin(J_+) & e^{iJ_z} \cos(J_+) & 0 \\\\
--i e^{-i J_z \sin(J_-)} & 0 & 0 & e^{-i J_z} \cos(J_-) \\\\
-\end{bmatrix}
-\end{align}
-
-- 16 parameters!
-
----
+#### Two qubits
 
 Let's look at some examples of two qubit gates. We'll work in the basis $\ket{00}$, $\ket{01}$, $\ket{10}$, $\ket{11}$. We've already met the simplest example, the [SWAP gate](https://en.wikipedia.org/wiki/Quantum_logic_gate#Swap_gate)
 
@@ -248,7 +179,32 @@ $\sqrt{\operatorname{SWAP}}$ conserves number of 1s and 0s. In fact, it is fully
 
 TODO Conservation laws
 
-### Time evolution: single qubit gates
+
+#### General two qubit unitary
+
+- Any two-qubit unitary $U\in \mathcal{U(4)}$ can be written
+
+\begin{equation}
+U = e^{i \phi} (u_+ \otimes u_-) V[J_x, J_y, J_z] (v_- \otimes v_+),
+\end{equation} 
+
+- $u_{\pm}, v_{\pm} \in SU(2)$
+
+\begin{align}
+ V[J_x, J_y, J_z] &= \exp \left[-i\left(J_x \sigma^x \otimes \sigma^x + J_y \sigma^y \otimes \sigma^y+ J_z \sigma^z \otimes \sigma^z\right)\right]\\
+ &= \begin{bmatrix}
+e^{-i J_z} \cos(J_-) & 0 & 0 & -i e^{-i J_z \sin(J_-)} \\\\
+0 & e^{iJ_z} \cos(J_+) & -ie^{i J_z} \sin(J_+) & 0 \\\\
+0 & -ie^{i J_z} \sin(J_+) & e^{iJ_z} \cos(J_+) & 0 \\\\
+-i e^{-i J_z \sin(J_-)} & 0 & 0 & e^{-i J_z} \cos(J_-) \\\\
+\end{bmatrix}
+\end{align}
+
+- 16 parameters!
+
+### Time evolution
+
+#### Single qubit gates
 
 - Time evolution operator $U=\exp(-iHt)$
 
@@ -261,7 +217,7 @@ $$
 U_j=\mathbb{1}\otimes \ldots \otimes\mathbb{1} \otimes \overbrace{u_j}^{j\text{th factor}} \ldots \otimes\mathbb{1}
 $$
 
-### Two qubit gates
+#### Two qubit gates
 
 - Simplest example of two qubit interaction is __exchange Hamiltonian__
 
@@ -294,8 +250,6 @@ $$
 U = \exp(-iH) = \left[\exp\left(-\frac{iH}{n}\right)\right]^n \sim \left[e^{-iH_A/n} e^{-iH_B/n}\right]^n 
 $$
 
-### Time evolution of chain
-
 $$
 H = \sum_j h_{j,j+1}
 $$
@@ -324,7 +278,7 @@ $$
 
 $$
 \begin{aligned}
-  U(n_+) &= \left[U(1_+)\right]^n,\qquad U(1_-) = K I_\mathbf{h}\\
+  U(n_+) &= \left[U(1_+)\right]^n,\qquad U(1_-) = K I_\mathbf{h}\\\
   I_\mathbf{h} &= e^{-iH_\text{I}[\mathbf{h}]}, \qquad K = e^{-iH_\text{K}}
 \end{aligned}
 $$
@@ -341,24 +295,6 @@ $$
   \mathcal{I} &= \exp\left[-iJ Z_1 Z_2 -i \left(h_1 Z_1 + h_2 Z_2\right)/2\right].
 \end{aligned}
 $$
-
-### Gate notation
-
-One of the additional complexities of quantum circuits relative to CAs is that we have to consider both unitaries and their conjugates (when we evolve an operator in the Heisenberg picture, for example). For this reason it's convenient to introduce a color-coded notation 
-
-<figure align="center">
-<img src="assets/matrix_elements.svg" width="70%">
-<figcaption> Notation for gates and their conjugates </figcaption>
-</figure>
-
-Putting all these notational elements together, it's possible to express the condition of unitarity of a two qubit gate in purely graphical form:
-
-<figure align="center">
-<img src="assets/diag_unitarity.png" width="70%">
-<figcaption> Unitarity of a two qubit gate expressed in graphical notation </figcaption>
-</figure>
-
-Much better!
 
 ### Locality 
 
@@ -380,13 +316,12 @@ One big difference between a quantum circuit and a CA is the difficulty of simul
 
 The total number of (time) steps $T$ taken is often referred to as the *depth* of the circuit. For low depth $T<N$ it pays to move  _horizontally_ instead (i.e. in the spatial direction). Note that the problem of finding the best way to contract a general tensor network is NP-hard.
 
+TODO More stuff about supremacy and other methods...
 
-### Trotterization of time evolution
+e.g. [Pan and Zhang](https://arxiv.org/abs/2103.03074)
 
+[Napp et al](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.12.021021 )
 
-### Some comments on computational complexity
-
-Difficulty of contraction. Matrix product states
 
 Preview of quantum supremacy.
 
@@ -405,7 +340,35 @@ We now turn to some of the features of dynamics in quantum circuits, beginning w
 
 ### Expectation values
 
-Here the goal is to evaluate $\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}$ for a local operator $\mathcal{O}$, where $\mathcal{U}$ is the *overall* unitary operator describing the whole circuit. The simplest example of such an operator is a Pauli operator $X$, $Y$, or $Z$ for one of the qubits. 
+Here the goal is to evaluate $\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}$ for a local operator $\mathcal{O}$, where $\mathcal{U}$ is the *overall* unitary operator describing the whole circuit. The simplest example of such an operator is a Pauli operator $X$, $Y$, or $Z$ for one of the qubits.
+
+#### Unitarity in graphical notation
+
+One of the additional complexities in graphically representing thiese calculations is that we have to consider both unitaries and their conjugates. For this reason it's convenient to introduce a color-coded notation 
+
+<figure align="center">
+<img src="assets/matrix_elements.svg" width="70%">
+<figcaption> Notation for gates and their conjugates </figcaption>
+</figure>
+
+The condition of unitarity has the form
+
+$$
+\sum\_{x_1'\ldots x_N'}U_{x_1\ldots x_n,x'_1,\ldots, x'_n} U^\dagger\_{x'_1\ldots x'_n,x''_1,\ldots, x''_n}=\delta\_{x_1,x_1''}\ldots \delta\_{x_N,x_N''},
+$$
+
+but we'll shortly introduce a graphical notation to avoid such awful looking expressions.
+
+Putting all these notational elements together, it's possible to express the condition of unitarity of a two qubit gate in purely graphical form:
+
+<figure align="center">
+<img src="assets/diag_unitarity.png" width="70%">
+<figcaption> Unitarity of a two qubit gate expressed in graphical notation </figcaption>
+</figure>
+
+Much better! (than what we had above)
+
+#### Using unitarity
 
 This calculation has the diagrammatic representation
  
@@ -464,7 +427,7 @@ TODO emphasize that even if you start from a complicated state, you only have to
 In $\mathcal{H}=\mathcal{H}\_A\otimes\mathcal{H}\_B$ any state $\Psi_{AB}$ can be written
 
 $$
-\ket{\Psi_{AB}} = \sum_{\alpha=1}^{\min(\operatorname{dim} \mathcal{H}_A, \operatorname{dim} \mathcal{H}_B)} \lambda_\alpha \ket{u_\alpha}_A\otimes\ket{v_\alpha}_B
+\ket{\Psi\_{AB}} = \sum\_{\alpha=1}^{\min(\operatorname{dim} \mathcal{H}\_A, \operatorname{dim} \mathcal{H}\_B)} \lambda\_\alpha \ket{u\_\alpha}\_A\otimes\ket{v\_\alpha}\_B
 $$
 
 - $\ket{u_\alpha}$ and $\ket{v_\alpha}$ orthonormal; $\lambda_\alpha\geq 0$
@@ -475,8 +438,8 @@ Apply to reduced density matrix
 
 $$
 \begin{align}
-\rho_A &= \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right] \\
-&= \sum_\alpha \lambda_\alpha^2 \ket{u_\alpha}\bra{u_\alpha}
+\rho_A &= \operatorname{tr}\_B\left[\ket{\Psi}\bra{\Psi}\right] \\
+&= \sum\_\alpha \lambda_\alpha^2 \ket{u\_\alpha}\bra{u\_\alpha}
 \end{align}
 $$
 
@@ -505,8 +468,6 @@ $$
 $$
 S_A \leq \min(2t-2, N_A)\log 2
 $$
-
----
 
 The reduced density matrix $\rho_A$ is also very useful for quantifying the degree of entanglement between subsystem $A$ and its complement. If the state $\ket{\Psi}$ has the form of a product state
 
@@ -546,7 +507,7 @@ $$
 
 with an entanglement entropy of one bit. 
 
-Now consider a Bell pair in our toy model where the two consituent qubits end up at sites $m$ and $n$:
+Now consider a Bell pair in our toy model where the two constituent qubits end up at sites $m$ and $n$:
 
 - If $n\in A$, $m\in\bar A$, $\rho_A$ has factor $\mathbb{1}_n$. 
 
@@ -562,7 +523,7 @@ exactly as for the mutual information in the classical case. After time $\sim |A
 
 TODO look ahead to dual unitaries
 
-TODO Page bound
+TODO Page bound / Page curve
 
 ### Correlation functions
 
@@ -570,7 +531,65 @@ In terms of quantum channel
 
 Somewhat surprising 
 
-Use pictures from maximal velocity paaper
+Use pictures from maximal velocity paper / Bertini
+
+Need to introduce notion of 
+
+#### (Infinite temperature) Correlations 
+
+$$
+c_{\alpha \beta}(x,t) = \langle \sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \rangle,\qquad \sigma_\alpha(x,t)=U^\dagger(t)\sigma_\alpha(x)U(t)
+$$
+
+- Vanishes when $|x|>t$ (outside light cone)
+<p align="center">
+<img src="assets/correlator.png" width="800">
+</p>
+
+
+
+#### On the light cone
+
+- Using unitarity (only)
+
+<p align="center">
+<img src="assets/diag_corr_2.png" width="400">
+</p>
+
+
+<p align="center">
+<img src="assets/diag_corr_channel.png" width="600">
+</p>
+
+
+#### Quantum channel
+
+TODO Need to define quantum channel
+
+$$
+\begin{align}\label{eq:CorrChannels}
+\langle \sigma\_{\alpha}(t,t) \sigma\_{\beta}(0,0) \rangle &= \tr \left[\sigma\_{\beta}\mathcal{M}\_{-}^t(\sigma\_{\alpha})\right] / q \\\
+&=  \tr \left[ \sigma\_{\alpha}\mathcal{M}\_{+}^{t}(\sigma\_{\beta})\right] / q
+\end{align}
+$$
+- Calculating correlator involves repeated application of 
+
+<p align="center">
+<img src="assets/diag_M_plus.png" width="500">
+<img src="assets/diag_M_min.png" width="500">
+</p>
+
+#### Typical behaviour of correlations
+
+<p align="center">
+<img src="assets/corr.png" width="600">
+</p>
+
+- Surprising that correlations can be found at arbitrary distances!
+
+TODO Not restricted to light cone. Can step inside, but at additional cost. Figures from maximal velocity paper.
+
+TODO Add stuff from our superdiffusion paper?
 
 ### Operator spreading
 
