@@ -1,6 +1,6 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
-title: "Quantum Circuits I"
+title: "Quantum Circuits I: Introduction"
 subtitle: "ICTS lectures on Quantum Circuits"
 summary: ""
 authors: []
@@ -11,7 +11,6 @@ featured: false
 draft: true
 type: book
 sidebar: false
-
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -418,71 +417,84 @@ Again, you can toggle the effect of using unitarity to remove gates.
 
 TODO emphasize that even if you start from a complicated state, you only have to deal with the reduced density matrix of that state at the bottom
 
-### Entanglement entropy
+### Dynamics of entanglement
 
+#### Quantifying entanglement
 
-
-#### [Schmidt decomposition](https://en.wikipedia.org/wiki/Schmidt_decomposition)
-
-In $\mathcal{H}=\mathcal{H}\_A\otimes\mathcal{H}\_B$ any state $\Psi_{AB}$ can be written
+The reduced density matrix can be used to quantify the entanglement present in a quantum state describing a system composed of two subsystems A and B. A general state of such a system is a vector in $\mathcal{H}=\mathcal{H}\_A\otimes\mathcal{H}\_B$  and can be written in terms of basis vectors $\ket{a}\_A$ and $\ket{b}\_B$ for the A and B subsystems as
 
 $$
-\ket{\Psi\_{AB}} = \sum\_{\alpha=1}^{\min(\operatorname{dim} \mathcal{H}\_A, \operatorname{dim} \mathcal{H}\_B)} \lambda\_\alpha \ket{u\_\alpha}\_A\otimes\ket{v\_\alpha}\_B
+\begin{equation}\label{gen_state}
+\ket{\Psi}\_{AB} = \sum\_{a=1}^{n\_A}\sum\_{b=1}^{n\_B} \Psi\_{ab}\ket{a}\_A\ket{b}\_B 
+\end{equation}
 $$
 
-- $\ket{u_\alpha}$ and $\ket{v_\alpha}$ orthonormal; $\lambda_\alpha\geq 0$
+where $n\_{A/B}=\operatorname{dim} \mathcal{H}\_{A/B}$. Now we regard the components $\psi_{ab}$ as a matrix and perform a singular value decomposition. This is equivalent to finding new orthonormal bases $\ket{u_n}\_{A}$ and $\ket{v\_n}\_B$ for the two spaces such that the  action of $\Psi\_{ab}$ maps between basis vectors of two subsystems (with rescaling)
 
-- $\lambda_\alpha$ quantify _entanglement_ between A and B
+{{% callout note %}}
 
-Apply to reduced density matrix
+[Singular value decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) (SVD) is an example of [matrix factorization](https://en.wikipedia.org/wiki/Matrix_decomposition), in which a matrix $M$ is written as a product of matrices of specific form. SVD corresponds to the factorization
+
+$$
+M = U\Sigma V
+$$
+
+where $U$ and $V$ unitary and $\Sigma$ is diagonal with non-negative real entries. SVD _completely general_, appying to all rectangular matrices. If $M$ is $m\times n$, then $U$ is $m\times m$, $V$ is $n\times n$, and $\Sigma$ is $m\times n$. The $\min(m,n)$ diagonal elements $\sigma\_i>0$ of $\Sigma$ are called the _singular values_. The number of nonzero singular values is the [rank](https://en.wikipedia.org/wiki/Rank_(linear_algebra)) of matrix, and is equal to number of independent rows or columns. For a general rectangular matrix the rank is $\min(m,n)$.
+
+{{% /callout %}}
+
+In the new bases our state $\eqref{gen_state}$ is
+
+$$
+\ket{\Psi}\_{AB} = \sum\_{n=1}^{\min(n_A, n_B)} \sigma\_n \ket{u\_n}\_A\otimes\ket{v\_n}\_B.
+$$
+
+Note the _single sum_, to be compared with the double sum in $\eqref{gen_state}$. This is the [Schmidt decomposition](https://en.wikipedia.org/wiki/Schmidt_decomposition) (in this context $\sigma_n$ are called the Schmidt coefficients), though as we've seen it's really just a restatement of SVD.
+
+If there is only one nonzero singular value state we have a _product state_ indicating no correlations between subsystems. Note that this might not have been evident in original representation $\eqref{gen_state}$.
+
+The simplest example displaying nontrivial entanglement is the [Bell state](https://en.wikipedia.org/wiki/Bell_state) of a system consisting of two spin-1/2 subsystems:
+
+$$
+\begin{equation}
+\left|\Psi^{+}\right\rangle=\frac{1}{\sqrt{2}}\left(|0\rangle_A \otimes|1\rangle_B+|1\rangle_A \otimes|0\rangle_B\right).
+\end{equation}
+$$
+
+This state is already written in Schmidt form and the two singular values are both $\frac{1}{\sqrt{2}}$, indicating maximal entanglement. In general the Schmidt coefficients $\sigma_n$ provide the most complete characterization: they are often known as the __entanglement spectrum__. 
+
+The Schmidt decomposition is closely related to the reduced density matrix, which we have met already. A simple calculation gives:
 
 $$
 \begin{align}
-\rho_A &= \operatorname{tr}\_B\left[\ket{\Psi}\bra{\Psi}\right] \\
-&= \sum\_\alpha \lambda_\alpha^2 \ket{u\_\alpha}\bra{u\_\alpha}
+\rho_A &= \operatorname{tr}\_B\left[\ket{\Psi}\bra{\Psi}\right] 
+= \sum\_n \sigma_n^2 \ket{u\_n}\bra{u\_n}
 \end{align}
 $$
 
-- $p_\alpha\equiv \lambda_\alpha^2$ are the eigenvalues of $\rho_A$
-
-Schmidt rank
-
-$\operatorname{rank}=\min(\operatorname{dim} \mathcal{H}_A, \operatorname{dim} \mathcal{H}_B)=2^{\min(2t-2, N_A)}$
-
-Here $t=4$, $N_A=4$
-<object data="assets/contracted-density-matrix.svg" type="image/svg+xml"></object>
-
-#### Entanglement entropy
-
-- von Neumann entropy of $\rho_A$
+The eigenvalues of the reduced density matrix are thus $p_n=\sigma_n^2$. The degree of entanglement can then be quantified by the von Neumann entropy of $\rho_A$ – called the **entanglement entropy** – defined by
 
 $$
-\begin{align}
-S_A &= -\operatorname{tr}\left[\rho_A\log \rho_A\right]\\\
-&=-\sum_\alpha p_\alpha \log p_\alpha
-\end{align}
+S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right].
 $$
 
-- Maximum value for equal probabilities $p_\alpha = \frac{1}{2^{\min(2t-2, N_A)}}$
+$S_A$ vanishes for a product state, and is otherwise positive. The [Rényi entropies](https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy) provide an alternative characterization of the entanglement spectrum 
 
 $$
-S_A \leq \min(2t-2, N_A)\log 2
+  S^{(\alpha)}\_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^n\right]=\frac{1}{1-\alpha}\sum\_n p\_n^\alpha,
 $$
 
-The reduced density matrix $\rho_A$ is also very useful for quantifying the degree of entanglement between subsystem $A$ and its complement. If the state $\ket{\Psi}$ has the form of a product state
+where $\alpha\geq 0$. The von Neumann entropy is $S^{(\text{vN})}\_A=\lim\_{\alpha\to 1} S^{(\alpha)}\_A$. The zeroth Rényi entropy $S^{(0)}\_A$ is the number of nonzero Schmidt coefficients (aka [Schmidt rank](https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement)). Finally, the second Rényi entropy $S^{(2)}\_A$ is
 
 $$
-\ket{\Psi} = \ket{\psi}\_A \otimes \ket{\phi}\_{\bar A}
+S^{(2)}\_A = -\log \sum_n p_n^2 = -\log \gamma\tr \rho_A^2
 $$
 
-then it's not hard to see that $\rho_A = \ket{\psi}_A\bra{\psi}_A$: a pure state. Any deviation from a product state will lead to a mixed reduced density matrix. The degree of entanglement can then be quantified by the von Neumann entropy of $\rho_A$ – called the **entanglement entropy** – defined by
+where $\gamma\equiv \tr \rho_A^2$ is the [purity](https://en.wikipedia.org/wiki/Purity_(quantum_mechanics)) of the reduced density matrix.
 
-$$
-S_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right].
-$$
 
-$S_A$ vanishes for a product state, and is otherwise positive.
 
+TODO Various measures are possible. The number of nonzero Schmidt coefficients (aka [Schmidt rank](https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement) or the rank of $\Psi_{ab}$) is one possibility. 
 
 #### Toy model
 
@@ -507,22 +519,31 @@ $$
 
 with an entanglement entropy of one bit. 
 
-Now consider a Bell pair in our toy model where the two constituent qubits end up at sites $m$ and $n$:
-
-- If $n\in A$, $m\in\bar A$, $\rho_A$ has factor $\mathbb{1}_n$. 
-
-- If both qubits $m$, $n$, of pair are $m, n\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$ (pure)
-
-In our toy model the reduced density matrix $\rho_A$ has a factor $\mathbb{1}_n$ for each site $n\in A$ whose "partner" qubit is in $\bar A$. If both qubits of a Bell pair are at sites  $n,m\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$, which is a pure state. The entanglement entropy has contributions from the former case only, and we get
+The reduced density matrix $\rho_A$ therefore has a factor $\mathbb{1}_n$ for each site $n\in A$ whose "partner" qubit is in $\bar A$. If both qubits of a Bell pair are at sites  $n,m\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$, which is a pure state. The entanglement entropy has contributions from the former case only, and we get
 
 $$
- S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits},
+ S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 $$
 
-exactly as for the mutual information in the classical case. After time $\sim |A|/2$ the subsystem has thermalized. 
+After time $\sim |A|/2$ the subsystem has thermalized. 
 
-TODO look ahead to dual unitaries
+<figure align="center">
+<img src="assets/bertini.png" width="400">
+<figcaption> 
+TODO Caption goes here
+</figcaption>
+</figure>
 
+This kind of behaviour has been found in many systems, beginning with the work of [Calabrese and Cardy (2005)](https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P04010/meta). In noninteracting systems or integrable systems, it is often explained in terms of the causal propagation of (quasi-)particles:
+
+<figure align="center">
+<img src="assets/qp.png" width="400">
+<figcaption> 
+TODO Caption goes here
+</figcaption>
+</figure>
+
+Our toy model with SWAP gates is arguably rather similar, with the qubits playing the role of "noninteracting particles". As we'll see next time, however, this picture remains true in circuits where there is no quasiparticle interpretation. 
 TODO Page bound / Page curve
 
 ### Correlation functions
@@ -550,7 +571,7 @@ $$
 
 #### On the light cone
 
-- Using unitarity (only)
+Using unitarity
 
 <p align="center">
 <img src="assets/diag_corr_2.png" width="400">
@@ -558,7 +579,7 @@ $$
 
 
 <p align="center">
-<img src="assets/diag_corr_channel.png" width="600">
+<img src="assets/diag_corr_channel.png" width="400">
 </p>
 
 
@@ -589,7 +610,9 @@ $$
 
 TODO Not restricted to light cone. Can step inside, but at additional cost. Figures from maximal velocity paper.
 
-TODO Add stuff from our superdiffusion paper?
+TODO Of course correlations can be nonzero outside the light cone for _particular_ states e.g. the ground state of some Hamiltonian. The infinite temperature correlation function is an average over _all_ states.
+
+TODO Show some numerics. Generic situation is decay. What about conservation laws? Generically velocity is lower so correlations should still decay
 
 ### Operator spreading
 
@@ -601,12 +624,120 @@ $$
 Z_n(t)= \sum_{\mu_{1:N}=\\{0,1,2,3\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N},\qquad \sigma^\mu = (\mathbb{1},X,Y,Z)
 $$
 
+
+
+- With initial condition 
+
+$$
+\begin{equation}
+\mathcal{C}\_{\mu_{1:N}}(0)=\begin{cases}
+1 & \mu_j=z, \mu_k=0,\forall k\neq j \\\\
+0 & \text{otherwise},
+\end{cases}
+\end{equation}
+$$
+
+- Spin correlations $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) = \mathcal{C}_{0\cdots \mu_k=z \cdots 0}(t)$
+
+<p align="center">
+<img src="assets/initial-terminal.png" width="400">
+</p>
+
+
+TODO change notation of coefficients to be in line with review paper.
+
+#### Example: $SU(2)$ preserving gate
+
+
+$$
+U\_{j,j+1} = \cos\theta \mathbb{1}\_{j,j+1} + i\sin\theta \operatorname{\mathsf{S}}\_{j.j+1}
+$$
+
+Where $\operatorname{\mathsf{S}}_{j,j+1}$ denotes $\operatorname{\mathsf{SWAP}}$ gate on sites $j$ and $j+1$
+
+\begin{multline}
+\mathcal{O} \longrightarrow U^\dagger\_{j,j+1}\mathcal{O}U\_{j,j+1} = \cos^2\theta \mathcal{O} + \sin^2\theta \operatorname{P}\_{j.j+1}\mathcal{O} \operatorname{P}\_{j.j+1} \\\
+-i\sin\theta\cos\theta \left[\operatorname{P}\_{j.j+1}, \mathcal{O}\right]
+\end{multline}
+
+_Generally useful idea_: consider __random circuit__ and average
+
+Take distribution $\theta=\pm \theta_0$ with $p(\theta_0)-p(-\theta_0)\equiv \delta > 0$
+
+Average dynamics
+
+\begin{multline}
+\overline{U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1}} = \cos^2\theta_0 \\, \mathcal{O} + \sin^2\theta_0 \\, P_{j.j+1}\mathcal{O} P_{j.j+1} \\\\
++i\delta \sin\theta_0\cos\theta_0 \left[P_{j.j+1}, \mathcal{O}\right]
+\end{multline}
+
+- Interpretation:
+  - Operators on sites $j$ and $j+1$ switch with probability $\sin^2\theta_0$
+  - Asymmetry $\delta$ governs strength of "quantum" dynamics
+
+Continuous time limit
+
+$$
+\frac{d\bar{\mathcal{O}}}{dt} = \sum_j \left[iJ \left[P_{j,j+1},\bar{\mathcal{O}}\right]+\left(P_{j,j+1}\bar{\mathcal{O}}P_{j,j+1}-\bar{\mathcal{O}}\right)\right].
+$$
+
+
+\begin{align}
+i[P,\sigma^a\otimes 1]&=-\epsilon^{abc}\sigma^b\otimes\sigma^c\nonumber\\\\
+i[P,1\otimes \sigma^a]&=\epsilon^{abc}\sigma^b\otimes\sigma^c\nonumber\\\\
+i[P,\sigma^a\otimes \sigma^b]&=\epsilon^{abc}\left(\sigma^c\otimes 1- 1\otimes \sigma^c\right).
+\label{eq:split-merge}
+\end{align}
+
+- Sum of first two expressions vanishes by spin conservation
+
+- Describe operator "splitting" ($1\to 2$) and "merging" ($2\to 1$). 
+
+$J=0$: 1 operator sector 
+
+- Writing $\mathcal{C}^a_{0\cdots \mu_k=a\cdots 0}\equiv C^a_k$ we have equation of motion
+
+$$
+\partial_t C^a_k = C^a_{k+1} + C^a_{k-1} - 2 C^a_k\equiv \Delta_k C^a_k
+$$
+
+- Diffusion of single $\sigma^a$ ($\Delta_k$ is 1D discrete Laplacian)
+
+<figure align="center">
+<img src="assets/1operator.png" width="400">
+<figcaption> 
+Caption goes here
+</figcaption>
+</figure>
+
+Equation of motion
+
+$$
+\begin{align}
+\partial_t \mathcal{C}\_{\mu_{1:N}} = \sum_j \left[J\epsilon_{\alpha\beta \mu_j \mu_{j+1}} \mathcal{C}\_{\mu_1\cdots \alpha\beta \cdots \mu_N} + \mathcal{C}\_{\mu_1\cdots \mu_{j+1}\mu_j \cdots \mu_N} - \mathcal{C}\_{\mu_1\cdots \mu_{j}\mu_{j+1} \cdots \mu_N}\right].
+\end{align}
+$$
+
+<figure align="center">
+<img src="assets/2nd-order-2.png" width="400">
+<figcaption> 
+Caption goes here
+</figcaption>
+</figure>
+
+- See [Claeys, Lamacraft, and Herzog-Arbeitman](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.246603) for more
+
+
+#### Operator spreading _vs._ operator entanglement
+
 As time progresses two things (tend to) increase:
 
   1.  The number of non-identity sites (known as __operator spreading__)
   2.  The number of different contributions  (or __operator entanglement__)
 
 Operator spreading is closely analogous to the spreading of chaotic fronts that we saw in CAs. The resemblance becomes clearer if we introduce an ensemble of unitary circuits, where the gate parameters are chosen iid from a certain distribution (a popular choice is the uniform distribution over the unitary matrices). The coefficients $\mathcal{C}\_{\mu_{1:N}}$ that appear in the expansion of $Z_n(t)$ then inherit this randomness. In particular, their signs can fluctuate, meaning that a correlation function such as $\langle Z_n(t)Z_m(0) \rangle$ will tend to average to zero. This is akin to the way that averaging over different rules led to a completely random state of a CA. 
+
+TODO Add stuff from our superdiffusion paper?
 
 One can still see some interesting dynamics, however, if one considers a quantity that is insensitive to these sign fluctuations.
 
@@ -626,26 +757,37 @@ $$
 
 We see that $\operatorname{OTOC}\_{jk}(t)\neq 1$ when operator $Z_j(t)$ spreads from site $j$ to site $k$ (the characteristic speed of propagation of the OTOC is known as the "butterfly velocity" $v_\text{B}$, after the [butterfly effect](https://en.wikipedia.org/wiki/Butterfly_effect)). Additionally, the OTOC depends on the *square* of the coefficients, so survives averaging over random circuits. 
 
-The OTOC is a natural quantum analog of the bitstring differences $z_t=x_t\oplus y_t$ that we considered for CAs. In the same way, it can be understood in terms of the evolution of two identical copies of the system.
+TODO Conservation of the Hilbert–Schmidt norm
+
+TODO Relation to purity and 
 
 ### Google's OTOC experiment
 
-The OTOC was measured last year in a [groundbreaking experiment](https://www.science.org/doi/full/10.1126/science.abg5029?casa_token=TkmMj95XIYoAAAAA:NP67A_aYhL8lSDWtuG99i8oFfx1c79-Lz-UGKYsW1-bee3hQ7weJSxLLQwpPzfSEPvEqt6SPbB4UYA) from the Google Quantum team. The two qubit gates were either all $i\operatorname{SWAP}$ gates or all $\sqrt{i\operatorname{SWAP}}$. After averaging over single qubit gates very different behaviors were obtained for these two cases.
+The OTOC was measured in 2021 in a [groundbreaking experiment](https://www.science.org/doi/full/10.1126/science.abg5029?casa_token=TkmMj95XIYoAAAAA:NP67A_aYhL8lSDWtuG99i8oFfx1c79-Lz-UGKYsW1-bee3hQ7weJSxLLQwpPzfSEPvEqt6SPbB4UYA) from the Google Quantum AI team. The two qubit gates were either all $i\operatorname{\mathsf{SWAP}}$ gates or all $\sqrt{i\operatorname{\mathsf{SWAP}}}$. After averaging over single qubit gates very different behaviors were obtained for these two cases.
 
 <figure align="center">
 <img src="assets/google-otoc.png" width="1000">
-<figcaption> The measured OTOC for $i\operatorname{SWAP}$ gates (top) and $\sqrt{i\operatorname{SWAP}}$ (bottom) after averaging over single qubit gates.</figcaption>
+<figcaption> The measured OTOC for $i\operatorname{\operatorname{\mathsf{SWAP}}}$ gates (top) and $\sqrt{i\operatorname{\mathsf{SWAP}}}$ (bottom) after averaging over single qubit gates.</figcaption>
 </figure>
 
-For $i\operatorname{SWAP}$ gates the OTOC has a front that moves at the maximal speed and remains sharp, whereas for $\sqrt{i\operatorname{SWAP}}$ the front moves more slowly and broadens with time. The former behavior is typical of dual unitary circuits ([Claeys and Lamacraft (2020)](https://link.aps.org/doi/10.1103/PhysRevResearch.2.033032)), while the latter is generic for unitary circuits.
+For $i\operatorname{\mathsf{SWAP}}$ gates the OTOC has a front that moves at the maximal speed and remains sharp, whereas for $\sqrt{i\operatorname{\mathsf{SWAP}}}$ the front moves more slowly and broadens with time. The former behavior is typical of dual unitary circuits ([Claeys and Lamacraft (2020)](https://link.aps.org/doi/10.1103/PhysRevResearch.2.033032)), while the latter is generic for unitary circuits.
 
 The averaged OTOC can be expressed in terms of a Markov process, similarly to our discussion of chaotic fronts in CAs, and can therefore be efficiently calculated using Monte Carlo simulations, for example.
 
 ### Operator entanglement
 
-### Quantum advantage?
+Can apply SVD as before
 
-This all seems very classical. Aren't quantum computers supposed to do things that classical computers find hard? The key to efficient classical algorithms is the strategy we've been using throughout to arrive at a simple theoretical picture of these system, whether quantum or classical: *averaging*. If one asks about the OTOC in a *given* circuit, there is no simple probabilistic interpretation. As shown in the Appendix of the Google paper, formulating the dynamics of the average OTOC fluctuations leads to model with negative matrix elements, so that Monte Carlo simulations would be afflicted with the [sign problem](https://en.wikipedia.org/wiki/Numerical_sign_problem). In fact, the same issue arises for the average OTOC in models with number conservation ([Rowlands and Lamacraft (2018)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.98.195125)).
+Schmidt operator decomp (see Stoudenmire paper)
 
-TODO Does this represent the start of lecture 2?
+Illustrate for case of SWAP
 
+$$
+\operatorname{\mathsf{SWAP}}=\frac{1}{2}\left[X\otimes X+Y\otimes Y+Z\otimes Z + \mathsf{1}\otimes\mathsf{1}\right]
+$$
+
+TODO Magic and OTOC ([Jaffe resource theory](https://www.pnas.org/doi/10.1073/pnas.2217031120#sec-1-3) paper)
+
+OTOC fluctuations
+
+TODO Look ahead to next lecture
