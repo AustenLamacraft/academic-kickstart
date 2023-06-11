@@ -38,33 +38,6 @@ Even more recent [Random Quantum Circuits
 
 Lots of other perspectives on circuits e.g. as quantum algorithms incl. variational quantum algos etc.
 
-# Outline of lectures
-
-
-5. Approaches
-   1. Influence matrix / process tensor. Temporal entanglement
-   2. Quantum channel view of correlations
-6. Methods to use
-   1. Random unitaries. Simplest result here?
-   2. Dual unitaries. Result on maximal entanglement growth (Harrow)
-   3. Clifford circuits. No operator entanglment. Relation to cellular automata
-   4. Free fermions / matchgates (see Josza paper)
-
-7. Dual unitaries
-   1. Entanglement results
-   2. Correlation functions. 
-   3. What can be said about _generic dynamics_? [Growth of entanglement of generic states under dual-unitary dynamics](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.174311)
-8. Connection to experiment
-   1. Quantum supremacy paper
-   2. Google OTOC experiment
-   3. Quantinuum paper [Holographic dynamics simulations with a trapped-ion quantum computer](https://www.nature.com/articles/s41567-022-01689-7)
-
-9. Frontiers
-   1. Measurement induced transitions
-   2. Computational issues. [Computational power of one- and two-dimensional dual-unitary quantum circuits](https://quantum-journal.org/papers/q-2022-01-24-631/)
-   3. Connections to cellular automata
-   4. Codes. Code length (Sommers)
-
 ## What is a quantum circuit?
 
 <p align="center">
@@ -210,7 +183,7 @@ e^{-i J_z} \cos(J_-) & 0 & 0 & -i e^{-i J_z \sin(J_-)} \\\\
 - If $H=\sum_j h_j$ a sum of single qubit terms
 
 $$
-U = \exp(-iHt) = \prod_j \exp(-ih_j) = \prod_j U_j
+\mathcal{U} = \exp(-iHt) = \prod_j \exp(-ih_j) = \prod_j U_j
 $$
 $$
 U_j=\mathbb{1}\otimes \ldots \otimes\mathbb{1} \otimes \overbrace{u_j}^{j\text{th factor}} \ldots \otimes\mathbb{1}
@@ -221,7 +194,7 @@ $$
 - Simplest example of two qubit interaction is __exchange Hamiltonian__
 
 $$
-\begin{align}
+\begin{align}\label{eq:exchange}
 h_{12} &= J\left[X\otimes X+Y\otimes Y+Z\otimes Z\right] =J\left[X_1X_2+Y_1Y_2 + Z_1Z_2\right]\\\
 &=2\operatorname{SWAP} - 1
 \end{align}
@@ -241,12 +214,12 @@ $$
 
 - $H=\sum_{i,j} h_{i,j}$ a sum of two qubit terms with $[h_{i,j},h_{j,k}]\neq 0$
 
-- $U\neq \prod_{i,j} \exp(-ih_{i,j})$. More complicated!
+- $\mathcal{U}\neq \prod_{i,j} \exp(-ih_{i,j})$. More complicated!
 
 - __Suzuki–Trotter__ expansion: decompose $H=H_A + H_B$
 
 $$
-U = \exp(-iH) = \left[\exp\left(-\frac{iH}{n}\right)\right]^n \sim \left[e^{-iH_A/n} e^{-iH_B/n}\right]^n 
+\mathcal{U} = \exp(-iH) = \left[\exp\left(-\frac{iH}{n}\right)\right]^n \sim \left[e^{-iH_A/n} e^{-iH_B/n}\right]^n 
 $$
 
 $$
@@ -273,11 +246,11 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 \end{aligned}
 $$
 
-- "Stroboscopic" form of $U(t)=\mathcal{T}\exp\left[-i\int^t H_{\text{KIM}}(t') dt'\right]$
+- "Stroboscopic" form of $\mathcal{U}(t)=\mathcal{T}\exp\left[-i\int^t H_{\text{KIM}}(t') dt'\right]$
 
 $$
 \begin{aligned}
-  U(n_+) &= \left[U(1_+)\right]^n,\qquad U(1_-) = K I_\mathbf{h}\\\
+  \mathcal{U}(n_+) &= \left[\mathcal{U}(1_+)\right]^n,\qquad U(1_-) = K I_\mathbf{h}\\\
   I_\mathbf{h} &= e^{-iH_\text{I}[\mathbf{h}]}, \qquad K = e^{-iH_\text{K}}
 \end{aligned}
 $$
@@ -327,13 +300,6 @@ Preview of quantum supremacy.
 
 
 ## Quantities of interest
-
-2. What quantities might we calculate?
-   1. Correlation functions Causality. Extension to Lorentz symmetry? Correlation functions. Surprising that some (parts of) the correlation functions are not intractable. 
-   2. Entanglement. Membrane picture
-   3. OTOC. Operator spreading. Operator entanglement
-   4. [Maximal entanglement velocity implies dual unitarity](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.L201104)
-
 
 We now turn to some of the features of dynamics in quantum circuits, beginning with the simplest question: computing the expectation value of a (local) operator
 
@@ -406,10 +372,10 @@ If you click on the picture you can toggle the effect of applying the unitarity 
 Any expectation value of an operator in a region $A$ can be computed in terms of the *reduced density matrix* $\rho_A$ for region $A$, defined by
 
 $$
-\rho_A = \operatorname{tr}\_{\bar A}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{\bar A}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
+\rho_A = \operatorname{tr}\_{B}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{B}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right],
 $$
 
-$\rho_A$ has the diagrammatic representation (where $A$ consists of the four central sites):
+where $B$ is the complement of $A$. $\rho_A$ has the diagrammatic representation (where $A$ consists of the four central sites):
 
 <object data="assets/reduced-density-matrix.svg" type="image/svg+xml"></object>
 
@@ -433,7 +399,7 @@ where $n\_{A/B}=\operatorname{dim} \mathcal{H}\_{A/B}$. Now we regard the compon
 
 {{% callout note %}}
 
-[Singular value decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) (SVD) is an example of [matrix factorization](https://en.wikipedia.org/wiki/Matrix_decomposition), in which a matrix $M$ is written as a product of matrices of specific form. SVD corresponds to the factorization
+[Singular value decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) (SVD) is an example of [matrix factorization](https://en.wikipedia.org/wiki/Matrix_decomposition), in which a matrix $M$ is written as a product of matrices of specific form. In particular, SVD corresponds to the factorization
 
 $$
 M = U\Sigma V
@@ -492,10 +458,6 @@ $$
 
 where $\gamma\equiv \tr \rho_A^2$ is the [purity](https://en.wikipedia.org/wiki/Purity_(quantum_mechanics)) of the reduced density matrix.
 
-
-
-TODO Various measures are possible. The number of nonzero Schmidt coefficients (aka [Schmidt rank](https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement) or the rank of $\Psi_{ab}$) is one possibility. 
-
 #### Toy model
 
 We can get some intuition for the growth of entanglement from a toy model. We consider a circuit that consists of the repeated application of SWAP gates. 
@@ -519,7 +481,7 @@ $$
 
 with an entanglement entropy of one bit. 
 
-The reduced density matrix $\rho_A$ therefore has a factor $\mathbb{1}_n$ for each site $n\in A$ whose "partner" qubit is in $\bar A$. If both qubits of a Bell pair are at sites  $n,m\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$, which is a pure state. The entanglement entropy has contributions from the former case only, and we get
+The reduced density matrix $\rho_A$ therefore has a factor $\mathbb{1}_n$ for each site $n\in A$ whose "partner" qubit is in $B$. If both qubits of a Bell pair are at sites  $n,m\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$, which is a pure state. The entanglement entropy has contributions from the former case only, and we get
 
 $$
  S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
@@ -548,44 +510,55 @@ TODO Page bound / Page curve
 
 ### Correlation functions
 
-In terms of quantum channel 
+Entanglement is a rather difficult quantity to access experimentally, as it is not obviously related to observable quantities. In many body physics we are instead often concerned with correlation functions of observables. Although the calculation of correlation functions is usually ferociously difficult, we can actually obtain (albeit limited) results in unitary circuits quite easily.
 
-Somewhat surprising 
+#### Graphical representation
 
-Use pictures from maximal velocity paper / Bertini
-
-Need to introduce notion of 
-
-#### (Infinite temperature) Correlations 
+The natural correlation function to consider is
 
 $$
-c_{\alpha \beta}(x,t) = \langle \sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \rangle,\qquad \sigma_\alpha(x,t)=U^\dagger(t)\sigma_\alpha(x)U(t)
+c_{\alpha \beta}(x,t) = \frac{1}{2^N}\tr\left[\sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \right],\qquad \sigma_\alpha(x,t)=\mathcal{U}^\dagger(t)\sigma_\alpha(x)\mathcal{U}(t).
 $$
 
-- Vanishes when $|x|>t$ (outside light cone)
-<p align="center">
+That is, we average overall all possible initial states uniformly. This is often described as the "infinite temperature" situation, but temperature is not defined is this situation, as there is no Hamiltonian and thus no Boltzmann distribution. 
+
+In the graphical representation the correlation function has the form shown below left (in the unfolded representation). This can be simplified using the unitarity condition to give the "skeleton" shown on the right. 
+
+<figure align="center">
 <img src="assets/correlator.png" width="800">
-</p>
+<figcaption> 
+Graphical representation of the correlation function. (Left) the full circuit involving unitary gates and their conjugates. (Right) after simplifying using the unitarity condition. 
+</figcaption>
+</figure>
 
+When $|x|>t$ the same condition leads to the removal of _all_ $U$s and $U^\dagger$s 
 
+$$
+c_{\alpha \beta}(x,t) = \frac{1}{4}\tr\left[\sigma_{\alpha}\right]\tr\left[\sigma_{\beta}\right]=0,
+$$
 
-#### On the light cone
+and the correlations vanish (if the operators are traceless). On the light cone when $|x|=t$ the remaining tensor network is particularly simple:
 
-Using unitarity
+<figure align="center">
+<img src="assets/diag_corr_2.png" width="300">
+</figure>
 
-<p align="center">
-<img src="assets/diag_corr_2.png" width="400">
-</p>
+The graphical expression for the correlation function can be written in several ways, including in the folded representation:
 
-
-<p align="center">
+<fig align="center">
 <img src="assets/diag_corr_channel.png" width="400">
-</p>
+</fig>
 
+Here $q$ is the local Hilbert space dimension (we've been considering $q=2$ up to now). The normalization factor is most easily understood by comparing with the case $\sigma_\alpha=\sigma_\beta=\mathsf{1}$ (in the diagram $t=4$).
 
-#### Quantum channel
+The best way to evaluate this expression is to iteratively apply the operator map $\mathcal{M}\_+$ or $\mathcal{M}\_-$ defined as:
 
-TODO Need to define quantum channel
+<fig align="center">
+<img src="assets/diag_M_plus.png" width="400">
+<img src="assets/diag_M_min.png" width="400">
+</fig>
+
+The correlations functions can then be expressed as
 
 $$
 \begin{align}\label{eq:CorrChannels}
@@ -593,26 +566,23 @@ $$
 &=  \tr \left[ \sigma\_{\alpha}\mathcal{M}\_{+}^{t}(\sigma\_{\beta})\right] / q
 \end{align}
 $$
-- Calculating correlator involves repeated application of 
 
-<p align="center">
-<img src="assets/diag_M_plus.png" width="500">
-<img src="assets/diag_M_min.png" width="500">
-</p>
+$\mathcal{M}\_\pm$ are examples of [quantum channels](https://en.wikipedia.org/wiki/Quantum_channel): completely positive trace preserving maps between spaces of operators. $\mathcal{M}\_\pm$ have the additional property of being _unital_: $\mathcal{M}\_\pm(\mathsf{1})=\mathsf{1}$.
 
-#### Typical behaviour of correlations
+The typical behaviour of correlations is shown below. By fine tuning the choice of gates, less generic behaviour may be observed. A trivial example would be a circuit made of SWAP gates, in which case the correlations would not decay at all.
 
-<p align="center">
-<img src="assets/corr.png" width="600">
-</p>
+<fig align="center">
+<img src="assets/corr.png" width="500">
+<figcaption>
+Evolution of light cone correlations for a "typical" gate with no conservation laws. Exponential decay can be clearly observed after an initial transient regime, where all correlation functions decay at the same rate. Taken from <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032">Claeys and Lamacraft (2020)</a>.
+</figcaption>
+</fig>
 
-- Surprising that correlations can be found at arbitrary distances!
+We've argued that the dynamics of quantum circuits has the full complexity we'd expect of other problems in many-body quantum mechanics, so it can be a little surprising that we can calculate _particular_ correlations at long times without much difficulty. However, the proper notion of separation in a circuit is _Lorentzian_, and we have been considering points at zero Lorentzian separation. 
 
-TODO Not restricted to light cone. Can step inside, but at additional cost. Figures from maximal velocity paper.
+There's nothing to stop us using the same formalism to evaluate correlations inside the light cone. In our original diagram we had correlations "one step inside" the light cone. We can evaluate these in the same way, at the expense of introducing a larger quantum channel that acts on two-site operators: a space of dimension $q^4$. In general taking $s$ steps inside gives a quantum channel acting on a $q^{2s}$-dimensional space. So the general situation is really exponentially hard, as we'd expect.
 
-TODO Of course correlations can be nonzero outside the light cone for _particular_ states e.g. the ground state of some Hamiltonian. The infinite temperature correlation function is an average over _all_ states.
-
-TODO Show some numerics. Generic situation is decay. What about conservation laws? Generically velocity is lower so correlations should still decay
+Finally, note that the vanishing of correlations outisde the light cone is a consequence of averaging over all states: correlations can be nonzero outside the light cone for _particular_ states e.g. the ground state of some Hamiltonian. 
 
 ### Operator spreading
 
@@ -621,66 +591,64 @@ How does a local operator "look" as it evolves in the Heisenberg picture? Up unt
 Let's be more explicit. Since the Pauli operators $X$, $Y$, $Z$, and the identity form a basis of hermitian operators at a site, any observable such as $Z_n(t)$ can be expressed as an expansion in products of these operators
 
 $$
-Z_n(t)= \sum_{\mu_{1:N}=\\{0,1,2,3\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N},\qquad \sigma^\mu = (\mathbb{1},X,Y,Z)
+Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N},
 $$
 
-
-
-- With initial condition 
+with the coefficients $\mathcal{C}\_{\mu_{1:N}}(t)$ obeying the initial condition
 
 $$
 \begin{equation}
 \mathcal{C}\_{\mu_{1:N}}(0)=\begin{cases}
-1 & \mu_j=z, \mu_k=0,\forall k\neq j \\\\
+1 & \mu_j=z, \mu_k=1,\forall k\neq j \\\\
 0 & \text{otherwise},
 \end{cases}
 \end{equation}
 $$
 
-- Spin correlations $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) = \mathcal{C}_{0\cdots \mu_k=z \cdots 0}(t)$
+Since $\tr\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}$ the spin correlations we considered earlier can be extracted from $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)$. This represents only one component of the operator expansion, however.
 
-<p align="center">
+<fig align="center">
 <img src="assets/initial-terminal.png" width="400">
-</p>
-
+</fig>
 
 TODO change notation of coefficients to be in line with review paper.
 
 #### Example: $SU(2)$ preserving gate
 
+Let's see how the operator dynamics looks for a particular simple family of gates: those generated by the exchange Hamiltonian $\eqref{eq:exchange}$:
 
 $$
-U\_{j,j+1} = \cos\theta \mathbb{1}\_{j,j+1} + i\sin\theta \operatorname{\mathsf{S}}\_{j.j+1}
+U\_{j,j+1} = \cos\theta \mathbb{1}\_{j,j+1} + i\sin\theta \operatorname{\mathsf{S}}\_{j.j+1}.
 $$
 
-Where $\operatorname{\mathsf{S}}_{j,j+1}$ denotes $\operatorname{\mathsf{SWAP}}$ gate on sites $j$ and $j+1$
+Here $\operatorname{\mathsf{S}}_{j,j+1}$ denotes $\operatorname{\mathsf{SWAP}}$ gate on sites $j$ and $j+1$. The action of this gate on an operator is
 
 \begin{multline}
 \mathcal{O} \longrightarrow U^\dagger\_{j,j+1}\mathcal{O}U\_{j,j+1} = \cos^2\theta \mathcal{O} + \sin^2\theta \operatorname{P}\_{j.j+1}\mathcal{O} \operatorname{P}\_{j.j+1} \\\
 -i\sin\theta\cos\theta \left[\operatorname{P}\_{j.j+1}, \mathcal{O}\right]
 \end{multline}
 
-_Generally useful idea_: consider __random circuit__ and average
+Now we are going to introduce the first example of what we'll see is a generally useful idea. We consider an _ensemble_ of _random circuits_ where the gates are chose iid from some distribution. We can then consider averages of quantities of interest —  in this case the correlation functions — over this ensemble. In the present family there is only one parameter and we take the simple distribution $\theta=\pm \theta_0$ with $p(\theta_0)-p(-\theta_0)\equiv \delta > 0$.
 
-Take distribution $\theta=\pm \theta_0$ with $p(\theta_0)-p(-\theta_0)\equiv \delta > 0$
-
-Average dynamics
+Averaging the evolved operator then gives
 
 \begin{multline}
 \overline{U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1}} = \cos^2\theta_0 \\, \mathcal{O} + \sin^2\theta_0 \\, P_{j.j+1}\mathcal{O} P_{j.j+1} \\\\
 +i\delta \sin\theta_0\cos\theta_0 \left[P_{j.j+1}, \mathcal{O}\right]
 \end{multline}
 
-- Interpretation:
-  - Operators on sites $j$ and $j+1$ switch with probability $\sin^2\theta_0$
-  - Asymmetry $\delta$ governs strength of "quantum" dynamics
+The interpretation of this expression is the following. 
 
-Continuous time limit
+1. Operators on sites $j$ and $j+1$ switch with probability $\sin^2\theta_0$.
+2. The asymmetry $\delta$ governs strength of "quantum" dynamics.
+
+In the continuous time limit (see [Claeys, Lamacraft, and Herzog-Arbeitman](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.246603) for the details) this becomes
 
 $$
 \frac{d\bar{\mathcal{O}}}{dt} = \sum_j \left[iJ \left[P_{j,j+1},\bar{\mathcal{O}}\right]+\left(P_{j,j+1}\bar{\mathcal{O}}P_{j,j+1}-\bar{\mathcal{O}}\right)\right].
 $$
 
+where $J\propto \delta$. Computing the commutator in the first term gives
 
 \begin{align}
 i[P,\sigma^a\otimes 1]&=-\epsilon^{abc}\sigma^b\otimes\sigma^c\nonumber\\\\
@@ -689,28 +657,26 @@ i[P,\sigma^a\otimes \sigma^b]&=\epsilon^{abc}\left(\sigma^c\otimes 1- 1\otimes \
 \label{eq:split-merge}
 \end{align}
 
-- Sum of first two expressions vanishes by spin conservation
+You can check that the total spin $\sum_j \sigma_j^a$ is conserved by virtue of the first two of these expressions. In general, the resulting equation of motion describes operator "splitting" ($1\to 2$) and "merging" ($2\to 1$). 
 
-- Describe operator "splitting" ($1\to 2$) and "merging" ($2\to 1$). 
-
-$J=0$: 1 operator sector 
-
-- Writing $\mathcal{C}^a_{0\cdots \mu_k=a\cdots 0}\equiv C^a_k$ we have equation of motion
+Let consider a simple limit: $J=0$, in which case there is no asymmetry between $\pm\theta$. In this case there is no splitting and merging and terms with different numbers of non-identity operators decouple from each other. Consider the single operator sector. Writing $\mathcal{C}^a_{0\cdots \mu_k=a\cdots 0}\equiv C^a_k$ we have equation of motion
 
 $$
-\partial_t C^a_k = C^a_{k+1} + C^a_{k-1} - 2 C^a_k\equiv \Delta_k C^a_k
+\partial_t C^a_k = C^a_{k+1} + C^a_{k-1} - 2 C^a_k\equiv \Delta_k C^a_k,
 $$
 
-- Diffusion of single $\sigma^a$ ($\Delta_k$ is 1D discrete Laplacian)
+which describes diffusion of a single $\sigma^a$ ($\Delta_k$ is 1D discrete Laplacian)
 
 <figure align="center">
-<img src="assets/1operator.png" width="400">
+<img src="assets/1operator.png" width="300">
 <figcaption> 
-Caption goes here
+Simple diffusion of a single operator when $J=0$.
 </figcaption>
 </figure>
 
-Equation of motion
+In general a set of non-identity operators diffuse with a hardcore constraint (we can only have one operator per site).
+
+When $J\neq 0$ the equation of motion has the component form
 
 $$
 \begin{align}
@@ -718,28 +684,18 @@ $$
 \end{align}
 $$
 
+The first term leads to a single site operator at $t=0$ spreading over many sites as time passes.
+
 <figure align="center">
-<img src="assets/2nd-order-2.png" width="400">
+<img src="assets/2nd-order-2.png" width="300">
 <figcaption> 
-Caption goes here
+Graphical representation of the perturbative solution to the equation of motion. See <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032">Claeys, Lamacraft, and Herzog-Arbeitman (2022)</a> for more details.
 </figcaption>
 </figure>
 
-- See [Claeys, Lamacraft, and Herzog-Arbeitman](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.246603) for more
+This qualitative behaviour is known as __operator spreading__ and is a generic feature of operator dynamics. The reason why spreading is suppressed at $J=0$ is because we considered the _average_ dynamics. In any sample from our random circuit, a single-site operator spreads to many sites, but the random signs of the coeffcients that describe this spreading mean that when we take the average we get zero: only the single site contributions remain. When $J\neq 0$ some contribution survives and this allows for a controlled expansion. 
 
-
-#### Operator spreading _vs._ operator entanglement
-
-As time progresses two things (tend to) increase:
-
-  1.  The number of non-identity sites (known as __operator spreading__)
-  2.  The number of different contributions  (or __operator entanglement__)
-
-Operator spreading is closely analogous to the spreading of chaotic fronts that we saw in CAs. The resemblance becomes clearer if we introduce an ensemble of unitary circuits, where the gate parameters are chosen iid from a certain distribution (a popular choice is the uniform distribution over the unitary matrices). The coefficients $\mathcal{C}\_{\mu_{1:N}}$ that appear in the expansion of $Z_n(t)$ then inherit this randomness. In particular, their signs can fluctuate, meaning that a correlation function such as $\langle Z_n(t)Z_m(0) \rangle$ will tend to average to zero. This is akin to the way that averaging over different rules led to a completely random state of a CA. 
-
-TODO Add stuff from our superdiffusion paper?
-
-One can still see some interesting dynamics, however, if one considers a quantity that is insensitive to these sign fluctuations.
+To understand the operator spreading in more detail we'd like a measure that is insensitive to these random signs.
 
 ### Out of time order correlator
 
@@ -749,7 +705,7 @@ $$
 \operatorname{OTOC}_{jk}(t) \equiv \langle Z_j(t)Z_k(0)Z_j(t)Z_k(0)\rangle.
 $$
 
-This is not particular illuminating, though it explains the name. Things become a bit clearer when the OTOC is expressed in terms of the operator expansion:
+This is not particular illuminating, though it explains the name. Things become a bit clearer when the OTOC is expressed in terms of the operator expansion (starting from the same initial condition with $\mu_j=x$):
 
 $$
 \operatorname{OTOC}\_{jk}(t)\propto \sum_{\mu_{1:N}}\mathcal{C}\_{\mu_{1:N}}^2(t)\left[\delta_{\mu_k,0}+\delta_{\mu_k,3}-\delta_{\mu_k,1}-\delta_{\mu_k,2}\right].
@@ -757,37 +713,45 @@ $$
 
 We see that $\operatorname{OTOC}\_{jk}(t)\neq 1$ when operator $Z_j(t)$ spreads from site $j$ to site $k$ (the characteristic speed of propagation of the OTOC is known as the "butterfly velocity" $v_\text{B}$, after the [butterfly effect](https://en.wikipedia.org/wiki/Butterfly_effect)). Additionally, the OTOC depends on the *square* of the coefficients, so survives averaging over random circuits. 
 
-TODO Conservation of the Hilbert–Schmidt norm
-
-TODO Relation to purity and 
-
-### Google's OTOC experiment
+#### Google's OTOC experiment
 
 The OTOC was measured in 2021 in a [groundbreaking experiment](https://www.science.org/doi/full/10.1126/science.abg5029?casa_token=TkmMj95XIYoAAAAA:NP67A_aYhL8lSDWtuG99i8oFfx1c79-Lz-UGKYsW1-bee3hQ7weJSxLLQwpPzfSEPvEqt6SPbB4UYA) from the Google Quantum AI team. The two qubit gates were either all $i\operatorname{\mathsf{SWAP}}$ gates or all $\sqrt{i\operatorname{\mathsf{SWAP}}}$. After averaging over single qubit gates very different behaviors were obtained for these two cases.
+
+TODO How does the experiment work?
 
 <figure align="center">
 <img src="assets/google-otoc.png" width="1000">
 <figcaption> The measured OTOC for $i\operatorname{\operatorname{\mathsf{SWAP}}}$ gates (top) and $\sqrt{i\operatorname{\mathsf{SWAP}}}$ (bottom) after averaging over single qubit gates.</figcaption>
 </figure>
 
-For $i\operatorname{\mathsf{SWAP}}$ gates the OTOC has a front that moves at the maximal speed and remains sharp, whereas for $\sqrt{i\operatorname{\mathsf{SWAP}}}$ the front moves more slowly and broadens with time. The former behavior is typical of dual unitary circuits ([Claeys and Lamacraft (2020)](https://link.aps.org/doi/10.1103/PhysRevResearch.2.033032)), while the latter is generic for unitary circuits.
-
-The averaged OTOC can be expressed in terms of a Markov process, similarly to our discussion of chaotic fronts in CAs, and can therefore be efficiently calculated using Monte Carlo simulations, for example.
+For $i\operatorname{\mathsf{SWAP}}$ gates the OTOC has a front that moves at the maximal speed and remains sharp, whereas for $\sqrt{i\operatorname{\mathsf{SWAP}}}$ the front moves more slowly and broadens with time. In the next lecture we will develop a theoretical picture of the OTOC dynamics in random circuits that will allow us to understand these features
 
 ### Operator entanglement
 
-Can apply SVD as before
+The OTOC provides one measure of operator spreading, but this doesn't capture all the relevant features of the operator dynamics. In particular, the OTOC between sites $j$ and $k$ can differ from one if only a _single_ coefficient $\mathcal{C}\_{\mu_{1:N}}$ with $\mu\_k=x,y,z$ is nonzero. Such a situation is the operator analog of a product state, and we'd like some way of quantifying how close or how far we are from such a situation: i.e. roughly how many different contributions there are to the operator expansion. 
 
-Schmidt operator decomp (see Stoudenmire paper)
-
-Illustrate for case of SWAP
+In the case of states we introduced entanglement measures based on the Schmidth decomposition, and we can do something entirely analogous for operators. Partitioning our system into A and B subsystems as before, we seek to express    
 
 $$
-\operatorname{\mathsf{SWAP}}=\frac{1}{2}\left[X\otimes X+Y\otimes Y+Z\otimes Z + \mathsf{1}\otimes\mathsf{1}\right]
+\mathcal{O}\_{AB} = \sum\_{n=1}^{\min(n^2_A, n^2_B)} \Sigma\_n A_n\otimes B_n.
 $$
+
+where $\Sigma_n\geq 0$ are the operator Schmidt coefficients $A_n$ and $B_n$ are operators on $\mathcal{H}\_A$ and $\mathcal{H}\_B$ that are orthonormal under the Hilbert–Schmidt inner product i.e. $\tr\left[A^\dagger_m A_n\right]=\tr\left[B^\dagger_m B_n\right]=\delta_{mn}$.
+
+There's really no difference between the two Schmidt decompositions. In the operator case we treat the operator as a $n_A^2\times n_B^2$ matrix and use SVD as before. The same entanglement measures as before can then be applied to evaluate the operator entanglement. 
+
+The simplest example, analogous to the Bell states, is provided by the the SWAP operator. As we've already seen it can be written
+
+$$
+\operatorname{\mathsf{SWAP}}=\frac{1}{2}\left[X\otimes X+Y\otimes Y+Z\otimes Z + \mathsf{1}\otimes\mathsf{1}\right],
+$$
+
+which is Schmidt decomposed form, showing that all the Schmidt coefficients are equal.
 
 TODO Magic and OTOC ([Jaffe resource theory](https://www.pnas.org/doi/10.1073/pnas.2217031120#sec-1-3) paper)
 
 OTOC fluctuations
+
+TODO The word "scrambling". Must clarify
 
 TODO Look ahead to next lecture
