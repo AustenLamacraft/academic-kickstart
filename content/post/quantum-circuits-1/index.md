@@ -467,7 +467,7 @@ We can get some intuition for the growth of entanglement from a toy model. We co
 <figcaption>Initially neighboring correlated pairs subject to a block CA consisting of SWAP operations. </figcaption>
 </figure>
 
-The initial state of the system, now corresponding to a quantum state of the qubits, is a product state over pairs $(x_0, x_1)$, $(x_2, x_3)$, and so on, with each pair in the [Bell state](https://en.wikipedia.org/wiki/Bell_state)
+The initial state of the system is a product state over pairs $(x_0, x_1)$, $(x_2, x_3)$, and so on, with each pair in the [Bell state](https://en.wikipedia.org/wiki/Bell_state)
 
 $$
 \ket{\Phi^+}\_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}\_{2n}\ket{0}\_{2n+1}+ \ket{1}\_{2n}\ket{1}\_{2n+1}\right]
@@ -520,7 +520,7 @@ $$
 c_{\alpha \beta}(x,t) = \frac{1}{2^N}\tr\left[\sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \right],\qquad \sigma_\alpha(x,t)=\mathcal{U}^\dagger(t)\sigma_\alpha(x)\mathcal{U}(t).
 $$
 
-That is, we average overall all possible initial states uniformly. This is often described as the "infinite temperature" situation, but temperature is not defined is this situation, as there is no Hamiltonian and thus no Boltzmann distribution. 
+That is, we average overall all possible initial states uniformly. This is often described as the "infinite temperature" situation, but temperature is not defined in this situation, as there is no Hamiltonian and thus no Boltzmann distribution. 
 
 In the graphical representation the correlation function has the form shown below left (in the unfolded representation). This can be simplified using the unitarity condition to give the "skeleton" shown on the right. 
 
@@ -545,18 +545,18 @@ and the correlations vanish (if the operators are traceless). On the light cone 
 
 The graphical expression for the correlation function can be written in several ways, including in the folded representation:
 
-<fig align="center">
+<figure align="center">
 <img src="assets/diag_corr_channel.png" width="400">
-</fig>
+</figure>
 
 Here $q$ is the local Hilbert space dimension (we've been considering $q=2$ up to now). The normalization factor is most easily understood by comparing with the case $\sigma_\alpha=\sigma_\beta=\mathsf{1}$ (in the diagram $t=4$).
 
 The best way to evaluate this expression is to iteratively apply the operator map $\mathcal{M}\_+$ or $\mathcal{M}\_-$ defined as:
 
-<fig align="center">
+<figure align="center">
 <img src="assets/diag_M_plus.png" width="400">
 <img src="assets/diag_M_min.png" width="400">
-</fig>
+</figure>
 
 The correlations functions can then be expressed as
 
@@ -567,16 +567,16 @@ $$
 \end{align}
 $$
 
-$\mathcal{M}\_\pm$ are examples of [quantum channels](https://en.wikipedia.org/wiki/Quantum_channel): completely positive trace preserving maps between spaces of operators. $\mathcal{M}\_\pm$ have the additional property of being _unital_: $\mathcal{M}\_\pm(\mathsf{1})=\mathsf{1}$.
+(from now on I'll use $\langle\cdots\rangle$ to denote $\frac{1}{2^N}\tr\left[\cdots\right]$) $\mathcal{M}\_\pm$ are examples of [quantum channels](https://en.wikipedia.org/wiki/Quantum_channel): completely positive trace preserving maps between spaces of operators. $\mathcal{M}\_\pm$ have the additional property of being _unital_: $\mathcal{M}\_\pm(\mathsf{1})=\mathsf{1}$.
 
 The typical behaviour of correlations is shown below. By fine tuning the choice of gates, less generic behaviour may be observed. A trivial example would be a circuit made of SWAP gates, in which case the correlations would not decay at all.
 
-<fig align="center">
+<figure align="center">
 <img src="assets/corr.png" width="500">
 <figcaption>
 Evolution of light cone correlations for a "typical" gate with no conservation laws. Exponential decay can be clearly observed after an initial transient regime, where all correlation functions decay at the same rate. Taken from <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032">Claeys and Lamacraft (2020)</a>.
 </figcaption>
-</fig>
+</figure>
 
 We've argued that the dynamics of quantum circuits has the full complexity we'd expect of other problems in many-body quantum mechanics, so it can be a little surprising that we can calculate _particular_ correlations at long times without much difficulty. However, the proper notion of separation in a circuit is _Lorentzian_, and we have been considering points at zero Lorentzian separation. 
 
@@ -594,7 +594,7 @@ $$
 Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N},
 $$
 
-with the coefficients $\mathcal{C}\_{\mu_{1:N}}(t)$ obeying the initial condition
+with the (real) coefficients $\mathcal{C}\_{\mu_{1:N}}(t)$ obeying the initial condition
 
 $$
 \begin{equation}
@@ -605,11 +605,19 @@ $$
 \end{equation}
 $$
 
-Since $\tr\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}$ the spin correlations we considered earlier can be extracted from $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)$. This represents only one component of the operator expansion, however.
+Since $\tr\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}$ (orthogonality with respect to the Hilbert–Schmidt inner product) the spin correlations we considered earlier can be extracted from $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)$. This represents only one component of the operator expansion, however.
 
-<fig align="center">
+<figure align="center">
 <img src="assets/initial-terminal.png" width="400">
-</fig>
+</figure>
+
+Note that the operator norm $\tr\left[Z\_n^2(t)\right]=2$ is conserved under time evolution. This implies the normalization
+
+$$
+\begin{equation}\label{eq:normalize}
+\sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}^2\_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}.
+\end{equation}
+$$
 
 TODO change notation of coefficients to be in line with review paper.
 
@@ -705,13 +713,29 @@ $$
 \operatorname{OTOC}_{jk}(t) \equiv \langle Z_j(t)Z_k(0)Z_j(t)Z_k(0)\rangle.
 $$
 
-This is not particular illuminating, though it explains the name. Things become a bit clearer when the OTOC is expressed in terms of the operator expansion (starting from the same initial condition with $\mu_j=x$):
+(we can define an OTOC for any pair of operators at sites $j$ and $k$: we just choose both to be $Z$ for simplicity) This is not particular illuminating, though it explains the name. The OTOC is sometimes written as the squared commutator
 
 $$
-\operatorname{OTOC}\_{jk}(t)\propto \sum_{\mu_{1:N}}\mathcal{C}\_{\mu_{1:N}}^2(t)\left[\delta_{\mu_k,0}+\delta_{\mu_k,3}-\delta_{\mu_k,1}-\delta_{\mu_k,2}\right].
+\langle \left[Z_k(0),Z_j(t)\right]^2 \rangle
 $$
 
-We see that $\operatorname{OTOC}\_{jk}(t)\neq 1$ when operator $Z_j(t)$ spreads from site $j$ to site $k$ (the characteristic speed of propagation of the OTOC is known as the "butterfly velocity" $v_\text{B}$, after the [butterfly effect](https://en.wikipedia.org/wiki/Butterfly_effect)). Additionally, the OTOC depends on the *square* of the coefficients, so survives averaging over random circuits. 
+The relation between the two expressions is
+
+$$
+\operatorname{OTOC}_{jk}(t) = \frac{1}{2}\langle \left[Z_k(0),Z_j(t)\right]^2 \rangle + 1.
+$$
+
+(using $Z^2=1$) Based on what we now know about operator spreading it's clear that at short times the commutator between spatially separated sites vanishes so $\operatorname{OTOC}_{jk}(t\to 0)=1$. Expressing the OTOC in terms of the operator expansion (starting from the same initial condition with $\mu_j=x$) gives:
+
+$$
+\operatorname{OTOC}\_{jk}(t)= 2^{N-1} \sum_{\mu_{1:N}}\mathcal{C}\_{\mu_{1:N}}^2(t)\left[\delta_{\mu_k,0}+\delta_{\mu_k,3}-\delta_{\mu_k,1}-\delta_{\mu_k,2}\right].
+$$
+
+TODO Check coefficient
+
+At short times, all nonzero coefficients $\mathcal{C}\_{\mu_{1:N}}$ have $\mu_k=1$, and the normalization $\eqref{eq:normalize}$ tells us that $\operatorname{OTOC}\_{jk}(t)=1$. After operator $Z_j(t)$ spreads from site $j$ to site $k$ $\operatorname{OTOC}\_{jk}(t)\neq 1$. The characteristic speed of propagation of the OTOC is known as the "butterfly velocity" $v_\text{B}$, after the [butterfly effect](https://en.wikipedia.org/wiki/Butterfly_effect). 
+
+Note that since the OTOC depends on the *square* of the coefficients, a nonzero value survives after averaging over random circuits. We'll see in the next lecture that the dynamics of the resulting average OTOC has a particularly simple classical representation.
 
 #### Google's OTOC experiment
 
@@ -752,6 +776,8 @@ TODO Magic and OTOC ([Jaffe resource theory](https://www.pnas.org/doi/10.1073/pn
 
 OTOC fluctuations
 
-TODO The word "scrambling". Must clarify
+TODO 
+
+By the way, you'll often hear the word "scrambling" associated with both operator spreading and the growth of operator entanglement. For that reason, I prefer to avoid it and use the more specific language adopted here.
 
 TODO Look ahead to next lecture
