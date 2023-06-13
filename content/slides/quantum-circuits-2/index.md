@@ -374,8 +374,6 @@ $$
 
 - Front broadens unless $v_\text{B}$ maximal as for $i\operatorname{SWAP}$
 
-
-
 <figure align="center">
 <img src="assets/google-otoc-front-swap.png" width="300">
 <img src="assets/google-otoc-front-sqrt-swap.png" width="300">
