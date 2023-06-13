@@ -4,7 +4,7 @@ slides:
 
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   theme: white
-  th_renderer: mathjax3
+  math_renderer: mathjax3
   reveal_options: {
     hash: true,
     katex: {
