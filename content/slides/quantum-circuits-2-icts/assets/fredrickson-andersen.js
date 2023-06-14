@@ -8,7 +8,7 @@ export default function faModel(p) {
   var next;
 
   p.setup = function() {
-    p.createCanvas(500, 500);
+    p.createCanvas(400, 400);
     w = 4;
     // Calculate columns and rows
     columns = p.floor(p.width/w);

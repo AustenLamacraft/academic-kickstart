@@ -264,8 +264,6 @@ $$
 \overline{\tr\left[O(t)^\dagger O(t)\right]} = 2\sum\_{\mathsf{S}\_{1:N}\in\{\mathsf{0},\mathsf{1}\}^N} P\_{\mathsf{S}\_{1:N}}
 $$
 
-- Deduce
-
 $$
 \sum_{S_j, S_{j+1}}\Omega\_{\mathsf{S}'\_j \mathsf{S}'\_{j+1},\mathsf{S}\_j \mathsf{S}\_k} = 1
 $$
@@ -274,7 +272,7 @@ $$
 
 ---
 
-- For Sycamore gate (see [Google's OTOC experiment](https://www.science.org/doi/full/10.1126/science.abg5029?casa_token=TkmMj95XIYoAAAAA:NP67A_aYhL8lSDWtuG99i8oFfx1c79-Lz-UGKYsW1-bee3hQ7weJSxLLQwpPzfSEPvEqt6SPbB4UYA), supplementary material)
+- For Sycamore gate ([Google's OTOC experiment](https://www.science.org/doi/full/10.1126/science.abg5029?casa_token=TkmMj95XIYoAAAAA:NP67A_aYhL8lSDWtuG99i8oFfx1c79-Lz-UGKYsW1-bee3hQ7weJSxLLQwpPzfSEPvEqt6SPbB4UYA), supplementary material)
 
 $$
 \begin{align*}
@@ -345,6 +343,7 @@ Reveal.on( 'slidechanged', event => {
 <figure align="center">
 <div id="fa" style="display: inline-block; position: relative"></div>
 </figure>
+
 
 - Stationary state: independent sites with $p_1=3/4$, $p_0=1/4$
 
@@ -475,7 +474,7 @@ $$
 - Recall KIM has circuit representation
 
 <p align="center">
-<img src="assets/kim-circuit.png" width="200"/>
+<img src="assets/kim-circuit.png" width="150"/>
 </p>
 
 `$$
@@ -528,7 +527,7 @@ $$`
 
 ---
 
-### $\rho_A$ via dual unitarity
+## $\rho_A$ via dual unitarity
 
 - Initial state of NN Bell pairs
 
@@ -544,7 +543,7 @@ $$
 
 ---
 
-### Shallower...
+## Shallower...
 
 <object data="../new-rules-tum/assets/A-entropy-quantum-shallower.svg" type="image/svg+xml"></object>
 
@@ -556,7 +555,7 @@ $$
 
 ---
 
-### General case
+## General case
 
 - RDM is unitary transformation of 
 
@@ -586,7 +585,7 @@ $$
 ## 'KIM' property
 
 <p align="center">
-<img src="../new-rules-tum/assets/fig_KIMidentity.png" width="600"/>
+<img src="../new-rules-tum/assets/fig_KIMidentity.png" width="400"/>
 </p>
 
 - ($q=2$ here) Not satisfied by e.g. $\operatorname{SWAP}$
@@ -597,14 +596,16 @@ $$
 
 - [Piroli _et al_ (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304) studied more general initial states
 
+- [Foligno and Bertini (2023)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.174311) study general initial conditions
+
 ---
 
-### Correlation functions
+## Correlation functions
 
 - Infinite temperature correlator $\tr\left[\sigma^\alpha_x(x,t)\sigma^\beta(y,0)\right]$
 
 <figure align="center">
-<img src="assets/correlator.png" width="100%"/>
+<img src="assets/correlator.png" width="75%"/>
 </figure>
 
 - [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601): dual unitarity means correlations vanish _inside_ light cone!
@@ -621,26 +622,19 @@ $$
 
 ---
 
-Other features
-
-Correlations
-
-OTOC has maximal growth (relate to Google experiment)
-
-TODO Gliders
-
-TODO Extensions: random. higher dimensions. triunitary
+## Other applications of dual unitarity
 
 
-TODO General intial conditions [Growth of entanglement of generic states under dual-unitary dynamics](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.174311)
+- [Claeys and Lamacraft (2020)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032). $v_\text{B}=1$. OTOC grows at maximum speed, c.f. Google experiment
 
-Measurement-based quantum computing
+- [Jonay, Kehmani, Ippoliti (2021)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046). Triunitary circuits (incl. 2+1 dimensions)
 
+- [Stephen _et al_ (2022)](https://arxiv.org/abs/2209.06191). Measurement based quantum computation in 1D using dual unitaries 
 
----
+- [Sommers, Huse, Gullans (2022)](https://arxiv.org/abs/2210.10808). Dual unitary Clifford automata with applications to codes
 
-Outlook...
+- [Suzuki, Mitarai, Fujii (2022)](https://quantum-journal.org/papers/q-2022-01-24-631/). Computational power of dual unitaries
 
-Arbitrary initial states
-Sommers
+- Many more!
+
 
