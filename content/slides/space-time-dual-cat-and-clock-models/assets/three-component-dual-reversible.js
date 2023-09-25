@@ -28,7 +28,7 @@ export default function threeComponent(p) {
     const colors = ["red", "green", "blue"]
     
     p.setup = function() {
-        p.createCanvas(p.windowWidth / 1.5, p.windowHeight / 2.5);
+        p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
         p.noStroke();
 
         col = 2 * p.floor(p.width / (2 * cellSize)); // Number of columns must be even

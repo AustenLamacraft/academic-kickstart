@@ -308,7 +308,9 @@ $$`
 
 ---
 
-- At the self-dual point $b=\pm i\pi/4$
+### "Seeing" dual unitarity
+
+- At the dual unitary point $b=\pm i\pi/4$
 
 `$$
   \mathcal{K} = \exp\left[\pm i \frac{\pi}{4} X\right]=\frac{1}{\sqrt{2}}\begin{pmatrix}
@@ -390,9 +392,7 @@ $$
 
 - In the same way, *space-like* evolution is unitary if $u_\text{H}$ is Hadamard
 
-- If *both* $u_\text{V}$ and $u_\text{H}$ are Hadamard (e.g. SKDI): unitary evolution in both space and time or *space-time duality*
-
-Cite Gutkin here
+- If *both* $u_\text{V}$ and $u_\text{H}$ are Hadamard (e.g. SKDI): unitary evolution in both space and time or *space-time duality* ([Gutkin *et al.* (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.174307))
 
 ---
 
@@ -411,7 +411,7 @@ $$`
 
 - $D_{1,2}$ are diagonal unitaries and $P_{1,2}$ permutations 
 
-- If $D_1=D_2=\mathbb{1}$ $H$ and `$H'$`` are *permutation equivalent*
+- If $D_1=D_2=\mathbb{1}$ $H$ and `$H'$` are *permutation equivalent*
 
 ---
 
@@ -436,7 +436,6 @@ F_2 = \begin{pmatrix}
 1 & -1
 \end{pmatrix}
 $$`
-(usual Hadamard of quantum information) 
 
 - Equivalent to self-dual Ising kick matrix
 
@@ -537,7 +536,7 @@ $$`
 
 ---
 
-- Quantum mechanical analogue of a toroidal phase space
+- Quantum mechanical analogue of phase space torus
 $$
   Z= e^{2\pi i q}\qquad X=e^{2\pi ip}
 $$
@@ -546,7 +545,7 @@ $$
 $$
 F Z^a X^b F^\dagger = X^{a}Z^{-b}
 $$
-like $-\pi/2$ rotation of the toroidal phase space: $(q,p)\longrightarrow (p,-q)$
+like $-\pi/2$ rotation of torus: $(q,p)\longrightarrow (p,-q)$
 
 ---
 
@@ -664,8 +663,8 @@ $$
 `$$
 \begin{align*}
 a_{x,t+1} &= \alpha(a_{x,t}-b_{x-1,t}-b_{x+1,t}) + (\alpha\delta -1)b_{x,t}\nonumber\\
-b_{x,t+1} &= a_{x,t} - b_{x-1,t} - b_{x+1,t}+\delta b_{x,t}, \qquad \mod d
-\end{align*}
+b_{x,t+1} &= a_{x,t} - b_{x-1,t} - b_{x+1,t}+\delta b_{x,t}
+\end{align*}\mod d
 $$`
 
 - `Hamiltonian' form of equations of motion
@@ -783,8 +782,7 @@ winding numbers $m_{n,t}$ chosen to ensure $x_{n,t}$ stays in the unit interval 
 
 ### [Lotkov *et al.* (2022)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.105.144306)
 
-- Floquet dynamics for $d=3$ governed
-
+- Floquet dynamics for $d=3$
 `$$
 \begin{align*}
 H_1 &= \sum_{j=1}^{2N-1}\left(X_j^{\dagger}X_{j+1}+X_j X^{\dagger}_{j+1}\right)\\
@@ -792,7 +790,6 @@ H_2 &= \sum_{j=1}^{2N}\left(Z_j+Z_j^{\dagger}\right)\\
 U_F &= e^{ifTH_2}e^{iJTH_1}
 \end{align*}
 $$`
-
 - Integrability conjectured for $fT = JT = \alpha_m$, with $\alpha_m = \frac{2\pi}{9}(2\ell-m)$, with $m=\pm 1$ and $\ell \in \mathbb{Z}$.
 
 - Integrability subsequently established by [Miao and Vernier (2023)](https://arxiv.org/abs/2302.12675)
@@ -827,9 +824,11 @@ $$`
 
 - $v_\text{H}$ dephases to $F$, so this is equivalent to $v_\text{H}=F$, $v_\text{V}=F^\dagger$
 
-- Hence, ballistic propagation of operators
+- Hence, *ballistic* propagation of operators
 
 ---
+
+### Diagrammatic derivation of rainbow state
 
 <figure align="center">
 <img src="assets/pieter-derivation-1.png" width="100%"/>
@@ -884,6 +883,10 @@ $$`
 
 ---
 
+## Dual unitarity for classical models? 
+
+---
+
 ### Elementary cellular automata
 
 - "Space" is one dimension with cells $x_n=0,1$ $n\in\mathbb{Z}$
@@ -926,7 +929,7 @@ $$
 
 ### Elementary CA
 
-- Many behaviors, from ordered (Rule 18) to chaotic (Rule 30)
+- Many behaviours, from ordered (Rule 18) to chaotic (Rule 30)
 
 <script type="module">
 import elementary from "./assets/elementary-ca.js"
@@ -954,7 +957,7 @@ Reveal.on( 'slidechanged', event => {
 
 - Notion of a causal "light cone" (45 degree lines)
 
-- Variety of possible behaviors: chaos, periodicity, ...
+- Variety of possible behaviours: chaos, periodicity, ...
 
 ---
 
@@ -1141,7 +1144,7 @@ $$
 
 - Dual reversibility implies that the maps $f_c(a,\cdot)$ and $f_d(\cdot,b)$ are bijections across diagonal
 
-- "Non-degeneracy" in [Gombor and Pozsgay (2022)](https://www.scipost.org/SciPostPhys.12.3.102)
+- "Nondegeneracy" in [Etingof *et al.* (199)](https://projecteuclid.org/journals/duke-mathematical-journal/volume-100/issue-2/Set-theoretical-solutions-to-the-quantum-Yang-Baxter-equation/10.1215/S0012-7094-99-10007-X.full), [Gombor and Pozsgay (2022)](https://www.scipost.org/SciPostPhys.12.3.102)
 
 ---
 
@@ -1177,7 +1180,7 @@ $$
 $$
 
 - Original dual unitary circuit from [Hosur *et al.*](https://link.springer.com/article/10.1007/JHEP02(2016)004)
-- Unusual behavior of recurrence time
+- Unusual behaviour of recurrence time
   - For $L = 2\times 3^m$ have $T_\text{recur}=2L$
   - [Borsi and Pozsgay](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.014302) prove using Fourier analysis over finite fields
 
@@ -1219,7 +1222,7 @@ $$
 <figure align="center">
 <img src="assets/pizzi.png" width="100%">
 <figcaption>
-Source:  <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.214303">Pizzi <it> et al.</it></a> 
+Source:  <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.214303">Pizzi <it> et al.</it>(2022)</a> 
 <figcaption>
 </figure>
 
@@ -1296,7 +1299,7 @@ p_f(c,d) = |\det Df|^{-1} p(f^{-1}(c,d)),
 $$
 $Df$ is Jacobian matrix
 
-- Impose $|Df|=1$: preserver uniform (infinite temperature) distribution 
+- Impose $|Df|=1$: preserve uniform distribution 
 
 ---
 
@@ -1362,18 +1365,18 @@ From <a href="https://link.springer.com/article/10.1007/s10955-020-02523-1">Kraj
 
 - Discrete case: bijectivity of $\tilde f$ equivalent to existence of diagonal bijections $f_c(a,\cdot):\Sigma_b\longrightarrow \Sigma_c$ and $f_d(\cdot,b):\Sigma_a\longrightarrow \Sigma_d$
 
-- Continuous case: additional condition: bijections have unit determinant
+- Continuous case: additionally, bijections have unit determinant
 
 ---
 
 - Recall 
 $$
-p_f(c,d) = |\det Df|^{-1} p(f^{-1}(c,d)),
+p_f(c,d) = |\det Df|^{-1} p(f^{-1}(c,d))
 $$
 - Equivalent to 
-$$
+`$$
 p_f(c,d) = \int \delta((c,d)-f(a,b)) p(a,b)\, d\mu(a) d\mu(b)
-$$
+$$`
 $$
 1 = \int \delta((c,d)-f(a,b))\\, d\mu(a) d\mu(b)
 $$
@@ -1471,7 +1474,7 @@ $$
 
 - Existing examples: spatiotemporal cat, dual unitary Cliffords
 
-- Applications in codes, MBQC?
+- New examples: [Christopoulos *et al.* (2023)](https://arxiv.org/abs/2307.01786) (classical spins) and [Lakshminarayan (2023)](https://arxiv.org/abs/2307.04950) (coupled standard maps)
 
 <p align="center" class="fragment">
 <strong>Thank you!</strong>

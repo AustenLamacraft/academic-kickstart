@@ -39,7 +39,7 @@ export default function block(p) {
     const allBlocks = permutator(inputs)
     
     p.setup = function() {
-        p.createCanvas(p.windowWidth / 1.5, p.windowHeight / 2.5);
+        p.createCanvas(p.floor(p.windowWidth / 1.5), p.windowHeight / 2.5);
         p.noStroke();
 
         col = p.floor(p.width / cellSize) - 1;

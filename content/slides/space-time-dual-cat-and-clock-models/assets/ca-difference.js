@@ -13,7 +13,7 @@ export default function difference(p) {
     let ruleNumber = 30
     
     p.setup = function() {
-        p.createCanvas(p.windowWidth / 1.5, p.windowHeight / 2.5);
+        p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
         p.noStroke();
 
         col = p.floor(p.width / cellSize);
