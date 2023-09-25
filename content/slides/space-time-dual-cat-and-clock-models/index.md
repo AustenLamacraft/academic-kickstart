@@ -132,7 +132,7 @@ $$
 
 ---
 
-### Toy model 
+### Toy model: SWAP circuit 
 
 <figure align="center">
 <img src="../new-rules-tum/assets/bell-swap.png" width="100%"/>
@@ -530,7 +530,7 @@ X_d = \begin{pmatrix}
   \end{align*}
 $$`
 
-- Satsify $Z_d^2=X_d^2=\mathbb{1}$ and  Weyl relation $X_d Z_d = \omega_d Z_d X_d$
+- Satsify $Z_d^d=X_d^d=\mathbb{1}$ and  Weyl relation $X_d Z_d = \omega_d Z_d X_d$
 
 - $Z^a X^b$ with $a,b=0,\ldots d-1$ form basis for local operators
 
