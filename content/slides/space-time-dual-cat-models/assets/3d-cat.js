@@ -20,7 +20,7 @@ export function threeDCat(p) {
 
     p.setup = function() {
       p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
-      w = 5;
+      w = 10;
       // Calculate columns and rows
       columns = p.floor(p.width / w);
       rows = p.floor(p.height / w);
