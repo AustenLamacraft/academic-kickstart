@@ -293,8 +293,8 @@ $$
 - Calculus of "special" tensors
 
 <figure align="center">
-<img src="assets/picturing-quantum.png" width="35%"/>
-<img src="assets/quantum-in-pictures.png" width="35%"/>
+<img src="assets/picturing-quantum.png" width="30%"/>
+<img src="assets/quantum-in-pictures.png" width="30%"/>
 </figure>
 
 - See also [van der Wetering (2020)](https://arxiv.org/abs/2012.13966)
